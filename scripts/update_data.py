@@ -81,6 +81,52 @@ CROSS_PAIRS = [
 
 
 # ============================================================
+# HOLDINGS · Top titoli per settore (per il drill-down)
+# Liste curate dei top constituent per ETF settoriale
+# ============================================================
+US_HOLDINGS = {
+    'XLK':  ['AAPL', 'MSFT', 'NVDA', 'AVGO', 'ORCL', 'CRM', 'ACN', 'ADBE', 'CSCO', 'AMD', 'IBM', 'INTU', 'QCOM', 'TXN'],
+    'XLF':  ['BRK-B', 'JPM', 'V', 'MA', 'BAC', 'WFC', 'SPGI', 'GS', 'AXP', 'MS', 'BLK', 'C', 'PGR', 'CB'],
+    'XLV':  ['LLY', 'UNH', 'JNJ', 'ABBV', 'MRK', 'TMO', 'ABT', 'PFE', 'DHR', 'AMGN', 'BMY', 'GILD', 'ISRG', 'VRTX'],
+    'XLY':  ['AMZN', 'TSLA', 'HD', 'MCD', 'NKE', 'LOW', 'SBUX', 'BKNG', 'TJX', 'F', 'GM', 'MAR'],
+    'XLP':  ['PG', 'COST', 'WMT', 'KO', 'PEP', 'PM', 'MO', 'MDLZ', 'CL', 'KMB', 'GIS'],
+    'XLE':  ['XOM', 'CVX', 'COP', 'EOG', 'SLB', 'OXY', 'MPC', 'PSX', 'VLO', 'KMI', 'WMB', 'FANG'],
+    'XLI':  ['GE', 'CAT', 'HON', 'RTX', 'UNP', 'UPS', 'DE', 'LMT', 'BA', 'ETN', 'EMR', 'NOC'],
+    'XLB':  ['LIN', 'APD', 'SHW', 'ECL', 'NEM', 'FCX', 'DD', 'NUE', 'CTVA', 'DOW'],
+    'XLU':  ['NEE', 'SO', 'DUK', 'AEP', 'EXC', 'SRE', 'XEL', 'PEG', 'ED', 'AWK'],
+    'XLRE': ['PLD', 'AMT', 'EQIX', 'WELL', 'PSA', 'O', 'DLR', 'SPG', 'CCI', 'EXR'],
+    'XLC':  ['META', 'GOOGL', 'GOOG', 'NFLX', 'TMUS', 'DIS', 'VZ', 'T', 'CMCSA', 'EA'],
+    'SOXX': ['NVDA', 'AVGO', 'AMD', 'QCOM', 'TXN', 'INTC', 'MU', 'AMAT', 'LRCX', 'KLAC', 'ASML', 'TSM', 'MRVL', 'ADI'],
+    'IBB':  ['VRTX', 'AMGN', 'GILD', 'REGN', 'BIIB', 'ILMN', 'MRNA', 'BMRN', 'INCY'],
+    'KRE':  ['MTB', 'FCNCA', 'ZION', 'CFG', 'RF', 'FITB', 'HBAN', 'KEY', 'CMA', 'WAL'],
+    'XHB':  ['DHI', 'LEN', 'PHM', 'NVR', 'TOL', 'MTH', 'MAS', 'BLDR'],
+    'XRT':  ['COST', 'AMZN', 'HD', 'LOW', 'WMT', 'TGT', 'BBY', 'DG', 'DLTR', 'ROST'],
+    'ITA':  ['RTX', 'BA', 'LMT', 'NOC', 'GD', 'GE', 'TDG', 'LHX', 'HII'],
+}
+
+EU_HOLDINGS = {
+    'EXV3.DE': ['ASML.AS', 'SAP.DE', 'STMPA.PA', 'CAP.PA', 'DSY.PA', 'IFX.DE', 'NOK.HE', 'ERIC-B.ST', 'BESI.AS'],
+    'EXV1.DE': ['HSBA.L', 'UBSG.SW', 'BNP.PA', 'SAN.MC', 'ISP.MI', 'NWG.L', 'UCG.MI', 'INGA.AS', 'BBVA.MC', 'BARC.L', 'LLOY.L'],
+    'EXV5.DE': ['STLAM.MI', 'MBG.DE', 'BMW.DE', 'VOW3.DE', 'RACE.MI', 'RNO.PA', 'P911.DE'],
+    'EXH1.DE': ['SHEL.L', 'TTE.PA', 'BP.L', 'ENI.MI', 'EQNR.OL', 'REP.MC'],
+    'EXV4.DE': ['NOVO-B.CO', 'ROG.SW', 'AZN.L', 'NOVN.SW', 'SAN.PA', 'GSK.L', 'MRK.DE', 'BAYN.DE'],
+    'EXH5.DE': ['ALV.DE', 'ZURN.SW', 'CS.PA', 'MUV2.DE', 'G.MI', 'AV.L', 'PRU.L', 'LGEN.L'],
+    'EXH3.DE': ['DB1.DE', 'AMS.MC', 'INVE-B.ST', '3I.L'],
+    'EXH2.DE': ['AD.AS', 'CA.PA', 'TSCO.L', 'KGF.L', 'ITX.MC'],
+    'EXH8.DE': ['UMG.AS', 'WPP.L', 'PSON.L', 'PUB.PA', 'RELX.L'],
+    'EXH4.DE': ['SIE.DE', 'SU.PA', 'AIR.PA', 'ABBN.SW', 'MT.AS', 'PRX.AS', 'SAF.PA', 'BA.L'],
+    'EXV8.DE': ['CRH', 'HOLN.SW', 'SGO.PA', 'VIE.PA', 'FERG.L'],
+    'EXV6.DE': ['RIO.L', 'GLEN.L', 'AAL.L', 'ANTO.L', 'BAS.DE'],
+    'EXH6.DE': ['MC.PA', 'NESN.SW', 'RMS.PA', 'CFR.SW', 'KER.PA', 'OR.PA'],
+    'EXV2.DE': ['DTE.DE', 'VOD.L', 'TEF.MC', 'ORA.PA', 'BT-A.L'],
+    'EXH7.DE': ['NESN.SW', 'ABI.BR', 'DGE.L', 'PERP.PA', 'KHC.MI'],
+    'EXV7.DE': ['LIN', 'BAS.DE', 'AKZA.AS', 'GIVN.SW', 'AI.PA'],
+    'EXH9.DE': ['IBE.MC', 'ENEL.MI', 'NG.L', 'SSE.L', 'ENGI.PA'],
+    'EXV9.DE': ['LHA.DE', 'IAG.L', 'AF.PA', 'AML.L', 'CCL.L'],
+}
+
+
+# ============================================================
 # DATA FETCHING
 # ============================================================
 def fetch_prices(tickers, period='2y'):
@@ -318,8 +364,124 @@ def compute_cross_region(prices_df):
 
 
 # ============================================================
-# MAIN
+# HOLDINGS · Drill-down su singoli titoli con P/E
 # ============================================================
+def fetch_ticker_fundamentals(symbol):
+    """Recupera P/E, market cap, nome, ecc. per un singolo ticker."""
+    try:
+        tk = yf.Ticker(symbol)
+        info = tk.info or {}
+        
+        # Prezzo corrente e storia 13W per performance
+        hist = tk.history(period='6mo', auto_adjust=True)
+        if hist.empty:
+            return None
+        
+        last_close = float(hist['Close'].iloc[-1])
+        roc_13w = None
+        roc_ytd = None
+        if len(hist) >= 65:
+            roc_13w = float(((last_close / hist['Close'].iloc[-65]) - 1) * 100)
+        
+        # YTD: trova il primo giorno dell'anno
+        current_year = hist.index[-1].year
+        ytd_data = hist[hist.index.year == current_year]
+        if not ytd_data.empty:
+            roc_ytd = float(((last_close / ytd_data['Close'].iloc[0]) - 1) * 100)
+        
+        # P/E e altri multipli
+        trailing_pe = info.get('trailingPE')
+        forward_pe = info.get('forwardPE')
+        peg = info.get('pegRatio') or info.get('trailingPegRatio')
+        market_cap = info.get('marketCap')
+        div_yield = info.get('dividendYield')
+        
+        # Nome breve, max 30 char
+        name = info.get('shortName') or info.get('longName') or symbol
+        if name and len(name) > 30:
+            name = name[:28] + '..'
+        
+        return {
+            'ticker': symbol,
+            'name': name,
+            'price': round(last_close, 2),
+            'trailingPE': round(float(trailing_pe), 1) if trailing_pe and trailing_pe > 0 else None,
+            'forwardPE': round(float(forward_pe), 1) if forward_pe and forward_pe > 0 else None,
+            'peg': round(float(peg), 2) if peg and peg > 0 else None,
+            'marketCapB': round(float(market_cap) / 1e9, 1) if market_cap else None,
+            'divYield': round(float(div_yield) * 100, 2) if div_yield else None,
+            'roc13w': round(roc_13w, 1) if roc_13w is not None else None,
+            'rocYtd': round(roc_ytd, 1) if roc_ytd is not None else None,
+        }
+    except Exception as e:
+        print(f"    Failed {symbol}: {e}", file=sys.stderr)
+        return None
+
+
+def compute_holdings_for_sector(sector_ticker, holdings_list):
+    """Recupera fundamentals per tutte le holding di un settore e calcola
+    il P/E relativo (vs mediana del settore)."""
+    print(f"  Holdings {sector_ticker}: scarico {len(holdings_list)} titoli...")
+    
+    rows = []
+    for sym in holdings_list:
+        fund = fetch_ticker_fundamentals(sym)
+        if fund:
+            rows.append(fund)
+    
+    if not rows:
+        return []
+    
+    # Calcola mediana P/E settore (solo per titoli con P/E valido)
+    valid_pe = [r['trailingPE'] for r in rows if r['trailingPE'] is not None]
+    if valid_pe:
+        median_pe = float(np.median(valid_pe))
+        for r in rows:
+            if r['trailingPE'] is not None:
+                # peRelative: 1.0 = in linea col settore, <1 = sconto, >1 = premium
+                r['peRelative'] = round(r['trailingPE'] / median_pe, 2)
+            else:
+                r['peRelative'] = None
+    else:
+        for r in rows:
+            r['peRelative'] = None
+    
+    # Ordina: prima per P/E relativo crescente (più convenienti), poi per market cap
+    def sort_key(r):
+        pe_rel = r.get('peRelative') if r.get('peRelative') is not None else 999
+        mcap = -(r.get('marketCapB') or 0)
+        return (pe_rel, mcap)
+    
+    rows.sort(key=sort_key)
+    return rows
+
+
+def compute_all_holdings(metrics_list, holdings_dict, max_sectors=None):
+    """Per i settori IN TESTA (o un sottoinsieme), calcola holdings con P/E.
+    
+    Se max_sectors None, processa solo settori 'In testa'.
+    Altrimenti processa top N settori per Forza."""
+    if max_sectors is None:
+        target_sectors = [m for m in metrics_list if m.get('state') == 'In testa']
+    else:
+        sorted_metrics = sorted(metrics_list, key=lambda m: m.get('rsRatio', 0), reverse=True)
+        target_sectors = sorted_metrics[:max_sectors]
+    
+    out = {}
+    for m in target_sectors:
+        ticker = m.get('ticker_raw') or m.get('ticker')
+        if ticker in holdings_dict:
+            holdings = compute_holdings_for_sector(ticker, holdings_dict[ticker])
+            if holdings:
+                out[m.get('ticker')] = {
+                    'sector_name': m.get('name'),
+                    'sector_state': m.get('state'),
+                    'holdings': holdings,
+                }
+    return out
+
+
+
 def main():
     print("Sector Rotation · Data Update")
     print("=" * 60)
@@ -355,6 +517,15 @@ def main():
     cross_rows = compute_cross_region(prices)
     print(f"  {len(cross_rows)} coppie cross-region")
     
+    # Holdings drill-down: solo per settori IN TESTA (per non sovraccaricare)
+    print("\nDrill-down titoli per settori IN TESTA (USA)...")
+    us_holdings = compute_all_holdings(us_metrics, US_HOLDINGS)
+    print(f"  {len(us_holdings)} settori USA elaborati")
+    
+    print("Drill-down titoli per settori IN TESTA (EU)...")
+    eu_holdings = compute_all_holdings(eu_metrics, EU_HOLDINGS)
+    print(f"  {len(eu_holdings)} settori EU elaborati")
+    
     # Date più recente nei dati
     last_data_date = prices.index[-1].strftime('%Y-%m-%d')
     
@@ -368,11 +539,13 @@ def main():
             'benchmark': US_BENCHMARK,
             'benchmark_label': 'S&P 500',
             'sectors': us_metrics,
+            'holdings': us_holdings,
         },
         'eu': {
             'benchmark': EU_BENCHMARK,
             'benchmark_label': 'STOXX 600',
             'sectors': eu_metrics,
+            'holdings': eu_holdings,
         },
         'cross': cross_rows,
     }
