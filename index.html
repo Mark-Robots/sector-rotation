@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sector Rotation Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=JetBrains+Mono:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg-deep: #0a0d12;
+    --bg-card: #11151c;
+    --bg-card-2: #161b24;
+    --bg-elev: #1c2230;
+    --border: rgba(255,255,255,0.06);
+    --border-strong: rgba(255,255,255,0.12);
+    --text-primary: #e8eaed;
+    --text-secondary: #9ba3af;
+    --text-muted: #5e6675;
+    --accent-lead: #22c55e;
+    --accent-improve: #fbbf24;
+    --accent-weaken: #f97316;
+    --accent-lag: #ef4444;
+    --accent-blue: #3b82f6;
+    --serif: 'Instrument Serif', serif;
+    --sans: 'Geist', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(59,130,246,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 50% at 80% 100%, rgba(34,197,94,0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .container { max-width: 1480px; margin: 0 auto; padding: 32px 28px 60px; position: relative; z-index: 1; }
+
+  header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-bottom: 24px; border-bottom: 1px solid var(--border);
+    margin-bottom: 28px; flex-wrap: wrap; gap: 20px;
+  }
+  .brand { display: flex; flex-direction: column; gap: 6px; }
+  .brand-mark {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    color: var(--text-muted); text-transform: uppercase;
+  }
+  .brand-mark::before {
+    content: ''; display: inline-block; width: 8px; height: 8px;
+    background: var(--accent-lead); border-radius: 50%;
+    box-shadow: 0 0 12px var(--accent-lead);
+  }
+  h1 { font-family: var(--serif); font-size: 56px; font-weight: 400; letter-spacing: -0.02em; line-height: 1; }
+  h1 span { color: var(--text-secondary); }
+  .header-controls { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+  .meta-row {
+    display: flex; gap: 24px; font-family: var(--mono); font-size: 10px;
+    color: var(--text-muted); letter-spacing: 0.08em;
+  }
+  .meta-row strong { color: var(--text-primary); font-weight: 500; }
+
+  .help-panel {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 6px; margin-bottom: 28px; overflow: hidden;
+  }
+  .help-toggle {
+    width: 100%; padding: 16px 20px; background: transparent; border: none;
+    color: var(--text-primary); font-family: var(--sans); font-size: 14px;
+    font-weight: 500; text-align: left; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .help-toggle::after { content: '+'; font-size: 20px; color: var(--text-muted); transition: transform 0.2s; }
+  .help-panel.open .help-toggle::after { content: '−'; }
+  .help-content { display: none; padding: 0 24px 24px; line-height: 1.7; }
+  .help-panel.open .help-content { display: block; }
+  .help-content h4 { font-family: var(--serif); font-size: 20px; font-weight: 400; margin: 18px 0 8px; }
+  .help-content h4:first-child { margin-top: 0; }
+  .help-content ul { padding-left: 0; list-style: none; }
+  .help-content li { padding: 6px 0; }
+  .help-content p { color: var(--text-secondary); margin-top: 10px; }
+
+  .tabs { display: flex; gap: 4px; margin-bottom: 24px; }
+  .tab-btn {
+    padding: 12px 24px; background: var(--bg-card); border: 1px solid var(--border);
+    color: var(--text-secondary); font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+    border-radius: 4px; transition: all 0.15s;
+  }
+  .tab-btn:hover { color: var(--text-primary); }
+  .tab-btn.active { background: var(--bg-elev); border-color: var(--border-strong); color: var(--text-primary); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .status-bar {
+    padding: 14px 20px; border-radius: 4px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
+    margin-bottom: 24px; display: none;
+  }
+  .status-bar.loading {
+    background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2);
+    color: var(--accent-blue); display: block;
+  }
+  .status-bar.error {
+    background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2);
+    color: var(--accent-lag); display: block;
+  }
+  .status-bar.warn {
+    background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.2);
+    color: var(--accent-improve); display: block;
+  }
+
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .kpi-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 4px; padding: 18px 20px; position: relative; overflow: hidden;
+  }
+  .kpi-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 2px; height: 100%; background: var(--accent);
+  }
+  .kpi-card.lead { --accent: var(--accent-lead); }
+  .kpi-card.improve { --accent: var(--accent-improve); }
+  .kpi-card.weaken { --accent: var(--accent-weaken); }
+  .kpi-card.lag { --accent: var(--accent-lag); }
+  .kpi-label {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+    color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px;
+  }
+  .kpi-value { font-family: var(--serif); font-size: 36px; font-weight: 400; line-height: 1; margin-bottom: 4px; }
+  .kpi-value.small { font-size: 26px; }
+  .kpi-sub { font-family: var(--mono); font-size: 11px; color: var(--text-secondary); }
+  .kpi-sub.up { color: var(--accent-lead); }
+  .kpi-sub.down { color: var(--accent-lag); }
+
+  .grid-main { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 24px; }
+  .panel-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
+  }
+  .panel-title { display: flex; flex-direction: column; gap: 4px; }
+  .panel-title h2 { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.01em; }
+  .panel-title .subtitle {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+    color: var(--text-muted); text-transform: uppercase;
+  }
+
+  .rrg-container {
+    position: relative; width: 100%; aspect-ratio: 1.3;
+    background: var(--bg-card-2); border-radius: 4px; overflow: hidden;
+  }
+  .rrg-container svg { width: 100%; height: 100%; display: block; }
+  .quadrant-label {
+    position: absolute; font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em;
+    color: var(--text-muted); text-transform: uppercase; pointer-events: none;
+  }
+  .quadrant-label.tl { top: 14px; left: 14px; }
+  .quadrant-label.tr { top: 14px; right: 14px; text-align: right; }
+  .quadrant-label.bl { bottom: 14px; left: 14px; }
+  .quadrant-label.br { bottom: 14px; right: 14px; text-align: right; }
+  .quadrant-label strong {
+    display: block; font-size: 11px; color: var(--accent);
+    margin-bottom: 2px; letter-spacing: 0.16em;
+  }
+  .quadrant-label.tl strong { --accent: var(--accent-improve); }
+  .quadrant-label.tr strong { --accent: var(--accent-lead); }
+  .quadrant-label.bl strong { --accent: var(--accent-lag); }
+  .quadrant-label.br strong { --accent: var(--accent-weaken); }
+
+  .sector-table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 12px; }
+  .sector-table thead th {
+    padding: 8px 8px; text-align: left; font-weight: 500; font-size: 10px;
+    letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .sector-table thead th.num { text-align: right; }
+  .sector-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  .sector-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+  .sector-table td { padding: 10px 8px; color: var(--text-primary); }
+  .sector-table td.num { text-align: right; }
+  .ticker { font-weight: 600; color: var(--text-primary); }
+  .sector-name { color: var(--text-secondary); font-family: var(--sans); font-size: 12px; }
+
+  .state-badge, .stage-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 8px; border-radius: 3px;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.04em;
+    background: var(--badge-bg); color: var(--badge-color);
+    border: 1px solid var(--badge-border); white-space: nowrap;
+  }
+  .state-badge::before, .stage-badge::before {
+    content: ''; display: inline-block; width: 5px; height: 5px;
+    background: var(--badge-color); border-radius: 50%;
+  }
+  .state-In_testa, .stage-2 {
+    --badge-bg: rgba(34,197,94,0.08); --badge-color: var(--accent-lead);
+    --badge-border: rgba(34,197,94,0.25);
+  }
+  .state-In_ripresa, .stage-1 {
+    --badge-bg: rgba(251,191,36,0.08); --badge-color: var(--accent-improve);
+    --badge-border: rgba(251,191,36,0.25);
+  }
+  .state-In_calo, .stage-3 {
+    --badge-bg: rgba(249,115,22,0.08); --badge-color: var(--accent-weaken);
+    --badge-border: rgba(249,115,22,0.25);
+  }
+  .state-In_ritardo, .stage-4 {
+    --badge-bg: rgba(239,68,68,0.08); --badge-color: var(--accent-lag);
+    --badge-border: rgba(239,68,68,0.25);
+  }
+
+  .change.up { color: var(--accent-lead); }
+  .change.down { color: var(--accent-lag); }
+  .mini-bar {
+    display: inline-block; width: 60px; height: 3px;
+    background: rgba(255,255,255,0.08); border-radius: 2px;
+    overflow: hidden; vertical-align: middle; margin-right: 6px;
+  }
+  .mini-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-lag) 0%, var(--accent-improve) 50%, var(--accent-lead) 100%);
+  }
+  .chart-container { position: relative; height: 300px; margin-top: 8px; }
+  .chart-cross { height: 380px; margin-top: 12px; }
+
+  footer {
+    margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
+    font-family: var(--mono); font-size: 10px; color: var(--text-muted);
+    letter-spacing: 0.06em; line-height: 1.7;
+  }
+  .spinner {
+    display: inline-block; width: 10px; height: 10px;
+    border: 2px solid rgba(59,130,246,0.3); border-top-color: var(--accent-blue);
+    border-radius: 50%; animation: spin 0.8s linear infinite;
+    vertical-align: middle; margin-right: 8px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 1100px) {
+    .grid-main { grid-template-columns: 1fr; }
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    h1 { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand">
+      <div class="brand-mark">Sector Rotation Lab</div>
+      <h1>Rotazione <span>Settoriale</span></h1>
+    </div>
+    <div class="header-controls">
+      <div class="meta-row">
+        <span>FONTE · <strong>yfinance</strong></span>
+        <span>DATI AL · <strong id="dataDate">--</strong></span>
+        <span>AGG. AUTOMATICO · <strong>ogni giorno</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="help-panel" id="helpPanel">
+    <button class="help-toggle" onclick="document.getElementById('helpPanel').classList.toggle('open')">
+      📖 Come si legge questa dashboard
+    </button>
+    <div class="help-content">
+      <h4>I 4 STATI dei settori (la mappa colorata)</h4>
+      <p>Ogni settore è posizionato in base a <b>quanto è forte rispetto al mercato</b> (asse orizzontale) e <b>se accelera o rallenta</b> (asse verticale).</p>
+      <ul>
+        <li><span style="color:var(--accent-lead);font-weight:600;">🟢 IN TESTA</span> — più forte del mercato e in accelerazione. <b>Leader attuali, da mantenere.</b></li>
+        <li><span style="color:var(--accent-improve);font-weight:600;">🟡 IN RIPRESA</span> — ancora più debole ma sta migliorando. <b>Prossimi candidati, watchlist.</b></li>
+        <li><span style="color:var(--accent-weaken);font-weight:600;">🟠 IN CALO</span> — ancora più forte ma perde slancio. <b>Top, ridurre.</b></li>
+        <li><span style="color:var(--accent-lag);font-weight:600;">🔴 IN RITARDO</span> — più debole e peggiora. <b>Evitare.</b></li>
+      </ul>
+      <p>La linea sottile mostra il movimento delle ultime 5 settimane. Un settore tipicamente ruota in senso orario: IN TESTA → IN CALO → IN RITARDO → IN RIPRESA → IN TESTA.</p>
+
+      <h4>Le 4 FASI del trend</h4>
+      <ul>
+        <li><span style="color:var(--accent-improve);font-weight:600;">Fase 1 · Accumulo</span> — base. Osservare.</li>
+        <li><span style="color:var(--accent-lead);font-weight:600;">Fase 2 · Salita</span> — trend rialzista. <b>Essere dentro.</b></li>
+        <li><span style="color:var(--accent-weaken);font-weight:600;">Fase 3 · Top</span> — top in formazione. <b>Ridurre.</b></li>
+        <li><span style="color:var(--accent-lag);font-weight:600;">Fase 4 · Discesa</span> — ribassista. <b>Stare fuori.</b></li>
+      </ul>
+
+      <h4>Segnale operativo più semplice</h4>
+      <p>Settori <b>"In testa" + "Fase 2"</b> = posizionati ora. Settori <b>"In ripresa" + "Fase 1"</b> = prossimi candidati.</p>
+    </div>
+  </div>
+
+  <div class="status-bar" id="statusBar"></div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="usa">🇺🇸 USA</button>
+    <button class="tab-btn" data-tab="eu">🇪🇺 Europa</button>
+    <button class="tab-btn" data-tab="cross">⚖️ USA vs Europa</button>
+  </div>
+
+  <div class="tab-content active" id="tab-usa">
+    <div class="kpi-row" id="kpi-usa"></div>
+    <div class="grid-main">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="subtitle">01 · Mappa di Rotazione</span>
+            <h2>Settori USA vs S&amp;P 500</h2>
+          </div>
+        </div>
+        <div class="rrg-container">
+          <div class="quadrant-label tl"><strong>IN RIPRESA</strong>Forza ↓ · Velocità ↑</div>
+          <div class="quadrant-label tr"><strong>IN TESTA</strong>Forza ↑ · Velocità ↑</div>
+          <div class="quadrant-label bl"><strong>IN RITARDO</strong>Forza ↓ · Velocità ↓</div>
+          <div class="quadrant-label br"><strong>IN CALO</strong>Forza ↑ · Velocità ↓</div>
+          <svg id="rrg-usa" viewBox="0 0 600 460" preserveAspectRatio="none"></svg>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="subtitle">02 · Classifica</span>
+            <h2>I più forti</h2>
+          </div>
+        </div>
+        <table class="sector-table">
+          <thead><tr><th>#</th><th>Settore</th><th>Stato</th><th>Fase</th><th class="num">Forza</th></tr></thead>
+          <tbody id="top-usa"></tbody>
+        </table>
+        <div class="panel-header" style="margin-top:24px;margin-bottom:8px;">
+          <div class="panel-title">
+            <span class="subtitle">03 · Andamento</span>
+            <h2>Migliori 4 · 6 mesi</h2>
+          </div>
+        </div>
+        <div class="chart-container"><canvas id="chart-usa"></canvas></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="subtitle">04 · Tutti i settori</span>
+          <h2>Tabella completa</h2>
+        </div>
+      </div>
+      <table class="sector-table" id="table-usa-full"></table>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-eu">
+    <div class="kpi-row" id="kpi-eu"></div>
+    <div class="grid-main">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="subtitle">01 · Mappa di Rotazione</span>
+            <h2>Settori Europa vs STOXX 600</h2>
+          </div>
+        </div>
+        <div class="rrg-container">
+          <div class="quadrant-label tl"><strong>IN RIPRESA</strong>Forza ↓ · Velocità ↑</div>
+          <div class="quadrant-label tr"><strong>IN TESTA</strong>Forza ↑ · Velocità ↑</div>
+          <div class="quadrant-label bl"><strong>IN RITARDO</strong>Forza ↓ · Velocità ↓</div>
+          <div class="quadrant-label br"><strong>IN CALO</strong>Forza ↑ · Velocità ↓</div>
+          <svg id="rrg-eu" viewBox="0 0 600 460" preserveAspectRatio="none"></svg>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="subtitle">02 · Classifica</span>
+            <h2>I più forti</h2>
+          </div>
+        </div>
+        <table class="sector-table">
+          <thead><tr><th>#</th><th>Settore</th><th>Stato</th><th>Fase</th><th class="num">Forza</th></tr></thead>
+          <tbody id="top-eu"></tbody>
+        </table>
+        <div class="panel-header" style="margin-top:24px;margin-bottom:8px;">
+          <div class="panel-title">
+            <span class="subtitle">03 · Andamento</span>
+            <h2>Migliori 4 · 6 mesi</h2>
+          </div>
+        </div>
+        <div class="chart-container"><canvas id="chart-eu"></canvas></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="subtitle">04 · Tutti i settori</span>
+          <h2>Tabella completa</h2>
+        </div>
+      </div>
+      <table class="sector-table" id="table-eu-full"></table>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-cross">
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="subtitle">⚖️ Confronto USA vs Europa</span>
+          <h2>Dove conviene stare?</h2>
+        </div>
+      </div>
+      <p style="color:var(--text-secondary);margin-bottom:20px;font-size:13px;line-height:1.6;">
+        Per ogni settore confrontato tra le due sponde: chi sta facendo meglio del proprio mercato di riferimento,
+        e chi vince nel confronto diretto USA contro Europa negli ultimi 3 mesi.
+      </p>
+      <div class="kpi-row" id="kpi-cross" style="margin-bottom:24px;"></div>
+      <table class="sector-table" id="table-cross"></table>
+      <div class="chart-cross"><canvas id="chart-cross"></canvas></div>
+    </div>
+  </div>
+
+  <footer>
+    Sector Rotation Lab · Dati aggiornati automaticamente ogni giorno alle 22:00 UTC via GitHub Actions ·
+    Fonte: yfinance (Yahoo Finance) · Metodo JdK approssimato per RRG · Fasi Weinstein su MA 30 settimane ·
+    Per uso personale, non costituisce raccomandazione di investimento.
+  </footer>
+</div>
+
+<script>
+const STATE_COLORS = {
+  'In testa':   '#22c55e',
+  'In ripresa': '#fbbf24',
+  'In calo':    '#f97316',
+  'In ritardo': '#ef4444',
+  'N/A':        '#5e6675'
+};
+
+let DATA = null;
+const CHARTS = {};
+
+function setStatus(msg, type = 'loading') {
+  const bar = document.getElementById('statusBar');
+  bar.className = `status-bar ${type}`;
+  if (type === 'loading') bar.innerHTML = `<span class="spinner"></span>${msg}`;
+  else bar.innerHTML = msg;
+  bar.style.display = msg ? 'block' : 'none';
+}
+function hideStatus() { document.getElementById('statusBar').style.display = 'none'; }
+
+// ============================================================
+// RENDER RRG
+// ============================================================
+function renderRRG(svgId, sectors) {
+  const svg = document.getElementById(svgId);
+  const W = 600, H = 460, padding = 50;
+  const xMin = 88, xMax = 112, yMin = 88, yMax = 112;
+  const scaleX = v => padding + ((v - xMin) / (xMax - xMin)) * (W - 2*padding);
+  const scaleY = v => H - padding - ((v - yMin) / (yMax - yMin)) * (H - 2*padding);
+  const cx = scaleX(100), cy = scaleY(100);
+
+  let html = '';
+  html += `<rect x="${padding}" y="${padding}" width="${cx-padding}" height="${cy-padding}" fill="rgba(251,191,36,0.03)"/>`;
+  html += `<rect x="${cx}" y="${padding}" width="${W-padding-cx}" height="${cy-padding}" fill="rgba(34,197,94,0.05)"/>`;
+  html += `<rect x="${padding}" y="${cy}" width="${cx-padding}" height="${H-padding-cy}" fill="rgba(239,68,68,0.03)"/>`;
+  html += `<rect x="${cx}" y="${cy}" width="${W-padding-cx}" height="${H-padding-cy}" fill="rgba(249,115,22,0.03)"/>`;
+
+  for (let i = 90; i <= 110; i += 2) {
+    if (i === 100) continue;
+    html += `<line x1="${scaleX(i)}" y1="${padding}" x2="${scaleX(i)}" y2="${H-padding}" stroke="rgba(255,255,255,0.03)"/>`;
+    html += `<line x1="${padding}" y1="${scaleY(i)}" x2="${W-padding}" y2="${scaleY(i)}" stroke="rgba(255,255,255,0.03)"/>`;
+  }
+  html += `<line x1="${cx}" y1="${padding}" x2="${cx}" y2="${H-padding}" stroke="rgba(255,255,255,0.2)" stroke-dasharray="3,3"/>`;
+  html += `<line x1="${padding}" y1="${cy}" x2="${W-padding}" y2="${cy}" stroke="rgba(255,255,255,0.2)" stroke-dasharray="3,3"/>`;
+  html += `<text x="${cx}" y="${H-padding+22}" fill="#5e6675" font-family="JetBrains Mono" font-size="10" text-anchor="middle">Forza relativa →</text>`;
+  html += `<text x="${padding-30}" y="${cy}" fill="#5e6675" font-family="JetBrains Mono" font-size="10" text-anchor="middle" transform="rotate(-90 ${padding-30} ${cy})">Velocità →</text>`;
+
+  for (let i = 90; i <= 110; i += 4) {
+    html += `<text x="${scaleX(i)}" y="${H-padding+12}" fill="#5e6675" font-family="JetBrains Mono" font-size="8" text-anchor="middle">${i}</text>`;
+    html += `<text x="${padding-8}" y="${scaleY(i)+3}" fill="#5e6675" font-family="JetBrains Mono" font-size="8" text-anchor="end">${i}</text>`;
+  }
+
+  for (const m of sectors) {
+    const color = STATE_COLORS[m.state] || '#888';
+    let pathD = '';
+    for (let i = 0; i < m.tailRS.length; i++) {
+      const x = scaleX(m.tailRS[i]);
+      const y = scaleY(m.tailMom[i]);
+      pathD += (i === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + y.toFixed(1) + ' ';
+    }
+    html += `<path d="${pathD}" stroke="${color}" stroke-width="1.4" fill="none" opacity="0.45"/>`;
+
+    for (let i = 0; i < m.tailRS.length - 1; i++) {
+      const x = scaleX(m.tailRS[i]);
+      const y = scaleY(m.tailMom[i]);
+      const op = 0.15 + (i / m.tailRS.length) * 0.35;
+      html += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2" fill="${color}" opacity="${op}"/>`;
+    }
+
+    const lx = scaleX(m.tailRS[m.tailRS.length - 1]);
+    const ly = scaleY(m.tailMom[m.tailMom.length - 1]);
+    html += `<circle cx="${lx.toFixed(1)}" cy="${ly.toFixed(1)}" r="7" fill="${color}" opacity="0.2"/>`;
+    html += `<circle cx="${lx.toFixed(1)}" cy="${ly.toFixed(1)}" r="4" fill="${color}"/>`;
+    html += `<text x="${(lx+7).toFixed(1)}" y="${(ly+3).toFixed(1)}" fill="#e8eaed" font-family="JetBrains Mono" font-size="10" font-weight="600">${m.ticker}</text>`;
+  }
+  svg.innerHTML = html;
+}
+
+// ============================================================
+// RENDER TABLES
+// ============================================================
+function renderTopTable(tbodyId, sectors, n = 8) {
+  const sorted = [...sectors].sort((a, b) => b.rsRatio - a.rsRatio).slice(0, n);
+  const tbody = document.getElementById(tbodyId);
+  tbody.innerHTML = sorted.map((m, i) => `
+    <tr>
+      <td style="color:var(--text-muted);">${String(i+1).padStart(2,'0')}</td>
+      <td>
+        <span class="ticker">${m.ticker}</span><br>
+        <span class="sector-name">${m.name}</span>
+      </td>
+      <td><span class="state-badge state-${m.state.replace(/ /g,'_')}">${m.state}</span></td>
+      <td><span class="stage-badge stage-${m.stage}">F${m.stage}</span></td>
+      <td class="num">${m.rsRatio.toFixed(2)}</td>
+    </tr>
+  `).join('');
+}
+
+function renderFullTable(tableId, sectors, benchLabel) {
+  const sorted = [...sectors].sort((a, b) => b.rsRatio - a.rsRatio);
+  let html = `
+    <thead><tr>
+      <th>#</th><th>Codice</th><th>Settore</th><th>Stato</th><th>Fase</th>
+      <th class="num">Forza</th><th class="num">Velocità</th>
+      <th class="num">Variaz. 5 sett.</th><th class="num">Perf. 3 mesi %</th>
+      <th class="num">vs ${benchLabel} 3 mesi %</th>
+    </tr></thead><tbody>
+  `;
+  for (let i = 0; i < sorted.length; i++) {
+    const m = sorted[i];
+    const rsFill = Math.max(0, Math.min(100, ((m.rsRatio - 88) / 24) * 100));
+    const d5 = m.delta5w >= 0 ? 'up' : 'down';
+    const d5s = m.delta5w >= 0 ? '+' : '';
+    const roc = m.roc13w >= 0 ? 'up' : 'down';
+    const rocs = m.roc13w >= 0 ? '+' : '';
+    const rel = m.rel13w >= 0 ? 'up' : 'down';
+    const rels = m.rel13w >= 0 ? '+' : '';
+    html += `
+      <tr>
+        <td style="color:var(--text-muted);">${String(i+1).padStart(2,'0')}</td>
+        <td><span class="ticker">${m.ticker}</span></td>
+        <td><span class="sector-name">${m.name}</span></td>
+        <td><span class="state-badge state-${m.state.replace(/ /g,'_')}">${m.state}</span></td>
+        <td><span class="stage-badge stage-${m.stage}">Fase ${m.stage}</span></td>
+        <td class="num">
+          <span class="mini-bar"><span class="mini-bar-fill" style="width:${rsFill.toFixed(0)}%"></span></span>
+          ${m.rsRatio.toFixed(2)}
+        </td>
+        <td class="num">${m.rsMom.toFixed(2)}</td>
+        <td class="num change ${d5}">${d5s}${m.delta5w.toFixed(2)}</td>
+        <td class="num change ${roc}">${rocs}${m.roc13w.toFixed(1)}</td>
+        <td class="num change ${rel}">${rels}${m.rel13w.toFixed(1)}</td>
+      </tr>
+    `;
+  }
+  html += '</tbody>';
+  document.getElementById(tableId).innerHTML = html;
+}
+
+function renderKPI(containerId, sectors, benchLabel) {
+  const inTesta = sectors.filter(m => m.state === 'In testa').length;
+  const inRipresa = sectors.filter(m => m.state === 'In ripresa').length;
+  const sorted = [...sectors].sort((a, b) => b.rel13w - a.rel13w);
+  const top = sorted[0], bottom = sorted[sorted.length - 1];
+  document.getElementById(containerId).innerHTML = `
+    <div class="kpi-card lead">
+      <div class="kpi-label">Settori IN TESTA</div>
+      <div class="kpi-value">${inTesta}<span style="color:var(--text-muted);font-size:20px;">/${sectors.length}</span></div>
+      <div class="kpi-sub">Leader attuali</div>
+    </div>
+    <div class="kpi-card improve">
+      <div class="kpi-label">Settori IN RIPRESA</div>
+      <div class="kpi-value">${inRipresa}<span style="color:var(--text-muted);font-size:20px;">/${sectors.length}</span></div>
+      <div class="kpi-sub">Da osservare</div>
+    </div>
+    <div class="kpi-card lead">
+      <div class="kpi-label">MIGLIORE 3 MESI · ${top.ticker}</div>
+      <div class="kpi-value small">${top.name}</div>
+      <div class="kpi-sub up">↑ ${top.rel13w >= 0 ? '+' : ''}${top.rel13w.toFixed(1)}% vs ${benchLabel}</div>
+    </div>
+    <div class="kpi-card lag">
+      <div class="kpi-label">PEGGIORE 3 MESI · ${bottom.ticker}</div>
+      <div class="kpi-value small">${bottom.name}</div>
+      <div class="kpi-sub down">↓ ${bottom.rel13w >= 0 ? '+' : ''}${bottom.rel13w.toFixed(1)}% vs ${benchLabel}</div>
+    </div>
+  `;
+}
+
+function renderLineChart(canvasId, sectors, n = 4) {
+  const top = [...sectors].sort((a, b) => b.rsRatio - a.rsRatio).slice(0, n);
+  const palette = ['#22c55e', '#06b6d4', '#3b82f6', '#fbbf24'];
+  if (CHARTS[canvasId]) CHARTS[canvasId].destroy();
+  const ctx = document.getElementById(canvasId).getContext('2d');
+  const labels = top[0].rsRatioSeries.map(p => p.date.slice(5));
+  const datasets = top.map((m, i) => ({
+    label: `${m.ticker} · ${m.name}`,
+    data: m.rsRatioSeries.map(p => p.value),
+    borderColor: palette[i],
+    backgroundColor: 'transparent',
+    borderWidth: 1.8, tension: 0.35, pointRadius: 0
+  }));
+  CHARTS[canvasId] = new Chart(ctx, {
+    type: 'line', data: { labels, datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'top', align: 'end', labels: { color: '#9ba3af', font: { family: 'JetBrains Mono', size: 9 }, usePointStyle: true, pointStyle: 'line', padding: 10, boxWidth: 16 } },
+        tooltip: { backgroundColor: '#11151c', borderColor: 'rgba(255,255,255,0.12)', borderWidth: 1 }
+      },
+      scales: {
+        x: { ticks: { color: '#5e6675', font: { family: 'JetBrains Mono', size: 9 }, maxTicksLimit: 8 }, grid: { color: 'rgba(255,255,255,0.03)' } },
+        y: { ticks: { color: '#5e6675', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: 'rgba(255,255,255,0.04)' } }
+      }
+    }
+  });
+}
+
+function renderCross(rows) {
+  const usWins = rows.filter(r => r.leader === 'USA').length;
+  const euWins = rows.filter(r => r.leader === 'EU').length;
+  const sortedCross = [...rows].sort((a, b) => Math.abs(b.cross) - Math.abs(a.cross));
+  const biggest = sortedCross[0];
+  document.getElementById('kpi-cross').innerHTML = `
+    <div class="kpi-card lead">
+      <div class="kpi-label">Vince USA</div>
+      <div class="kpi-value">${usWins}<span style="color:var(--text-muted);font-size:20px;">/${rows.length}</span></div>
+      <div class="kpi-sub">Settori meglio in America</div>
+    </div>
+    <div class="kpi-card improve">
+      <div class="kpi-label">Vince Europa</div>
+      <div class="kpi-value">${euWins}<span style="color:var(--text-muted);font-size:20px;">/${rows.length}</span></div>
+      <div class="kpi-sub">Settori meglio in Europa</div>
+    </div>
+    <div class="kpi-card lead">
+      <div class="kpi-label">Maggior vantaggio · ${biggest.label}</div>
+      <div class="kpi-value small">${biggest.leader} +${Math.abs(biggest.cross).toFixed(1)}%</div>
+      <div class="kpi-sub">Gap più ampio</div>
+    </div>
+    <div class="kpi-card weaken">
+      <div class="kpi-label">Differenze marginali</div>
+      <div class="kpi-value">${rows.filter(r => Math.abs(r.cross) < 2).length}</div>
+      <div class="kpi-sub">Settori con gap &lt; 2%</div>
+    </div>
+  `;
+  let html = `
+    <thead><tr>
+      <th>Settore</th><th>USA</th><th>EU</th>
+      <th class="num">USA vs S&P (3 mesi)</th>
+      <th class="num">EU vs STOXX (3 mesi)</th>
+      <th class="num">USA vs EU (3 mesi)</th>
+      <th>Dove conviene stare</th>
+    </tr></thead><tbody>
+  `;
+  for (const r of rows) {
+    const usU = r.usRel >= 0 ? 'up' : 'down';
+    const euU = r.euRel >= 0 ? 'up' : 'down';
+    const crU = r.cross >= 0 ? 'up' : 'down';
+    const lc = r.leader === 'USA' ? 'var(--accent-lead)' : 'var(--accent-blue)';
+    html += `
+      <tr>
+        <td><span class="sector-name" style="color:var(--text-primary);">${r.label}</span></td>
+        <td><span class="ticker">${r.usT}</span></td>
+        <td><span class="ticker">${r.euT}</span></td>
+        <td class="num change ${usU}">${r.usRel >= 0 ? '+' : ''}${r.usRel.toFixed(1)}%</td>
+        <td class="num change ${euU}">${r.euRel >= 0 ? '+' : ''}${r.euRel.toFixed(1)}%</td>
+        <td class="num change ${crU}">${r.cross >= 0 ? '+' : ''}${r.cross.toFixed(1)}%</td>
+        <td><span style="color:${lc};font-weight:600;font-family:var(--mono);">${r.leader}</span></td>
+      </tr>
+    `;
+  }
+  html += '</tbody>';
+  document.getElementById('table-cross').innerHTML = html;
+
+  if (CHARTS['chart-cross']) CHARTS['chart-cross'].destroy();
+  const ctx = document.getElementById('chart-cross').getContext('2d');
+  CHARTS['chart-cross'] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => r.label),
+      datasets: [
+        { label: 'USA vs S&P 500', data: rows.map(r => r.usRel), backgroundColor: '#22c55e' },
+        { label: 'Europa vs STOXX 600', data: rows.map(r => r.euRel), backgroundColor: '#3b82f6' }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: '#9ba3af', font: { family: 'JetBrains Mono', size: 10 } } } },
+      scales: {
+        x: { ticks: { color: '#9ba3af', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: 'rgba(255,255,255,0.03)' } },
+        y: { ticks: { color: '#9ba3af', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: 'rgba(255,255,255,0.04)' }, title: { display: true, text: '% vs proprio mercato', color: '#9ba3af', font: { family: 'JetBrains Mono', size: 10 } } }
+      }
+    }
+  });
+}
+
+// ============================================================
+// TAB SWITCHING
+// ============================================================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// ============================================================
+// LOAD DATA · semplicemente leggo il JSON locale
+// ============================================================
+async function loadData() {
+  setStatus('Carico dati...');
+  try {
+    // Cache-buster: query string con timestamp così il browser non serve la versione vecchia
+    const response = await fetch(`./data/sector_data.json?t=${Date.now()}`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    DATA = await response.json();
+  } catch (e) {
+    setStatus(
+      `❌ Impossibile caricare data/sector_data.json (${e.message}). ` +
+      `Se è il primo caricamento, esegui prima il workflow GitHub Actions manualmente dalla tab "Actions" del repo.`,
+      'error'
+    );
+    return;
+  }
+
+  document.getElementById('dataDate').textContent = DATA.last_data_date || '--';
+
+  // Diagnostica
+  if (DATA.tickers_missing && DATA.tickers_missing.length > 0) {
+    setStatus(
+      `⚠️ ${DATA.tickers_obtained}/${DATA.tickers_total} ticker disponibili · mancanti: ${DATA.tickers_missing.join(', ')}`,
+      'warn'
+    );
+    setTimeout(hideStatus, 5000);
+  } else {
+    hideStatus();
+  }
+
+  // Render USA
+  if (DATA.us && DATA.us.sectors.length > 0) {
+    renderKPI('kpi-usa', DATA.us.sectors, 'S&P');
+    renderRRG('rrg-usa', DATA.us.sectors);
+    renderTopTable('top-usa', DATA.us.sectors);
+    renderFullTable('table-usa-full', DATA.us.sectors, 'S&P 500');
+    renderLineChart('chart-usa', DATA.us.sectors);
+  }
+  // Render EU
+  if (DATA.eu && DATA.eu.sectors.length > 0) {
+    renderKPI('kpi-eu', DATA.eu.sectors, 'STOXX');
+    renderRRG('rrg-eu', DATA.eu.sectors);
+    renderTopTable('top-eu', DATA.eu.sectors);
+    renderFullTable('table-eu-full', DATA.eu.sectors, 'STOXX 600');
+    renderLineChart('chart-eu', DATA.eu.sectors);
+  }
+  // Render Cross
+  if (DATA.cross && DATA.cross.length > 0) {
+    renderCross(DATA.cross);
+  }
+}
+
+loadData();
+</script>
+</body>
+</html>
