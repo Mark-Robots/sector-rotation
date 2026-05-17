@@ -256,12 +256,12 @@ def classify_quadrant(rs, mom):
     if pd.isna(rs) or pd.isna(mom):
         return 'N/A'
     if rs >= 100 and mom >= 100:
-        return 'In testa'
+        return 'Leader'
     if rs < 100 and mom >= 100:
-        return 'In ripresa'
+        return 'Emergente'
     if rs < 100 and mom < 100:
-        return 'In ritardo'
-    return 'In calo'
+        return 'Debole'
+    return 'In rallentamento'
 
 
 def find_signal_dates(rrg_df, current_state):
@@ -270,8 +270,8 @@ def find_signal_dates(rrg_df, current_state):
     - state_entry_date: quando è iniziato lo stato attuale (croci degli assi)
     - signal_date: quando è stato dato il PRIMO segnale (entrata in ripresa)
     
-    Per In ripresa: signal_date == state_entry_date
-    Per In testa: signal_date può essere precedente (quando era in ripresa)
+    Per Emergente: signal_date == state_entry_date
+    Per Leader: signal_date può essere precedente (quando era Emergente)
     """
     if rrg_df is None or len(rrg_df) < 5:
         return None
@@ -283,7 +283,7 @@ def find_signal_dates(rrg_df, current_state):
     
     result = {'state_entry_date': None, 'signal_date': None}
     
-    if current_state == 'In testa':
+    if current_state == 'Leader':
         # entry: ultima volta che RS è passato da <100 a >=100
         entry_idx = None
         for i in range(n - 1, 0, -1):
@@ -304,7 +304,7 @@ def find_signal_dates(rrg_df, current_state):
                     break
             result['signal_date'] = dates[signal_idx].strftime('%Y-%m-%d')
     
-    elif current_state == 'In ripresa':
+    elif current_state == 'Emergente':
         # entry: ultima volta che momentum è passato da <100 a >=100
         entry_idx = None
         for i in range(n - 1, 0, -1):
@@ -427,7 +427,7 @@ def compute_sector_metrics(prices_df, bench_ticker, sector_dict):
         
         # Storico segnali · solo per stati attivi (testa/ripresa)
         signal_info = None
-        if quadrant in ('In testa', 'In ripresa'):
+        if quadrant in ('Leader', 'Emergente'):
             sig = find_signal_dates(rrg, quadrant)
             if sig:
                 last_data_date = sym_prices.index[-1]
@@ -582,7 +582,7 @@ def fetch_ticker_fundamentals(symbol, signal_date=None):
             'forwardPE': round(float(forward_pe), 1) if forward_pe and forward_pe > 0 else None,
             'peg': round(float(peg), 2) if peg and peg > 0 else None,
             'marketCapB': round(float(market_cap) / 1e9, 1) if market_cap else None,
-            'divYield': round(float(div_yield) * 100, 2) if div_yield else None,
+            'divYield': round(float(div_yield), 2) if div_yield else None,
             'roc13w': round(roc_13w, 1) if roc_13w is not None else None,
             'rocYtd': round(roc_ytd, 1) if roc_ytd is not None else None,
             'perfFromSignal': round(perf_from_signal, 1) if perf_from_signal is not None else None,
@@ -623,43 +623,69 @@ def compute_holdings_for_sector(sector_ticker, holdings_list, signal_date=None, 
         for r in rows:
             r['peRelative'] = None
     
-    # Performance relativa vs ETF settore
+    # Performance relativa vs ETF settore (mantenuta come info di contesto)
     for r in rows:
         if r.get('perfFromSignal') is not None and etf_perf_from_signal is not None:
             r['perfVsEtf'] = round(r['perfFromSignal'] - etf_perf_from_signal, 1)
         else:
             r['perfVsEtf'] = None
-        
-        # Tag interpretativo
-        # Premium giustificato = P/E alto vs settore + perf > ETF
-        # Sopravvalutato = P/E alto + perf < ETF
-        # Sconto + momentum = P/E basso + perf > ETF (combo migliore)
+    
+    # Tag interpretativi · basati su Perf 3M (momentum corrente) + P/E
+    # Identifico prima i top 3 per Perf 3M del settore (i veri leader correnti)
+    valid_3m = [r for r in rows if r.get('roc13w') is not None]
+    top3_tickers = set()
+    if valid_3m:
+        sorted_by_3m = sorted(valid_3m, key=lambda r: r['roc13w'], reverse=True)
+        top3_tickers = {r['ticker'] for r in sorted_by_3m[:3]}
+    
+    for r in rows:
         tag = None
-        if r['peRelative'] is not None and r.get('perfVsEtf') is not None:
-            if r['peRelative'] > 1.15 and r['perfVsEtf'] > 0:
-                tag = 'premium_ok'
-            elif r['peRelative'] > 1.15 and r['perfVsEtf'] <= 0:
-                tag = 'premium_no'
-            elif r['peRelative'] < 0.85 and r['perfVsEtf'] > 0:
-                tag = 'value_momentum'
+        perf_3m = r.get('roc13w')
+        pe_rel = r.get('peRelative')
+        
+        if perf_3m is None:
+            r['tag'] = None
+            continue
+        
+        # 🚀 Top momentum: nei top 3 del settore per Perf 3M
+        if r['ticker'] in top3_tickers and perf_3m > 5:
+            tag = 'top_momentum'
+        # 🪤 Value trap: P/E basso ma performance negativa significativa
+        elif pe_rel is not None and pe_rel < 0.85 and perf_3m < -5:
+            tag = 'value_trap'
+        # 🎯 Sconto + momentum: P/E basso E performance positiva forte
+        elif pe_rel is not None and pe_rel < 0.85 and perf_3m > 10:
+            tag = 'value_momentum'
+        # ⚠️ Caro e fermo: P/E alto ma performance debole
+        elif pe_rel is not None and pe_rel > 1.20 and perf_3m < 5:
+            tag = 'expensive_flat'
+        # 💎 Premium ok: P/E alto E performance solida
+        elif pe_rel is not None and pe_rel > 1.20 and perf_3m > 10:
+            tag = 'premium_ok'
+        # 💤 Stagnante: performance fra -5% e +5%
+        elif -5 <= perf_3m <= 5:
+            tag = 'stagnant'
+        
         r['tag'] = tag
     
-    # Ordina: prima per P/E relativo crescente (più convenienti), poi market cap
+    # Ordino per Perf 3M decrescente · momentum corrente
+    # Titoli senza perf_3m vanno in fondo
     def sort_key(r):
-        pe_rel = r.get('peRelative') if r.get('peRelative') is not None else 999
-        mcap = -(r.get('marketCapB') or 0)
-        return (pe_rel, mcap)
+        perf = r.get('roc13w')
+        if perf is None:
+            return (1, 0)  # In fondo
+        return (0, -perf)
     
     rows.sort(key=sort_key)
     return rows
 
 
 def compute_all_holdings(metrics_list, holdings_dict, max_sectors=None):
-    """Per i settori IN TESTA o IN RIPRESA, calcola holdings con P/E.
+    """Per i settori LEADER o EMERGENTE, calcola holdings con P/E.
     Sfrutta i signal_info già calcolati nei metrics per dare anche
     performance dal segnale e performance vs ETF settore."""
     if max_sectors is None:
-        target_sectors = [m for m in metrics_list if m.get('state') in ('In testa', 'In ripresa')]
+        target_sectors = [m for m in metrics_list if m.get('state') in ('Leader', 'Emergente')]
     else:
         sorted_metrics = sorted(metrics_list, key=lambda m: m.get('rsRatio', 0), reverse=True)
         target_sectors = sorted_metrics[:max_sectors]
@@ -722,12 +748,12 @@ def main():
     cross_rows = compute_cross_region(prices)
     print(f"  {len(cross_rows)} coppie cross-region")
     
-    # Holdings drill-down: settori IN TESTA + IN RIPRESA
-    print("\nDrill-down titoli per settori IN TESTA + IN RIPRESA (USA)...")
+    # Holdings drill-down: settori LEADER + EMERGENTE
+    print("\nDrill-down titoli per settori LEADER + EMERGENTE (USA)...")
     us_holdings = compute_all_holdings(us_metrics, US_HOLDINGS)
     print(f"  {len(us_holdings)} settori USA elaborati")
     
-    print("Drill-down titoli per settori IN TESTA + IN RIPRESA (EU/Italia)...")
+    print("Drill-down titoli per settori LEADER + EMERGENTE (EU/Italia)...")
     eu_holdings = compute_all_holdings(eu_metrics, EU_HOLDINGS)
     print(f"  {len(eu_holdings)} settori EU/Italia elaborati")
     
