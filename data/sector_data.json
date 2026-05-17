@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-17T19:38:01.533941+00:00",
+  "updated_at": "2026-05-17T20:51:30.420055+00:00",
   "last_data_date": "2026-05-15",
   "tickers_obtained": 37,
   "tickers_total": 37,
@@ -2548,7 +2548,7 @@
             "name": "NVIDIA Corporation",
             "price": 225.32,
             "trailingPE": 46.1,
-            "forwardPE": 19.7,
+            "forwardPE": 19.8,
             "peg": 0.72,
             "marketCapB": 5457.4,
             "divYield": 0.02,
@@ -3060,7 +3060,7 @@
             "name": "NVIDIA Corporation",
             "price": 225.32,
             "trailingPE": 46.1,
-            "forwardPE": 19.7,
+            "forwardPE": 19.8,
             "peg": 0.72,
             "marketCapB": 5457.4,
             "divYield": 0.02,
@@ -6098,7 +6098,7 @@
             "name": "INWIT",
             "price": 7.03,
             "trailingPE": 18.5,
-            "forwardPE": 18.5,
+            "forwardPE": 18.4,
             "peg": 2.15,
             "marketCapB": 6.3,
             "divYield": 7.89,
@@ -6277,5 +6277,446 @@
       "cross": -12.0,
       "leader": "EU"
     }
-  ]
+  ],
+  "portfolio": {
+    "comment": "📊 Quadro attuale: 6 settori Leader confermati e 4 Emergenti operativamente validi. Tema centrale: Tecnologia. ⚠️ Leader maturo: SOXX, EXH1 (46 settimane di leadership) — peso ridotto nel modello per rischio di top. 🆕 Emergenti freschi (da monitorare nelle prossime settimane): EXH3, EXV7. ❌ Settori esclusi per alpha negativa significativa: XLV (-14.8%), XRT (-11.3%), XHB (-10.9%).",
+    "profiles": {
+      "prudente": {
+        "equity_pct": 30,
+        "cash_pct": 70,
+        "allocations": [
+          {
+            "sector_name": "Tecnologia",
+            "sector_ticker": "XLK",
+            "region": "USA",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 10.8,
+            "score": 98.9,
+            "weeks_from_state": 10,
+            "perf_from_state": 28.5,
+            "rel_from_state": 18.3,
+            "picks_us": [
+              {
+                "ticker": "AMD",
+                "name": "Advanced Micro Devices, Inc.",
+                "perf_3m": 105.9,
+                "pe_rel": 4.68,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "CSCO",
+                "name": "Cisco Systems, Inc.",
+                "perf_3m": 58.5,
+                "pe_rel": 1.31,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "QCOM",
+                "name": "QUALCOMM Incorporated",
+                "perf_3m": 46.4,
+                "pe_rel": 0.72,
+                "tag": "top_momentum"
+              }
+            ],
+            "picks_it": []
+          },
+          {
+            "sector_name": "Telecomunicazioni",
+            "sector_ticker": "EXV2",
+            "region": "EU",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 9.7,
+            "score": 88.3,
+            "weeks_from_state": 14,
+            "perf_from_state": 12.0,
+            "rel_from_state": 12.3,
+            "picks_us": [],
+            "picks_it": []
+          },
+          {
+            "sector_name": "Semiconduttori",
+            "sector_ticker": "SOXX",
+            "region": "USA",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 9.5,
+            "score": 86.5,
+            "weeks_from_state": 46,
+            "perf_from_state": 113.8,
+            "rel_from_state": 92.6,
+            "picks_us": [
+              {
+                "ticker": "INTC",
+                "name": "Intel Corporation",
+                "perf_3m": 134.0,
+                "pe_rel": null,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "MRVL",
+                "name": "Marvell Technology, Inc.",
+                "perf_3m": 126.2,
+                "pe_rel": 1.13,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "AMD",
+                "name": "Advanced Micro Devices, Inc.",
+                "perf_3m": 105.9,
+                "pe_rel": 2.76,
+                "tag": "top_momentum"
+              }
+            ],
+            "picks_it": []
+          }
+        ]
+      },
+      "bilanciato": {
+        "equity_pct": 50,
+        "cash_pct": 50,
+        "allocations": [
+          {
+            "sector_name": "Tecnologia",
+            "sector_ticker": "XLK",
+            "region": "USA",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 11.3,
+            "score": 98.9,
+            "weeks_from_state": 10,
+            "perf_from_state": 28.5,
+            "rel_from_state": 18.3,
+            "picks_us": [
+              {
+                "ticker": "AMD",
+                "name": "Advanced Micro Devices, Inc.",
+                "perf_3m": 105.9,
+                "pe_rel": 4.68,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "CSCO",
+                "name": "Cisco Systems, Inc.",
+                "perf_3m": 58.5,
+                "pe_rel": 1.31,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "QCOM",
+                "name": "QUALCOMM Incorporated",
+                "perf_3m": 46.4,
+                "pe_rel": 0.72,
+                "tag": "top_momentum"
+              }
+            ],
+            "picks_it": []
+          },
+          {
+            "sector_name": "Telecomunicazioni",
+            "sector_ticker": "EXV2",
+            "region": "EU",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 10.1,
+            "score": 88.3,
+            "weeks_from_state": 14,
+            "perf_from_state": 12.0,
+            "rel_from_state": 12.3,
+            "picks_us": [],
+            "picks_it": []
+          },
+          {
+            "sector_name": "Semiconduttori",
+            "sector_ticker": "SOXX",
+            "region": "USA",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 9.9,
+            "score": 86.5,
+            "weeks_from_state": 46,
+            "perf_from_state": 113.8,
+            "rel_from_state": 92.6,
+            "picks_us": [
+              {
+                "ticker": "INTC",
+                "name": "Intel Corporation",
+                "perf_3m": 134.0,
+                "pe_rel": null,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "MRVL",
+                "name": "Marvell Technology, Inc.",
+                "perf_3m": 126.2,
+                "pe_rel": 1.13,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "AMD",
+                "name": "Advanced Micro Devices, Inc.",
+                "perf_3m": 105.9,
+                "pe_rel": 2.76,
+                "tag": "top_momentum"
+              }
+            ],
+            "picks_it": []
+          },
+          {
+            "sector_name": "Energia",
+            "sector_ticker": "XLE",
+            "region": "USA",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 9.5,
+            "score": 83.6,
+            "weeks_from_state": 16,
+            "perf_from_state": 21.6,
+            "rel_from_state": 14.1,
+            "picks_us": [
+              {
+                "ticker": "OXY",
+                "name": "Occidental Petroleum Corpora..",
+                "perf_3m": 31.7,
+                "pe_rel": 3.43,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "MPC",
+                "name": "Marathon Petroleum Corporation",
+                "perf_3m": 29.4,
+                "pe_rel": 0.71,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "VLO",
+                "name": "Valero Energy Corporation",
+                "perf_3m": 27.3,
+                "pe_rel": 0.78,
+                "tag": "top_momentum"
+              }
+            ],
+            "picks_it": []
+          },
+          {
+            "sector_name": "Energia",
+            "sector_ticker": "EXH1",
+            "region": "EU",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 9.2,
+            "score": 80.8,
+            "weeks_from_state": 46,
+            "perf_from_state": 51.8,
+            "rel_from_state": 37.9,
+            "picks_us": [],
+            "picks_it": []
+          }
+        ]
+      },
+      "aggressivo": {
+        "equity_pct": 80,
+        "cash_pct": 20,
+        "allocations": [
+          {
+            "sector_name": "Tecnologia",
+            "sector_ticker": "XLK",
+            "region": "USA",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 14.2,
+            "score": 98.9,
+            "weeks_from_state": 10,
+            "perf_from_state": 28.5,
+            "rel_from_state": 18.3,
+            "picks_us": [
+              {
+                "ticker": "AMD",
+                "name": "Advanced Micro Devices, Inc.",
+                "perf_3m": 105.9,
+                "pe_rel": 4.68,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "CSCO",
+                "name": "Cisco Systems, Inc.",
+                "perf_3m": 58.5,
+                "pe_rel": 1.31,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "QCOM",
+                "name": "QUALCOMM Incorporated",
+                "perf_3m": 46.4,
+                "pe_rel": 0.72,
+                "tag": "top_momentum"
+              }
+            ],
+            "picks_it": []
+          },
+          {
+            "sector_name": "Telecomunicazioni",
+            "sector_ticker": "EXV2",
+            "region": "EU",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 12.7,
+            "score": 88.3,
+            "weeks_from_state": 14,
+            "perf_from_state": 12.0,
+            "rel_from_state": 12.3,
+            "picks_us": [],
+            "picks_it": []
+          },
+          {
+            "sector_name": "Semiconduttori",
+            "sector_ticker": "SOXX",
+            "region": "USA",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 12.4,
+            "score": 86.5,
+            "weeks_from_state": 46,
+            "perf_from_state": 113.8,
+            "rel_from_state": 92.6,
+            "picks_us": [
+              {
+                "ticker": "INTC",
+                "name": "Intel Corporation",
+                "perf_3m": 134.0,
+                "pe_rel": null,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "MRVL",
+                "name": "Marvell Technology, Inc.",
+                "perf_3m": 126.2,
+                "pe_rel": 1.13,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "AMD",
+                "name": "Advanced Micro Devices, Inc.",
+                "perf_3m": 105.9,
+                "pe_rel": 2.76,
+                "tag": "top_momentum"
+              }
+            ],
+            "picks_it": []
+          },
+          {
+            "sector_name": "Energia",
+            "sector_ticker": "XLE",
+            "region": "USA",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 12.0,
+            "score": 83.6,
+            "weeks_from_state": 16,
+            "perf_from_state": 21.6,
+            "rel_from_state": 14.1,
+            "picks_us": [
+              {
+                "ticker": "OXY",
+                "name": "Occidental Petroleum Corpora..",
+                "perf_3m": 31.7,
+                "pe_rel": 3.43,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "MPC",
+                "name": "Marathon Petroleum Corporation",
+                "perf_3m": 29.4,
+                "pe_rel": 0.71,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "VLO",
+                "name": "Valero Energy Corporation",
+                "perf_3m": 27.3,
+                "pe_rel": 0.78,
+                "tag": "top_momentum"
+              }
+            ],
+            "picks_it": []
+          },
+          {
+            "sector_name": "Energia",
+            "sector_ticker": "EXH1",
+            "region": "EU",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 11.6,
+            "score": 80.8,
+            "weeks_from_state": 46,
+            "perf_from_state": 51.8,
+            "rel_from_state": 37.9,
+            "picks_us": [],
+            "picks_it": []
+          },
+          {
+            "sector_name": "Tecnologia",
+            "sector_ticker": "EXV3",
+            "region": "EU",
+            "state": "Leader",
+            "stage": "2",
+            "weight_pct": 10.1,
+            "score": 70.6,
+            "weeks_from_state": 1,
+            "perf_from_state": -0.1,
+            "rel_from_state": 0.7,
+            "picks_us": [],
+            "picks_it": []
+          },
+          {
+            "sector_name": "Assicurazioni",
+            "sector_ticker": "EXH5",
+            "region": "EU",
+            "state": "Emergente",
+            "stage": "2",
+            "weight_pct": 7.1,
+            "score": 49.3,
+            "weeks_from_state": 9,
+            "perf_from_state": 5.7,
+            "rel_from_state": 2.6,
+            "picks_us": [],
+            "picks_it": []
+          }
+        ]
+      }
+    },
+    "excluded_summary": [
+      {
+        "ticker": "XLV",
+        "name": "Sanità",
+        "state": "Debole",
+        "rel_perf": -14.8
+      },
+      {
+        "ticker": "XRT",
+        "name": "Retail",
+        "state": "Debole",
+        "rel_perf": -11.3
+      },
+      {
+        "ticker": "XHB",
+        "name": "Costruttori case",
+        "state": "Debole",
+        "rel_perf": -10.9
+      },
+      {
+        "ticker": "XLP",
+        "name": "Consumi essenziali",
+        "state": "Debole",
+        "rel_perf": -9.8
+      },
+      {
+        "ticker": "XLU",
+        "name": "Utility",
+        "state": "Debole",
+        "rel_perf": -9.0
+      }
+    ]
+  }
 }
