@@ -24,6 +24,7 @@
     --accent-weaken: #f97316;
     --accent-lag: #ef4444;
     --accent-blue: #3b82f6;
+    --accent-cyan: #06b6d4;
     --serif: 'Instrument Serif', serif;
     --sans: 'Geist', system-ui, sans-serif;
     --mono: 'JetBrains Mono', monospace;
@@ -264,6 +265,25 @@
   .pe-expensive { color: var(--accent-weaken); }
   .pe-na { color: var(--text-muted); }
 
+  /* Tag interpretativi per drill-down titoli */
+  .stock-tag {
+    display: inline-block; padding: 2px 7px; border-radius: 3px;
+    font-family: var(--mono); font-size: 9px; letter-spacing: 0.04em;
+    font-weight: 500; white-space: nowrap;
+  }
+  .tag-premium_ok {
+    background: rgba(34,197,94,0.1); color: var(--accent-lead);
+    border: 1px solid rgba(34,197,94,0.3);
+  }
+  .tag-premium_no {
+    background: rgba(239,68,68,0.1); color: var(--accent-lag);
+    border: 1px solid rgba(239,68,68,0.3);
+  }
+  .tag-value_momentum {
+    background: rgba(6,182,212,0.1); color: var(--accent-cyan);
+    border: 1px solid rgba(6,182,212,0.3);
+  }
+
   footer {
     margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
     font-family: var(--mono); font-size: 10px; color: var(--text-muted);
@@ -384,10 +404,24 @@
       </div>
       <table class="sector-table" id="table-usa-full"></table>
     </div>
+    <div class="panel" id="signals-usa-panel" style="display:none;">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="subtitle">05 · Storico segnali</span>
+          <h2>🚦 Da quando sono in stato attivo?</h2>
+        </div>
+      </div>
+      <p style="color:var(--text-secondary);margin-bottom:20px;font-size:13px;line-height:1.6;">
+        Per ogni settore <b>In testa</b> o <b>In ripresa</b>: <b>quando</b> il sistema ha dato il primo segnale
+        e <b>quanto avresti guadagnato</b> seguendolo. Per i settori in testa, vedi due performance:
+        dal momento del <b>primo segnale</b> (più aggressivo) e dalla <b>conferma di leadership</b> (più prudente).
+      </p>
+      <table class="sector-table" id="signals-usa-table"></table>
+    </div>
     <div class="panel" id="holdings-usa-panel" style="display:none;">
       <div class="panel-header">
         <div class="panel-title">
-          <span class="subtitle">05 · Drill-down · Titoli nei settori leader e in ripresa</span>
+          <span class="subtitle">06 · Drill-down · Titoli nei settori leader e in ripresa</span>
           <h2>🎯 Top picks per P/E relativo</h2>
         </div>
       </div>
@@ -451,10 +485,23 @@
       </div>
       <table class="sector-table" id="table-eu-full"></table>
     </div>
+    <div class="panel" id="signals-eu-panel" style="display:none;">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="subtitle">05 · Storico segnali</span>
+          <h2>🚦 Da quando sono in stato attivo?</h2>
+        </div>
+      </div>
+      <p style="color:var(--text-secondary);margin-bottom:20px;font-size:13px;line-height:1.6;">
+        Per ogni settore <b>In testa</b> o <b>In ripresa</b>: quando il sistema ha dato il primo segnale
+        e quanto avresti guadagnato seguendolo.
+      </p>
+      <table class="sector-table" id="signals-eu-table"></table>
+    </div>
     <div class="panel" id="holdings-eu-panel" style="display:none;">
       <div class="panel-header">
         <div class="panel-title">
-          <span class="subtitle">05 · Drill-down · Titoli italiani nei settori leader e in ripresa</span>
+          <span class="subtitle">06 · Drill-down · Titoli italiani nei settori leader e in ripresa</span>
           <h2>🇮🇹 Top picks Borsa Italiana</h2>
         </div>
       </div>
@@ -771,6 +818,82 @@ function renderCross(rows) {
   });
 }
 
+function renderSignals(tableId, panelId, sectors, benchLabel) {
+  const panel = document.getElementById(panelId);
+  const active = sectors.filter(s => s.signal && (s.state === 'In testa' || s.state === 'In ripresa'));
+  if (active.length === 0) {
+    panel.style.display = 'none';
+    return;
+  }
+  panel.style.display = 'block';
+
+  // Ordina: prima testa per perf dal signal, poi ripresa per perf dal signal
+  active.sort((a, b) => {
+    // testa prima
+    if (a.state !== b.state) return a.state === 'In testa' ? -1 : 1;
+    return (b.signal.perfFromSignal || 0) - (a.signal.perfFromSignal || 0);
+  });
+
+  const fmtDate = d => {
+    if (!d) return '—';
+    const parts = d.split('-');
+    return `${parts[2]}/${parts[1]}/${parts[0].slice(2)}`;
+  };
+  const fmtSign = v => {
+    if (v === null || v === undefined) return '<span class="pe-na">—</span>';
+    const cls = v >= 0 ? 'up' : 'down';
+    const sign = v >= 0 ? '+' : '';
+    return `<span class="change ${cls}">${sign}${v.toFixed(1)}%</span>`;
+  };
+  const fmtWeeks = w => w === null || w === undefined ? '—' : `${w} sett.`;
+
+  let html = `
+    <thead>
+      <tr>
+        <th>Settore</th>
+        <th>Stato</th>
+        <th>Segnale<br><span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-muted);font-size:9px;">(entrata In ripresa)</span></th>
+        <th>Da</th>
+        <th class="num">Perf dal segnale</th>
+        <th class="num">vs ${benchLabel}</th>
+        <th>Conferma TESTA<br><span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-muted);font-size:9px;">(entrata In testa)</span></th>
+        <th>Da</th>
+        <th class="num">Perf da TESTA</th>
+        <th class="num">vs ${benchLabel}</th>
+      </tr>
+    </thead>
+    <tbody>
+  `;
+
+  for (const s of active) {
+    const sig = s.signal;
+    const isTesta = s.state === 'In testa';
+    const sameDate = sig.signalDate === sig.stateEntryDate;
+    
+    html += `
+      <tr>
+        <td>
+          <span class="ticker">${s.ticker}</span>
+          <span class="sector-name" style="margin-left:6px;">${s.name}</span>
+        </td>
+        <td><span class="state-badge state-${s.state.replace(/ /g,'_')}">${s.state}</span></td>
+        <td style="font-family:var(--mono);">${fmtDate(sig.signalDate)}</td>
+        <td style="color:var(--text-secondary);">${fmtWeeks(sig.weeksFromSignal)}</td>
+        <td class="num">${fmtSign(sig.perfFromSignal)}</td>
+        <td class="num">${fmtSign(sig.relFromSignal)}</td>
+        <td style="font-family:var(--mono);color:${isTesta && !sameDate ? 'var(--text-primary)' : 'var(--text-muted)'};">
+          ${isTesta ? fmtDate(sig.stateEntryDate) : '<span class="pe-na">—</span>'}
+        </td>
+        <td style="color:var(--text-secondary);">${isTesta ? fmtWeeks(sig.weeksFromState) : '<span class="pe-na">—</span>'}</td>
+        <td class="num">${isTesta ? fmtSign(sig.perfFromState) : '<span class="pe-na">—</span>'}</td>
+        <td class="num">${isTesta ? fmtSign(sig.relFromState) : '<span class="pe-na">—</span>'}</td>
+      </tr>
+    `;
+  }
+  html += '</tbody>';
+  document.getElementById(tableId).innerHTML = html;
+}
+
 function renderHoldings(containerId, panelId, holdings) {
   const panel = document.getElementById(panelId);
   const container = document.getElementById(containerId);
@@ -785,12 +908,26 @@ function renderHoldings(containerId, panelId, holdings) {
     const rows = info.holdings;
     if (!rows || rows.length === 0) continue;
 
+    // Header informativo: signal date + ETF perf
+    const fmtDate = d => {
+      if (!d) return '';
+      const parts = d.split('-');
+      return `${parts[2]}/${parts[1]}/${parts[0].slice(2)}`;
+    };
+    const signalInfo = info.signal_date
+      ? `<span style="font-family:var(--mono);font-size:10px;color:var(--text-secondary);margin-left:auto;">
+           Segnale dal <b style="color:var(--text-primary);">${fmtDate(info.signal_date)}</b>
+           · ETF settore ${info.etf_perf_from_signal >= 0 ? '+' : ''}${(info.etf_perf_from_signal || 0).toFixed(1)}%
+         </span>`
+      : '';
+
     html += `
       <div class="holdings-sector-block">
         <div class="holdings-sector-header">
           <h3>${info.sector_name}</h3>
           <span class="ticker-badge">${sectorTicker}</span>
           <span class="state-badge state-${info.sector_state.replace(/ /g,'_')}">${info.sector_state}</span>
+          ${signalInfo}
         </div>
         <table class="sector-table">
           <thead>
@@ -798,22 +935,21 @@ function renderHoldings(containerId, panelId, holdings) {
               <th>#</th>
               <th>Codice</th>
               <th>Nome</th>
-              <th class="num">Prezzo</th>
               <th class="num">P/E</th>
               <th class="num">P/E vs settore</th>
-              <th class="num">P/E forward</th>
-              <th class="num">PEG</th>
               <th class="num">Cap (B)</th>
               <th class="num">Div %</th>
               <th class="num">Perf 3M</th>
               <th class="num">YTD</th>
+              <th class="num">Perf dal segnale</th>
+              <th class="num">vs ETF</th>
+              <th>Valutazione</th>
             </tr>
           </thead>
           <tbody>
     `;
 
     rows.forEach((r, i) => {
-      // Classifica P/E relativo
       let peRelClass = 'pe-na';
       let peRelLabel = '—';
       if (r.peRelative !== null && r.peRelative !== undefined) {
@@ -830,21 +966,31 @@ function renderHoldings(containerId, panelId, holdings) {
         const sign = v >= 0 ? '+' : '';
         return `<span class="change ${cls}">${sign}${v.toFixed(1)}%</span>`;
       };
+      
+      // Tag label
+      const tagLabels = {
+        'premium_ok':     '💎 Premium ok',
+        'premium_no':     '⚠️ Caro',
+        'value_momentum': '🎯 Sconto + mom',
+      };
+      const tagHtml = r.tag
+        ? `<span class="stock-tag tag-${r.tag}">${tagLabels[r.tag] || ''}</span>`
+        : '';
 
       html += `
         <tr>
           <td style="color:var(--text-muted);">${String(i+1).padStart(2,'0')}</td>
           <td><span class="ticker">${r.ticker}</span></td>
           <td><span class="sector-name">${r.name}</span></td>
-          <td class="num">${fmt(r.price, '', 2)}</td>
           <td class="num">${fmt(r.trailingPE)}</td>
           <td class="num ${peRelClass}">${peRelLabel}</td>
-          <td class="num">${fmt(r.forwardPE)}</td>
-          <td class="num">${r.peg !== null && r.peg !== undefined ? r.peg.toFixed(2) : '<span class="pe-na">—</span>'}</td>
           <td class="num">${fmt(r.marketCapB)}</td>
           <td class="num">${r.divYield !== null && r.divYield !== undefined ? r.divYield.toFixed(2) + '%' : '<span class="pe-na">—</span>'}</td>
           <td class="num">${fmtSign(r.roc13w)}</td>
           <td class="num">${fmtSign(r.rocYtd)}</td>
+          <td class="num">${fmtSign(r.perfFromSignal)}</td>
+          <td class="num">${fmtSign(r.perfVsEtf)}</td>
+          <td>${tagHtml}</td>
         </tr>
       `;
     });
@@ -910,6 +1056,7 @@ async function loadData() {
     renderTopTable('top-usa', DATA.us.sectors);
     renderFullTable('table-usa-full', DATA.us.sectors, 'S&P 500');
     renderLineChart('chart-usa', DATA.us.sectors);
+    renderSignals('signals-usa-table', 'signals-usa-panel', DATA.us.sectors, 'S&P 500');
     renderHoldings('holdings-usa-container', 'holdings-usa-panel', DATA.us.holdings);
   }
   // Render EU
@@ -919,6 +1066,7 @@ async function loadData() {
     renderTopTable('top-eu', DATA.eu.sectors);
     renderFullTable('table-eu-full', DATA.eu.sectors, 'STOXX 600');
     renderLineChart('chart-eu', DATA.eu.sectors);
+    renderSignals('signals-eu-table', 'signals-eu-panel', DATA.eu.sectors, 'STOXX 600');
     renderHoldings('holdings-eu-container', 'holdings-eu-panel', DATA.eu.holdings);
   }
   // Render Cross
