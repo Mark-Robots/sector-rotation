@@ -184,8 +184,8 @@
     letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted);
   }
   .freshness-value {
-    font-family: var(--serif); font-size: 20px;
-    color: var(--text-primary); line-height: 1.1; margin-top: 2px;
+    font-family: var(--sans); font-size: 16px; font-weight: 600;
+    color: var(--text-primary); line-height: 1.2; margin-top: 2px;
   }
   .freshness-sub {
     font-family: var(--mono); font-size: 10px;
@@ -225,11 +225,89 @@
   .help-panel.open .help-toggle::after { content: '−'; }
   .help-content { display: none; padding: 0 24px 24px; line-height: 1.7; }
   .help-panel.open .help-content { display: block; }
-  .help-content h4 { font-family: var(--serif); font-size: 20px; font-weight: 400; margin: 18px 0 8px; }
+  .help-content h4 { font-family: var(--sans); font-size: 16px; font-weight: 600; margin: 18px 0 8px; letter-spacing: -0.005em; }
   .help-content h4:first-child { margin-top: 0; }
   .help-content ul { padding-left: 0; list-style: none; }
   .help-content li { padding: 6px 0; }
   .help-content p { color: var(--text-secondary); margin-top: 10px; }
+  
+  /* Matrice 4x4 Stato × Fase */
+  .matrix-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 4px;
+    margin-top: 12px;
+    font-size: 11px;
+  }
+  .matrix-table th {
+    background: var(--bg-elev);
+    color: var(--text-secondary);
+    font-family: var(--mono);
+    font-weight: 500;
+    padding: 10px 8px;
+    text-align: center;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+    font-size: 11px;
+    line-height: 1.3;
+  }
+  .matrix-table th small {
+    display: inline-block;
+    font-size: 9px;
+    opacity: 0.7;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: 2px;
+  }
+  .matrix-table tbody th { text-align: left; min-width: 130px; }
+  .matrix-table td {
+    padding: 10px 8px;
+    text-align: center;
+    border-radius: 4px;
+    color: var(--text-primary);
+    line-height: 1.4;
+    vertical-align: middle;
+  }
+  .matrix-table td b { font-weight: 600; }
+  
+  .mx-best {
+    background: rgba(34,197,94,0.18);
+    color: #4ade80;
+    border: 1px solid rgba(34,197,94,0.4);
+  }
+  .mx-good {
+    background: rgba(34,197,94,0.08);
+    color: var(--accent-lead);
+    border: 1px solid rgba(34,197,94,0.2);
+  }
+  .mx-warn {
+    background: rgba(249,115,22,0.08);
+    color: var(--accent-weaken);
+    border: 1px solid rgba(249,115,22,0.2);
+  }
+  .mx-bad {
+    background: rgba(239,68,68,0.08);
+    color: var(--accent-lag);
+    border: 1px solid rgba(239,68,68,0.2);
+  }
+  .mx-worst {
+    background: rgba(239,68,68,0.18);
+    color: #f87171;
+    border: 1px solid rgba(239,68,68,0.4);
+  }
+  .mx-neutral {
+    background: rgba(255,255,255,0.04);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .mx-na {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px dashed rgba(255,255,255,0.08);
+    font-style: normal;
+    opacity: 0.6;
+  }
 
   .tabs { display: flex; gap: 4px; margin-bottom: 24px; }
   .tab-btn {
@@ -278,8 +356,8 @@
     font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
     color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px;
   }
-  .kpi-value { font-family: var(--serif); font-size: 36px; font-weight: 400; line-height: 1; margin-bottom: 4px; }
-  .kpi-value.small { font-size: 26px; }
+  .kpi-value { font-family: var(--sans); font-size: 32px; font-weight: 600; line-height: 1; margin-bottom: 4px; letter-spacing: -0.02em; }
+  .kpi-value.small { font-size: 22px; }
   .kpi-sub { font-family: var(--mono); font-size: 11px; color: var(--text-secondary); }
   .kpi-sub.up { color: var(--accent-lead); }
   .kpi-sub.down { color: var(--accent-lag); }
@@ -307,7 +385,7 @@
     padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
   }
   .panel-title { display: flex; flex-direction: column; gap: 4px; }
-  .panel-title h2 { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.01em; }
+  .panel-title h2 { font-family: var(--sans); font-size: 20px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-primary); }
   .panel-title .subtitle {
     font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
     color: var(--text-muted); text-transform: uppercase;
@@ -403,7 +481,7 @@
     margin-bottom: 14px; flex-wrap: wrap;
   }
   .holdings-sector-header h3 {
-    font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -0.01em;
+    font-family: var(--sans); font-size: 20px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-primary);
   }
   .holdings-sector-header .ticker-badge {
     font-family: var(--mono); font-size: 11px;
@@ -484,7 +562,6 @@
           <span class="title-light">Sentinel</span>
         </h1>
       </div>
-      <div class="brand-sub">Sentinella dei megatrend settoriali USA ed Europa · aggiornata automaticamente ogni giorno</div>
     </div>
     <div class="header-controls">
       <div class="freshness-badge" id="freshnessBadge">
@@ -523,6 +600,58 @@
         <li><span style="color:var(--accent-lead);font-weight:600;">Fase 2 · Salita</span> — trend rialzista. <b>Essere dentro.</b></li>
         <li><span style="color:var(--accent-weaken);font-weight:600;">Fase 3 · Top</span> — top in formazione. <b>Ridurre.</b></li>
         <li><span style="color:var(--accent-lag);font-weight:600;">Fase 4 · Discesa</span> — ribassista. <b>Stare fuori.</b></li>
+      </ul>
+
+      <h4>Le 16 combinazioni Stato × Fase</h4>
+      <p>Stato e Fase devono concordare per dare un segnale forte. Le combinazioni "miste" sono ambigue. Ecco cosa significa ogni incrocio:</p>
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th><span style="color:var(--accent-improve);">Fase 1<br><small>Accumulo</small></span></th>
+            <th><span style="color:var(--accent-lead);">Fase 2<br><small>Salita</small></span></th>
+            <th><span style="color:var(--accent-weaken);">Fase 3<br><small>Top</small></span></th>
+            <th><span style="color:var(--accent-lag);">Fase 4<br><small>Discesa</small></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span style="color:var(--accent-lead);">🟢 Leader</span></th>
+            <td class="mx-neutral">Rara · trend appena nato</td>
+            <td class="mx-best"><b>✅ IDEALE</b><br>core position</td>
+            <td class="mx-warn">⚠️ Cima imminente</td>
+            <td class="mx-na">Quasi impossibile</td>
+          </tr>
+          <tr>
+            <th><span style="color:var(--accent-improve);">🟡 Emergente</span></th>
+            <td class="mx-best">🎯 <b>CANDIDATO</b><br>inversione perfetta</td>
+            <td class="mx-good">Inversione confermata<br>acceleratore</td>
+            <td class="mx-warn">Inversione fragile</td>
+            <td class="mx-bad">Falso segnale</td>
+          </tr>
+          <tr>
+            <th><span style="color:var(--accent-weaken);">🟠 In rallentamento</span></th>
+            <td class="mx-bad">Esaurimento maturo</td>
+            <td class="mx-warn">Top in formazione<br>ridurre</td>
+            <td class="mx-worst">⚠️ <b>Pieno top</b><br>uscire</td>
+            <td class="mx-bad">Settore già scaduto</td>
+          </tr>
+          <tr>
+            <th><span style="color:var(--accent-lag);">🔴 Debole</span></th>
+            <td class="mx-neutral">Base lenta<br>watchlist passiva</td>
+            <td class="mx-warn">Trend ok<br>ma forza scarsa</td>
+            <td class="mx-bad">Distribuzione attiva</td>
+            <td class="mx-worst">❌ <b>EVITARE</b><br>declino confermato</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:14px;">
+        <b>3 messaggi pratici da memorizzare:</b>
+      </p>
+      <ul>
+        <li><b>Stato + Fase devono concordare</b> per dare un segnale forte. Leader+Fase 2 = verde pieno. Debole+Fase 4 = rosso pieno.</li>
+        <li><b>"Debole + Fase 2" è una trappola tipica</b>: prezzo in trend ma settore che non batte il mercato. Stai dentro un'attività che sale meno del benchmark.</li>
+        <li><b>"Debole + Fase 1" è il pre-segnale</b>: quando il settore inizia a passare da Debole a Emergente, è il momento di entrare nella watchlist attiva.</li>
       </ul>
 
       <h4>Segnale operativo più semplice</h4>
@@ -594,7 +723,7 @@
       </div>
       <p style="color:var(--text-secondary);margin-bottom:20px;font-size:13px;line-height:1.6;">
         Per ogni settore <b>Leader</b> o <b>Emergente</b>: <b>quando</b> il sistema ha dato il primo segnale
-        e <b>quanto avresti guadagnato</b> seguendolo. Per i settori in testa, vedi due performance:
+        e <b>quanto avresti guadagnato</b> seguendolo. Per i settori Leader, vedi due performance:
         dal momento del <b>primo segnale</b> (più aggressivo) e dalla <b>conferma di leadership</b> (più prudente).
       </p>
       <table class="sector-table" id="signals-usa-table"></table>
@@ -1008,9 +1137,9 @@ function renderSignals(tableId, panelId, sectors, benchLabel) {
   }
   panel.style.display = 'block';
 
-  // Ordina: prima testa per perf dal signal, poi ripresa per perf dal signal
+  // Ordina: prima Leader per perf dal signal, poi ripresa per perf dal signal
   active.sort((a, b) => {
-    // testa prima
+    // Leader prima
     if (a.state !== b.state) return a.state === 'Leader' ? -1 : 1;
     return (b.signal.perfFromSignal || 0) - (a.signal.perfFromSignal || 0);
   });
@@ -1037,9 +1166,9 @@ function renderSignals(tableId, panelId, sectors, benchLabel) {
         <th>Da</th>
         <th class="num">Perf dal segnale</th>
         <th class="num">vs ${benchLabel}</th>
-        <th>Conferma TESTA<br><span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-muted);font-size:9px;">(entrata Leader)</span></th>
+        <th>Conferma LEADER<br><span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-muted);font-size:9px;">(entrata Leader)</span></th>
         <th>Da</th>
-        <th class="num">Perf da TESTA</th>
+        <th class="num">Perf da LEADER</th>
         <th class="num">vs ${benchLabel}</th>
       </tr>
     </thead>
