@@ -568,6 +568,16 @@
     width: 100%;
     border-collapse: collapse;
     font-size: 11px;
+    table-layout: fixed;
+  }
+  .portfolio-table col.pt-sector { width: 42%; }
+  .portfolio-table col.pt-region { width: 14%; }
+  .portfolio-table col.pt-state  { width: 26%; }
+  .portfolio-table col.pt-weight { width: 18%; }
+  .portfolio-table td > div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .portfolio-table th {
     text-align: left;
@@ -611,6 +621,19 @@
     border-color: var(--border-strong);
     color: var(--text-primary);
   }
+  
+  /* Tabelle dei picks: larghezze fisse per allineamento verticale tra settori */
+  #picks-content table {
+    table-layout: fixed;
+    width: 100%;
+  }
+  #picks-content table col.col-code      { width: 8%; }
+  #picks-content table col.col-name      { width: 20%; }
+  #picks-content table col.col-pe        { width: 11%; }
+  #picks-content table col.col-pe-dot    { width: 5%; }
+  #picks-content table col.col-perf      { width: 9%; }
+  #picks-content table col.col-rating    { width: 17%; }
+  #picks-content table col.col-stato     { width: 30%; }
 
   footer {
     margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
@@ -1301,6 +1324,12 @@ function renderPortfolio(portfolio) {
           </div>
         </div>
         <table class="portfolio-table">
+          <colgroup>
+            <col class="pt-sector">
+            <col class="pt-region">
+            <col class="pt-state">
+            <col class="pt-weight">
+          </colgroup>
           <thead>
             <tr>
               <th>Settore</th>
@@ -1467,11 +1496,21 @@ window.renderPicksFor = function(region, allocations) {
           <span style="font-family:var(--mono);font-size:10px;color:var(--text-muted);">${item.sector_ticker} · peso ${item.weight_pct}%</span>
         </div>
         <table class="sector-table" style="margin-bottom:0;">
+          <colgroup>
+            <col class="col-code">
+            <col class="col-name">
+            <col class="col-pe">
+            <col class="col-pe-dot">
+            <col class="col-perf">
+            <col class="col-rating">
+            <col class="col-stato">
+          </colgroup>
           <thead>
             <tr>
               <th>Codice</th>
               <th>Nome</th>
               <th class="num">P/E vs settore</th>
+              <th></th>
               <th class="num">Perf 3M</th>
               <th>Valutazione</th>
               <th>Stato operativo</th>
@@ -1485,18 +1524,19 @@ window.renderPicksFor = function(region, allocations) {
         : '';
       let peLabel = '—';
       let peClass = 'pe-na';
+      let peDot = '';
       if (p.pe_rel !== null && p.pe_rel !== undefined) {
-        if (p.pe_rel < 0.85) { peClass = 'pe-good'; peLabel = `${p.pe_rel}× 🟢`; }
-        else if (p.pe_rel <= 1.15) { peClass = 'pe-fair'; peLabel = `${p.pe_rel}×`; }
-        else { peClass = 'pe-expensive'; peLabel = `${p.pe_rel}×`; }
+        if (p.pe_rel < 0.85) { peClass = 'pe-good'; peLabel = `${p.pe_rel}×`; peDot = '🟢'; }
+        else if (p.pe_rel <= 1.15) { peClass = 'pe-fair'; peLabel = `${p.pe_rel}×`; peDot = '⚪'; }
+        else { peClass = 'pe-expensive'; peLabel = `${p.pe_rel}×`; peDot = '🟠'; }
       }
       const stato = calcStatoOp(item, p);
       const statoHtml = `
-        <div style="display:flex;flex-direction:column;gap:2px;">
-          <span style="font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.08em;color:${stato.color};">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <span style="font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.08em;color:${stato.color};white-space:nowrap;">
             ${stato.emoji} ${stato.level}
           </span>
-          <span style="font-size:9px;color:var(--text-muted);line-height:1.3;">${stato.reason}</span>
+          <span style="font-size:10px;color:var(--text-muted);">· ${stato.reason}</span>
         </div>
       `;
       html += `
@@ -1504,6 +1544,7 @@ window.renderPicksFor = function(region, allocations) {
           <td><span class="ticker">${p.ticker}</span></td>
           <td><span class="sector-name">${p.name}</span></td>
           <td class="num ${peClass}">${peLabel}</td>
+          <td style="text-align:center;font-size:11px;">${peDot}</td>
           <td class="num">${fmtSign(p.perf_3m)}</td>
           <td>${tagHtml}</td>
           <td>${statoHtml}</td>
@@ -1517,12 +1558,26 @@ window.renderPicksFor = function(region, allocations) {
     html = '<p style="color:var(--text-muted);padding:20px;text-align:center;">Nessun titolo operativo disponibile per questa regione.</p>';
   }
   
-  // Legenda in cima
+  // Legenda in cima · spiega i 2 indicatori separati
   const legend = `
-    <div style="display:flex;gap:18px;margin-bottom:18px;padding:12px 16px;background:var(--bg-card-2);border-radius:6px;font-size:11px;flex-wrap:wrap;">
-      <div><b style="color:var(--accent-lead);">🟢 DENTRO</b> <span style="color:var(--text-muted);">· settore e titolo OK · mantieni o compra</span></div>
-      <div><b style="color:var(--accent-improve);">🟡 MONITORA</b> <span style="color:var(--text-muted);">· settore OK ma titolo Stagnante · stop loss stretto</span></div>
-      <div><b style="color:var(--accent-lag);">🔴 FUORI</b> <span style="color:var(--text-muted);">· settore o titolo non più validi · vendere</span></div>
+    <div style="margin-bottom:18px;padding:14px 18px;background:var(--bg-card-2);border-radius:6px;font-size:11px;line-height:1.6;">
+      <div style="display:flex;gap:32px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:280px;">
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.16em;color:var(--text-muted);margin-bottom:8px;">PALLINO IN COLONNA "P/E VS SETTORE"</div>
+          <div style="margin-bottom:4px;"><b>🟢</b> <span style="color:var(--text-secondary);">P/E sotto 0.85× la mediana del settore · titolo <b>conveniente</b></span></div>
+          <div style="margin-bottom:4px;"><b>⚪</b> <span style="color:var(--text-secondary);">P/E tra 0.85× e 1.15× · <b>in linea</b> con il settore</span></div>
+          <div><b>🟠</b> <span style="color:var(--text-secondary);">P/E sopra 1.15× la mediana · titolo <b>caro</b></span></div>
+        </div>
+        <div style="flex:1;min-width:280px;">
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.16em;color:var(--text-muted);margin-bottom:8px;">PALLINO IN COLONNA "STATO OPERATIVO"</div>
+          <div style="margin-bottom:4px;"><b style="color:var(--accent-lead);">🟢 DENTRO</b> <span style="color:var(--text-secondary);">· settore e titolo OK · mantieni o compra</span></div>
+          <div style="margin-bottom:4px;"><b style="color:var(--accent-improve);">🟡 MONITORA</b> <span style="color:var(--text-secondary);">· settore OK ma titolo Stagnante · stop loss stretto</span></div>
+          <div><b style="color:var(--accent-lag);">🔴 FUORI</b> <span style="color:var(--text-secondary);">· settore o titolo non più validi · vendere</span></div>
+        </div>
+      </div>
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);color:var(--text-muted);font-size:10px;font-style:normal;">
+        I due indicatori sono <b>complementari</b>: il P/E dice <i>quanto paghi</i>, lo Stato operativo dice <i>se vale la pena pagarlo</i>. Un titolo 🟠 caro + 🟢 DENTRO è un premium giustificato dalla performance.
+      </div>
     </div>
   `;
   
