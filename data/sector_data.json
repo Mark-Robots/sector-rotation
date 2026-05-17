@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-17T13:12:40.103935+00:00",
+  "updated_at": "2026-05-17T14:48:00.884732+00:00",
   "last_data_date": "2026-05-15",
   "tickers_obtained": 37,
   "tickers_total": 37,
@@ -139,7 +139,17 @@
             "date": "2026-05-15",
             "value": 109.87
           }
-        ]
+        ],
+        "signal": {
+          "stateEntryDate": "2026-03-06",
+          "signalDate": "2025-12-19",
+          "weeksFromState": 10,
+          "weeksFromSignal": 21,
+          "perfFromState": 28.5,
+          "perfFromSignal": 22.2,
+          "relFromState": 18.3,
+          "relFromSignal": 13.3
+        }
       },
       {
         "ticker": "XLF",
@@ -272,7 +282,8 @@
             "date": "2026-05-15",
             "value": 93.04
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "XLV",
@@ -405,7 +416,8 @@
             "date": "2026-05-15",
             "value": 93.54
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "XLY",
@@ -538,7 +550,8 @@
             "date": "2026-05-15",
             "value": 90.98
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "XLP",
@@ -671,7 +684,8 @@
             "date": "2026-05-15",
             "value": 96.78
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "XLE",
@@ -804,7 +818,17 @@
             "date": "2026-05-15",
             "value": 103.26
           }
-        ]
+        ],
+        "signal": {
+          "stateEntryDate": "2026-01-23",
+          "signalDate": "2026-01-02",
+          "weeksFromState": 16,
+          "weeksFromSignal": 19,
+          "perfFromState": 21.6,
+          "perfFromSignal": 31.1,
+          "relFromState": 14.1,
+          "relFromSignal": 22.6
+        }
       },
       {
         "ticker": "XLI",
@@ -937,7 +961,8 @@
             "date": "2026-05-15",
             "value": 97.92
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "XLB",
@@ -1070,7 +1095,8 @@
             "date": "2026-05-15",
             "value": 98.01
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "XLU",
@@ -1203,7 +1229,8 @@
             "date": "2026-05-15",
             "value": 93.24
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "XLRE",
@@ -1336,7 +1363,8 @@
             "date": "2026-05-15",
             "value": 95.97
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "XLC",
@@ -1469,7 +1497,8 @@
             "date": "2026-05-15",
             "value": 90.26
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "SOXX",
@@ -1602,7 +1631,17 @@
             "date": "2026-05-15",
             "value": 108.27
           }
-        ]
+        ],
+        "signal": {
+          "stateEntryDate": "2025-06-27",
+          "signalDate": "2025-06-27",
+          "weeksFromState": 46,
+          "weeksFromSignal": 46,
+          "perfFromState": 113.8,
+          "perfFromSignal": 113.8,
+          "relFromState": 92.6,
+          "relFromSignal": 92.6
+        }
       },
       {
         "ticker": "IBB",
@@ -1735,7 +1774,8 @@
             "date": "2026-05-15",
             "value": 98.85
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "KRE",
@@ -1868,7 +1908,8 @@
             "date": "2026-05-15",
             "value": 95.47
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "XHB",
@@ -2001,7 +2042,8 @@
             "date": "2026-05-15",
             "value": 90.9
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "XRT",
@@ -2134,7 +2176,8 @@
             "date": "2026-05-15",
             "value": 89.5
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "ITA",
@@ -2267,13 +2310,16 @@
             "date": "2026-05-15",
             "value": 96.51
           }
-        ]
+        ],
+        "signal": null
       }
     ],
     "holdings": {
       "XLK": {
         "sector_name": "Tecnologia",
         "sector_state": "In testa",
+        "signal_date": "2025-12-19",
+        "etf_perf_from_signal": 22.2,
         "holdings": [
           {
             "ticker": "ACN",
@@ -2286,7 +2332,10 @@
             "divYield": 386.0,
             "roc13w": -23.3,
             "rocYtd": -34.5,
-            "peRelative": 0.46
+            "perfFromSignal": -37.5,
+            "peRelative": 0.46,
+            "perfVsEtf": -59.7,
+            "tag": null
           },
           {
             "ticker": "ADBE",
@@ -2299,7 +2348,10 @@
             "divYield": null,
             "roc13w": -5.7,
             "rocYtd": -25.7,
-            "peRelative": 0.48
+            "perfFromSignal": -30.4,
+            "peRelative": 0.48,
+            "perfVsEtf": -52.6,
+            "tag": null
           },
           {
             "ticker": "IBM",
@@ -2312,7 +2364,10 @@
             "divYield": 308.0,
             "roc13w": -14.9,
             "rocYtd": -23.8,
-            "peRelative": 0.64
+            "perfFromSignal": -26.2,
+            "peRelative": 0.64,
+            "perfVsEtf": -48.4,
+            "tag": null
           },
           {
             "ticker": "QCOM",
@@ -2325,7 +2380,10 @@
             "divYield": 183.0,
             "roc13w": 46.4,
             "rocYtd": 17.2,
-            "peRelative": 0.72
+            "perfFromSignal": 15.7,
+            "peRelative": 0.72,
+            "perfVsEtf": -6.5,
+            "tag": null
           },
           {
             "ticker": "CRM",
@@ -2338,7 +2396,10 @@
             "divYield": 101.0,
             "roc13w": -6.2,
             "rocYtd": -31.4,
-            "peRelative": 0.74
+            "perfFromSignal": -33.1,
+            "peRelative": 0.74,
+            "perfVsEtf": -55.3,
+            "tag": null
           },
           {
             "ticker": "MSFT",
@@ -2351,7 +2412,10 @@
             "divYield": 86.0,
             "roc13w": 5.2,
             "rocYtd": -10.6,
-            "peRelative": 0.83
+            "perfFromSignal": -13.0,
+            "peRelative": 0.83,
+            "perfVsEtf": -35.2,
+            "tag": null
           },
           {
             "ticker": "INTU",
@@ -2364,7 +2428,10 @@
             "divYield": 118.0,
             "roc13w": -0.9,
             "rocYtd": -37.3,
-            "peRelative": 0.85
+            "perfFromSignal": -41.2,
+            "peRelative": 0.85,
+            "perfVsEtf": -63.4,
+            "tag": null
           },
           {
             "ticker": "ORCL",
@@ -2377,7 +2444,10 @@
             "divYield": 104.0,
             "roc13w": 23.7,
             "rocYtd": -0.8,
-            "peRelative": 1.15
+            "perfFromSignal": 1.1,
+            "peRelative": 1.15,
+            "perfVsEtf": -21.1,
+            "tag": null
           },
           {
             "ticker": "AAPL",
@@ -2390,7 +2460,10 @@
             "divYield": 36.0,
             "roc13w": 14.8,
             "rocYtd": 11.0,
-            "peRelative": 1.21
+            "perfFromSignal": 9.9,
+            "peRelative": 1.21,
+            "perfVsEtf": -12.3,
+            "tag": "premium_no"
           },
           {
             "ticker": "CSCO",
@@ -2403,20 +2476,26 @@
             "divYield": 142.0,
             "roc13w": 58.5,
             "rocYtd": 56.3,
-            "peRelative": 1.31
+            "perfFromSignal": 52.4,
+            "peRelative": 1.31,
+            "perfVsEtf": 30.2,
+            "tag": "premium_ok"
           },
           {
             "ticker": "NVDA",
             "name": "NVIDIA Corporation",
             "price": 225.32,
             "trailingPE": 46.1,
-            "forwardPE": 19.8,
+            "forwardPE": 19.7,
             "peg": 0.72,
             "marketCapB": 5457.4,
             "divYield": 2.0,
             "roc13w": 20.5,
             "rocYtd": 19.3,
-            "peRelative": 1.53
+            "perfFromSignal": 24.5,
+            "peRelative": 1.53,
+            "perfVsEtf": 2.3,
+            "tag": "premium_ok"
           },
           {
             "ticker": "TXN",
@@ -2429,7 +2508,10 @@
             "divYield": 188.0,
             "roc13w": 36.4,
             "rocYtd": 72.5,
-            "peRelative": 1.72
+            "perfFromSignal": 73.7,
+            "peRelative": 1.72,
+            "perfVsEtf": 51.5,
+            "tag": "premium_ok"
           },
           {
             "ticker": "AVGO",
@@ -2442,7 +2524,10 @@
             "divYield": 61.0,
             "roc13w": 28.7,
             "rocYtd": 22.6,
-            "peRelative": 2.75
+            "perfFromSignal": 25.4,
+            "peRelative": 2.75,
+            "perfVsEtf": 3.2,
+            "tag": "premium_ok"
           },
           {
             "ticker": "AMD",
@@ -2455,13 +2540,18 @@
             "divYield": null,
             "roc13w": 105.9,
             "rocYtd": 89.8,
-            "peRelative": 4.68
+            "perfFromSignal": 98.7,
+            "peRelative": 4.68,
+            "perfVsEtf": 76.5,
+            "tag": "premium_ok"
           }
         ]
       },
       "XLE": {
         "sector_name": "Energia",
         "sector_state": "In testa",
+        "signal_date": "2026-01-02",
+        "etf_perf_from_signal": 31.1,
         "holdings": [
           {
             "ticker": "EOG",
@@ -2474,7 +2564,10 @@
             "divYield": 291.0,
             "roc13w": 19.9,
             "rocYtd": 33.0,
-            "peRelative": 0.59
+            "perfFromSignal": 33.0,
+            "peRelative": 0.59,
+            "perfVsEtf": 1.9,
+            "tag": "value_momentum"
           },
           {
             "ticker": "MPC",
@@ -2487,7 +2580,10 @@
             "divYield": 153.0,
             "roc13w": 29.4,
             "rocYtd": 55.2,
-            "peRelative": 0.71
+            "perfFromSignal": 55.2,
+            "peRelative": 0.71,
+            "perfVsEtf": 24.1,
+            "tag": "value_momentum"
           },
           {
             "ticker": "PSX",
@@ -2500,7 +2596,10 @@
             "divYield": 288.0,
             "roc13w": 13.7,
             "rocYtd": 36.1,
-            "peRelative": 0.74
+            "perfFromSignal": 36.1,
+            "peRelative": 0.74,
+            "perfVsEtf": 5.0,
+            "tag": "value_momentum"
           },
           {
             "ticker": "VLO",
@@ -2513,7 +2612,10 @@
             "divYield": 191.0,
             "roc13w": 27.3,
             "rocYtd": 52.6,
-            "peRelative": 0.78
+            "perfFromSignal": 52.6,
+            "peRelative": 0.78,
+            "perfVsEtf": 21.5,
+            "tag": "value_momentum"
           },
           {
             "ticker": "COP",
@@ -2526,7 +2628,10 @@
             "divYield": 274.0,
             "roc13w": 12.1,
             "rocYtd": 28.5,
-            "peRelative": 0.88
+            "perfFromSignal": 28.5,
+            "peRelative": 0.88,
+            "perfVsEtf": -2.6,
+            "tag": null
           },
           {
             "ticker": "KMI",
@@ -2539,7 +2644,10 @@
             "divYield": 349.0,
             "roc13w": 7.1,
             "rocYtd": 23.7,
-            "peRelative": 0.96
+            "perfFromSignal": 23.7,
+            "peRelative": 0.96,
+            "perfVsEtf": -7.4,
+            "tag": null
           },
           {
             "ticker": "SLB",
@@ -2552,7 +2660,10 @@
             "divYield": 213.0,
             "roc13w": 9.4,
             "rocYtd": 38.6,
-            "peRelative": 1.04
+            "perfFromSignal": 38.6,
+            "peRelative": 1.04,
+            "perfVsEtf": 7.5,
+            "tag": null
           },
           {
             "ticker": "XOM",
@@ -2565,7 +2676,10 @@
             "divYield": 261.0,
             "roc13w": 6.0,
             "rocYtd": 30.5,
-            "peRelative": 1.13
+            "perfFromSignal": 30.5,
+            "peRelative": 1.13,
+            "perfVsEtf": -0.6,
+            "tag": null
           },
           {
             "ticker": "CVX",
@@ -2578,7 +2692,10 @@
             "divYield": 373.0,
             "roc13w": 5.8,
             "rocYtd": 23.8,
-            "peRelative": 1.42
+            "perfFromSignal": 23.8,
+            "peRelative": 1.42,
+            "perfVsEtf": -7.3,
+            "tag": "premium_no"
           },
           {
             "ticker": "WMB",
@@ -2591,7 +2708,10 @@
             "divYield": 270.0,
             "roc13w": 10.1,
             "rocYtd": 28.6,
-            "peRelative": 1.45
+            "perfFromSignal": 28.6,
+            "peRelative": 1.45,
+            "perfVsEtf": -2.5,
+            "tag": "premium_no"
           },
           {
             "ticker": "OXY",
@@ -2604,7 +2724,10 @@
             "divYield": 174.0,
             "roc13w": 31.7,
             "rocYtd": 41.3,
-            "peRelative": 3.43
+            "perfFromSignal": 41.3,
+            "peRelative": 3.43,
+            "perfVsEtf": 10.2,
+            "tag": "premium_ok"
           },
           {
             "ticker": "FANG",
@@ -2617,13 +2740,18 @@
             "divYield": 216.0,
             "roc13w": 23.0,
             "rocYtd": 35.2,
-            "peRelative": 8.84
+            "perfFromSignal": 35.2,
+            "peRelative": 8.84,
+            "perfVsEtf": 4.1,
+            "tag": "premium_ok"
           }
         ]
       },
       "SOXX": {
         "sector_name": "Semiconduttori",
         "sector_state": "In testa",
+        "signal_date": "2025-06-27",
+        "etf_perf_from_signal": 113.8,
         "holdings": [
           {
             "ticker": "QCOM",
@@ -2636,7 +2764,10 @@
             "divYield": 183.0,
             "roc13w": 46.4,
             "rocYtd": 17.2,
-            "peRelative": 0.42
+            "perfFromSignal": 29.3,
+            "peRelative": 0.42,
+            "perfVsEtf": -84.5,
+            "tag": null
           },
           {
             "ticker": "MU",
@@ -2649,7 +2780,10 @@
             "divYield": 8.0,
             "roc13w": 75.1,
             "rocYtd": 129.8,
-            "peRelative": 0.67
+            "perfFromSignal": 482.2,
+            "peRelative": 0.67,
+            "perfVsEtf": 368.4,
+            "tag": "value_momentum"
           },
           {
             "ticker": "TSM",
@@ -2662,7 +2796,10 @@
             "divYield": 94.0,
             "roc13w": 10.2,
             "rocYtd": 26.9,
-            "peRelative": 0.68
+            "perfFromSignal": 78.4,
+            "peRelative": 0.68,
+            "perfVsEtf": -35.4,
+            "tag": null
           },
           {
             "ticker": "AMAT",
@@ -2675,20 +2812,26 @@
             "divYield": 49.0,
             "roc13w": 33.1,
             "rocYtd": 62.6,
-            "peRelative": 0.81
+            "perfFromSignal": 139.8,
+            "peRelative": 0.81,
+            "perfVsEtf": 26.0,
+            "tag": "value_momentum"
           },
           {
             "ticker": "NVDA",
             "name": "NVIDIA Corporation",
             "price": 225.32,
             "trailingPE": 46.1,
-            "forwardPE": 19.8,
+            "forwardPE": 19.7,
             "peg": 0.72,
             "marketCapB": 5457.4,
             "divYield": 2.0,
             "roc13w": 20.5,
             "rocYtd": 19.3,
-            "peRelative": 0.9
+            "perfFromSignal": 42.9,
+            "peRelative": 0.9,
+            "perfVsEtf": -70.9,
+            "tag": null
           },
           {
             "ticker": "ASML",
@@ -2701,7 +2844,10 @@
             "divYield": 59.0,
             "roc13w": 7.0,
             "rocYtd": 29.5,
-            "peRelative": 0.97
+            "perfFromSignal": 90.2,
+            "peRelative": 0.97,
+            "perfVsEtf": -23.6,
+            "tag": null
           },
           {
             "ticker": "KLAC",
@@ -2714,7 +2860,10 @@
             "divYield": 51.0,
             "roc13w": 24.5,
             "rocYtd": 41.8,
-            "peRelative": 1.0
+            "perfFromSignal": 103.8,
+            "peRelative": 1.0,
+            "perfVsEtf": -10.0,
+            "tag": null
           },
           {
             "ticker": "TXN",
@@ -2727,7 +2876,10 @@
             "divYield": 188.0,
             "roc13w": 36.4,
             "rocYtd": 72.5,
-            "peRelative": 1.02
+            "perfFromSignal": 50.3,
+            "peRelative": 1.02,
+            "perfVsEtf": -63.5,
+            "tag": null
           },
           {
             "ticker": "LRCX",
@@ -2740,7 +2892,10 @@
             "divYield": 37.0,
             "roc13w": 23.2,
             "rocYtd": 54.0,
-            "peRelative": 1.05
+            "perfFromSignal": 194.3,
+            "peRelative": 1.05,
+            "perfVsEtf": 80.5,
+            "tag": null
           },
           {
             "ticker": "MRVL",
@@ -2753,7 +2908,10 @@
             "divYield": 14.0,
             "roc13w": 126.2,
             "rocYtd": 98.1,
-            "peRelative": 1.13
+            "perfFromSignal": 129.9,
+            "peRelative": 1.13,
+            "perfVsEtf": 16.1,
+            "tag": null
           },
           {
             "ticker": "ADI",
@@ -2766,7 +2924,10 @@
             "divYield": 97.0,
             "roc13w": 26.4,
             "rocYtd": 53.0,
-            "peRelative": 1.5
+            "perfFromSignal": 78.1,
+            "peRelative": 1.5,
+            "perfVsEtf": -35.7,
+            "tag": "premium_no"
           },
           {
             "ticker": "AVGO",
@@ -2779,7 +2940,10 @@
             "divYield": 61.0,
             "roc13w": 28.7,
             "rocYtd": 22.6,
-            "peRelative": 1.62
+            "perfFromSignal": 58.8,
+            "peRelative": 1.62,
+            "perfVsEtf": -55.0,
+            "tag": "premium_no"
           },
           {
             "ticker": "AMD",
@@ -2792,7 +2956,10 @@
             "divYield": null,
             "roc13w": 105.9,
             "rocYtd": 89.8,
-            "peRelative": 2.76
+            "perfFromSignal": 194.9,
+            "peRelative": 2.76,
+            "perfVsEtf": 81.1,
+            "tag": "premium_ok"
           },
           {
             "ticker": "INTC",
@@ -2805,7 +2972,10 @@
             "divYield": null,
             "roc13w": 134.0,
             "rocYtd": 176.2,
-            "peRelative": null
+            "perfFromSignal": 379.4,
+            "peRelative": null,
+            "perfVsEtf": 265.6,
+            "tag": null
           }
         ]
       }
@@ -2946,7 +3116,17 @@
             "date": "2026-05-15",
             "value": 102.62
           }
-        ]
+        ],
+        "signal": {
+          "stateEntryDate": "2026-05-08",
+          "signalDate": "2026-04-17",
+          "weeksFromState": 1,
+          "weeksFromSignal": 4,
+          "perfFromState": -0.1,
+          "perfFromSignal": 4.0,
+          "relFromState": 0.7,
+          "relFromSignal": 6.4
+        }
       },
       {
         "ticker": "EXV1",
@@ -3079,7 +3259,8 @@
             "date": "2026-05-15",
             "value": 103.03
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "EXV5",
@@ -3212,7 +3393,8 @@
             "date": "2026-05-15",
             "value": 95.09
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "EXH1",
@@ -3345,7 +3527,17 @@
             "date": "2026-05-15",
             "value": 105.41
           }
-        ]
+        ],
+        "signal": {
+          "stateEntryDate": "2025-06-27",
+          "signalDate": "2025-06-27",
+          "weeksFromState": 46,
+          "weeksFromSignal": 46,
+          "perfFromState": 51.8,
+          "perfFromSignal": 51.8,
+          "relFromState": 37.9,
+          "relFromSignal": 37.9
+        }
       },
       {
         "ticker": "EXV4",
@@ -3478,7 +3670,8 @@
             "date": "2026-05-15",
             "value": 93.44
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "EXH5",
@@ -3611,7 +3804,17 @@
             "date": "2026-05-15",
             "value": 97.72
           }
-        ]
+        ],
+        "signal": {
+          "stateEntryDate": "2026-03-13",
+          "signalDate": "2026-03-13",
+          "weeksFromState": 9,
+          "weeksFromSignal": 9,
+          "perfFromState": 5.7,
+          "perfFromSignal": 5.7,
+          "relFromState": 2.6,
+          "relFromSignal": 2.6
+        }
       },
       {
         "ticker": "EXH3",
@@ -3744,7 +3947,17 @@
             "date": "2026-05-15",
             "value": 97.05
           }
-        ]
+        ],
+        "signal": {
+          "stateEntryDate": "2026-05-01",
+          "signalDate": "2026-05-01",
+          "weeksFromState": 2,
+          "weeksFromSignal": 2,
+          "perfFromState": 1.7,
+          "perfFromSignal": 1.7,
+          "relFromState": 0.9,
+          "relFromSignal": 0.9
+        }
       },
       {
         "ticker": "EXH2",
@@ -3877,7 +4090,17 @@
             "date": "2026-05-15",
             "value": 97.71
           }
-        ]
+        ],
+        "signal": {
+          "stateEntryDate": "2026-03-06",
+          "signalDate": "2026-03-06",
+          "weeksFromState": 10,
+          "weeksFromSignal": 10,
+          "perfFromState": 4.4,
+          "perfFromSignal": 4.4,
+          "relFromState": 1.8,
+          "relFromSignal": 1.8
+        }
       },
       {
         "ticker": "EXH8",
@@ -4010,7 +4233,8 @@
             "date": "2026-05-15",
             "value": 91.99
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "EXH4",
@@ -4143,7 +4367,8 @@
             "date": "2026-05-15",
             "value": 96.27
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "EXV8",
@@ -4276,7 +4501,8 @@
             "date": "2026-05-15",
             "value": 95.24
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "EXV6",
@@ -4409,7 +4635,8 @@
             "date": "2026-05-15",
             "value": 105.3
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "EXH6",
@@ -4542,7 +4769,17 @@
             "date": "2026-05-15",
             "value": 96.77
           }
-        ]
+        ],
+        "signal": {
+          "stateEntryDate": "2026-03-06",
+          "signalDate": "2026-03-06",
+          "weeksFromState": 10,
+          "weeksFromSignal": 10,
+          "perfFromState": 5.2,
+          "perfFromSignal": 5.2,
+          "relFromState": 2.6,
+          "relFromSignal": 2.6
+        }
       },
       {
         "ticker": "EXV2",
@@ -4675,7 +4912,17 @@
             "date": "2026-05-15",
             "value": 106.07
           }
-        ]
+        ],
+        "signal": {
+          "stateEntryDate": "2026-02-06",
+          "signalDate": "2026-01-23",
+          "weeksFromState": 14,
+          "weeksFromSignal": 16,
+          "perfFromState": 12.0,
+          "perfFromSignal": 21.9,
+          "relFromState": 12.3,
+          "relFromSignal": 20.7
+        }
       },
       {
         "ticker": "EXH7",
@@ -4808,7 +5055,17 @@
             "date": "2026-05-15",
             "value": 93.94
           }
-        ]
+        ],
+        "signal": {
+          "stateEntryDate": "2026-05-01",
+          "signalDate": "2026-05-01",
+          "weeksFromState": 2,
+          "weeksFromSignal": 2,
+          "perfFromState": 2.1,
+          "perfFromSignal": 2.1,
+          "relFromState": 1.4,
+          "relFromSignal": 1.4
+        }
       },
       {
         "ticker": "EXV7",
@@ -4941,7 +5198,17 @@
             "date": "2026-05-15",
             "value": 98.28
           }
-        ]
+        ],
+        "signal": {
+          "stateEntryDate": "2026-05-15",
+          "signalDate": "2026-05-15",
+          "weeksFromState": 0,
+          "weeksFromSignal": 0,
+          "perfFromState": 0.0,
+          "perfFromSignal": 0.0,
+          "relFromState": 0.0,
+          "relFromSignal": 0.0
+        }
       },
       {
         "ticker": "EXH9",
@@ -5074,7 +5341,8 @@
             "date": "2026-05-15",
             "value": 102.0
           }
-        ]
+        ],
+        "signal": null
       },
       {
         "ticker": "EXV9",
@@ -5207,13 +5475,16 @@
             "date": "2026-05-15",
             "value": 94.63
           }
-        ]
+        ],
+        "signal": null
       }
     ],
     "holdings": {
       "EXV3": {
         "sector_name": "Tecnologia",
         "sector_state": "In testa",
+        "signal_date": "2026-04-17",
+        "etf_perf_from_signal": 4.0,
         "holdings": [
           {
             "ticker": "DEA.MI",
@@ -5226,7 +5497,10 @@
             "divYield": null,
             "roc13w": -12.7,
             "rocYtd": 1.9,
-            "peRelative": 0.71
+            "perfFromSignal": -7.8,
+            "peRelative": 0.71,
+            "perfVsEtf": -11.8,
+            "tag": null
           },
           {
             "ticker": "REY.MI",
@@ -5239,7 +5513,10 @@
             "divYield": 138.0,
             "roc13w": 3.9,
             "rocYtd": -11.9,
-            "peRelative": 1.0
+            "perfFromSignal": 1.8,
+            "peRelative": 1.0,
+            "perfVsEtf": -2.2,
+            "tag": null
           },
           {
             "ticker": "TXT.MI",
@@ -5252,13 +5529,18 @@
             "divYield": 94.0,
             "roc13w": 48.4,
             "rocYtd": 23.7,
-            "peRelative": 1.4
+            "perfFromSignal": 4.1,
+            "peRelative": 1.4,
+            "perfVsEtf": 0.1,
+            "tag": "premium_ok"
           }
         ]
       },
       "EXH1": {
         "sector_name": "Energia",
         "sector_state": "In testa",
+        "signal_date": "2025-06-27",
+        "etf_perf_from_signal": 51.8,
         "holdings": [
           {
             "ticker": "TEN.MI",
@@ -5271,7 +5553,10 @@
             "divYield": 285.0,
             "roc13w": 30.4,
             "rocYtd": 62.0,
-            "peRelative": 0.75
+            "perfFromSignal": 72.0,
+            "peRelative": 0.75,
+            "perfVsEtf": 20.2,
+            "tag": "value_momentum"
           },
           {
             "ticker": "ERG.MI",
@@ -5284,7 +5569,10 @@
             "divYield": 428.0,
             "roc13w": 2.0,
             "rocYtd": 3.7,
-            "peRelative": 0.91
+            "perfFromSignal": 25.0,
+            "peRelative": 0.91,
+            "perfVsEtf": -26.8,
+            "tag": null
           },
           {
             "ticker": "ENI.MI",
@@ -5297,7 +5585,10 @@
             "divYield": 459.0,
             "roc13w": 30.2,
             "rocYtd": 45.3,
-            "peRelative": 1.09
+            "perfFromSignal": 77.9,
+            "peRelative": 1.09,
+            "perfVsEtf": 26.1,
+            "tag": null
           },
           {
             "ticker": "SPM.MI",
@@ -5310,13 +5601,18 @@
             "divYield": 365.0,
             "roc13w": 41.4,
             "rocYtd": 86.2,
-            "peRelative": 1.42
+            "perfFromSignal": 102.2,
+            "peRelative": 1.42,
+            "perfVsEtf": 50.4,
+            "tag": "premium_ok"
           }
         ]
       },
       "EXH5": {
         "sector_name": "Assicurazioni",
         "sector_state": "In ripresa",
+        "signal_date": "2026-03-13",
+        "etf_perf_from_signal": 5.7,
         "holdings": [
           {
             "ticker": "UNI.MI",
@@ -5329,7 +5625,10 @@
             "divYield": 506.0,
             "roc13w": 16.8,
             "rocYtd": 7.9,
-            "peRelative": 0.86
+            "perfFromSignal": 12.2,
+            "peRelative": 0.86,
+            "perfVsEtf": 6.5,
+            "tag": null
           },
           {
             "ticker": "G.MI",
@@ -5342,13 +5641,18 @@
             "divYield": 425.0,
             "roc13w": 12.0,
             "rocYtd": 7.9,
-            "peRelative": 1.14
+            "perfFromSignal": 12.9,
+            "peRelative": 1.14,
+            "perfVsEtf": 7.2,
+            "tag": null
           }
         ]
       },
       "EXH3": {
         "sector_name": "Servizi finanziari",
         "sector_state": "In ripresa",
+        "signal_date": "2026-05-01",
+        "etf_perf_from_signal": 1.7,
         "holdings": [
           {
             "ticker": "ANIM.MI",
@@ -5361,7 +5665,10 @@
             "divYield": 691.0,
             "roc13w": 13.4,
             "rocYtd": 29.2,
-            "peRelative": 0.81
+            "perfFromSignal": 5.8,
+            "peRelative": 0.81,
+            "perfVsEtf": 4.1,
+            "tag": "value_momentum"
           },
           {
             "ticker": "AZM.MI",
@@ -5374,7 +5681,10 @@
             "divYield": 568.0,
             "roc13w": 1.1,
             "rocYtd": -1.4,
-            "peRelative": 0.82
+            "perfFromSignal": -0.8,
+            "peRelative": 0.82,
+            "perfVsEtf": -2.5,
+            "tag": null
           },
           {
             "ticker": "BMED.MI",
@@ -5387,7 +5697,10 @@
             "divYield": 680.0,
             "roc13w": 11.3,
             "rocYtd": 0.5,
-            "peRelative": 1.0
+            "perfFromSignal": 4.7,
+            "peRelative": 1.0,
+            "perfVsEtf": 3.0,
+            "tag": null
           },
           {
             "ticker": "BGN.MI",
@@ -5400,7 +5713,10 @@
             "divYield": 515.0,
             "roc13w": 6.4,
             "rocYtd": -1.0,
-            "peRelative": 1.22
+            "perfFromSignal": 4.0,
+            "peRelative": 1.22,
+            "perfVsEtf": 2.3,
+            "tag": "premium_ok"
           },
           {
             "ticker": "FBK.MI",
@@ -5413,13 +5729,18 @@
             "divYield": 370.0,
             "roc13w": 6.1,
             "rocYtd": -5.1,
-            "peRelative": 1.76
+            "perfFromSignal": 2.7,
+            "peRelative": 1.76,
+            "perfVsEtf": 1.0,
+            "tag": "premium_ok"
           }
         ]
       },
       "EXH2": {
         "sector_name": "Retail",
         "sector_state": "In ripresa",
+        "signal_date": "2026-03-06",
+        "etf_perf_from_signal": 4.4,
         "holdings": [
           {
             "ticker": "OVS.MI",
@@ -5432,7 +5753,10 @@
             "divYield": 270.0,
             "roc13w": 5.9,
             "rocYtd": 7.0,
-            "peRelative": 1.0
+            "perfFromSignal": 11.9,
+            "peRelative": 1.0,
+            "perfVsEtf": 7.5,
+            "tag": null
           },
           {
             "ticker": "GEO.MI",
@@ -5445,13 +5769,18 @@
             "divYield": null,
             "roc13w": -14.2,
             "rocYtd": -18.1,
-            "peRelative": null
+            "perfFromSignal": -8.0,
+            "peRelative": null,
+            "perfVsEtf": -12.4,
+            "tag": null
           }
         ]
       },
       "EXH6": {
         "sector_name": "Beni personali",
         "sector_state": "In ripresa",
+        "signal_date": "2026-03-06",
+        "etf_perf_from_signal": 5.2,
         "holdings": [
           {
             "ticker": "MONC.MI",
@@ -5464,7 +5793,10 @@
             "divYield": 282.0,
             "roc13w": -3.2,
             "rocYtd": -9.2,
-            "peRelative": 0.6
+            "perfFromSignal": -9.6,
+            "peRelative": 0.6,
+            "perfVsEtf": -14.8,
+            "tag": null
           },
           {
             "ticker": "FCT.MI",
@@ -5477,7 +5809,10 @@
             "divYield": null,
             "roc13w": -31.0,
             "rocYtd": -37.3,
-            "peRelative": 0.86
+            "perfFromSignal": -20.2,
+            "peRelative": 0.86,
+            "perfVsEtf": -25.4,
+            "tag": null
           },
           {
             "ticker": "BC.MI",
@@ -5490,7 +5825,10 @@
             "divYield": 128.0,
             "roc13w": -1.8,
             "rocYtd": -16.5,
-            "peRelative": 1.14
+            "perfFromSignal": 8.1,
+            "peRelative": 1.14,
+            "perfVsEtf": 2.9,
+            "tag": null
           },
           {
             "ticker": "TPRO.MI",
@@ -5503,7 +5841,10 @@
             "divYield": null,
             "roc13w": 48.3,
             "rocYtd": 101.7,
-            "peRelative": 4.86
+            "perfFromSignal": 71.1,
+            "peRelative": 4.86,
+            "perfVsEtf": 65.9,
+            "tag": "premium_ok"
           },
           {
             "ticker": "GEO.MI",
@@ -5516,13 +5857,18 @@
             "divYield": null,
             "roc13w": -14.2,
             "rocYtd": -18.1,
-            "peRelative": null
+            "perfFromSignal": -8.0,
+            "peRelative": null,
+            "perfVsEtf": -13.2,
+            "tag": null
           }
         ]
       },
       "EXV2": {
         "sector_name": "Telecomunicazioni",
         "sector_state": "In testa",
+        "signal_date": "2026-01-23",
+        "etf_perf_from_signal": 21.9,
         "holdings": [
           {
             "ticker": "INW.MI",
@@ -5535,7 +5881,10 @@
             "divYield": 789.0,
             "roc13w": -14.6,
             "rocYtd": -10.5,
-            "peRelative": 0.41
+            "perfFromSignal": -4.7,
+            "peRelative": 0.41,
+            "perfVsEtf": -26.6,
+            "tag": null
           },
           {
             "ticker": "TIT.MI",
@@ -5548,13 +5897,18 @@
             "divYield": null,
             "roc13w": 13.2,
             "rocYtd": 40.2,
-            "peRelative": 1.59
+            "perfFromSignal": 24.6,
+            "peRelative": 1.59,
+            "perfVsEtf": 2.7,
+            "tag": "premium_ok"
           }
         ]
       },
       "EXH7": {
         "sector_name": "Alimentari & Bevande",
         "sector_state": "In ripresa",
+        "signal_date": "2026-05-01",
+        "etf_perf_from_signal": 2.1,
         "holdings": [
           {
             "ticker": "DLG.MI",
@@ -5567,7 +5921,10 @@
             "divYield": 231.0,
             "roc13w": -4.7,
             "rocYtd": 0.9,
-            "peRelative": 0.96
+            "perfFromSignal": 10.8,
+            "peRelative": 0.96,
+            "perfVsEtf": 8.7,
+            "tag": null
           },
           {
             "ticker": "CPR.MI",
@@ -5580,13 +5937,18 @@
             "divYield": 185.0,
             "roc13w": -17.4,
             "rocYtd": -0.5,
-            "peRelative": 1.04
+            "perfFromSignal": -13.4,
+            "peRelative": 1.04,
+            "perfVsEtf": -15.5,
+            "tag": null
           }
         ]
       },
       "EXV7": {
         "sector_name": "Chimica",
         "sector_state": "In ripresa",
+        "signal_date": "2026-05-15",
+        "etf_perf_from_signal": 0.0,
         "holdings": [
           {
             "ticker": "ECNL.MI",
@@ -5599,7 +5961,10 @@
             "divYield": null,
             "roc13w": -0.4,
             "rocYtd": 3.0,
-            "peRelative": null
+            "perfFromSignal": 0.0,
+            "peRelative": null,
+            "perfVsEtf": 0.0,
+            "tag": null
           }
         ]
       }
