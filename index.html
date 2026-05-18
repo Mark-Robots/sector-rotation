@@ -215,14 +215,66 @@
     background: var(--bg-card); border: 1px solid var(--border);
     border-radius: 6px; margin-bottom: 28px; overflow: hidden;
   }
+  .help-header {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid transparent;
+  }
+  .help-panel.open .help-header {
+    border-bottom-color: var(--border);
+  }
   .help-toggle {
-    width: 100%; padding: 16px 20px; background: transparent; border: none;
+    flex: 1;
+    padding: 16px 20px; background: transparent; border: none;
     color: var(--text-primary); font-family: var(--sans); font-size: 14px;
     font-weight: 500; text-align: left; cursor: pointer;
     display: flex; align-items: center; justify-content: space-between;
   }
-  .help-toggle::after { content: '+'; font-size: 20px; color: var(--text-muted); transition: transform 0.2s; }
+  .help-toggle::after { content: '+'; font-size: 20px; color: var(--text-muted); transition: transform 0.2s; margin-left: 16px; }
   .help-panel.open .help-toggle::after { content: '−'; }
+  
+  .manual-download {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    margin: 8px;
+    background: rgba(245,158,11,0.05);
+    border: 1px solid rgba(245,158,11,0.25);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .manual-download:hover {
+    background: rgba(245,158,11,0.12);
+    border-color: var(--accent-gold);
+    transform: translateY(-1px);
+  }
+  .manual-icon {
+    font-size: 20px;
+    line-height: 1;
+  }
+  .manual-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .manual-title {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.005em;
+  }
+  .manual-sub {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--accent-gold);
+    letter-spacing: 0.08em;
+  }
+  
   .help-content { display: none; padding: 0 24px 24px; line-height: 1.7; }
   .help-panel.open .help-content { display: block; }
   .help-content h4 { font-family: var(--sans); font-size: 16px; font-weight: 600; margin: 18px 0 8px; letter-spacing: -0.005em; }
@@ -635,10 +687,96 @@
   #picks-content table col.col-rating    { width: 17%; }
   #picks-content table col.col-stato     { width: 30%; }
 
+  /* === LEGAL SECTION === */
+  .legal-section {
+    margin-top: 48px;
+    padding: 28px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    border-top: 3px solid var(--accent-gold);
+  }
+  .legal-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .legal-icon { font-size: 20px; }
+  .legal-header h3 {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: var(--text-primary);
+  }
+  .legal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 768px) {
+    .legal-grid { grid-template-columns: 1fr; }
+  }
+  .legal-block h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .legal-block p {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    text-align: justify;
+    margin: 0;
+  }
+  .legal-block b {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* === FOOTER === */
   footer {
-    margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
-    font-family: var(--mono); font-size: 10px; color: var(--text-muted);
-    letter-spacing: 0.06em; line-height: 1.7;
+    margin-top: 32px;
+    padding: 24px 0 16px;
+    text-align: center;
+    font-family: var(--mono);
+    color: var(--text-muted);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    border-top: 1px solid var(--border);
+    line-height: 1.6;
+  }
+  .footer-main {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    letter-spacing: 0.01em;
+  }
+  .footer-tech {
+    font-size: 10px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .footer-copyright {
+    font-size: 9px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
   }
   .spinner {
     display: inline-block; width: 10px; height: 10px;
@@ -689,9 +827,18 @@
   </header>
 
   <div class="help-panel" id="helpPanel">
-    <button class="help-toggle" onclick="document.getElementById('helpPanel').classList.toggle('open')">
-      📖 Come si legge questa dashboard
-    </button>
+    <div class="help-header">
+      <button class="help-toggle" onclick="document.getElementById('helpPanel').classList.toggle('open')">
+        📖 Come si legge questa dashboard
+      </button>
+      <a href="./Megatrend_Sentinel_Manuale.pdf" target="_blank" class="manual-download">
+        <span class="manual-icon">📕</span>
+        <span class="manual-text">
+          <span class="manual-title">Manuale della metodologia</span>
+          <span class="manual-sub">Apri PDF · 20 pagine</span>
+        </span>
+      </a>
+    </div>
     <div class="help-content">
       <h4>I 4 STATI dei settori (la mappa colorata)</h4>
       <p>Ogni settore è posizionato in base a <b>quanto è forte rispetto al mercato</b> (asse orizzontale) e <b>se accelera o rallenta</b> (asse verticale).</p>
@@ -809,10 +956,42 @@
   </div>
 
 
+  <div class="legal-section">
+    <div class="legal-header">
+      <span class="legal-icon">⚖️</span>
+      <h3>Disclaimer</h3>
+    </div>
+    
+    <div class="legal-grid">
+      <div class="legal-block">
+        <h4>Non costituisce consulenza</h4>
+        <p>Il contenuto della dashboard <b>NON</b> costituisce: consulenza personalizzata in materia di investimenti, sollecitazione al pubblico risparmio, raccomandazione di investimento ai sensi della normativa MiFID II, né servizio di Robo-Advisory regolamentato.</p>
+      </div>
+      
+      <div class="legal-block">
+        <h4>Riservatezza e divulgazione</h4>
+        <p>Il presente strumento, la sua metodologia, i dati elaborati, il manuale e il codice sottostante <b>sono di proprietà esclusiva di MarkRoboT.S.</b> ed è vietata ogni forma di riproduzione, divulgazione, distribuzione, modifica, pubblicazione o utilizzo commerciale da parte di terzi senza espresso consenso scritto. L'accesso è strettamente riservato.</p>
+      </div>
+      
+      <div class="legal-block">
+        <h4>Limitazione di responsabilità</h4>
+        <p>I rendimenti passati non sono indicativi dei rendimenti futuri. Ogni decisione di investimento comporta rischi, inclusa la possibile perdita del capitale investito. <b>MarkRoboT.S. declina ogni responsabilità</b> per eventuali decisioni di investimento assunte sulla base esclusiva delle informazioni qui contenute. La verifica della correttezza e attualità dei dati resta a cura dell'utilizzatore.</p>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    Megatrend Sentinel v1.0 · Dati aggiornati automaticamente ogni giorno alle 22:00 UTC via GitHub Actions ·
-    Fonte: yfinance (Yahoo Finance) · Metodo JdK approssimato per RRG · Fasi Weinstein su MA 30 settimane ·
-    Per uso personale, non costituisce raccomandazione di investimento.
+    <div class="footer-main">
+      <b style="color:var(--accent-gold);">Megatrend Sentinel v1.0</b> · MarkRoboT.S. · Maggio 2026
+    </div>
+    <div class="footer-tech">
+      Dati aggiornati automaticamente ogni giorno alle 22:00 UTC via GitHub Actions ·
+      Fonte: yfinance (Yahoo Finance) ·
+      Metodo: RRG di Julius de Kempenaer · Fasi di Stan Weinstein su MA 30 settimane
+    </div>
+    <div class="footer-copyright">
+      © 2026 MarkRoboT.S. · Tutti i diritti riservati · Documento ad uso personale e professionale riservato
+    </div>
   </footer>
 </div>
 
