@@ -6,7 +6,7 @@
 <title>Megatrend Sentinel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400&family=JetBrains+Mono:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=JetBrains+Mono:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
   :root {
@@ -27,7 +27,7 @@
     --accent-cyan: #06b6d4;
     --accent-gold: #f59e0b;
     --accent-gold-bright: #fbbf24;
-    --serif: 'Instrument Serif', serif;
+    --serif: 'Fraunces', serif;
     --sans: 'Geist', system-ui, sans-serif;
     --mono: 'JetBrains Mono', monospace;
   }
@@ -72,29 +72,74 @@
   h1 {
     font-family: var(--serif);
     font-size: 64px;
-    font-weight: 400;
-    letter-spacing: -0.025em;
-    line-height: 0.95;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0;
+    padding: 4px 0;
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 0;
+    position: relative;
   }
   h1 .title-gold {
     color: var(--accent-gold);
-    text-shadow: 0 0 28px rgba(245,158,11,0.35), 0 0 60px rgba(245,158,11,0.15);
+    background: linear-gradient(180deg,
+      rgba(245,158,11,1) 0%,
+      rgba(245,158,11,0.95) 60%,
+      rgba(245,158,11,0.75) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 28px rgba(245,158,11,0.32));
     font-style: normal;
+    font-weight: 700;
   }
   h1 .title-separator {
-    color: var(--accent-gold);
-    font-size: 38px;
-    opacity: 0.55;
-    margin: 0 -6px;
+    width: 1px;
+    height: 42px;
+    margin: 0 22px;
+    flex-shrink: 0;
+    position: relative;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(245,158,11,0.55) 50%,
+      transparent 100%);
+    align-self: center;
+    /* Sostituisce il testo del separatore */
+    font-size: 0;
+    color: transparent;
+  }
+  h1 .title-separator::before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 18px var(--accent-gold), 0 0 5px var(--accent-gold);
+    animation: brand-pulse 2.8s ease-in-out infinite;
+  }
+  @keyframes brand-pulse {
+    0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.85); }
   }
   h1 .title-light {
     color: var(--text-primary);
     font-style: normal;
-    border-bottom: 2px solid var(--accent-gold);
-    padding-bottom: 2px;
+    font-weight: 500;
+    border-bottom: none;
+    padding-bottom: 0;
+    background: linear-gradient(180deg,
+      rgba(255,255,255,0.97) 0%,
+      rgba(255,255,255,0.97) 45%,
+      rgba(245,158,11,0.9) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   h1 span { font-style: normal; }
 
@@ -105,23 +150,35 @@
     gap: 16px;
   }
   .brand-logo {
-    width: 72px;
-    height: 72px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #11151c 0%, #1c2230 100%);
-    border: 1px solid var(--border-strong);
+    height: 64px;
+    width: 64px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     flex-shrink: 0;
-    padding: 4px;
+    background: transparent;
+    border: none;
+    box-shadow:
+      0 4px 20px rgba(0,0,0,0.5),
+      0 0 0 1px rgba(255,255,255,0.06),
+      inset 0 1px 0 rgba(255,255,255,0.08);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+  }
+  .brand-logo:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow:
+      0 8px 28px rgba(0,0,0,0.6),
+      0 0 0 1px rgba(255,255,255,0.1),
+      0 0 24px rgba(245,158,11,0.25),
+      inset 0 1px 0 rgba(255,255,255,0.12);
   }
   .brand-logo img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    border-radius: 6px;
+    object-fit: cover;
+    border-radius: 8px;
   }
   .brand-logo.no-logo {
     display: none;
@@ -129,7 +186,7 @@
   
   /* Font fallback robusti per quando Google Fonts non carica */
   :root {
-    --serif: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+    --serif: 'Fraunces', 'Times New Roman', Georgia, serif;
     --sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --mono: 'JetBrains Mono', 'SF Mono', Menlo, 'Cascadia Code', Consolas, monospace;
   }
@@ -827,7 +884,7 @@
         </div>
         <h1>
           <span class="title-gold">Megatrend</span>
-          <span class="title-separator">·</span>
+          <span class="title-separator"></span>
           <span class="title-light">Sentinel</span>
         </h1>
       </div>
