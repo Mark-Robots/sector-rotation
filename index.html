@@ -1150,6 +1150,10 @@
         La colonna <b>Δ</b> mostra il cambio di posizione rispetto a circa 7 giorni fa: <span style="color:var(--accent-lead);">▲</span> salito, <span style="color:var(--accent-lag);">▼</span> sceso, ▬ invariato, — nuovo.
       </p>
       <table class="sector-table" id="table-quadro"></table>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:18px;padding:12px 16px;background:var(--bg-card-2);border-radius:6px;font-size:11px;color:var(--text-secondary);">
+        <div><span style="font-family:var(--mono);font-size:9px;letter-spacing:0.14em;color:var(--text-muted);">BENCHMARK USA</span> <b style="color:var(--accent-gold);font-family:var(--mono);margin-left:6px;">SPY</b> <span style="margin-left:4px;">· S&amp;P 500</span></div>
+        <div><span style="font-family:var(--mono);font-size:9px;letter-spacing:0.14em;color:var(--text-muted);">BENCHMARK EUROPA</span> <b style="color:var(--accent-gold);font-family:var(--mono);margin-left:6px;">EXSA.DE</b> <span style="margin-left:4px;">· STOXX 600</span></div>
+      </div>
     </div>
   </div>
 
@@ -2147,7 +2151,8 @@ function renderQuadro(tableId) {
         <th>Dal</th>
         <th>Da</th>
         <th class="num">Punteggio</th>
-        <th class="num">Perf segnale</th>
+        <th class="num">Perf settore</th>
+        <th>Bench</th>
         <th class="num">Perf bench</th>
       </tr>
     </thead>
@@ -2162,8 +2167,8 @@ function renderQuadro(tableId) {
     // Highlight prima riga (numero 1) con sfondo dorato sottile
     const rowStyle = s.rank === 1 ? 'background:rgba(245,158,11,0.04);' : '';
     
-    // Bench label per tooltip: SPY o EXSA.DE
-    const benchLabel = sig.benchTicker || (s.region === 'USA' ? 'SPY' : 'EXSA');
+    // Bench label
+    const benchLabel = sig.benchTicker || (s.region === 'USA' ? 'SPY' : 'EXSA.DE');
     
     html += `
       <tr style="${rowStyle}">
@@ -2178,7 +2183,8 @@ function renderQuadro(tableId) {
         <td style="color:var(--text-secondary);font-size:11px;">${fmtWeeks(sig.weeksFromState)}</td>
         <td class="num"><b style="color:var(--accent-gold);">${s.score !== undefined ? s.score.toFixed(0) : '—'}</b></td>
         <td class="num">${fmtSign(sig.perfFromState)}</td>
-        <td class="num" title="${benchLabel} stesso periodo">${fmtSign(sig.benchFromState)}</td>
+        <td><span style="font-family:var(--mono);font-size:10px;color:var(--text-secondary);">${benchLabel}</span></td>
+        <td class="num">${fmtSign(sig.benchFromState)}</td>
       </tr>
     `;
   });
