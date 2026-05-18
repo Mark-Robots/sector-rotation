@@ -2148,7 +2148,7 @@ function renderQuadro(tableId) {
         <th>Da</th>
         <th class="num">Punteggio</th>
         <th class="num">Perf segnale</th>
-        <th class="num">vs Bench</th>
+        <th class="num">Perf bench</th>
       </tr>
     </thead>
     <tbody>
@@ -2161,6 +2161,9 @@ function renderQuadro(tableId) {
     
     // Highlight prima riga (numero 1) con sfondo dorato sottile
     const rowStyle = s.rank === 1 ? 'background:rgba(245,158,11,0.04);' : '';
+    
+    // Bench label per tooltip: SPY o EXSA.DE
+    const benchLabel = sig.benchTicker || (s.region === 'USA' ? 'SPY' : 'EXSA');
     
     html += `
       <tr style="${rowStyle}">
@@ -2175,7 +2178,7 @@ function renderQuadro(tableId) {
         <td style="color:var(--text-secondary);font-size:11px;">${fmtWeeks(sig.weeksFromState)}</td>
         <td class="num"><b style="color:var(--accent-gold);">${s.score !== undefined ? s.score.toFixed(0) : '—'}</b></td>
         <td class="num">${fmtSign(sig.perfFromState)}</td>
-        <td class="num">${fmtSign(sig.relFromState)}</td>
+        <td class="num" title="${benchLabel} stesso periodo">${fmtSign(sig.benchFromState)}</td>
       </tr>
     `;
   });
