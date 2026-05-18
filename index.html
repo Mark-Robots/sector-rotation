@@ -594,6 +594,28 @@
     border-left-width: 3px;
     border-radius: 6px;
     padding: 16px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    position: relative;
+  }
+  .profile-card:hover {
+    transform: translateY(-2px);
+    background: var(--bg-card);
+  }
+  .profile-card-active {
+    background: var(--bg-card);
+    box-shadow: 0 0 0 2px var(--profile-color, var(--accent-gold));
+  }
+  .profile-card-active::after {
+    content: '✓ Selezionato';
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--profile-color, var(--accent-gold));
+    font-weight: 600;
   }
   .profile-header {
     display: flex;
@@ -1493,8 +1515,10 @@ function renderPortfolio(portfolio) {
     if (!profile) return;
     const meta = profileLabels[pname];
     
+    const isActive = pname === 'bilanciato' ? ' profile-card-active' : '';
+    
     html += `
-      <div class="profile-card" style="border-color:${meta.color};">
+      <div class="profile-card${isActive}" data-profile="${pname}" style="border-color:${meta.color};--profile-color:${meta.color};" onclick="selectProfileCard('${pname}', this)">
         <div class="profile-header">
           <div class="profile-icon">${meta.icon}</div>
           <div>
@@ -1553,32 +1577,20 @@ function renderPortfolio(portfolio) {
   // Chiudo il grid dei profili prima di aggiungere la sezione titoli operativi
   html += '</div>';
   
-  // Sezione titoli operativi · selettore profilo + regione
+  // Sezione titoli operativi · selettore regione (il profilo si sceglie cliccando le card sopra)
   const hasAnyProfile = Object.values(portfolio.profiles).some(p => p && p.allocations && p.allocations.length > 0);
   if (hasAnyProfile) {
     html += `
       <div style="margin-top:32px;border-top:1px solid var(--border);padding-top:24px;">
         <h3 style="font-family:var(--sans);font-size:18px;font-weight:600;margin-bottom:6px;">🎯 Titoli operativi suggeriti</h3>
         <p style="color:var(--text-secondary);font-size:12px;margin-bottom:18px;">
-          Seleziona il <b>profilo</b> e la <b>regione</b>: per ogni settore del modello vedrai i top titoli per momentum corrente (Perf 3M), esclusi i Value trap.
+          Stai vedendo i titoli del profilo <b id="current-profile-label" style="color:var(--accent-gold);">⚖️ Bilanciato</b>. Clicca un'altra card sopra per cambiarlo.
+          Per ogni settore i top titoli per momentum (Perf 3M), esclusi i Value trap.
         </p>
         
-        <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:18px;align-items:flex-start;">
-          <div>
-            <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.14em;color:var(--text-muted);margin-bottom:6px;">PROFILO</div>
-            <div class="picks-tabs">
-              <button class="picks-tab-btn profile-btn" data-profile="prudente" onclick="switchPicksProfile('prudente', this)">🛡️ Prudente</button>
-              <button class="picks-tab-btn profile-btn active" data-profile="bilanciato" onclick="switchPicksProfile('bilanciato', this)">⚖️ Bilanciato</button>
-              <button class="picks-tab-btn profile-btn" data-profile="aggressivo" onclick="switchPicksProfile('aggressivo', this)">🚀 Aggressivo</button>
-            </div>
-          </div>
-          <div>
-            <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.14em;color:var(--text-muted);margin-bottom:6px;">REGIONE</div>
-            <div class="picks-tabs">
-              <button class="picks-tab-btn region-btn active" data-region="it" onclick="switchPicksRegion('it', this)">🇮🇹 Italia</button>
-              <button class="picks-tab-btn region-btn" data-region="us" onclick="switchPicksRegion('us', this)">🇺🇸 USA</button>
-            </div>
-          </div>
+        <div class="picks-tabs">
+          <button class="picks-tab-btn region-btn active" data-region="it" onclick="switchPicksRegion('it', this)">🇮🇹 Italia</button>
+          <button class="picks-tab-btn region-btn" data-region="us" onclick="switchPicksRegion('us', this)">🇺🇸 USA</button>
         </div>
         
         <div id="picks-content"></div>
@@ -1601,11 +1613,14 @@ function renderPortfolio(portfolio) {
     if (firstAvailable) {
       window.PICKS_STATE.profile = firstAvailable[0];
       renderPicksFor('it', firstAvailable[1].allocations);
-      // Sposta active sul bottone giusto
+      // Attiva la card corrispondente
       setTimeout(() => {
-        document.querySelectorAll('.profile-btn').forEach(b => {
-          b.classList.toggle('active', b.dataset.profile === firstAvailable[0]);
+        document.querySelectorAll('.profile-card').forEach(c => {
+          c.classList.toggle('profile-card-active', c.dataset.profile === firstAvailable[0]);
         });
+        const meta = {prudente:'🛡️ Prudente', bilanciato:'⚖️ Bilanciato', aggressivo:'🚀 Aggressivo'};
+        const label = document.getElementById('current-profile-label');
+        if (label) label.innerHTML = meta[firstAvailable[0]] || firstAvailable[0];
       }, 0);
     }
   }
@@ -1803,11 +1818,27 @@ window.switchPicksRegion = function(region, btn) {
   redrawPicks();
 };
 
-window.switchPicksProfile = function(profile, btn) {
-  document.querySelectorAll('.profile-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+window.selectProfileCard = function(profile, cardEl) {
+  document.querySelectorAll('.profile-card').forEach(c => c.classList.remove('profile-card-active'));
+  cardEl.classList.add('profile-card-active');
   window.PICKS_STATE.profile = profile;
+  
+  // Aggiorna label
+  const meta = {prudente:'🛡️ Prudente', bilanciato:'⚖️ Bilanciato', aggressivo:'🚀 Aggressivo'};
+  const colors = {prudente:'var(--accent-blue)', bilanciato:'var(--accent-gold)', aggressivo:'var(--accent-lag)'};
+  const label = document.getElementById('current-profile-label');
+  if (label) {
+    label.innerHTML = meta[profile] || profile;
+    label.style.color = colors[profile] || 'var(--accent-gold)';
+  }
+  
   redrawPicks();
+  
+  // Scroll fluido alla sezione titoli
+  setTimeout(() => {
+    const picks = document.getElementById('picks-content');
+    if (picks) picks.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+  }, 100);
 };
 
 window.redrawPicks = function() {
