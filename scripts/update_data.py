@@ -807,9 +807,11 @@ def build_portfolio_model(us_metrics, eu_metrics, us_holdings, eu_holdings):
         }
     
     PROFILES = {
-        'prudente':   {'equity_pct': 30, 'n_sectors': 3, 'max_per_sector': 12},
-        'bilanciato': {'equity_pct': 50, 'n_sectors': 5, 'max_per_sector': 12},
-        'aggressivo': {'equity_pct': 80, 'n_sectors': 7, 'max_per_sector': 16},
+        'prudente':   {'equity_pct': 30, 'n_sectors': 3,    'max_per_sector': 12},
+        'bilanciato': {'equity_pct': 50, 'n_sectors': 5,    'max_per_sector': 12},
+        # Aggressivo: tutti i settori validi disponibili, max teorico 20 ma in pratica
+        # saranno 7-12 a seconda di quanti Leader/Emergente in Fase 1/2 ci sono
+        'aggressivo': {'equity_pct': 80, 'n_sectors': None, 'max_per_sector': 14},
     }
     
     def get_top_picks(region, sector_ticker, n=3):
@@ -823,7 +825,11 @@ def build_portfolio_model(us_metrics, eu_metrics, us_holdings, eu_holdings):
     
     profiles_out = {}
     for profile_name, cfg in PROFILES.items():
-        selected = all_sectors[:cfg['n_sectors']]
+        # n_sectors=None significa "tutti i settori validi disponibili"
+        if cfg['n_sectors'] is None:
+            selected = all_sectors[:]  # tutti
+        else:
+            selected = all_sectors[:cfg['n_sectors']]
         if not selected:
             continue
         
