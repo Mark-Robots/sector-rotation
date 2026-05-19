@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-18T23:06:52.101308+00:00",
+  "updated_at": "2026-05-19T05:10:01.817194+00:00",
   "last_data_date": "2026-05-18",
   "tickers_obtained": 37,
   "tickers_total": 37,
@@ -2502,7 +2502,7 @@
             "ticker": "AMD",
             "name": "Advanced Micro Devices, Inc.",
             "price": 420.99,
-            "trailingPE": 139.9,
+            "trailingPE": 140.8,
             "forwardPE": 32.5,
             "peg": 1.02,
             "marketCapB": 686.5,
@@ -2510,7 +2510,7 @@
             "roc13w": 103.1,
             "rocYtd": 88.4,
             "perfFromSignal": 97.2,
-            "peRelative": 4.69,
+            "peRelative": 4.71,
             "perfVsEtf": 76.3,
             "tag": "top_momentum"
           },
@@ -2526,7 +2526,7 @@
             "roc13w": 55.5,
             "rocYtd": 57.2,
             "perfFromSignal": 53.2,
-            "peRelative": 1.33,
+            "peRelative": 1.32,
             "perfVsEtf": 32.3,
             "tag": "top_momentum"
           },
@@ -2538,7 +2538,7 @@
             "forwardPE": 19.1,
             "peg": 0.86,
             "marketCapB": 214.6,
-            "divYield": 1.83,
+            "divYield": 1.81,
             "roc13w": 45.7,
             "rocYtd": 18.5,
             "perfFromSignal": 16.9,
@@ -2550,15 +2550,15 @@
             "ticker": "TXN",
             "name": "Texas Instruments Incorporated",
             "price": 300.6,
-            "trailingPE": 51.5,
+            "trailingPE": 51.3,
             "forwardPE": 31.9,
             "peg": 1.45,
             "marketCapB": 273.6,
-            "divYield": 1.88,
+            "divYield": 1.89,
             "roc13w": 33.6,
             "rocYtd": 71.3,
             "perfFromSignal": 72.5,
-            "peRelative": 1.73,
+            "peRelative": 1.72,
             "perfVsEtf": 51.6,
             "tag": "premium_ok"
           },
@@ -2566,15 +2566,15 @@
             "ticker": "AVGO",
             "name": "Broadcom Inc.",
             "price": 420.71,
-            "trailingPE": 81.9,
+            "trailingPE": 82.0,
             "forwardPE": 23.0,
             "peg": 0.93,
             "marketCapB": 1991.9,
-            "divYield": 0.61,
+            "divYield": 0.62,
             "roc13w": 29.7,
             "rocYtd": 21.3,
             "perfFromSignal": 24.1,
-            "peRelative": 2.75,
+            "peRelative": 2.74,
             "perfVsEtf": 3.2,
             "tag": "premium_ok"
           },
@@ -2590,7 +2590,7 @@
             "roc13w": 21.6,
             "rocYtd": 17.7,
             "perfFromSignal": 22.8,
-            "peRelative": 1.53,
+            "peRelative": 1.52,
             "perfVsEtf": 1.9,
             "tag": "premium_ok"
           },
@@ -2598,11 +2598,11 @@
             "ticker": "ORCL",
             "name": "Oracle Corporation",
             "price": 186.61,
-            "trailingPE": 33.4,
+            "trailingPE": 33.6,
             "forwardPE": 23.2,
             "peg": 1.22,
             "marketCapB": 536.7,
-            "divYield": 1.04,
+            "divYield": 1.07,
             "roc13w": 16.9,
             "rocYtd": -4.1,
             "perfFromSignal": -2.2,
@@ -2630,7 +2630,7 @@
             "ticker": "MSFT",
             "name": "Microsoft Corporation",
             "price": 423.54,
-            "trailingPE": 25.2,
+            "trailingPE": 25.3,
             "forwardPE": 21.9,
             "peg": 1.3,
             "marketCapB": 3146.2,
@@ -2650,7 +2650,7 @@
             "forwardPE": 15.2,
             "peg": 1.01,
             "marketCapB": 112.2,
-            "divYield": 1.18,
+            "divYield": 1.15,
             "roc13w": 1.3,
             "rocYtd": -35.6,
             "perfFromSignal": -39.6,
@@ -2682,7 +2682,7 @@
             "forwardPE": 12.0,
             "peg": 0.94,
             "marketCapB": 146.8,
-            "divYield": 1.01,
+            "divYield": 0.98,
             "roc13w": -5.2,
             "rocYtd": -29.1,
             "perfFromSignal": -30.8,
@@ -2698,7 +2698,7 @@
             "forwardPE": 16.6,
             "peg": 2.05,
             "marketCapB": 209.4,
-            "divYield": 3.08,
+            "divYield": 3.03,
             "roc13w": -14.5,
             "rocYtd": -22.6,
             "perfFromSignal": -25.0,
@@ -2710,11 +2710,11 @@
             "ticker": "ACN",
             "name": "Accenture plc",
             "price": 177.55,
-            "trailingPE": 14.5,
+            "trailingPE": 14.6,
             "forwardPE": 11.9,
             "peg": 1.19,
             "marketCapB": 109.3,
-            "divYield": 3.86,
+            "divYield": 3.67,
             "roc13w": -20.1,
             "rocYtd": -31.1,
             "perfFromSignal": -34.2,
@@ -2738,7 +2738,7 @@
             "forwardPE": 12.6,
             "peg": 1.67,
             "marketCapB": 123.1,
-            "divYield": 5.8,
+            "divYield": 5.75,
             "roc13w": 11.5,
             "rocYtd": 30.8,
             "perfFromSignal": null,
@@ -2750,7 +2750,7 @@
             "ticker": "COST",
             "name": "Costco Wholesale Corporation",
             "price": 1076.47,
-            "trailingPE": 56.1,
+            "trailingPE": 55.9,
             "forwardPE": 47.8,
             "peg": 5.33,
             "marketCapB": 477.6,
@@ -2758,7 +2758,7 @@
             "roc13w": 5.8,
             "rocYtd": 26.3,
             "perfFromSignal": null,
-            "peRelative": 2.2,
+            "peRelative": 2.19,
             "perfVsEtf": null,
             "tag": "top_momentum"
           },
@@ -2770,7 +2770,7 @@
             "forwardPE": 23.3,
             "peg": 4.14,
             "marketCapB": 349.4,
-            "divYield": 2.62,
+            "divYield": 2.61,
             "roc13w": 3.9,
             "rocYtd": 18.3,
             "perfFromSignal": null,
@@ -2782,15 +2782,15 @@
             "ticker": "PM",
             "name": "Philip Morris International ..",
             "price": 191.5,
-            "trailingPE": 26.9,
+            "trailingPE": 27.0,
             "forwardPE": 21.0,
             "peg": 2.65,
             "marketCapB": 298.5,
-            "divYield": 3.1,
+            "divYield": 3.07,
             "roc13w": 3.0,
             "rocYtd": 20.5,
             "perfFromSignal": null,
-            "peRelative": 1.05,
+            "peRelative": 1.06,
             "perfVsEtf": null,
             "tag": "stagnant"
           },
@@ -2802,7 +2802,7 @@
             "forwardPE": 40.5,
             "peg": 4.9,
             "marketCapB": 1062.9,
-            "divYield": 0.75,
+            "divYield": 0.74,
             "roc13w": -0.0,
             "rocYtd": 18.7,
             "perfFromSignal": null,
@@ -2818,7 +2818,7 @@
             "forwardPE": 18.2,
             "peg": 0.99,
             "marketCapB": 79.1,
-            "divYield": 3.31,
+            "divYield": 3.24,
             "roc13w": -0.7,
             "rocYtd": 15.9,
             "perfFromSignal": null,
@@ -2834,7 +2834,7 @@
             "forwardPE": 22.3,
             "peg": 1.58,
             "marketCapB": 72.0,
-            "divYield": 2.41,
+            "divYield": 2.36,
             "roc13w": -6.4,
             "rocYtd": 17.2,
             "perfFromSignal": null,
@@ -2866,7 +2866,7 @@
             "forwardPE": 20.1,
             "peg": 3.97,
             "marketCapB": 331.6,
-            "divYield": 3.01,
+            "divYield": 2.99,
             "roc13w": -10.4,
             "rocYtd": 1.9,
             "perfFromSignal": null,
@@ -2882,7 +2882,7 @@
             "forwardPE": 12.7,
             "peg": 1.94,
             "marketCapB": 32.0,
-            "divYield": 5.34,
+            "divYield": 5.3,
             "roc13w": -10.7,
             "rocYtd": -3.6,
             "perfFromSignal": null,
@@ -2898,7 +2898,7 @@
             "forwardPE": 10.2,
             "peg": 11.74,
             "marketCapB": 17.9,
-            "divYield": 7.4,
+            "divYield": 7.29,
             "roc13w": -29.6,
             "rocYtd": -24.6,
             "perfFromSignal": null,
@@ -2938,7 +2938,7 @@
             "forwardPE": 13.4,
             "peg": 4.08,
             "marketCapB": 76.8,
-            "divYield": 1.91,
+            "divYield": 1.86,
             "roc13w": 29.2,
             "rocYtd": 57.3,
             "perfFromSignal": 57.3,
@@ -2954,7 +2954,7 @@
             "forwardPE": 11.6,
             "peg": 0.99,
             "marketCapB": 75.8,
-            "divYield": 1.53,
+            "divYield": 1.51,
             "roc13w": 28.3,
             "rocYtd": 57.9,
             "perfFromSignal": 57.9,
@@ -2966,15 +2966,15 @@
             "ticker": "FANG",
             "name": "Diamondback Energy, Inc.",
             "price": 205.62,
-            "trailingPE": 209.8,
+            "trailingPE": 207.7,
             "forwardPE": 12.1,
             "peg": 56.78,
             "marketCapB": 57.8,
-            "divYield": 2.16,
+            "divYield": 2.14,
             "roc13w": 23.0,
             "rocYtd": 36.5,
             "perfFromSignal": 36.5,
-            "peRelative": 8.76,
+            "peRelative": 8.67,
             "perfVsEtf": 2.9,
             "tag": "premium_ok"
           },
@@ -2986,12 +2986,28 @@
             "forwardPE": 10.1,
             "peg": 1.25,
             "marketCapB": 76.2,
-            "divYield": 2.91,
+            "divYield": 2.85,
             "roc13w": 19.4,
             "rocYtd": 35.6,
             "perfFromSignal": 35.6,
             "peRelative": 0.59,
             "perfVsEtf": 2.0,
+            "tag": "value_momentum"
+          },
+          {
+            "ticker": "PSX",
+            "name": "Phillips 66",
+            "price": 179.8,
+            "trailingPE": 17.8,
+            "forwardPE": 11.1,
+            "peg": 1.0,
+            "marketCapB": 72.1,
+            "divYield": 2.83,
+            "roc13w": 14.3,
+            "rocYtd": 39.8,
+            "perfFromSignal": 39.8,
+            "peRelative": 0.74,
+            "perfVsEtf": 6.2,
             "tag": "value_momentum"
           },
           {
@@ -3011,22 +3027,6 @@
             "tag": null
           },
           {
-            "ticker": "PSX",
-            "name": "Phillips 66",
-            "price": 179.8,
-            "trailingPE": 17.8,
-            "forwardPE": 11.1,
-            "peg": 1.0,
-            "marketCapB": 72.1,
-            "divYield": 2.88,
-            "roc13w": 13.5,
-            "rocYtd": 38.8,
-            "perfFromSignal": 38.8,
-            "peRelative": 0.74,
-            "perfVsEtf": 5.2,
-            "tag": "value_momentum"
-          },
-          {
             "ticker": "SLB",
             "name": "SLB Limited",
             "price": 57.15,
@@ -3034,7 +3034,7 @@
             "forwardPE": 17.1,
             "peg": 1.9,
             "marketCapB": 85.4,
-            "divYield": 2.13,
+            "divYield": 2.06,
             "roc13w": 13.4,
             "rocYtd": 43.0,
             "perfFromSignal": 43.0,
@@ -3050,7 +3050,7 @@
             "forwardPE": 15.4,
             "peg": 1.46,
             "marketCapB": 665.2,
-            "divYield": 2.61,
+            "divYield": 2.57,
             "roc13w": 8.8,
             "rocYtd": 32.6,
             "perfFromSignal": 32.6,
@@ -3078,15 +3078,15 @@
             "ticker": "CVX",
             "name": "Chevron Corporation",
             "price": 196.12,
-            "trailingPE": 34.2,
+            "trailingPE": 34.1,
             "forwardPE": 16.1,
             "peg": 0.84,
             "marketCapB": 390.6,
-            "divYield": 3.73,
+            "divYield": 3.63,
             "roc13w": 7.8,
             "rocYtd": 27.0,
             "perfFromSignal": 27.0,
-            "peRelative": 1.43,
+            "peRelative": 1.42,
             "perfVsEtf": -6.6,
             "tag": null
           },
@@ -3098,7 +3098,7 @@
             "forwardPE": 22.1,
             "peg": 4.01,
             "marketCapB": 75.2,
-            "divYield": 3.49,
+            "divYield": 3.48,
             "roc13w": 5.5,
             "rocYtd": 24.2,
             "perfFromSignal": 24.2,
@@ -3142,7 +3142,7 @@
             "roc13w": 28.5,
             "rocYtd": 24.8,
             "perfFromSignal": null,
-            "peRelative": 1.41,
+            "peRelative": 1.42,
             "perfVsEtf": null,
             "tag": "top_momentum"
           },
@@ -3166,7 +3166,7 @@
             "ticker": "EA",
             "name": "Electronic Arts Inc.",
             "price": 201.05,
-            "trailingPE": 57.3,
+            "trailingPE": 57.1,
             "forwardPE": 20.6,
             "peg": 1.25,
             "marketCapB": 50.4,
@@ -3174,7 +3174,7 @@
             "roc13w": 0.3,
             "rocYtd": -1.6,
             "perfFromSignal": null,
-            "peRelative": 2.7,
+            "peRelative": 2.69,
             "perfVsEtf": null,
             "tag": "expensive_flat"
           },
@@ -3182,15 +3182,15 @@
             "ticker": "DIS",
             "name": "Walt Disney Company (The)",
             "price": 103.91,
-            "trailingPE": 16.6,
+            "trailingPE": 16.7,
             "forwardPE": 13.9,
             "peg": 2.72,
             "marketCapB": 180.4,
-            "divYield": 1.46,
+            "divYield": 1.44,
             "roc13w": -1.5,
             "rocYtd": -7.1,
             "perfFromSignal": null,
-            "peRelative": 0.78,
+            "peRelative": 0.79,
             "perfVsEtf": null,
             "tag": "stagnant"
           },
@@ -3222,7 +3222,7 @@
             "roc13w": -4.4,
             "rocYtd": -5.9,
             "perfFromSignal": null,
-            "peRelative": 1.04,
+            "peRelative": 1.05,
             "perfVsEtf": null,
             "tag": "stagnant"
           },
@@ -3230,7 +3230,7 @@
             "ticker": "TMUS",
             "name": "T-Mobile US, Inc.",
             "price": 190.65,
-            "trailingPE": 20.3,
+            "trailingPE": 20.2,
             "forwardPE": 13.7,
             "peg": 0.73,
             "marketCapB": 206.3,
@@ -3238,7 +3238,7 @@
             "roc13w": -12.7,
             "rocYtd": -4.0,
             "perfFromSignal": null,
-            "peRelative": 0.96,
+            "peRelative": 0.95,
             "perfVsEtf": null,
             "tag": null
           },
@@ -3250,7 +3250,7 @@
             "forwardPE": 9.6,
             "peg": 1.68,
             "marketCapB": 169.7,
-            "divYield": 4.62,
+            "divYield": 4.54,
             "roc13w": -14.0,
             "rocYtd": 1.7,
             "perfFromSignal": null,
@@ -3266,7 +3266,7 @@
             "forwardPE": 6.5,
             "peg": 142.98,
             "marketCapB": 89.1,
-            "divYield": 5.33,
+            "divYield": 5.29,
             "roc13w": -20.1,
             "rocYtd": -7.8,
             "perfFromSignal": null,
@@ -3288,31 +3288,27 @@
         "name": "Tecnologia",
         "stage": "2",
         "state": "Leader",
-        "rsRatio": 102.62,
-        "rsMom": 104.93,
-        "delta5w": 4.72,
-        "roc13w": 11.7,
-        "roc52w": 10.7,
-        "rel13w": 12.7,
+        "rsRatio": 101.97,
+        "rsMom": 102.18,
+        "delta5w": 2.09,
+        "roc13w": 13.3,
+        "roc52w": 11.0,
+        "rel13w": 13.2,
         "tailRS": [
-          97.91,
           99.87,
           99.45,
           102.16,
-          102.62
+          102.62,
+          101.97
         ],
         "tailMom": [
-          102.98,
           106.64,
           106.17,
           107.67,
-          104.93
+          104.93,
+          102.18
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 94.85
-          },
           {
             "date": "2025-11-28",
             "value": 95.66
@@ -3412,6 +3408,10 @@
           {
             "date": "2026-05-15",
             "value": 102.62
+          },
+          {
+            "date": "2026-05-22",
+            "value": 101.97
           }
         ],
         "signal": {
@@ -3419,13 +3419,13 @@
           "signalDate": "2026-04-17",
           "weeksFromState": 1,
           "weeksFromSignal": 4,
-          "perfFromState": -0.1,
-          "perfFromSignal": 4.0,
-          "benchFromState": -0.8,
-          "benchFromSignal": -2.5,
+          "perfFromState": -0.2,
+          "perfFromSignal": 3.9,
+          "benchFromState": -0.0,
+          "benchFromSignal": -1.7,
           "benchTicker": "EXSA.DE",
-          "relFromState": 0.7,
-          "relFromSignal": 6.4
+          "relFromState": -0.2,
+          "relFromSignal": 5.6
         }
       },
       {
@@ -3433,32 +3433,28 @@
         "ticker_raw": "EXV1.DE",
         "name": "Banche",
         "stage": "2",
-        "state": "In rallentamento",
-        "rsRatio": 103.03,
-        "rsMom": 97.09,
-        "delta5w": -1.12,
-        "roc13w": -1.6,
-        "roc52w": 34.9,
-        "rel13w": -0.6,
+        "state": "Leader",
+        "rsRatio": 102.95,
+        "rsMom": 100.48,
+        "delta5w": 0.18,
+        "roc13w": 1.0,
+        "roc52w": 35.0,
+        "rel13w": 0.8,
         "tailRS": [
-          104.16,
           102.76,
           103.35,
           103.35,
-          103.03
+          103.03,
+          102.95
         ],
         "tailMom": [
-          105.19,
           101.42,
           102.43,
           99.4,
-          97.09
+          97.09,
+          100.48
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 104.05
-          },
           {
             "date": "2025-11-28",
             "value": 104.56
@@ -3558,20 +3554,24 @@
           {
             "date": "2026-05-15",
             "value": 103.03
+          },
+          {
+            "date": "2026-05-22",
+            "value": 102.95
           }
         ],
         "signal": {
-          "stateEntryDate": "2026-05-08",
-          "signalDate": "2026-05-08",
-          "weeksFromState": 1,
-          "weeksFromSignal": 1,
-          "perfFromState": -1.3,
-          "perfFromSignal": -1.3,
-          "benchFromState": -0.8,
-          "benchFromSignal": -0.8,
+          "stateEntryDate": "2025-07-04",
+          "signalDate": "2025-07-04",
+          "weeksFromState": 45,
+          "weeksFromSignal": 45,
+          "perfFromState": 35.9,
+          "perfFromSignal": 35.9,
+          "benchFromState": 15.2,
+          "benchFromSignal": 15.2,
           "benchTicker": "EXSA.DE",
-          "relFromState": -0.5,
-          "relFromSignal": -0.5
+          "relFromState": 20.6,
+          "relFromSignal": 20.6
         }
       },
       {
@@ -3579,32 +3579,28 @@
         "ticker_raw": "EXV5.DE",
         "name": "Automobili",
         "stage": "4",
-        "state": "Debole",
-        "rsRatio": 95.09,
-        "rsMom": 99.75,
-        "delta5w": -0.13,
-        "roc13w": -8.4,
-        "roc52w": -15.5,
-        "rel13w": -7.3,
+        "state": "Emergente",
+        "rsRatio": 94.98,
+        "rsMom": 100.92,
+        "delta5w": 0.5,
+        "roc13w": -9.5,
+        "roc52w": -15.7,
+        "rel13w": -9.7,
         "tailRS": [
-          95.22,
           94.49,
           94.11,
           95.03,
-          95.09
+          95.09,
+          94.98
         ],
         "tailMom": [
-          104.13,
           101.43,
           100.16,
           101.51,
-          99.75
+          99.75,
+          100.92
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 95.12
-          },
           {
             "date": "2025-11-28",
             "value": 95.33
@@ -3704,20 +3700,24 @@
           {
             "date": "2026-05-15",
             "value": 95.09
+          },
+          {
+            "date": "2026-05-22",
+            "value": 94.98
           }
         ],
         "signal": {
-          "stateEntryDate": "2026-05-15",
-          "signalDate": "2026-05-15",
+          "stateEntryDate": "2026-05-22",
+          "signalDate": "2026-05-22",
           "weeksFromState": 0,
           "weeksFromSignal": 0,
-          "perfFromState": 0.0,
-          "perfFromSignal": 0.0,
-          "benchFromState": 0.0,
-          "benchFromSignal": 0.0,
+          "perfFromState": null,
+          "perfFromSignal": null,
+          "benchFromState": null,
+          "benchFromSignal": null,
           "benchTicker": "EXSA.DE",
-          "relFromState": 0.0,
-          "relFromSignal": 0.0
+          "relFromState": null,
+          "relFromSignal": null
         }
       },
       {
@@ -3725,32 +3725,28 @@
         "ticker_raw": "EXH1.DE",
         "name": "Energia",
         "stage": "2",
-        "state": "Leader",
-        "rsRatio": 105.41,
-        "rsMom": 100.67,
-        "delta5w": 0.67,
-        "roc13w": 16.8,
-        "roc52w": 58.9,
-        "rel13w": 17.8,
+        "state": "In rallentamento",
+        "rsRatio": 105.59,
+        "rsMom": 98.64,
+        "delta5w": -1.32,
+        "roc13w": 20.9,
+        "roc52w": 63.6,
+        "rel13w": 20.8,
         "tailRS": [
-          104.73,
           106.91,
           106.87,
           104.95,
-          105.41
+          105.41,
+          105.59
         ],
         "tailMom": [
-          94.43,
           96.54,
           97.45,
           97.65,
-          100.67
+          100.67,
+          98.64
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 105.87
-          },
           {
             "date": "2025-11-28",
             "value": 105.36
@@ -3850,20 +3846,24 @@
           {
             "date": "2026-05-15",
             "value": 105.41
+          },
+          {
+            "date": "2026-05-22",
+            "value": 105.59
           }
         ],
         "signal": {
-          "stateEntryDate": "2025-07-04",
-          "signalDate": "2025-07-04",
-          "weeksFromState": 45,
-          "weeksFromSignal": 45,
-          "perfFromState": 50.7,
-          "perfFromSignal": 50.7,
-          "benchFromState": 14.4,
-          "benchFromSignal": 14.4,
+          "stateEntryDate": "2026-05-22",
+          "signalDate": "2026-05-22",
+          "weeksFromState": 0,
+          "weeksFromSignal": 0,
+          "perfFromState": null,
+          "perfFromSignal": null,
+          "benchFromState": null,
+          "benchFromSignal": null,
           "benchTicker": "EXSA.DE",
-          "relFromState": 36.3,
-          "relFromSignal": 36.3
+          "relFromState": null,
+          "relFromSignal": null
         }
       },
       {
@@ -3871,32 +3871,28 @@
         "ticker_raw": "EXV4.DE",
         "name": "Sanità",
         "stage": "1",
-        "state": "Debole",
-        "rsRatio": 93.44,
-        "rsMom": 97.08,
-        "delta5w": -1.66,
-        "roc13w": -8.2,
-        "roc52w": 6.4,
-        "rel13w": -7.2,
+        "state": "Emergente",
+        "rsRatio": 93.17,
+        "rsMom": 100.78,
+        "delta5w": 0.45,
+        "roc13w": -8.4,
+        "roc52w": 6.0,
+        "rel13w": -8.6,
         "tailRS": [
-          95.11,
           92.72,
           92.35,
           91.11,
-          93.44
+          93.44,
+          93.17
         ],
         "tailMom": [
-          94.06,
           89.5,
           89.5,
           92.42,
-          97.08
+          97.08,
+          100.78
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 99.33
-          },
           {
             "date": "2025-11-28",
             "value": 98.73
@@ -3996,20 +3992,24 @@
           {
             "date": "2026-05-15",
             "value": 93.44
+          },
+          {
+            "date": "2026-05-22",
+            "value": 93.17
           }
         ],
         "signal": {
-          "stateEntryDate": "2026-04-10",
-          "signalDate": "2026-04-10",
-          "weeksFromState": 5,
-          "weeksFromSignal": 5,
-          "perfFromState": -3.5,
-          "perfFromSignal": -3.5,
-          "benchFromState": -0.5,
-          "benchFromSignal": -0.5,
+          "stateEntryDate": "2026-05-22",
+          "signalDate": "2026-05-22",
+          "weeksFromState": 0,
+          "weeksFromSignal": 0,
+          "perfFromState": null,
+          "perfFromSignal": null,
+          "benchFromState": null,
+          "benchFromSignal": null,
           "benchTicker": "EXSA.DE",
-          "relFromState": -2.9,
-          "relFromSignal": -2.9
+          "relFromState": null,
+          "relFromSignal": null
         }
       },
       {
@@ -4018,31 +4018,27 @@
         "name": "Assicurazioni",
         "stage": "2",
         "state": "Emergente",
-        "rsRatio": 97.72,
-        "rsMom": 100.92,
-        "delta5w": 0.55,
+        "rsRatio": 98.37,
+        "rsMom": 100.96,
+        "delta5w": 0.58,
         "roc13w": 6.3,
         "roc52w": 3.5,
-        "rel13w": 7.3,
+        "rel13w": 6.1,
         "tailRS": [
-          97.16,
           97.8,
           97.52,
           97.04,
-          97.72
+          97.72,
+          98.37
         ],
         "tailMom": [
-          100.26,
           101.38,
           100.21,
           100.75,
-          100.92
+          100.92,
+          100.96
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 99.1
-          },
           {
             "date": "2025-11-28",
             "value": 98.87
@@ -4142,6 +4138,10 @@
           {
             "date": "2026-05-15",
             "value": 97.72
+          },
+          {
+            "date": "2026-05-22",
+            "value": 98.37
           }
         ],
         "signal": {
@@ -4151,44 +4151,40 @@
           "weeksFromSignal": 9,
           "perfFromState": 7.5,
           "perfFromSignal": 7.5,
-          "benchFromState": 3.1,
-          "benchFromSignal": 3.1,
+          "benchFromState": 3.9,
+          "benchFromSignal": 3.9,
           "benchTicker": "EXSA.DE",
-          "relFromState": 4.4,
-          "relFromSignal": 4.4
+          "relFromState": 3.7,
+          "relFromSignal": 3.7
         }
       },
       {
         "ticker": "EXH3",
         "ticker_raw": "EXH3.DE",
         "name": "Servizi finanziari",
-        "stage": "2",
+        "stage": "3",
         "state": "Emergente",
-        "rsRatio": 97.05,
-        "rsMom": 102.42,
-        "delta5w": 1.32,
-        "roc13w": -4.6,
-        "roc52w": -7.7,
-        "rel13w": -3.6,
+        "rsRatio": 97.1,
+        "rsMom": 101.24,
+        "delta5w": 0.67,
+        "roc13w": -5.6,
+        "roc52w": -7.3,
+        "rel13w": -5.8,
         "tailRS": [
-          95.72,
           96.43,
           96.56,
           96.64,
-          97.05
+          97.05,
+          97.1
         ],
         "tailMom": [
-          98.24,
           99.58,
           100.34,
           101.16,
-          102.42
+          102.42,
+          101.24
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 96.9
-          },
           {
             "date": "2025-11-28",
             "value": 95.62
@@ -4288,6 +4284,10 @@
           {
             "date": "2026-05-15",
             "value": 97.05
+          },
+          {
+            "date": "2026-05-22",
+            "value": 97.1
           }
         ],
         "signal": {
@@ -4295,10 +4295,10 @@
           "signalDate": "2026-05-01",
           "weeksFromState": 2,
           "weeksFromSignal": 2,
-          "perfFromState": 1.7,
-          "perfFromSignal": 1.7,
-          "benchFromState": 0.8,
-          "benchFromSignal": 0.8,
+          "perfFromState": 2.4,
+          "perfFromSignal": 2.4,
+          "benchFromState": 1.5,
+          "benchFromSignal": 1.5,
           "benchTicker": "EXSA.DE",
           "relFromState": 0.9,
           "relFromSignal": 0.9
@@ -4310,31 +4310,27 @@
         "name": "Retail",
         "stage": "2",
         "state": "Emergente",
-        "rsRatio": 97.71,
-        "rsMom": 100.08,
-        "delta5w": 0.06,
-        "roc13w": 4.2,
-        "roc52w": 2.8,
-        "rel13w": 5.3,
+        "rsRatio": 98.1,
+        "rsMom": 100.5,
+        "delta5w": 0.38,
+        "roc13w": 5.3,
+        "roc52w": 4.0,
+        "rel13w": 5.2,
         "tailRS": [
-          97.65,
           97.72,
           97.82,
           97.54,
-          97.71
+          97.71,
+          98.1
         ],
         "tailMom": [
-          103.35,
           104.81,
           102.92,
           103.12,
-          100.08
+          100.08,
+          100.5
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 92.28
-          },
           {
             "date": "2025-11-28",
             "value": 93.55
@@ -4434,6 +4430,10 @@
           {
             "date": "2026-05-15",
             "value": 97.71
+          },
+          {
+            "date": "2026-05-22",
+            "value": 98.1
           }
         ],
         "signal": {
@@ -4441,13 +4441,13 @@
           "signalDate": "2026-03-06",
           "weeksFromState": 10,
           "weeksFromSignal": 10,
-          "perfFromState": 4.4,
-          "perfFromSignal": 4.4,
-          "benchFromState": 2.6,
-          "benchFromSignal": 2.6,
+          "perfFromState": 5.7,
+          "perfFromSignal": 5.7,
+          "benchFromState": 3.4,
+          "benchFromSignal": 3.4,
           "benchTicker": "EXSA.DE",
-          "relFromState": 1.8,
-          "relFromSignal": 1.8
+          "relFromState": 2.3,
+          "relFromSignal": 2.3
         }
       },
       {
@@ -4456,31 +4456,27 @@
         "name": "Media",
         "stage": "1",
         "state": "Debole",
-        "rsRatio": 91.99,
-        "rsMom": 92.96,
-        "delta5w": -4.36,
-        "roc13w": -10.7,
-        "roc52w": -5.9,
-        "rel13w": -9.7,
+        "rsRatio": 92.98,
+        "rsMom": 97.52,
+        "delta5w": -1.43,
+        "roc13w": -9.0,
+        "roc52w": -4.1,
+        "rel13w": -9.2,
         "tailRS": [
-          96.36,
           94.41,
           92.78,
           94.1,
-          91.99
+          91.99,
+          92.98
         ],
         "tailMom": [
-          100.61,
           99.36,
           97.51,
           97.44,
-          92.96
+          92.96,
+          97.52
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 97.38
-          },
           {
             "date": "2025-11-28",
             "value": 97.75
@@ -4580,6 +4576,10 @@
           {
             "date": "2026-05-15",
             "value": 91.99
+          },
+          {
+            "date": "2026-05-22",
+            "value": 92.98
           }
         ],
         "signal": {
@@ -4587,13 +4587,13 @@
           "signalDate": "2026-04-24",
           "weeksFromState": 3,
           "weeksFromSignal": 3,
-          "perfFromState": -4.9,
-          "perfFromSignal": -4.9,
-          "benchFromState": -0.1,
-          "benchFromSignal": -0.1,
+          "perfFromState": -3.3,
+          "perfFromSignal": -3.3,
+          "benchFromState": 0.7,
+          "benchFromSignal": 0.7,
           "benchTicker": "EXSA.DE",
-          "relFromState": -4.8,
-          "relFromSignal": -4.8
+          "relFromState": -4.0,
+          "relFromSignal": -4.0
         }
       },
       {
@@ -4602,31 +4602,27 @@
         "name": "Industriali",
         "stage": "2",
         "state": "Debole",
-        "rsRatio": 96.27,
-        "rsMom": 94.69,
-        "delta5w": -4.38,
-        "roc13w": -4.0,
-        "roc52w": 11.8,
-        "rel13w": -2.9,
+        "rsRatio": 95.47,
+        "rsMom": 96.6,
+        "delta5w": -2.83,
+        "roc13w": -2.7,
+        "roc52w": 11.4,
+        "rel13w": -2.8,
         "tailRS": [
-          100.64,
           98.3,
           98.25,
           99.2,
-          96.27
+          96.27,
+          95.47
         ],
         "tailMom": [
-          103.94,
           104.1,
           102.24,
           101.44,
-          94.69
+          94.69,
+          96.6
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 98.66
-          },
           {
             "date": "2025-11-28",
             "value": 98.58
@@ -4726,6 +4722,10 @@
           {
             "date": "2026-05-15",
             "value": 96.27
+          },
+          {
+            "date": "2026-05-22",
+            "value": 95.47
           }
         ],
         "signal": {
@@ -4733,46 +4733,42 @@
           "signalDate": "2026-05-15",
           "weeksFromState": 0,
           "weeksFromSignal": 0,
-          "perfFromState": 0.0,
-          "perfFromSignal": 0.0,
-          "benchFromState": 0.0,
-          "benchFromSignal": 0.0,
+          "perfFromState": 0.3,
+          "perfFromSignal": 0.3,
+          "benchFromState": 0.8,
+          "benchFromSignal": 0.8,
           "benchTicker": "EXSA.DE",
-          "relFromState": 0.0,
-          "relFromSignal": 0.0
+          "relFromState": -0.5,
+          "relFromSignal": -0.5
         }
       },
       {
         "ticker": "EXV8",
         "ticker_raw": "EXV8.DE",
         "name": "Costruzioni",
-        "stage": "2",
+        "stage": "1",
         "state": "Debole",
-        "rsRatio": 95.24,
-        "rsMom": 96.37,
-        "delta5w": -3.53,
-        "roc13w": -6.3,
-        "roc52w": 4.6,
-        "rel13w": -5.2,
+        "rsRatio": 94.77,
+        "rsMom": 97.66,
+        "delta5w": -2.25,
+        "roc13w": -4.7,
+        "roc52w": 4.3,
+        "rel13w": -4.9,
         "tailRS": [
-          98.76,
           97.01,
           96.69,
           98.27,
-          95.24
+          95.24,
+          94.77
         ],
         "tailMom": [
-          105.82,
           103.01,
           102.32,
           101.39,
-          96.37
+          96.37,
+          97.66
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 98.83
-          },
           {
             "date": "2025-11-28",
             "value": 101.17
@@ -4872,6 +4868,10 @@
           {
             "date": "2026-05-15",
             "value": 95.24
+          },
+          {
+            "date": "2026-05-22",
+            "value": 94.77
           }
         ],
         "signal": {
@@ -4881,11 +4881,11 @@
           "weeksFromSignal": 0,
           "perfFromState": 0.0,
           "perfFromSignal": 0.0,
-          "benchFromState": 0.0,
-          "benchFromSignal": 0.0,
+          "benchFromState": 0.8,
+          "benchFromSignal": 0.8,
           "benchTicker": "EXSA.DE",
-          "relFromState": 0.0,
-          "relFromSignal": 0.0
+          "relFromState": -0.7,
+          "relFromSignal": -0.7
         }
       },
       {
@@ -4894,31 +4894,27 @@
         "name": "Risorse base",
         "stage": "2",
         "state": "In rallentamento",
-        "rsRatio": 105.3,
-        "rsMom": 99.51,
-        "delta5w": -0.23,
-        "roc13w": 2.4,
-        "roc52w": 69.6,
-        "rel13w": 3.4,
+        "rsRatio": 104.89,
+        "rsMom": 98.94,
+        "delta5w": -0.49,
+        "roc13w": 4.3,
+        "roc52w": 70.3,
+        "rel13w": 4.2,
         "tailRS": [
-          105.52,
           105.37,
           104.78,
           105.52,
-          105.3
+          105.3,
+          104.89
         ],
         "tailMom": [
-          101.78,
           100.38,
           98.45,
           99.48,
-          99.51
+          99.51,
+          98.94
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 102.42
-          },
           {
             "date": "2025-11-28",
             "value": 103.9
@@ -5018,6 +5014,10 @@
           {
             "date": "2026-05-15",
             "value": 105.3
+          },
+          {
+            "date": "2026-05-22",
+            "value": 104.89
           }
         ],
         "signal": {
@@ -5027,44 +5027,40 @@
           "weeksFromSignal": 2,
           "perfFromState": 4.9,
           "perfFromSignal": 4.9,
-          "benchFromState": 0.8,
-          "benchFromSignal": 0.8,
+          "benchFromState": 1.5,
+          "benchFromSignal": 1.5,
           "benchTicker": "EXSA.DE",
-          "relFromState": 4.2,
-          "relFromSignal": 4.2
+          "relFromState": 3.4,
+          "relFromSignal": 3.4
         }
       },
       {
         "ticker": "EXH6",
         "ticker_raw": "EXH6.DE",
         "name": "Beni personali",
-        "stage": "4",
+        "stage": "3",
         "state": "Emergente",
-        "rsRatio": 96.77,
-        "rsMom": 101.11,
-        "delta5w": 0.47,
-        "roc13w": 2.5,
-        "roc52w": -22.8,
-        "rel13w": 3.6,
+        "rsRatio": 97.19,
+        "rsMom": 101.94,
+        "delta5w": 0.81,
+        "roc13w": 5.6,
+        "roc52w": -21.0,
+        "rel13w": 5.4,
         "tailRS": [
-          96.3,
           96.39,
           95.97,
           96.7,
-          96.77
+          96.77,
+          97.19
         ],
         "tailMom": [
-          103.29,
           103.95,
           102.39,
           103.13,
-          101.11
+          101.11,
+          101.94
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 95.17
-          },
           {
             "date": "2025-11-28",
             "value": 94.87
@@ -5164,6 +5160,10 @@
           {
             "date": "2026-05-15",
             "value": 96.77
+          },
+          {
+            "date": "2026-05-22",
+            "value": 97.19
           }
         ],
         "signal": {
@@ -5171,13 +5171,13 @@
           "signalDate": "2026-03-06",
           "weeksFromState": 10,
           "weeksFromSignal": 10,
-          "perfFromState": 5.2,
-          "perfFromSignal": 5.2,
-          "benchFromState": 2.6,
-          "benchFromSignal": 2.6,
+          "perfFromState": 8.0,
+          "perfFromSignal": 8.0,
+          "benchFromState": 3.4,
+          "benchFromSignal": 3.4,
           "benchTicker": "EXSA.DE",
-          "relFromState": 2.6,
-          "relFromSignal": 2.6
+          "relFromState": 4.6,
+          "relFromSignal": 4.6
         }
       },
       {
@@ -5186,31 +5186,27 @@
         "name": "Telecomunicazioni",
         "stage": "2",
         "state": "Leader",
-        "rsRatio": 106.07,
-        "rsMom": 103.8,
-        "delta5w": 4.0,
-        "roc13w": 9.8,
-        "roc52w": 24.7,
-        "rel13w": 10.8,
+        "rsRatio": 106.27,
+        "rsMom": 103.04,
+        "delta5w": 3.23,
+        "roc13w": 9.7,
+        "roc52w": 25.6,
+        "rel13w": 9.5,
         "tailRS": [
-          102.07,
           103.04,
           104.27,
           104.67,
-          106.07
+          106.07,
+          106.27
         ],
         "tailMom": [
-          95.41,
           96.91,
           99.22,
           100.24,
-          103.8
+          103.8,
+          103.04
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 96.14
-          },
           {
             "date": "2025-11-28",
             "value": 95.38
@@ -5310,6 +5306,10 @@
           {
             "date": "2026-05-15",
             "value": 106.07
+          },
+          {
+            "date": "2026-05-22",
+            "value": 106.27
           }
         ],
         "signal": {
@@ -5317,13 +5317,13 @@
           "signalDate": "2026-01-23",
           "weeksFromState": 14,
           "weeksFromSignal": 16,
-          "perfFromState": 12.0,
-          "perfFromSignal": 21.9,
-          "benchFromState": -0.3,
-          "benchFromSignal": 1.2,
+          "perfFromState": 13.9,
+          "perfFromSignal": 23.9,
+          "benchFromState": 0.5,
+          "benchFromSignal": 2.0,
           "benchTicker": "EXSA.DE",
-          "relFromState": 12.3,
-          "relFromSignal": 20.7
+          "relFromState": 13.4,
+          "relFromSignal": 22.0
         }
       },
       {
@@ -5332,31 +5332,27 @@
         "name": "Alimentari & Bevande",
         "stage": "4",
         "state": "Emergente",
-        "rsRatio": 93.94,
-        "rsMom": 103.45,
-        "delta5w": 1.96,
-        "roc13w": -10.6,
-        "roc52w": -6.7,
-        "rel13w": -9.5,
+        "rsRatio": 94.3,
+        "rsMom": 102.89,
+        "delta5w": 1.66,
+        "roc13w": -10.2,
+        "roc52w": -5.8,
+        "rel13w": -10.3,
         "tailRS": [
-          91.98,
           92.65,
           92.65,
           93.56,
-          93.94
+          93.94,
+          94.3
         ],
         "tailMom": [
-          99.21,
           99.84,
           101.72,
           102.8,
-          103.45
+          103.45,
+          102.89
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 98.77
-          },
           {
             "date": "2025-11-28",
             "value": 98.77
@@ -5456,6 +5452,10 @@
           {
             "date": "2026-05-15",
             "value": 93.94
+          },
+          {
+            "date": "2026-05-22",
+            "value": 94.3
           }
         ],
         "signal": {
@@ -5463,13 +5463,13 @@
           "signalDate": "2026-05-01",
           "weeksFromState": 2,
           "weeksFromSignal": 2,
-          "perfFromState": 2.1,
-          "perfFromSignal": 2.1,
-          "benchFromState": 0.8,
-          "benchFromSignal": 0.8,
+          "perfFromState": 3.1,
+          "perfFromSignal": 3.1,
+          "benchFromState": 1.5,
+          "benchFromSignal": 1.5,
           "benchTicker": "EXSA.DE",
-          "relFromState": 1.4,
-          "relFromSignal": 1.4
+          "relFromState": 1.6,
+          "relFromSignal": 1.6
         }
       },
       {
@@ -5477,32 +5477,28 @@
         "ticker_raw": "EXV7.DE",
         "name": "Chimica",
         "stage": "2",
-        "state": "Emergente",
-        "rsRatio": 98.28,
-        "rsMom": 101.59,
-        "delta5w": 0.6,
-        "roc13w": -0.1,
-        "roc52w": -4.5,
-        "rel13w": 0.9,
+        "state": "Debole",
+        "rsRatio": 98.43,
+        "rsMom": 99.94,
+        "delta5w": -0.02,
+        "roc13w": 0.7,
+        "roc52w": -4.1,
+        "rel13w": 0.6,
         "tailRS": [
-          97.68,
           98.45,
           98.24,
           97.76,
-          98.28
+          98.28,
+          98.43
         ],
         "tailMom": [
-          102.66,
           100.15,
           101.09,
           98.92,
-          101.59
+          101.59,
+          99.94
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 93.77
-          },
           {
             "date": "2025-11-28",
             "value": 93.54
@@ -5602,20 +5598,24 @@
           {
             "date": "2026-05-15",
             "value": 98.28
+          },
+          {
+            "date": "2026-05-22",
+            "value": 98.43
           }
         ],
         "signal": {
-          "stateEntryDate": "2026-05-15",
-          "signalDate": "2026-05-15",
+          "stateEntryDate": "2026-05-22",
+          "signalDate": "2026-05-22",
           "weeksFromState": 0,
           "weeksFromSignal": 0,
-          "perfFromState": 0.0,
-          "perfFromSignal": 0.0,
-          "benchFromState": 0.0,
-          "benchFromSignal": 0.0,
+          "perfFromState": null,
+          "perfFromSignal": null,
+          "benchFromState": null,
+          "benchFromSignal": null,
           "benchTicker": "EXSA.DE",
-          "relFromState": 0.0,
-          "relFromSignal": 0.0
+          "relFromState": null,
+          "relFromSignal": null
         }
       },
       {
@@ -5624,31 +5624,27 @@
         "name": "Utility",
         "stage": "2",
         "state": "In rallentamento",
-        "rsRatio": 102.0,
-        "rsMom": 98.42,
-        "delta5w": -1.08,
-        "roc13w": -3.3,
-        "roc52w": 25.6,
-        "rel13w": -2.2,
+        "rsRatio": 102.59,
+        "rsMom": 95.89,
+        "delta5w": -2.79,
+        "roc13w": -0.9,
+        "roc52w": 27.4,
+        "rel13w": -1.1,
         "tailRS": [
-          103.08,
           105.38,
           105.87,
           103.58,
-          102.0
+          102.0,
+          102.59
         ],
         "tailMom": [
-          96.01,
           98.82,
           97.42,
           96.15,
-          98.42
+          98.42,
+          95.89
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 104.98
-          },
           {
             "date": "2025-11-28",
             "value": 104.1
@@ -5748,6 +5744,10 @@
           {
             "date": "2026-05-15",
             "value": 102.0
+          },
+          {
+            "date": "2026-05-22",
+            "value": 102.59
           }
         ],
         "signal": {
@@ -5755,13 +5755,13 @@
           "signalDate": "2026-04-10",
           "weeksFromState": 5,
           "weeksFromSignal": 5,
-          "perfFromState": -7.1,
-          "perfFromSignal": -7.1,
-          "benchFromState": -0.5,
-          "benchFromSignal": -0.5,
+          "perfFromState": -5.2,
+          "perfFromSignal": -5.2,
+          "benchFromState": 0.2,
+          "benchFromSignal": 0.2,
           "benchTicker": "EXSA.DE",
-          "relFromState": -6.6,
-          "relFromSignal": -6.6
+          "relFromState": -5.5,
+          "relFromSignal": -5.5
         }
       },
       {
@@ -5769,32 +5769,28 @@
         "ticker_raw": "EXV9.DE",
         "name": "Viaggi & Tempo libero",
         "stage": "4",
-        "state": "Debole",
-        "rsRatio": 94.63,
-        "rsMom": 97.54,
-        "delta5w": -1.41,
-        "roc13w": -6.1,
-        "roc52w": -0.3,
-        "rel13w": -5.1,
+        "state": "Emergente",
+        "rsRatio": 95.45,
+        "rsMom": 102.17,
+        "delta5w": 1.25,
+        "roc13w": -4.7,
+        "roc52w": 0.9,
+        "rel13w": -4.9,
         "tailRS": [
-          96.04,
           94.2,
           93.29,
           95.34,
-          94.63
+          94.63,
+          95.45
         ],
         "tailMom": [
-          102.78,
           99.0,
           97.72,
           100.62,
-          97.54
+          97.54,
+          102.17
         ],
         "rsRatioSeries": [
-          {
-            "date": "2025-11-21",
-            "value": 97.66
-          },
           {
             "date": "2025-11-28",
             "value": 98.3
@@ -5894,20 +5890,24 @@
           {
             "date": "2026-05-15",
             "value": 94.63
+          },
+          {
+            "date": "2026-05-22",
+            "value": 95.45
           }
         ],
         "signal": {
-          "stateEntryDate": "2026-05-15",
-          "signalDate": "2026-05-15",
+          "stateEntryDate": "2026-05-22",
+          "signalDate": "2026-05-22",
           "weeksFromState": 0,
           "weeksFromSignal": 0,
-          "perfFromState": 0.0,
-          "perfFromSignal": 0.0,
-          "benchFromState": 0.0,
-          "benchFromSignal": 0.0,
+          "perfFromState": null,
+          "perfFromSignal": null,
+          "benchFromState": null,
+          "benchFromSignal": null,
           "benchTicker": "EXSA.DE",
-          "relFromState": 0.0,
-          "relFromSignal": 0.0
+          "relFromState": null,
+          "relFromSignal": null
         }
       }
     ],
@@ -5916,39 +5916,39 @@
         "sector_name": "Tecnologia",
         "sector_state": "Leader",
         "signal_date": "2026-04-17",
-        "etf_perf_from_signal": 4.0,
+        "etf_perf_from_signal": 3.9,
         "holdings": [
+          {
+            "ticker": "TXT.MI",
+            "name": "TXT E-SOLUTIONS",
+            "price": 36.5,
+            "trailingPE": 19.6,
+            "forwardPE": 12.5,
+            "peg": null,
+            "marketCapB": 0.5,
+            "divYield": 0.96,
+            "roc13w": 50.4,
+            "rocYtd": 22.8,
+            "perfFromSignal": 3.4,
+            "peRelative": 1.33,
+            "perfVsEtf": -0.5,
+            "tag": "top_momentum"
+          },
           {
             "ticker": "REY.MI",
             "name": "REPLY",
-            "price": NaN,
+            "price": 98.95,
             "trailingPE": 14.7,
             "forwardPE": 12.4,
             "peg": null,
             "marketCapB": 3.7,
-            "divYield": 1.38,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
+            "divYield": 1.36,
+            "roc13w": 10.9,
+            "rocYtd": -9.5,
+            "perfFromSignal": 4.5,
             "peRelative": 1.0,
-            "perfVsEtf": NaN,
-            "tag": null
-          },
-          {
-            "ticker": "TXT.MI",
-            "name": "TXT E-SOLUTIONS",
-            "price": NaN,
-            "trailingPE": 19.9,
-            "forwardPE": 12.5,
-            "peg": null,
-            "marketCapB": 0.5,
-            "divYield": 0.94,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": 1.35,
-            "perfVsEtf": NaN,
-            "tag": null
+            "perfVsEtf": 0.6,
+            "tag": "top_momentum"
           },
           {
             "ticker": "DEA.MI",
@@ -5963,79 +5963,271 @@
             "rocYtd": 2.5,
             "perfFromSignal": -7.3,
             "peRelative": 0.71,
-            "perfVsEtf": -11.3,
+            "perfVsEtf": -11.2,
             "tag": "value_trap"
           }
         ]
       },
-      "EXH1": {
-        "sector_name": "Energia",
+      "EXV1": {
+        "sector_name": "Banche",
         "sector_state": "Leader",
         "signal_date": "2025-07-04",
-        "etf_perf_from_signal": 50.7,
+        "etf_perf_from_signal": 35.9,
         "holdings": [
           {
-            "ticker": "ENI.MI",
-            "name": "ENI",
-            "price": NaN,
-            "trailingPE": 24.2,
-            "forwardPE": 10.3,
-            "peg": 0.43,
-            "marketCapB": 70.6,
-            "divYield": 4.59,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": 1.11,
-            "perfVsEtf": NaN,
-            "tag": null
-          },
-          {
-            "ticker": "TEN.MI",
-            "name": "TENARIS",
-            "price": NaN,
-            "trailingPE": 16.3,
-            "forwardPE": 15.1,
-            "peg": 3.11,
-            "marketCapB": 26.6,
-            "divYield": 2.85,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": 0.75,
-            "perfVsEtf": NaN,
-            "tag": null
-          },
-          {
-            "ticker": "ERG.MI",
-            "name": "ERG",
-            "price": NaN,
-            "trailingPE": 19.3,
-            "forwardPE": 19.9,
-            "peg": 0.94,
-            "marketCapB": 3.3,
-            "divYield": 4.28,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": 0.89,
-            "perfVsEtf": NaN,
-            "tag": null
-          },
-          {
-            "ticker": "SPM.MI",
-            "name": "SAIPEM",
-            "price": NaN,
-            "trailingPE": 30.6,
-            "forwardPE": 15.3,
-            "peg": 0.38,
-            "marketCapB": 8.9,
-            "divYield": 3.65,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
+            "ticker": "MB.MI",
+            "name": "MEDIOBANCA",
+            "price": 20.83,
+            "trailingPE": 14.2,
+            "forwardPE": 11.6,
+            "peg": 1.02,
+            "marketCapB": 16.8,
+            "divYield": 6.05,
+            "roc13w": 19.3,
+            "rocYtd": 19.7,
+            "perfFromSignal": 19.5,
             "peRelative": 1.41,
-            "perfVsEtf": NaN,
+            "perfVsEtf": -16.4,
+            "tag": "top_momentum"
+          },
+          {
+            "ticker": "BMPS.MI",
+            "name": "BANCA MONTE PASCHI SIENA",
+            "price": 8.63,
+            "trailingPE": 6.3,
+            "forwardPE": 9.6,
+            "peg": 0.96,
+            "marketCapB": 26.2,
+            "divYield": 9.96,
+            "roc13w": 13.8,
+            "rocYtd": 1.6,
+            "perfFromSignal": 37.3,
+            "peRelative": 0.62,
+            "perfVsEtf": 1.4,
+            "tag": "top_momentum"
+          },
+          {
+            "ticker": "BAMI.MI",
+            "name": "BANCO BPM",
+            "price": 13.09,
+            "trailingPE": 9.5,
+            "forwardPE": 9.8,
+            "peg": 1.81,
+            "marketCapB": 19.7,
+            "divYield": 7.64,
+            "roc13w": 10.9,
+            "rocYtd": 3.3,
+            "perfFromSignal": 41.5,
+            "peRelative": 0.94,
+            "perfVsEtf": 5.6,
+            "tag": "top_momentum"
+          },
+          {
+            "ticker": "BPSO.MI",
+            "name": "BCA POP SONDRIO",
+            "price": 17.86,
+            "trailingPE": 12.4,
+            "forwardPE": 12.6,
+            "peg": null,
+            "marketCapB": 8.0,
+            "divYield": 0.04,
+            "roc13w": 1.9,
+            "rocYtd": 5.2,
+            "perfFromSignal": 51.0,
+            "peRelative": 1.23,
+            "perfVsEtf": 15.1,
+            "tag": "expensive_flat"
+          },
+          {
+            "ticker": "ISP.MI",
+            "name": "INTESA SANPAOLO",
+            "price": 5.59,
+            "trailingPE": 10.4,
+            "forwardPE": 9.0,
+            "peg": 27.9,
+            "marketCapB": 97.5,
+            "divYield": 6.8,
+            "roc13w": -1.1,
+            "rocYtd": -2.9,
+            "perfFromSignal": 22.9,
+            "peRelative": 1.03,
+            "perfVsEtf": -13.0,
+            "tag": "stagnant"
+          },
+          {
+            "ticker": "UCG.MI",
+            "name": "UNICREDIT",
+            "price": 71.46,
+            "trailingPE": 9.8,
+            "forwardPE": 8.7,
+            "peg": 1.11,
+            "marketCapB": 107.1,
+            "divYield": 4.41,
+            "roc13w": -1.2,
+            "rocYtd": 3.1,
+            "perfFromSignal": 32.7,
+            "peRelative": 0.97,
+            "perfVsEtf": -3.2,
+            "tag": "stagnant"
+          }
+        ]
+      },
+      "EXV5": {
+        "sector_name": "Automobili",
+        "sector_state": "Emergente",
+        "signal_date": "2026-05-22",
+        "etf_perf_from_signal": null,
+        "holdings": [
+          {
+            "ticker": "IVG.MI",
+            "name": "IVECO GROUP",
+            "price": 13.91,
+            "trailingPE": 46.4,
+            "forwardPE": 5.7,
+            "peg": null,
+            "marketCapB": 3.7,
+            "divYield": 2.35,
+            "roc13w": 4.7,
+            "rocYtd": 4.9,
+            "perfFromSignal": null,
+            "peRelative": 2.01,
+            "perfVsEtf": null,
+            "tag": "expensive_flat"
+          },
+          {
+            "ticker": "BRE.MI",
+            "name": "BREMBO",
+            "price": 10.43,
+            "trailingPE": 15.3,
+            "forwardPE": 12.6,
+            "peg": 0.45,
+            "marketCapB": 3.3,
+            "divYield": 2.88,
+            "roc13w": -1.3,
+            "rocYtd": 10.7,
+            "perfFromSignal": null,
+            "peRelative": 0.66,
+            "perfVsEtf": null,
+            "tag": "stagnant"
+          },
+          {
+            "ticker": "STLAM.MI",
+            "name": "STELLANTIS",
+            "price": 6.4,
+            "trailingPE": null,
+            "forwardPE": 4.0,
+            "peg": 1.42,
+            "marketCapB": 18.5,
+            "divYield": 11.13,
+            "roc13w": -3.9,
+            "rocYtd": -34.2,
+            "perfFromSignal": null,
+            "peRelative": null,
+            "perfVsEtf": null,
+            "tag": "stagnant"
+          },
+          {
+            "ticker": "PIRC.MI",
+            "name": "PIRELLI & C",
+            "price": 6.03,
+            "trailingPE": 11.8,
+            "forwardPE": 10.2,
+            "peg": null,
+            "marketCapB": 6.5,
+            "divYield": 3.98,
+            "roc13w": -6.4,
+            "rocYtd": 2.6,
+            "perfFromSignal": null,
+            "peRelative": 0.51,
+            "perfVsEtf": null,
+            "tag": "value_trap"
+          },
+          {
+            "ticker": "RACE.MI",
+            "name": "FERRARI",
+            "price": 277.0,
+            "trailingPE": 30.8,
+            "forwardPE": 26.3,
+            "peg": 3.57,
+            "marketCapB": 48.8,
+            "divYield": 1.31,
+            "roc13w": -14.8,
+            "rocYtd": -11.4,
+            "perfFromSignal": null,
+            "peRelative": 1.34,
+            "perfVsEtf": null,
+            "tag": "expensive_flat"
+          }
+        ]
+      },
+      "EXV4": {
+        "sector_name": "Sanità",
+        "sector_state": "Emergente",
+        "signal_date": "2026-05-22",
+        "etf_perf_from_signal": null,
+        "holdings": [
+          {
+            "ticker": "REC.MI",
+            "name": "RECORDATI ORD",
+            "price": 50.8,
+            "trailingPE": 22.5,
+            "forwardPE": 13.6,
+            "peg": 1.1,
+            "marketCapB": 10.3,
+            "divYield": 2.8,
+            "roc13w": 8.7,
+            "rocYtd": 6.7,
+            "perfFromSignal": null,
+            "peRelative": 0.73,
+            "perfVsEtf": null,
+            "tag": "top_momentum"
+          },
+          {
+            "ticker": "GVS.MI",
+            "name": "GVS",
+            "price": 4.36,
+            "trailingPE": 43.6,
+            "forwardPE": 14.7,
+            "peg": null,
+            "marketCapB": 0.8,
+            "divYield": null,
+            "roc13w": 4.9,
+            "rocYtd": 12.4,
+            "perfFromSignal": null,
+            "peRelative": 1.42,
+            "perfVsEtf": null,
+            "tag": "expensive_flat"
+          },
+          {
+            "ticker": "DIA.MI",
+            "name": "DIASORIN",
+            "price": 70.48,
+            "trailingPE": 26.7,
+            "forwardPE": 15.8,
+            "peg": 1.69,
+            "marketCapB": 3.5,
+            "divYield": 1.84,
+            "roc13w": -3.2,
+            "rocYtd": 5.0,
+            "perfFromSignal": null,
+            "peRelative": 0.87,
+            "perfVsEtf": null,
+            "tag": "stagnant"
+          },
+          {
+            "ticker": "AMP.MI",
+            "name": "AMPLIFON",
+            "price": 10.78,
+            "trailingPE": 34.8,
+            "forwardPE": 11.4,
+            "peg": 0.45,
+            "marketCapB": 2.4,
+            "divYield": 2.69,
+            "roc13w": -20.7,
+            "rocYtd": -20.3,
+            "perfFromSignal": null,
+            "peRelative": 1.13,
+            "perfVsEtf": null,
             "tag": null
           }
         ]
@@ -6047,36 +6239,36 @@
         "etf_perf_from_signal": 7.5,
         "holdings": [
           {
+            "ticker": "UNI.MI",
+            "name": "UNIPOL",
+            "price": 21.03,
+            "trailingPE": 10.4,
+            "forwardPE": 9.7,
+            "peg": 0.08,
+            "marketCapB": 15.1,
+            "divYield": 5.33,
+            "roc13w": 14.7,
+            "rocYtd": 7.9,
+            "perfFromSignal": 12.2,
+            "peRelative": 0.85,
+            "perfVsEtf": 4.7,
+            "tag": "top_momentum"
+          },
+          {
             "ticker": "G.MI",
             "name": "GENERALI",
-            "price": NaN,
+            "price": 37.56,
             "trailingPE": 14.0,
             "forwardPE": 11.2,
             "peg": 2.27,
             "marketCapB": 56.2,
             "divYield": 4.25,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
+            "roc13w": 13.3,
+            "rocYtd": 9.6,
+            "perfFromSignal": 14.7,
             "peRelative": 1.15,
-            "perfVsEtf": NaN,
-            "tag": null
-          },
-          {
-            "ticker": "UNI.MI",
-            "name": "UNIPOL",
-            "price": NaN,
-            "trailingPE": 10.4,
-            "forwardPE": 9.7,
-            "peg": 0.08,
-            "marketCapB": 15.1,
-            "divYield": 5.06,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": 0.85,
-            "perfVsEtf": NaN,
-            "tag": null
+            "perfVsEtf": 7.2,
+            "tag": "top_momentum"
           }
         ]
       },
@@ -6084,86 +6276,86 @@
         "sector_name": "Servizi finanziari",
         "sector_state": "Emergente",
         "signal_date": "2026-05-01",
-        "etf_perf_from_signal": 1.7,
+        "etf_perf_from_signal": 2.4,
         "holdings": [
-          {
-            "ticker": "AZM.MI",
-            "name": "AZIMUT",
-            "price": NaN,
-            "trailingPE": 9.2,
-            "forwardPE": 10.0,
-            "peg": 1.74,
-            "marketCapB": 4.9,
-            "divYield": 5.68,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": 0.79,
-            "perfVsEtf": NaN,
-            "tag": null
-          },
-          {
-            "ticker": "FBK.MI",
-            "name": "FINECOBANK",
-            "price": NaN,
-            "trailingPE": 19.7,
-            "forwardPE": 17.3,
-            "peg": null,
-            "marketCapB": 12.8,
-            "divYield": 3.7,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": 1.7,
-            "perfVsEtf": NaN,
-            "tag": null
-          },
           {
             "ticker": "BMED.MI",
             "name": "BANCA MEDIOLANUM",
-            "price": NaN,
-            "trailingPE": 11.6,
+            "price": 19.39,
+            "trailingPE": 11.5,
             "forwardPE": 12.9,
             "peg": 0.23,
             "marketCapB": 14.3,
-            "divYield": 6.8,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
+            "divYield": 6.7,
+            "roc13w": 13.9,
+            "rocYtd": 1.9,
+            "perfFromSignal": 6.2,
             "peRelative": 1.0,
-            "perfVsEtf": NaN,
-            "tag": null
-          },
-          {
-            "ticker": "BGN.MI",
-            "name": "BANCA GENERALI",
-            "price": NaN,
-            "trailingPE": 13.6,
-            "forwardPE": 14.8,
-            "peg": 15.22,
-            "marketCapB": 6.3,
-            "divYield": 5.15,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": 1.17,
-            "perfVsEtf": NaN,
-            "tag": null
+            "perfVsEtf": 3.8,
+            "tag": "top_momentum"
           },
           {
             "ticker": "ANIM.MI",
             "name": "ANIMA HOLDING",
-            "price": NaN,
+            "price": 7.2,
             "trailingPE": 9.1,
             "forwardPE": 8.9,
             "peg": null,
             "marketCapB": 2.3,
-            "divYield": 6.91,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": 0.78,
-            "perfVsEtf": NaN,
+            "divYield": 6.94,
+            "roc13w": 13.3,
+            "rocYtd": 28.5,
+            "perfFromSignal": 5.3,
+            "peRelative": 0.79,
+            "perfVsEtf": 2.9,
+            "tag": "top_momentum"
+          },
+          {
+            "ticker": "FBK.MI",
+            "name": "FINECOBANK",
+            "price": 20.88,
+            "trailingPE": 19.7,
+            "forwardPE": 17.3,
+            "peg": null,
+            "marketCapB": 12.8,
+            "divYield": 3.78,
+            "roc13w": 10.2,
+            "rocYtd": -3.6,
+            "perfFromSignal": 4.4,
+            "peRelative": 1.71,
+            "perfVsEtf": 2.0,
+            "tag": "top_momentum"
+          },
+          {
+            "ticker": "BGN.MI",
+            "name": "BANCA GENERALI",
+            "price": 54.9,
+            "trailingPE": 13.6,
+            "forwardPE": 14.8,
+            "peg": 15.22,
+            "marketCapB": 6.3,
+            "divYield": 5.28,
+            "roc13w": 6.9,
+            "rocYtd": 0.3,
+            "perfFromSignal": 5.4,
+            "peRelative": 1.18,
+            "perfVsEtf": 3.0,
+            "tag": null
+          },
+          {
+            "ticker": "AZM.MI",
+            "name": "AZIMUT",
+            "price": 34.68,
+            "trailingPE": 9.2,
+            "forwardPE": 10.0,
+            "peg": 1.74,
+            "marketCapB": 4.9,
+            "divYield": 5.77,
+            "roc13w": 6.4,
+            "rocYtd": 2.9,
+            "perfFromSignal": 3.5,
+            "peRelative": 0.8,
+            "perfVsEtf": 1.1,
             "tag": null
           }
         ]
@@ -6172,38 +6364,38 @@
         "sector_name": "Retail",
         "sector_state": "Emergente",
         "signal_date": "2026-03-06",
-        "etf_perf_from_signal": 4.4,
+        "etf_perf_from_signal": 5.7,
         "holdings": [
           {
             "ticker": "OVS.MI",
             "name": "OVS",
-            "price": NaN,
+            "price": 5.19,
             "trailingPE": 27.3,
             "forwardPE": 12.0,
             "peg": null,
             "marketCapB": 1.3,
             "divYield": 2.7,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
+            "roc13w": 4.8,
+            "rocYtd": 7.2,
+            "perfFromSignal": 12.1,
             "peRelative": 1.0,
-            "perfVsEtf": NaN,
-            "tag": null
+            "perfVsEtf": 6.4,
+            "tag": "stagnant"
           },
           {
             "ticker": "GEO.MI",
             "name": "GEOX",
-            "price": NaN,
+            "price": 0.26,
             "trailingPE": null,
             "forwardPE": 25.7,
             "peg": 0.81,
             "marketCapB": 0.1,
             "divYield": null,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
+            "roc13w": -14.3,
+            "rocYtd": -18.3,
+            "perfFromSignal": -8.2,
             "peRelative": null,
-            "perfVsEtf": NaN,
+            "perfVsEtf": -13.9,
             "tag": null
           }
         ]
@@ -6212,86 +6404,86 @@
         "sector_name": "Beni personali",
         "sector_state": "Emergente",
         "signal_date": "2026-03-06",
-        "etf_perf_from_signal": 5.2,
+        "etf_perf_from_signal": 8.0,
         "holdings": [
+          {
+            "ticker": "TPRO.MI",
+            "name": "TECHNOPROBE",
+            "price": 28.46,
+            "trailingPE": 189.7,
+            "forwardPE": 46.0,
+            "peg": null,
+            "marketCapB": 18.2,
+            "divYield": null,
+            "roc13w": 58.8,
+            "rocYtd": 120.1,
+            "perfFromSignal": 86.7,
+            "peRelative": 5.25,
+            "perfVsEtf": 78.7,
+            "tag": "top_momentum"
+          },
           {
             "ticker": "MONC.MI",
             "name": "MONCLER",
-            "price": NaN,
+            "price": 49.25,
             "trailingPE": 21.3,
             "forwardPE": 18.9,
             "peg": 2.76,
             "marketCapB": 13.4,
-            "divYield": 2.82,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
+            "divYield": 2.84,
+            "roc13w": -1.2,
+            "rocYtd": -7.4,
+            "perfFromSignal": -7.9,
             "peRelative": 0.59,
-            "perfVsEtf": NaN,
-            "tag": null
+            "perfVsEtf": -15.9,
+            "tag": "stagnant"
           },
           {
             "ticker": "BC.MI",
             "name": "BRUNELLO CUCINELLI",
-            "price": NaN,
+            "price": 82.1,
             "trailingPE": 41.3,
             "forwardPE": 32.0,
             "peg": 2.83,
             "marketCapB": 5.6,
-            "divYield": 1.28,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
+            "divYield": 1.27,
+            "roc13w": -3.7,
+            "rocYtd": -14.4,
+            "perfFromSignal": 10.8,
             "peRelative": 1.14,
-            "perfVsEtf": NaN,
-            "tag": null
-          },
-          {
-            "ticker": "FCT.MI",
-            "name": "FINCANTIERI",
-            "price": NaN,
-            "trailingPE": 30.9,
-            "forwardPE": 17.4,
-            "peg": 0.31,
-            "marketCapB": 4.0,
-            "divYield": null,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": 0.86,
-            "perfVsEtf": NaN,
-            "tag": null
+            "perfVsEtf": 2.8,
+            "tag": "stagnant"
           },
           {
             "ticker": "GEO.MI",
             "name": "GEOX",
-            "price": NaN,
+            "price": 0.26,
             "trailingPE": null,
             "forwardPE": 25.7,
             "peg": 0.81,
             "marketCapB": 0.1,
             "divYield": null,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
+            "roc13w": -14.3,
+            "rocYtd": -18.3,
+            "perfFromSignal": -8.2,
             "peRelative": null,
-            "perfVsEtf": NaN,
+            "perfVsEtf": -16.2,
             "tag": null
           },
           {
-            "ticker": "TPRO.MI",
-            "name": "TECHNOPROBE",
-            "price": NaN,
-            "trailingPE": 189.7,
-            "forwardPE": 52.4,
-            "peg": null,
-            "marketCapB": 18.2,
+            "ticker": "FCT.MI",
+            "name": "FINCANTIERI",
+            "price": 11.14,
+            "trailingPE": 30.9,
+            "forwardPE": 17.4,
+            "peg": 0.31,
+            "marketCapB": 4.0,
             "divYield": null,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": 5.25,
-            "perfVsEtf": NaN,
+            "roc13w": -32.5,
+            "rocYtd": -36.9,
+            "perfFromSignal": -19.7,
+            "peRelative": 0.86,
+            "perfVsEtf": -27.7,
             "tag": null
           }
         ]
@@ -6300,39 +6492,39 @@
         "sector_name": "Telecomunicazioni",
         "sector_state": "Leader",
         "signal_date": "2026-01-23",
-        "etf_perf_from_signal": 21.9,
+        "etf_perf_from_signal": 23.9,
         "holdings": [
           {
             "ticker": "TIT.MI",
             "name": "TELECOM ITALIA",
-            "price": NaN,
+            "price": 0.72,
             "trailingPE": 72.5,
             "forwardPE": 26.0,
             "peg": 0.51,
             "marketCapB": 16.2,
             "divYield": null,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
+            "roc13w": 15.1,
+            "rocYtd": 43.2,
+            "perfFromSignal": 27.3,
             "peRelative": 1.61,
-            "perfVsEtf": NaN,
-            "tag": null
+            "perfVsEtf": 3.4,
+            "tag": "top_momentum"
           },
           {
             "ticker": "INW.MI",
             "name": "INWIT",
-            "price": NaN,
+            "price": 6.59,
             "trailingPE": 17.3,
             "forwardPE": 17.4,
             "peg": 2.15,
             "marketCapB": 5.9,
-            "divYield": 7.89,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
+            "divYield": 8.42,
+            "roc13w": -15.2,
+            "rocYtd": -8.9,
+            "perfFromSignal": -3.1,
             "peRelative": 0.39,
-            "perfVsEtf": NaN,
-            "tag": null
+            "perfVsEtf": -27.0,
+            "tag": "value_trap"
           }
         ]
       },
@@ -6340,62 +6532,78 @@
         "sector_name": "Alimentari & Bevande",
         "sector_state": "Emergente",
         "signal_date": "2026-05-01",
-        "etf_perf_from_signal": 2.1,
+        "etf_perf_from_signal": 3.1,
         "holdings": [
+          {
+            "ticker": "DLG.MI",
+            "name": "DE'LONGHI",
+            "price": 35.22,
+            "trailingPE": 16.5,
+            "forwardPE": 13.7,
+            "peg": 1.02,
+            "marketCapB": 5.3,
+            "divYield": 2.41,
+            "roc13w": -3.7,
+            "rocYtd": -1.0,
+            "perfFromSignal": 8.7,
+            "peRelative": 0.94,
+            "perfVsEtf": 5.6,
+            "tag": "stagnant"
+          },
           {
             "ticker": "CPR.MI",
             "name": "CAMPARI",
-            "price": NaN,
+            "price": 5.4,
             "trailingPE": 18.6,
             "forwardPE": 15.5,
             "peg": 1.61,
             "marketCapB": 6.5,
             "divYield": 1.85,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
+            "roc13w": -18.6,
+            "rocYtd": -0.5,
+            "perfFromSignal": -13.4,
             "peRelative": 1.06,
-            "perfVsEtf": NaN,
-            "tag": null
-          },
-          {
-            "ticker": "DLG.MI",
-            "name": "DE'LONGHI",
-            "price": NaN,
-            "trailingPE": 16.5,
-            "forwardPE": 13.7,
-            "peg": 1.02,
-            "marketCapB": 5.3,
-            "divYield": 2.31,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": 0.94,
-            "perfVsEtf": NaN,
+            "perfVsEtf": -16.5,
             "tag": null
           }
         ]
       },
-      "EXV7": {
-        "sector_name": "Chimica",
+      "EXV9": {
+        "sector_name": "Viaggi & Tempo libero",
         "sector_state": "Emergente",
-        "signal_date": "2026-05-15",
-        "etf_perf_from_signal": 0.0,
+        "signal_date": "2026-05-22",
+        "etf_perf_from_signal": null,
         "holdings": [
           {
-            "ticker": "ECNL.MI",
-            "name": "AQUAFIL",
-            "price": NaN,
-            "trailingPE": null,
-            "forwardPE": 7.3,
-            "peg": null,
-            "marketCapB": 0.1,
-            "divYield": null,
-            "roc13w": NaN,
-            "rocYtd": NaN,
-            "perfFromSignal": NaN,
-            "peRelative": null,
-            "perfVsEtf": NaN,
+            "ticker": "IG.MI",
+            "name": "ITALGAS",
+            "price": 9.89,
+            "trailingPE": 13.9,
+            "forwardPE": 12.5,
+            "peg": 2.82,
+            "marketCapB": 10.1,
+            "divYield": 4.37,
+            "roc13w": -3.9,
+            "rocYtd": 6.8,
+            "perfFromSignal": null,
+            "peRelative": 0.94,
+            "perfVsEtf": null,
+            "tag": "stagnant"
+          },
+          {
+            "ticker": "MARR.MI",
+            "name": "MARR",
+            "price": 7.7,
+            "trailingPE": 15.7,
+            "forwardPE": 10.8,
+            "peg": 2.61,
+            "marketCapB": 0.5,
+            "divYield": 6.1,
+            "roc13w": -12.5,
+            "rocYtd": -9.9,
+            "perfFromSignal": null,
+            "peRelative": 1.06,
+            "perfVsEtf": null,
             "tag": null
           }
         ]
@@ -6408,8 +6616,8 @@
       "usT": "XLK",
       "euT": "EXV3",
       "usRel": 15.1,
-      "euRel": 12.8,
-      "cross": 12.0,
+      "euRel": 13.1,
+      "cross": 10.4,
       "leader": "USA"
     },
     {
@@ -6417,17 +6625,17 @@
       "usT": "XLF",
       "euT": "EXV1",
       "usRel": -7.3,
-      "euRel": -0.6,
-      "cross": 2.3,
-      "leader": "USA"
+      "euRel": 0.8,
+      "cross": -0.3,
+      "leader": "EU"
     },
     {
       "label": "Energia",
       "usT": "XLE",
       "euT": "EXH1",
       "usRel": 3.3,
-      "euRel": 18.0,
-      "cross": -3.9,
+      "euRel": 20.7,
+      "cross": -7.2,
       "leader": "EU"
     },
     {
@@ -6435,8 +6643,8 @@
       "usT": "XLV",
       "euT": "EXV4",
       "usRel": -14.6,
-      "euRel": -7.2,
-      "cross": 1.1,
+      "euRel": -8.6,
+      "cross": 1.4,
       "leader": "USA"
     },
     {
@@ -6444,8 +6652,8 @@
       "usT": "XLI",
       "euT": "EXH4",
       "usRel": -9.5,
-      "euRel": -3.0,
-      "cross": 2.4,
+      "euRel": -2.8,
+      "cross": 1.0,
       "leader": "USA"
     },
     {
@@ -6453,8 +6661,8 @@
       "usT": "XLY",
       "euT": "EXV5",
       "usRel": -7.7,
-      "euRel": -7.4,
-      "cross": 9.5,
+      "euRel": -9.7,
+      "cross": 10.9,
       "leader": "USA"
     },
     {
@@ -6462,8 +6670,8 @@
       "usT": "XLU",
       "euT": "EXH9",
       "usRel": -12.4,
-      "euRel": -2.2,
-      "cross": -1.6,
+      "euRel": -1.1,
+      "cross": -3.9,
       "leader": "EU"
     },
     {
@@ -6471,8 +6679,8 @@
       "usT": "XLB",
       "euT": "EXV6",
       "usRel": -12.9,
-      "euRel": 3.5,
-      "cross": -7.6,
+      "euRel": 4.2,
+      "cross": -9.3,
       "leader": "EU"
     },
     {
@@ -6480,8 +6688,8 @@
       "usT": "XLP",
       "euT": "EXH7",
       "usRel": -11.2,
-      "euRel": -9.6,
-      "cross": 7.9,
+      "euRel": -10.3,
+      "cross": 7.4,
       "leader": "USA"
     },
     {
@@ -6489,8 +6697,8 @@
       "usT": "XLC",
       "euT": "EXV2",
       "usRel": -5.7,
-      "euRel": 10.9,
-      "cross": -6.7,
+      "euRel": 9.5,
+      "cross": -6.6,
       "leader": "EU"
     },
     {
@@ -6498,13 +6706,13 @@
       "usT": "XRT",
       "euT": "EXH2",
       "usRel": -16.4,
-      "euRel": 5.3,
-      "cross": -12.8,
+      "euRel": 5.2,
+      "cross": -13.7,
       "leader": "EU"
     }
   ],
   "portfolio": {
-    "comment": "📊 Quadro attuale: 5 settori Leader confermati e 5 Emergenti operativamente validi. Tema centrale: Tecnologia. ⚠️ Leader maturo: EXH1 (45 settimane di leadership) — peso ridotto nel modello per rischio di top. 🆕 Emergenti freschi (da monitorare nelle prossime settimane): EXH3, XLP, EXV7. ❌ Settori esclusi per alpha negativa significativa: XLV (-14.3%), XHB (-10.8%), XRT (-10.7%).",
+    "comment": "📊 Quadro attuale: 5 settori Leader confermati e 4 Emergenti operativamente validi. Tema centrale: Tecnologia. ⚠️ Leader maturo: EXV1 (45 settimane di leadership) — peso ridotto nel modello per rischio di top. 🆕 Emergenti freschi (da monitorare nelle prossime settimane): XLP, EXV4. ❌ Settori esclusi per alpha negativa significativa: XLV (-14.3%), XHB (-10.8%), XRT (-10.7%).",
     "profiles": {
       "prudente": {
         "equity_pct": 30,
@@ -6526,14 +6734,14 @@
                 "ticker": "AMD",
                 "name": "Advanced Micro Devices, Inc.",
                 "perf_3m": 103.1,
-                "pe_rel": 4.69,
+                "pe_rel": 4.71,
                 "tag": "top_momentum"
               },
               {
                 "ticker": "CSCO",
                 "name": "Cisco Systems, Inc.",
                 "perf_3m": 55.5,
-                "pe_rel": 1.33,
+                "pe_rel": 1.32,
                 "tag": "top_momentum"
               },
               {
@@ -6552,26 +6760,19 @@
             "region": "EU",
             "state": "Leader",
             "stage": "2",
-            "weight_pct": 9.8,
-            "score": 88.3,
+            "weight_pct": 9.9,
+            "score": 89.2,
             "weeks_from_state": 14,
-            "perf_from_state": 12.0,
-            "rel_from_state": 12.3,
+            "perf_from_state": 13.9,
+            "rel_from_state": 13.4,
             "picks_us": [],
             "picks_it": [
               {
                 "ticker": "TIT.MI",
                 "name": "TELECOM ITALIA",
-                "perf_3m": NaN,
+                "perf_3m": 15.1,
                 "pe_rel": 1.61,
-                "tag": null
-              },
-              {
-                "ticker": "INW.MI",
-                "name": "INWIT",
-                "perf_3m": NaN,
-                "pe_rel": 0.39,
-                "tag": null
+                "tag": "top_momentum"
               }
             ]
           },
@@ -6581,7 +6782,7 @@
             "region": "USA",
             "state": "Leader",
             "stage": "2",
-            "weight_pct": 9.6,
+            "weight_pct": 9.5,
             "score": 85.8,
             "weeks_from_state": 16,
             "perf_from_state": 24.0,
@@ -6623,7 +6824,7 @@
             "region": "USA",
             "state": "Leader",
             "stage": "2",
-            "weight_pct": 11.3,
+            "weight_pct": 11.6,
             "score": 95.4,
             "weeks_from_state": 10,
             "perf_from_state": 27.2,
@@ -6633,14 +6834,14 @@
                 "ticker": "AMD",
                 "name": "Advanced Micro Devices, Inc.",
                 "perf_3m": 103.1,
-                "pe_rel": 4.69,
+                "pe_rel": 4.71,
                 "tag": "top_momentum"
               },
               {
                 "ticker": "CSCO",
                 "name": "Cisco Systems, Inc.",
                 "perf_3m": 55.5,
-                "pe_rel": 1.33,
+                "pe_rel": 1.32,
                 "tag": "top_momentum"
               },
               {
@@ -6659,26 +6860,19 @@
             "region": "EU",
             "state": "Leader",
             "stage": "2",
-            "weight_pct": 10.5,
-            "score": 88.3,
+            "weight_pct": 10.9,
+            "score": 89.2,
             "weeks_from_state": 14,
-            "perf_from_state": 12.0,
-            "rel_from_state": 12.3,
+            "perf_from_state": 13.9,
+            "rel_from_state": 13.4,
             "picks_us": [],
             "picks_it": [
               {
                 "ticker": "TIT.MI",
                 "name": "TELECOM ITALIA",
-                "perf_3m": NaN,
+                "perf_3m": 15.1,
                 "pe_rel": 1.61,
-                "tag": null
-              },
-              {
-                "ticker": "INW.MI",
-                "name": "INWIT",
-                "perf_3m": NaN,
-                "pe_rel": 0.39,
-                "tag": null
+                "tag": "top_momentum"
               }
             ]
           },
@@ -6688,7 +6882,7 @@
             "region": "USA",
             "state": "Leader",
             "stage": "2",
-            "weight_pct": 10.2,
+            "weight_pct": 10.5,
             "score": 85.8,
             "weeks_from_state": 16,
             "perf_from_state": 24.0,
@@ -6719,38 +6913,38 @@
             "picks_it": []
           },
           {
-            "sector_name": "Energia",
-            "sector_ticker": "EXH1",
+            "sector_name": "Banche",
+            "sector_ticker": "EXV1",
             "region": "EU",
             "state": "Leader",
             "stage": "2",
-            "weight_pct": 9.6,
-            "score": 80.8,
+            "weight_pct": 8.7,
+            "score": 71.2,
             "weeks_from_state": 45,
-            "perf_from_state": 50.7,
-            "rel_from_state": 36.3,
+            "perf_from_state": 35.9,
+            "rel_from_state": 20.6,
             "picks_us": [],
             "picks_it": [
               {
-                "ticker": "ENI.MI",
-                "name": "ENI",
-                "perf_3m": NaN,
-                "pe_rel": 1.11,
-                "tag": null
+                "ticker": "MB.MI",
+                "name": "MEDIOBANCA",
+                "perf_3m": 19.3,
+                "pe_rel": 1.41,
+                "tag": "top_momentum"
               },
               {
-                "ticker": "TEN.MI",
-                "name": "TENARIS",
-                "perf_3m": NaN,
-                "pe_rel": 0.75,
-                "tag": null
+                "ticker": "BMPS.MI",
+                "name": "BANCA MONTE PASCHI SIENA",
+                "perf_3m": 13.8,
+                "pe_rel": 0.62,
+                "tag": "top_momentum"
               },
               {
-                "ticker": "ERG.MI",
-                "name": "ERG",
-                "perf_3m": NaN,
-                "pe_rel": 0.89,
-                "tag": null
+                "ticker": "BAMI.MI",
+                "name": "BANCO BPM",
+                "perf_3m": 10.9,
+                "pe_rel": 0.94,
+                "tag": "top_momentum"
               }
             ]
           },
@@ -6761,25 +6955,25 @@
             "state": "Leader",
             "stage": "2",
             "weight_pct": 8.4,
-            "score": 70.6,
+            "score": 68.9,
             "weeks_from_state": 1,
-            "perf_from_state": -0.1,
-            "rel_from_state": 0.7,
+            "perf_from_state": -0.2,
+            "rel_from_state": -0.2,
             "picks_us": [],
             "picks_it": [
               {
-                "ticker": "REY.MI",
-                "name": "REPLY",
-                "perf_3m": NaN,
-                "pe_rel": 1.0,
-                "tag": null
-              },
-              {
                 "ticker": "TXT.MI",
                 "name": "TXT E-SOLUTIONS",
-                "perf_3m": NaN,
-                "pe_rel": 1.35,
-                "tag": null
+                "perf_3m": 50.4,
+                "pe_rel": 1.33,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "REY.MI",
+                "name": "REPLY",
+                "perf_3m": 10.9,
+                "pe_rel": 1.0,
+                "tag": "top_momentum"
               }
             ]
           }
@@ -6795,7 +6989,7 @@
             "region": "USA",
             "state": "Leader",
             "stage": "2",
-            "weight_pct": 11.9,
+            "weight_pct": 13.1,
             "score": 95.4,
             "weeks_from_state": 10,
             "perf_from_state": 27.2,
@@ -6805,14 +6999,14 @@
                 "ticker": "AMD",
                 "name": "Advanced Micro Devices, Inc.",
                 "perf_3m": 103.1,
-                "pe_rel": 4.69,
+                "pe_rel": 4.71,
                 "tag": "top_momentum"
               },
               {
                 "ticker": "CSCO",
                 "name": "Cisco Systems, Inc.",
                 "perf_3m": 55.5,
-                "pe_rel": 1.33,
+                "pe_rel": 1.32,
                 "tag": "top_momentum"
               },
               {
@@ -6831,26 +7025,19 @@
             "region": "EU",
             "state": "Leader",
             "stage": "2",
-            "weight_pct": 11.0,
-            "score": 88.3,
+            "weight_pct": 12.2,
+            "score": 89.2,
             "weeks_from_state": 14,
-            "perf_from_state": 12.0,
-            "rel_from_state": 12.3,
+            "perf_from_state": 13.9,
+            "rel_from_state": 13.4,
             "picks_us": [],
             "picks_it": [
               {
                 "ticker": "TIT.MI",
                 "name": "TELECOM ITALIA",
-                "perf_3m": NaN,
+                "perf_3m": 15.1,
                 "pe_rel": 1.61,
-                "tag": null
-              },
-              {
-                "ticker": "INW.MI",
-                "name": "INWIT",
-                "perf_3m": NaN,
-                "pe_rel": 0.39,
-                "tag": null
+                "tag": "top_momentum"
               }
             ]
           },
@@ -6860,7 +7047,7 @@
             "region": "USA",
             "state": "Leader",
             "stage": "2",
-            "weight_pct": 10.7,
+            "weight_pct": 11.7,
             "score": 85.8,
             "weeks_from_state": 16,
             "perf_from_state": 24.0,
@@ -6891,38 +7078,38 @@
             "picks_it": []
           },
           {
-            "sector_name": "Energia",
-            "sector_ticker": "EXH1",
+            "sector_name": "Banche",
+            "sector_ticker": "EXV1",
             "region": "EU",
             "state": "Leader",
             "stage": "2",
-            "weight_pct": 10.1,
-            "score": 80.8,
+            "weight_pct": 9.7,
+            "score": 71.2,
             "weeks_from_state": 45,
-            "perf_from_state": 50.7,
-            "rel_from_state": 36.3,
+            "perf_from_state": 35.9,
+            "rel_from_state": 20.6,
             "picks_us": [],
             "picks_it": [
               {
-                "ticker": "ENI.MI",
-                "name": "ENI",
-                "perf_3m": NaN,
-                "pe_rel": 1.11,
-                "tag": null
+                "ticker": "MB.MI",
+                "name": "MEDIOBANCA",
+                "perf_3m": 19.3,
+                "pe_rel": 1.41,
+                "tag": "top_momentum"
               },
               {
-                "ticker": "TEN.MI",
-                "name": "TENARIS",
-                "perf_3m": NaN,
-                "pe_rel": 0.75,
-                "tag": null
+                "ticker": "BMPS.MI",
+                "name": "BANCA MONTE PASCHI SIENA",
+                "perf_3m": 13.8,
+                "pe_rel": 0.62,
+                "tag": "top_momentum"
               },
               {
-                "ticker": "ERG.MI",
-                "name": "ERG",
-                "perf_3m": NaN,
-                "pe_rel": 0.89,
-                "tag": null
+                "ticker": "BAMI.MI",
+                "name": "BANCO BPM",
+                "perf_3m": 10.9,
+                "pe_rel": 0.94,
+                "tag": "top_momentum"
               }
             ]
           },
@@ -6932,26 +7119,26 @@
             "region": "EU",
             "state": "Leader",
             "stage": "2",
-            "weight_pct": 8.8,
-            "score": 70.6,
+            "weight_pct": 9.4,
+            "score": 68.9,
             "weeks_from_state": 1,
-            "perf_from_state": -0.1,
-            "rel_from_state": 0.7,
+            "perf_from_state": -0.2,
+            "rel_from_state": -0.2,
             "picks_us": [],
             "picks_it": [
               {
-                "ticker": "REY.MI",
-                "name": "REPLY",
-                "perf_3m": NaN,
-                "pe_rel": 1.0,
-                "tag": null
-              },
-              {
                 "ticker": "TXT.MI",
                 "name": "TXT E-SOLUTIONS",
-                "perf_3m": NaN,
-                "pe_rel": 1.35,
-                "tag": null
+                "perf_3m": 50.4,
+                "pe_rel": 1.33,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "REY.MI",
+                "name": "REPLY",
+                "perf_3m": 10.9,
+                "pe_rel": 1.0,
+                "tag": "top_momentum"
               }
             ]
           },
@@ -6961,26 +7148,26 @@
             "region": "EU",
             "state": "Emergente",
             "stage": "2",
-            "weight_pct": 6.3,
-            "score": 50.2,
+            "weight_pct": 6.8,
+            "score": 49.9,
             "weeks_from_state": 9,
             "perf_from_state": 7.5,
-            "rel_from_state": 4.4,
+            "rel_from_state": 3.7,
             "picks_us": [],
             "picks_it": [
               {
-                "ticker": "G.MI",
-                "name": "GENERALI",
-                "perf_3m": NaN,
-                "pe_rel": 1.15,
-                "tag": null
-              },
-              {
                 "ticker": "UNI.MI",
                 "name": "UNIPOL",
-                "perf_3m": NaN,
+                "perf_3m": 14.7,
                 "pe_rel": 0.85,
-                "tag": null
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "G.MI",
+                "name": "GENERALI",
+                "perf_3m": 13.3,
+                "pe_rel": 1.15,
+                "tag": "top_momentum"
               }
             ]
           },
@@ -6990,61 +7177,25 @@
             "region": "EU",
             "state": "Emergente",
             "stage": "2",
-            "weight_pct": 6.1,
-            "score": 48.9,
+            "weight_pct": 6.7,
+            "score": 49.1,
             "weeks_from_state": 10,
-            "perf_from_state": 4.4,
-            "rel_from_state": 1.8,
+            "perf_from_state": 5.7,
+            "rel_from_state": 2.3,
             "picks_us": [],
             "picks_it": [
               {
                 "ticker": "OVS.MI",
                 "name": "OVS",
-                "perf_3m": NaN,
+                "perf_3m": 4.8,
                 "pe_rel": 1.0,
-                "tag": null
+                "tag": "stagnant"
               },
               {
                 "ticker": "GEO.MI",
                 "name": "GEOX",
-                "perf_3m": NaN,
+                "perf_3m": -14.3,
                 "pe_rel": null,
-                "tag": null
-              }
-            ]
-          },
-          {
-            "sector_name": "Servizi finanziari",
-            "sector_ticker": "EXH3",
-            "region": "EU",
-            "state": "Emergente",
-            "stage": "2",
-            "weight_pct": 5.1,
-            "score": 40.5,
-            "weeks_from_state": 2,
-            "perf_from_state": 1.7,
-            "rel_from_state": 0.9,
-            "picks_us": [],
-            "picks_it": [
-              {
-                "ticker": "AZM.MI",
-                "name": "AZIMUT",
-                "perf_3m": NaN,
-                "pe_rel": 0.79,
-                "tag": null
-              },
-              {
-                "ticker": "FBK.MI",
-                "name": "FINECOBANK",
-                "perf_3m": NaN,
-                "pe_rel": 1.7,
-                "tag": null
-              },
-              {
-                "ticker": "BMED.MI",
-                "name": "BANCA MEDIOLANUM",
-                "perf_3m": NaN,
-                "pe_rel": 1.0,
                 "tag": null
               }
             ]
@@ -7055,7 +7206,7 @@
             "region": "USA",
             "state": "Emergente",
             "stage": "2",
-            "weight_pct": 5.0,
+            "weight_pct": 5.5,
             "score": 40,
             "weeks_from_state": 0,
             "perf_from_state": null,
@@ -7072,7 +7223,7 @@
                 "ticker": "COST",
                 "name": "Costco Wholesale Corporation",
                 "perf_3m": 5.8,
-                "pe_rel": 2.2,
+                "pe_rel": 2.19,
                 "tag": "top_momentum"
               },
               {
@@ -7086,24 +7237,38 @@
             "picks_it": []
           },
           {
-            "sector_name": "Chimica",
-            "sector_ticker": "EXV7",
+            "sector_name": "Sanità",
+            "sector_ticker": "EXV4",
             "region": "EU",
             "state": "Emergente",
-            "stage": "2",
-            "weight_pct": 5.0,
-            "score": 40,
+            "stage": "1",
+            "weight_pct": 4.8,
+            "score": 35,
             "weeks_from_state": 0,
-            "perf_from_state": 0.0,
-            "rel_from_state": 0.0,
+            "perf_from_state": null,
+            "rel_from_state": null,
             "picks_us": [],
             "picks_it": [
               {
-                "ticker": "ECNL.MI",
-                "name": "AQUAFIL",
-                "perf_3m": NaN,
-                "pe_rel": null,
-                "tag": null
+                "ticker": "REC.MI",
+                "name": "RECORDATI ORD",
+                "perf_3m": 8.7,
+                "pe_rel": 0.73,
+                "tag": "top_momentum"
+              },
+              {
+                "ticker": "GVS.MI",
+                "name": "GVS",
+                "perf_3m": 4.9,
+                "pe_rel": 1.42,
+                "tag": "expensive_flat"
+              },
+              {
+                "ticker": "DIA.MI",
+                "name": "DIASORIN",
+                "perf_3m": -3.2,
+                "pe_rel": 0.87,
+                "tag": "stagnant"
               }
             ]
           }
@@ -7167,55 +7332,28 @@
         "prev_rank": null
       },
       {
-        "ticker": "EXH1",
-        "name": "Energia",
-        "region": "EU",
-        "state": "Leader",
-        "stage": "2",
-        "rsRatio": 105.41,
-        "rsMom": 100.67,
-        "signal": {
-          "stateEntryDate": "2025-07-04",
-          "signalDate": "2025-07-04",
-          "weeksFromState": 45,
-          "weeksFromSignal": 45,
-          "perfFromState": 50.7,
-          "perfFromSignal": 50.7,
-          "benchFromState": 14.4,
-          "benchFromSignal": 14.4,
-          "benchTicker": "EXSA.DE",
-          "relFromState": 36.3,
-          "relFromSignal": 36.3
-        },
-        "score": 124.0,
-        "rank": 2,
-        "rank_change": null,
-        "rank_direction": "new",
-        "prev_rank": null
-      },
-      {
         "ticker": "EXV2",
         "name": "Telecomunicazioni",
         "region": "EU",
         "state": "Leader",
         "stage": "2",
-        "rsRatio": 106.07,
-        "rsMom": 103.8,
+        "rsRatio": 106.27,
+        "rsMom": 103.04,
         "signal": {
           "stateEntryDate": "2026-02-06",
           "signalDate": "2026-01-23",
           "weeksFromState": 14,
           "weeksFromSignal": 16,
-          "perfFromState": 12.0,
-          "perfFromSignal": 21.9,
-          "benchFromState": -0.3,
-          "benchFromSignal": 1.2,
+          "perfFromState": 13.9,
+          "perfFromSignal": 23.9,
+          "benchFromState": 0.5,
+          "benchFromSignal": 2.0,
           "benchTicker": "EXSA.DE",
-          "relFromState": 12.3,
-          "relFromSignal": 20.7
+          "relFromState": 13.4,
+          "relFromSignal": 22.0
         },
-        "score": 123.3,
-        "rank": 3,
+        "score": 124.2,
+        "rank": 2,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7242,6 +7380,33 @@
           "relFromSignal": 25.2
         },
         "score": 120.8,
+        "rank": 3,
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
+      },
+      {
+        "ticker": "EXV1",
+        "name": "Banche",
+        "region": "EU",
+        "state": "Leader",
+        "stage": "2",
+        "rsRatio": 102.95,
+        "rsMom": 100.48,
+        "signal": {
+          "stateEntryDate": "2025-07-04",
+          "signalDate": "2025-07-04",
+          "weeksFromState": 45,
+          "weeksFromSignal": 45,
+          "perfFromState": 35.9,
+          "perfFromSignal": 35.9,
+          "benchFromState": 15.2,
+          "benchFromSignal": 15.2,
+          "benchTicker": "EXSA.DE",
+          "relFromState": 20.6,
+          "relFromSignal": 20.6
+        },
+        "score": 111.2,
         "rank": 4,
         "rank_change": null,
         "rank_direction": "new",
@@ -7253,22 +7418,22 @@
         "region": "EU",
         "state": "Leader",
         "stage": "2",
-        "rsRatio": 102.62,
-        "rsMom": 104.93,
+        "rsRatio": 101.97,
+        "rsMom": 102.18,
         "signal": {
           "stateEntryDate": "2026-05-08",
           "signalDate": "2026-04-17",
           "weeksFromState": 1,
           "weeksFromSignal": 4,
-          "perfFromState": -0.1,
-          "perfFromSignal": 4.0,
-          "benchFromState": -0.8,
-          "benchFromSignal": -2.5,
+          "perfFromState": -0.2,
+          "perfFromSignal": 3.9,
+          "benchFromState": -0.0,
+          "benchFromSignal": -1.7,
           "benchTicker": "EXSA.DE",
-          "relFromState": 0.7,
-          "relFromSignal": 6.4
+          "relFromState": -0.2,
+          "relFromSignal": 5.6
         },
-        "score": 110.6,
+        "score": 108.8,
         "rank": 5,
         "rank_change": null,
         "rank_direction": "new",
@@ -7280,8 +7445,8 @@
         "region": "EU",
         "state": "Emergente",
         "stage": "2",
-        "rsRatio": 97.72,
-        "rsMom": 100.92,
+        "rsRatio": 98.37,
+        "rsMom": 100.96,
         "signal": {
           "stateEntryDate": "2026-03-13",
           "signalDate": "2026-03-13",
@@ -7289,41 +7454,14 @@
           "weeksFromSignal": 9,
           "perfFromState": 7.5,
           "perfFromSignal": 7.5,
-          "benchFromState": 3.1,
-          "benchFromSignal": 3.1,
+          "benchFromState": 3.9,
+          "benchFromSignal": 3.9,
           "benchTicker": "EXSA.DE",
-          "relFromState": 4.4,
-          "relFromSignal": 4.4
+          "relFromState": 3.7,
+          "relFromSignal": 3.7
         },
-        "score": 72.6,
+        "score": 73.6,
         "rank": 6,
-        "rank_change": null,
-        "rank_direction": "new",
-        "prev_rank": null
-      },
-      {
-        "ticker": "EXV7",
-        "name": "Chimica",
-        "region": "EU",
-        "state": "Emergente",
-        "stage": "2",
-        "rsRatio": 98.28,
-        "rsMom": 101.59,
-        "signal": {
-          "stateEntryDate": "2026-05-15",
-          "signalDate": "2026-05-15",
-          "weeksFromState": 0,
-          "weeksFromSignal": 0,
-          "perfFromState": 0.0,
-          "perfFromSignal": 0.0,
-          "benchFromState": 0.0,
-          "benchFromSignal": 0.0,
-          "benchTicker": "EXSA.DE",
-          "relFromState": 0.0,
-          "relFromSignal": 0.0
-        },
-        "score": 71.6,
-        "rank": 7,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7334,23 +7472,23 @@
         "region": "EU",
         "state": "Emergente",
         "stage": "2",
-        "rsRatio": 97.71,
-        "rsMom": 100.08,
+        "rsRatio": 98.1,
+        "rsMom": 100.5,
         "signal": {
           "stateEntryDate": "2026-03-06",
           "signalDate": "2026-03-06",
           "weeksFromState": 10,
           "weeksFromSignal": 10,
-          "perfFromState": 4.4,
-          "perfFromSignal": 4.4,
-          "benchFromState": 2.6,
-          "benchFromSignal": 2.6,
+          "perfFromState": 5.7,
+          "perfFromSignal": 5.7,
+          "benchFromState": 3.4,
+          "benchFromSignal": 3.4,
           "benchTicker": "EXSA.DE",
-          "relFromState": 1.8,
-          "relFromSignal": 1.8
+          "relFromState": 2.3,
+          "relFromSignal": 2.3
         },
-        "score": 71.3,
-        "rank": 8,
+        "score": 72.3,
+        "rank": 7,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7377,6 +7515,33 @@
           "relFromSignal": null
         },
         "score": 69.9,
+        "rank": 8,
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
+      },
+      {
+        "ticker": "EXH6",
+        "name": "Beni personali",
+        "region": "EU",
+        "state": "Emergente",
+        "stage": "3",
+        "rsRatio": 97.19,
+        "rsMom": 101.94,
+        "signal": {
+          "stateEntryDate": "2026-03-06",
+          "signalDate": "2026-03-06",
+          "weeksFromState": 10,
+          "weeksFromSignal": 10,
+          "perfFromState": 8.0,
+          "perfFromSignal": 8.0,
+          "benchFromState": 3.4,
+          "benchFromSignal": 3.4,
+          "benchTicker": "EXSA.DE",
+          "relFromState": 4.6,
+          "relFromSignal": 4.6
+        },
+        "score": 66.7,
         "rank": 9,
         "rank_change": null,
         "rank_direction": "new",
@@ -7387,51 +7552,24 @@
         "name": "Servizi finanziari",
         "region": "EU",
         "state": "Emergente",
-        "stage": "2",
-        "rsRatio": 97.05,
-        "rsMom": 102.42,
+        "stage": "3",
+        "rsRatio": 97.1,
+        "rsMom": 101.24,
         "signal": {
           "stateEntryDate": "2026-05-01",
           "signalDate": "2026-05-01",
           "weeksFromState": 2,
           "weeksFromSignal": 2,
-          "perfFromState": 1.7,
-          "perfFromSignal": 1.7,
-          "benchFromState": 0.8,
-          "benchFromSignal": 0.8,
+          "perfFromState": 2.4,
+          "perfFromSignal": 2.4,
+          "benchFromState": 1.5,
+          "benchFromSignal": 1.5,
           "benchTicker": "EXSA.DE",
           "relFromState": 0.9,
           "relFromSignal": 0.9
         },
-        "score": 69.5,
+        "score": 64.6,
         "rank": 10,
-        "rank_change": null,
-        "rank_direction": "new",
-        "prev_rank": null
-      },
-      {
-        "ticker": "EXH6",
-        "name": "Beni personali",
-        "region": "EU",
-        "state": "Emergente",
-        "stage": "4",
-        "rsRatio": 96.77,
-        "rsMom": 101.11,
-        "signal": {
-          "stateEntryDate": "2026-03-06",
-          "signalDate": "2026-03-06",
-          "weeksFromState": 10,
-          "weeksFromSignal": 10,
-          "perfFromState": 5.2,
-          "perfFromSignal": 5.2,
-          "benchFromState": 2.6,
-          "benchFromSignal": 2.6,
-          "benchTicker": "EXSA.DE",
-          "relFromState": 2.6,
-          "relFromSignal": 2.6
-        },
-        "score": 59.8,
-        "rank": 11,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7458,7 +7596,7 @@
           "relFromSignal": null
         },
         "score": 59.4,
-        "rank": 12,
+        "rank": 11,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7469,8 +7607,8 @@
         "region": "EU",
         "state": "In rallentamento",
         "stage": "2",
-        "rsRatio": 105.3,
-        "rsMom": 99.51,
+        "rsRatio": 104.89,
+        "rsMom": 98.94,
         "signal": {
           "stateEntryDate": "2026-05-01",
           "signalDate": "2026-05-01",
@@ -7478,14 +7616,149 @@
           "weeksFromSignal": 2,
           "perfFromState": 4.9,
           "perfFromSignal": 4.9,
-          "benchFromState": 0.8,
-          "benchFromSignal": 0.8,
+          "benchFromState": 1.5,
+          "benchFromSignal": 1.5,
           "benchTicker": "EXSA.DE",
-          "relFromState": 4.2,
-          "relFromSignal": 4.2
+          "relFromState": 3.4,
+          "relFromSignal": 3.4
         },
-        "score": 57.7,
+        "score": 56.5,
+        "rank": 12,
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
+      },
+      {
+        "ticker": "EXV4",
+        "name": "Sanità",
+        "region": "EU",
+        "state": "Emergente",
+        "stage": "1",
+        "rsRatio": 93.17,
+        "rsMom": 100.78,
+        "signal": {
+          "stateEntryDate": "2026-05-22",
+          "signalDate": "2026-05-22",
+          "weeksFromState": 0,
+          "weeksFromSignal": 0,
+          "perfFromState": null,
+          "perfFromSignal": null,
+          "benchFromState": null,
+          "benchFromSignal": null,
+          "benchTicker": "EXSA.DE",
+          "relFromState": null,
+          "relFromSignal": null
+        },
+        "score": 56.3,
         "rank": 13,
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
+      },
+      {
+        "ticker": "EXH1",
+        "name": "Energia",
+        "region": "EU",
+        "state": "In rallentamento",
+        "stage": "2",
+        "rsRatio": 105.59,
+        "rsMom": 98.64,
+        "signal": {
+          "stateEntryDate": "2026-05-22",
+          "signalDate": "2026-05-22",
+          "weeksFromState": 0,
+          "weeksFromSignal": 0,
+          "perfFromState": null,
+          "perfFromSignal": null,
+          "benchFromState": null,
+          "benchFromSignal": null,
+          "benchTicker": "EXSA.DE",
+          "relFromState": null,
+          "relFromSignal": null
+        },
+        "score": 56.2,
+        "rank": 14,
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
+      },
+      {
+        "ticker": "EXV9",
+        "name": "Viaggi & Tempo libero",
+        "region": "EU",
+        "state": "Emergente",
+        "stage": "4",
+        "rsRatio": 95.45,
+        "rsMom": 102.17,
+        "signal": {
+          "stateEntryDate": "2026-05-22",
+          "signalDate": "2026-05-22",
+          "weeksFromState": 0,
+          "weeksFromSignal": 0,
+          "perfFromState": null,
+          "perfFromSignal": null,
+          "benchFromState": null,
+          "benchFromSignal": null,
+          "benchTicker": "EXSA.DE",
+          "relFromState": null,
+          "relFromSignal": null
+        },
+        "score": 55.9,
+        "rank": 15,
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
+      },
+      {
+        "ticker": "EXV5",
+        "name": "Automobili",
+        "region": "EU",
+        "state": "Emergente",
+        "stage": "4",
+        "rsRatio": 94.98,
+        "rsMom": 100.92,
+        "signal": {
+          "stateEntryDate": "2026-05-22",
+          "signalDate": "2026-05-22",
+          "weeksFromState": 0,
+          "weeksFromSignal": 0,
+          "perfFromState": null,
+          "perfFromSignal": null,
+          "benchFromState": null,
+          "benchFromSignal": null,
+          "benchTicker": "EXSA.DE",
+          "relFromState": null,
+          "relFromSignal": null
+        },
+        "score": 55.0,
+        "rank": 16,
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
+      },
+      {
+        "ticker": "EXH7",
+        "name": "Alimentari & Bevande",
+        "region": "EU",
+        "state": "Emergente",
+        "stage": "4",
+        "rsRatio": 94.3,
+        "rsMom": 102.89,
+        "signal": {
+          "stateEntryDate": "2026-05-01",
+          "signalDate": "2026-05-01",
+          "weeksFromState": 2,
+          "weeksFromSignal": 2,
+          "perfFromState": 3.1,
+          "perfFromSignal": 3.1,
+          "benchFromState": 1.5,
+          "benchFromSignal": 1.5,
+          "benchTicker": "EXSA.DE",
+          "relFromState": 1.6,
+          "relFromSignal": 1.6
+        },
+        "score": 54.4,
+        "rank": 17,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7512,61 +7785,7 @@
           "relFromSignal": null
         },
         "score": 54.0,
-        "rank": 14,
-        "rank_change": null,
-        "rank_direction": "new",
-        "prev_rank": null
-      },
-      {
-        "ticker": "EXH7",
-        "name": "Alimentari & Bevande",
-        "region": "EU",
-        "state": "Emergente",
-        "stage": "4",
-        "rsRatio": 93.94,
-        "rsMom": 103.45,
-        "signal": {
-          "stateEntryDate": "2026-05-01",
-          "signalDate": "2026-05-01",
-          "weeksFromState": 2,
-          "weeksFromSignal": 2,
-          "perfFromState": 2.1,
-          "perfFromSignal": 2.1,
-          "benchFromState": 0.8,
-          "benchFromSignal": 0.8,
-          "benchTicker": "EXSA.DE",
-          "relFromState": 1.4,
-          "relFromSignal": 1.4
-        },
-        "score": 53.6,
-        "rank": 15,
-        "rank_change": null,
-        "rank_direction": "new",
-        "prev_rank": null
-      },
-      {
-        "ticker": "EXV1",
-        "name": "Banche",
-        "region": "EU",
-        "state": "In rallentamento",
-        "stage": "2",
-        "rsRatio": 103.03,
-        "rsMom": 97.09,
-        "signal": {
-          "stateEntryDate": "2026-05-08",
-          "signalDate": "2026-05-08",
-          "weeksFromState": 1,
-          "weeksFromSignal": 1,
-          "perfFromState": -1.3,
-          "perfFromSignal": -1.3,
-          "benchFromState": -0.8,
-          "benchFromSignal": -0.8,
-          "benchTicker": "EXSA.DE",
-          "relFromState": -0.5,
-          "relFromSignal": -0.5
-        },
-        "score": 50.8,
-        "rank": 16,
+        "rank": 18,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7577,23 +7796,50 @@
         "region": "EU",
         "state": "In rallentamento",
         "stage": "2",
-        "rsRatio": 102.0,
-        "rsMom": 98.42,
+        "rsRatio": 102.59,
+        "rsMom": 95.89,
         "signal": {
           "stateEntryDate": "2026-04-10",
           "signalDate": "2026-04-10",
           "weeksFromState": 5,
           "weeksFromSignal": 5,
-          "perfFromState": -7.1,
-          "perfFromSignal": -7.1,
-          "benchFromState": -0.5,
-          "benchFromSignal": -0.5,
+          "perfFromState": -5.2,
+          "perfFromSignal": -5.2,
+          "benchFromState": 0.2,
+          "benchFromSignal": 0.2,
           "benchTicker": "EXSA.DE",
-          "relFromState": -6.6,
-          "relFromSignal": -6.6
+          "relFromState": -5.5,
+          "relFromSignal": -5.5
         },
-        "score": 45.7,
-        "rank": 17,
+        "score": 47.4,
+        "rank": 19,
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
+      },
+      {
+        "ticker": "EXV7",
+        "name": "Chimica",
+        "region": "EU",
+        "state": "Debole",
+        "stage": "2",
+        "rsRatio": 98.43,
+        "rsMom": 99.94,
+        "signal": {
+          "stateEntryDate": "2026-05-22",
+          "signalDate": "2026-05-22",
+          "weeksFromState": 0,
+          "weeksFromSignal": 0,
+          "perfFromState": null,
+          "perfFromSignal": null,
+          "benchFromState": null,
+          "benchFromSignal": null,
+          "benchTicker": "EXSA.DE",
+          "relFromState": null,
+          "relFromSignal": null
+        },
+        "score": 11.9,
+        "rank": 20,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7620,7 +7866,7 @@
           "relFromSignal": -2.8
         },
         "score": 9.7,
-        "rank": 18,
+        "rank": 21,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7647,34 +7893,7 @@
           "relFromSignal": -1.6
         },
         "score": 9.6,
-        "rank": 19,
-        "rank_change": null,
-        "rank_direction": "new",
-        "prev_rank": null
-      },
-      {
-        "ticker": "EXH4",
-        "name": "Industriali",
-        "region": "EU",
-        "state": "Debole",
-        "stage": "2",
-        "rsRatio": 96.27,
-        "rsMom": 94.69,
-        "signal": {
-          "stateEntryDate": "2026-05-15",
-          "signalDate": "2026-05-15",
-          "weeksFromState": 0,
-          "weeksFromSignal": 0,
-          "perfFromState": 0.0,
-          "perfFromSignal": 0.0,
-          "benchFromState": 0.0,
-          "benchFromSignal": 0.0,
-          "benchTicker": "EXSA.DE",
-          "relFromState": 0.0,
-          "relFromSignal": 0.0
-        },
-        "score": 7.5,
-        "rank": 20,
+        "rank": 22,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7701,7 +7920,7 @@
           "relFromSignal": -2.9
         },
         "score": 6.8,
-        "rank": 21,
+        "rank": 23,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7728,34 +7947,34 @@
           "relFromSignal": -3.6
         },
         "score": 6.5,
-        "rank": 22,
+        "rank": 24,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
       },
       {
-        "ticker": "EXV8",
-        "name": "Costruzioni",
+        "ticker": "EXH4",
+        "name": "Industriali",
         "region": "EU",
         "state": "Debole",
         "stage": "2",
-        "rsRatio": 95.24,
-        "rsMom": 96.37,
+        "rsRatio": 95.47,
+        "rsMom": 96.6,
         "signal": {
           "stateEntryDate": "2026-05-15",
           "signalDate": "2026-05-15",
           "weeksFromState": 0,
           "weeksFromSignal": 0,
-          "perfFromState": 0.0,
-          "perfFromSignal": 0.0,
-          "benchFromState": 0.0,
-          "benchFromSignal": 0.0,
+          "perfFromState": 0.3,
+          "perfFromSignal": 0.3,
+          "benchFromState": 0.8,
+          "benchFromSignal": 0.8,
           "benchTicker": "EXSA.DE",
-          "relFromState": 0.0,
-          "relFromSignal": 0.0
+          "relFromState": -0.5,
+          "relFromSignal": -0.5
         },
-        "score": 5.5,
-        "rank": 23,
+        "score": 5.7,
+        "rank": 25,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7782,7 +8001,7 @@
           "relFromSignal": -4.4
         },
         "score": 4.3,
-        "rank": 24,
+        "rank": 26,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7809,34 +8028,34 @@
           "relFromSignal": -1.4
         },
         "score": 3.4,
-        "rank": 25,
+        "rank": 27,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
       },
       {
-        "ticker": "EXV4",
-        "name": "Sanità",
+        "ticker": "EXV8",
+        "name": "Costruzioni",
         "region": "EU",
         "state": "Debole",
         "stage": "1",
-        "rsRatio": 93.44,
-        "rsMom": 97.08,
+        "rsRatio": 94.77,
+        "rsMom": 97.66,
         "signal": {
-          "stateEntryDate": "2026-04-10",
-          "signalDate": "2026-04-10",
-          "weeksFromState": 5,
-          "weeksFromSignal": 5,
-          "perfFromState": -3.5,
-          "perfFromSignal": -3.5,
-          "benchFromState": -0.5,
-          "benchFromSignal": -0.5,
+          "stateEntryDate": "2026-05-15",
+          "signalDate": "2026-05-15",
+          "weeksFromState": 0,
+          "weeksFromSignal": 0,
+          "perfFromState": 0.0,
+          "perfFromSignal": 0.0,
+          "benchFromState": 0.8,
+          "benchFromSignal": 0.8,
           "benchTicker": "EXSA.DE",
-          "relFromState": -2.9,
-          "relFromSignal": -2.9
+          "relFromState": -0.7,
+          "relFromSignal": -0.7
         },
-        "score": -4.6,
-        "rank": 26,
+        "score": -0.8,
+        "rank": 28,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7863,61 +8082,34 @@
           "relFromSignal": -5.3
         },
         "score": -4.8,
-        "rank": 27,
-        "rank_change": null,
-        "rank_direction": "new",
-        "prev_rank": null
-      },
-      {
-        "ticker": "EXV5",
-        "name": "Automobili",
-        "region": "EU",
-        "state": "Debole",
-        "stage": "4",
-        "rsRatio": 95.09,
-        "rsMom": 99.75,
-        "signal": {
-          "stateEntryDate": "2026-05-15",
-          "signalDate": "2026-05-15",
-          "weeksFromState": 0,
-          "weeksFromSignal": 0,
-          "perfFromState": 0.0,
-          "perfFromSignal": 0.0,
-          "benchFromState": 0.0,
-          "benchFromSignal": 0.0,
-          "benchTicker": "EXSA.DE",
-          "relFromState": 0.0,
-          "relFromSignal": 0.0
-        },
-        "score": -4.8,
-        "rank": 28,
-        "rank_change": null,
-        "rank_direction": "new",
-        "prev_rank": null
-      },
-      {
-        "ticker": "EXV9",
-        "name": "Viaggi & Tempo libero",
-        "region": "EU",
-        "state": "Debole",
-        "stage": "4",
-        "rsRatio": 94.63,
-        "rsMom": 97.54,
-        "signal": {
-          "stateEntryDate": "2026-05-15",
-          "signalDate": "2026-05-15",
-          "weeksFromState": 0,
-          "weeksFromSignal": 0,
-          "perfFromState": 0.0,
-          "perfFromSignal": 0.0,
-          "benchFromState": 0.0,
-          "benchFromSignal": 0.0,
-          "benchTicker": "EXSA.DE",
-          "relFromState": 0.0,
-          "relFromSignal": 0.0
-        },
-        "score": -5.7,
         "rank": 29,
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
+      },
+      {
+        "ticker": "EXH8",
+        "name": "Media",
+        "region": "EU",
+        "state": "Debole",
+        "stage": "1",
+        "rsRatio": 92.98,
+        "rsMom": 97.52,
+        "signal": {
+          "stateEntryDate": "2026-04-24",
+          "signalDate": "2026-04-24",
+          "weeksFromState": 3,
+          "weeksFromSignal": 3,
+          "perfFromState": -3.3,
+          "perfFromSignal": -3.3,
+          "benchFromState": 0.7,
+          "benchFromSignal": 0.7,
+          "benchTicker": "EXSA.DE",
+          "relFromState": -4.0,
+          "relFromSignal": -4.0
+        },
+        "score": -6.0,
+        "rank": 30,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7944,7 +8136,7 @@
           "relFromSignal": -8.8
         },
         "score": -6.9,
-        "rank": 30,
+        "rank": 31,
         "rank_change": null,
         "rank_direction": "new",
         "prev_rank": null
@@ -7971,33 +8163,6 @@
           "relFromSignal": -3.4
         },
         "score": -8.3,
-        "rank": 31,
-        "rank_change": null,
-        "rank_direction": "new",
-        "prev_rank": null
-      },
-      {
-        "ticker": "EXH8",
-        "name": "Media",
-        "region": "EU",
-        "state": "Debole",
-        "stage": "1",
-        "rsRatio": 91.99,
-        "rsMom": 92.96,
-        "signal": {
-          "stateEntryDate": "2026-04-24",
-          "signalDate": "2026-04-24",
-          "weeksFromState": 3,
-          "weeksFromSignal": 3,
-          "perfFromState": -4.9,
-          "perfFromSignal": -4.9,
-          "benchFromState": -0.1,
-          "benchFromSignal": -0.1,
-          "benchTicker": "EXSA.DE",
-          "relFromState": -4.8,
-          "relFromSignal": -4.8
-        },
-        "score": -8.4,
         "rank": 32,
         "rank_change": null,
         "rank_direction": "new",
