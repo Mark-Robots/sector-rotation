@@ -1,12 +1,14 @@
 name: Update Megatrend ETF Data
 # Aggiorna i dati di mercato e committa data/sector_data.json
-# Esecuzione automatica: ogni sabato mattina alle 08:00 italiane (06:00 UTC)
+# Esecuzione automatica: ogni venerdì alle 16:00 italiane (14:00 UTC)
+#   → si basa sulla chiusura di giovedì USA (dato settimanale completo)
+#   → lascia ~6 ore di operatività prima della chiusura del venerdì USA (22:00 IT)
 # Esecuzione manuale: dal tab Actions cliccando "Run workflow"
-# Esecuzione su push: ad ogni commit su main (utile come "trigger di test")
+# Esecuzione su push: ad ogni commit su main (trigger automatico)
 
 on:
   schedule:
-    - cron: '0 6 * * 6'
+    - cron: '0 14 * * 5'
   push:
     branches: [ main ]
   workflow_dispatch:
