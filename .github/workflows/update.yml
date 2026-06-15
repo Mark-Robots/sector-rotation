@@ -19,7 +19,7 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -38,6 +38,10 @@ jobs:
       - name: Run update script
         run: python scripts/update_data.py
 
+      - name: Run backtest (solo schedule/manuale)
+        if: github.event_name != 'push'
+        run: python scripts/backtest.py
+
       - name: Check generated JSON
         run: |
           if [ ! -f data/sector_data.json ]; then
@@ -51,7 +55,7 @@ jobs:
         run: |
           git config --global user.name 'Sector Bot'
           git config --global user.email 'bot@users.noreply.github.com'
-          git add data/sector_data.json
+          git add data/
           if git diff --staged --quiet; then
             echo "Nessuna modifica ai dati"
           else
