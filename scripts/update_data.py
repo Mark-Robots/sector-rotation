@@ -431,15 +431,33 @@ def compute_stock_entry(close, ma_weeks=30):
         while i > 0 and bool(inside.iloc[i - 1]):
             i -= 1
         entry_ts = weekly.index[i]
+        # Mappa l'etichetta settimanale (venerdi' nominale di fine periodo) all'ultima
+        # data di trading REALE entro quella settimana: evita di mostrare un venerdi'
+        # futuro quando l'aggiornamento gira a settimana in corso.
+        real = close.index[close.index <= entry_ts]
+        entry_real = real[-1] if len(real) else entry_ts
         entry_price = float(weekly.iloc[i])
         last_close = float(close.iloc[-1])
         weeks_from_entry = (len(weekly) - 1) - i
         perf_from_entry = (last_close / entry_price - 1) * 100 if entry_price > 0 else None
+        # Distinzione settimana CHIUSA vs IN CORSO (parziale).
+        # L'ultima barra e' "aperta" se il suo venerdi' nominale e' successivo
+        # all'ultimo giorno di trading reale del titolo.
+        last_real = close.index[-1]
+        last_label = weekly.index[-1]
+        last_bar_open = last_label.date() > last_real.date()
+        last_closed_idx = (len(weekly) - 2) if last_bar_open else (len(weekly) - 1)
+        # provvisorio = entrato sulla settimana ancora aperta (data "futura")
+        entry_provisional = bool(i == (len(weekly) - 1) and last_bar_open)
+        # ultima entrata confermata = entrato sull'ultima settimana gia' chiusa
+        entry_last_closed = bool((not entry_provisional) and i == last_closed_idx)
         return {
-            'entryDate': entry_ts.date().isoformat(),
+            'entryDate': entry_real.date().isoformat(),
             'weeksFromEntry': int(weeks_from_entry),
             'perfFromEntry': round(perf_from_entry, 1) if perf_from_entry is not None else None,
             'stockStage': classify_stage(close),
+            'entryProvisional': entry_provisional,
+            'entryLastClosed': entry_last_closed,
         }
     except Exception:
         return None
@@ -665,6 +683,8 @@ def fetch_ticker_fundamentals(symbol, signal_date=None):
             'weeksFromEntry': entry['weeksFromEntry'] if entry else None,
             'perfFromEntry': entry['perfFromEntry'] if entry else None,
             'stockStage': entry['stockStage'] if entry else None,
+            'entryProvisional': entry['entryProvisional'] if entry else False,
+            'entryLastClosed': entry['entryLastClosed'] if entry else False,
         }
     except Exception as e:
         print(f"    Failed {symbol}: {e}", file=sys.stderr)
@@ -934,8 +954,8 @@ def build_portfolio_model(us_metrics, eu_metrics, us_holdings, eu_holdings):
                 'weeks_from_state': signal.get('weeksFromState'),
                 'perf_from_state': signal.get('perfFromState'),
                 'rel_from_state': signal.get('relFromState'),
-                'picks_us': [{'ticker': p['ticker'], 'name': p['name'], 'perf_3m': p.get('roc13w'), 'pe_rel': p.get('peRelative'), 'tag': p.get('tag'), 'entry_date': p.get('entryDate'), 'weeks_from_entry': p.get('weeksFromEntry'), 'perf_from_entry': p.get('perfFromEntry'), 'stock_stage': p.get('stockStage')} for p in picks_us],
-                'picks_it': [{'ticker': p['ticker'], 'name': p['name'], 'perf_3m': p.get('roc13w'), 'pe_rel': p.get('peRelative'), 'tag': p.get('tag'), 'entry_date': p.get('entryDate'), 'weeks_from_entry': p.get('weeksFromEntry'), 'perf_from_entry': p.get('perfFromEntry'), 'stock_stage': p.get('stockStage')} for p in picks_it],
+                'picks_us': [{'ticker': p['ticker'], 'name': p['name'], 'perf_3m': p.get('roc13w'), 'pe_rel': p.get('peRelative'), 'tag': p.get('tag'), 'entry_date': p.get('entryDate'), 'weeks_from_entry': p.get('weeksFromEntry'), 'perf_from_entry': p.get('perfFromEntry'), 'stock_stage': p.get('stockStage'), 'entry_provisional': p.get('entryProvisional'), 'entry_last_closed': p.get('entryLastClosed')} for p in picks_us],
+                'picks_it': [{'ticker': p['ticker'], 'name': p['name'], 'perf_3m': p.get('roc13w'), 'pe_rel': p.get('peRelative'), 'tag': p.get('tag'), 'entry_date': p.get('entryDate'), 'weeks_from_entry': p.get('weeksFromEntry'), 'perf_from_entry': p.get('perfFromEntry'), 'stock_stage': p.get('stockStage'), 'entry_provisional': p.get('entryProvisional'), 'entry_last_closed': p.get('entryLastClosed')} for p in picks_it],
             })
         
         profiles_out[profile_name] = {
