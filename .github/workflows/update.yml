@@ -16,6 +16,11 @@ on:
 permissions:
   contents: write
 
+# Evita run sovrapposti che si pestano sul push
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -60,7 +65,7 @@ jobs:
             echo "Nessuna modifica ai dati"
           else
             git commit -m "Auto-update: $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
             git push
             echo "Commit eseguito"
           fi
-
