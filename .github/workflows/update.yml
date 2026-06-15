@@ -19,7 +19,7 @@ permissions:
 # Evita run sovrapposti che si pestano sul push
 concurrency:
   group: update-data
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   update:
@@ -65,7 +65,9 @@ jobs:
             echo "Nessuna modifica ai dati"
           else
             git commit -m "Auto-update: $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git pull --rebase origin main
+            # riallinea sull'ultimo remote; sui file di dati generati tieni i NOSTRI (piu' freschi)
+            git fetch origin main
+            git rebase -X theirs origin/main || git rebase --abort
             git push
             echo "Commit eseguito"
           fi
