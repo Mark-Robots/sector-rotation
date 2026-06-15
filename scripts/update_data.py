@@ -1286,6 +1286,42 @@ def main():
     print(f"  Dimensione: {out_path.stat().st_size / 1024:.1f} KB")
     print(f"  Data ultimi dati: {last_data_date}")
 
+    # ---- Forward log: snapshot settimanale dei settori validi e dei picks ----
+    # Storico "vero" che cresce a ogni run; complementa il backtest retrospettivo.
+    try:
+        log_path = Path(__file__).parent.parent / 'data' / 'signals_log.json'
+        log = []
+        if log_path.exists():
+            with open(log_path, encoding='utf-8') as f:
+                log = json.load(f)
+        # snapshot dei picks dal profilo 'bilanciato' (rappresentativo)
+        picks_snap = []
+        prof = (portfolio.get('profiles') or {}).get('bilanciato') or {}
+        for a in prof.get('allocations', []):
+            for key in ('picks_us', 'picks_it'):
+                for p in a.get(key, []):
+                    picks_snap.append({
+                        'ticker': p.get('ticker'),
+                        'sector': a.get('sector_name'),
+                        'region': a.get('region'),
+                        'entry_date': p.get('entry_date'),
+                        'perf_from_entry': p.get('perf_from_entry'),
+                    })
+        valid_sectors = [{'ticker': a.get('sector_ticker'), 'name': a.get('sector_name'),
+                          'region': a.get('region'), 'state': a.get('state'), 'stage': a.get('stage')}
+                         for a in prof.get('allocations', [])]
+        snap = {'date': last_data_date, 'updated_at': output['updated_at'],
+                'valid_sectors': valid_sectors, 'picks': picks_snap}
+        # last-write-wins per la stessa data (evita duplicati su run multipli)
+        log = [e for e in log if e.get('date') != last_data_date]
+        log.append(snap)
+        log = log[-520:]  # ~10 anni di settimane, cap di sicurezza
+        with open(log_path, 'w', encoding='utf-8') as f:
+            json.dump(log, f, ensure_ascii=False, indent=1)
+        print(f"  Forward log: {len(log)} snapshot in {log_path.name}")
+    except Exception as e:
+        print(f"  ! Forward log non aggiornato: {e}", file=sys.stderr)
+
 
 if __name__ == '__main__':
     main()
