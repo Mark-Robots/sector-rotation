@@ -573,6 +573,11 @@ def compute_cross_region(prices_df):
     us_bench = prices_df[US_BENCHMARK].dropna()
     eu_bench = prices_df[EU_BENCHMARK].dropna()
     
+    # Guard: se un benchmark e' troppo corto (es. buco temporaneo dei dati EU da
+    # yfinance), salta il cross-region invece di andare out-of-bounds su iloc[-65].
+    if len(us_bench) < 65 or len(eu_bench) < 65:
+        return []
+    
     rows = []
     for label, us_tick, eu_tick in CROSS_PAIRS:
         if us_tick not in prices_df.columns or eu_tick not in prices_df.columns:
@@ -1224,6 +1229,18 @@ def main():
     print("Calcolo metriche EU...")
     eu_metrics = compute_sector_metrics(prices, EU_BENCHMARK, EU_SECTORS)
     print(f"  {len(eu_metrics)} settori EU elaborati")
+    
+    # Salvaguardia: se un'intera regione e' vuota, yfinance ha bucato i dati
+    # (tipico coi ticker Xetra .DE). Meglio fermarsi PRIMA di salvare, cosi' non
+    # si sovrascrive il sector_data.json valido del run precedente con dati parziali.
+    if len(us_metrics) == 0 or len(eu_metrics) == 0:
+        regione = 'EU' if len(eu_metrics) == 0 else 'USA'
+        print(f"\n✗ ABORT: 0 settori {regione} elaborati — dati incompleti da yfinance "
+              f"(probabile buco temporaneo su {EU_BENCHMARK if regione=='EU' else US_BENCHMARK}).",
+              file=sys.stderr)
+        print("  Il file dati NON e' stato toccato. Rilancia il workflow tra qualche minuto.",
+              file=sys.stderr)
+        sys.exit(1)
     
     print("Calcolo cross-region...")
     cross_rows = compute_cross_region(prices)
