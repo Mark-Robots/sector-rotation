@@ -1,0 +1,143 @@
+[
+ {
+  "date": "2026-06-15",
+  "updated_at": "2026-06-15T13:36:34.450391+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "EXV3",
+    "name": "Tecnologia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV1",
+    "name": "Banche",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "KRE",
+    "name": "Banche regionali",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLI",
+    "name": "Industriali",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLB",
+    "name": "Materiali base",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "TXT.MI",
+    "sector": "Tecnologia",
+    "region": "EU",
+    "entry_date": "2026-04-17",
+    "perf_from_entry": 6.3
+   },
+   {
+    "ticker": "REY.MI",
+    "sector": "Tecnologia",
+    "region": "EU",
+    "entry_date": "2026-05-22",
+    "perf_from_entry": -3.6
+   },
+   {
+    "ticker": "MB.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 47.9
+   },
+   {
+    "ticker": "BMPS.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 47.6
+   },
+   {
+    "ticker": "BAMI.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 21.3
+   },
+   {
+    "ticker": "ZION",
+    "sector": "Banche regionali",
+    "region": "USA",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 17.7
+   },
+   {
+    "ticker": "FITB",
+    "sector": "Banche regionali",
+    "region": "USA",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 17.2
+   },
+   {
+    "ticker": "WAL",
+    "sector": "Banche regionali",
+    "region": "USA",
+    "entry_date": "2026-06-12",
+    "perf_from_entry": 1.8
+   },
+   {
+    "ticker": "CAT",
+    "sector": "Industriali",
+    "region": "USA",
+    "entry_date": "2025-06-06",
+    "perf_from_entry": 170.3
+   },
+   {
+    "ticker": "GE",
+    "sector": "Industriali",
+    "region": "USA",
+    "entry_date": "2026-05-29",
+    "perf_from_entry": 7.0
+   },
+   {
+    "ticker": "ETN",
+    "sector": "Industriali",
+    "region": "USA",
+    "entry_date": "2026-03-13",
+    "perf_from_entry": 15.4
+   },
+   {
+    "ticker": "NUE",
+    "sector": "Materiali base",
+    "region": "USA",
+    "entry_date": "2025-06-20",
+    "perf_from_entry": 118.5
+   },
+   {
+    "ticker": "FCX",
+    "sector": "Materiali base",
+    "region": "USA",
+    "entry_date": "2025-11-28",
+    "perf_from_entry": 65.8
+   },
+   {
+    "ticker": "DD",
+    "sector": "Materiali base",
+    "region": "USA",
+    "entry_date": "2025-08-15",
+    "perf_from_entry": 64.0
+   }
+  ]
+ }
+]
