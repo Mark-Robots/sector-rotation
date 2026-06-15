@@ -1979,11 +1979,24 @@ window.renderPicksFor = function(region, allocations) {
       const stockStageBadge = p.stock_stage
         ? `<span class="stage-badge stage-${String(p.stock_stage).replace(/[^0-9]/g,'')}" style="margin-left:5px;font-size:9px;">F${p.stock_stage}</span>`
         : '';
+      // Due categorie evidenziate:
+      //  • entry_last_closed → 🆕 NUOVO: entrato nell'ultima settimana CHIUSA (confermato)
+      //  • entry_provisional → 🔮 IN ARRIVO: entrato sulla settimana ancora APERTA (provvisorio)
+      const isNewEntry = p.entry_last_closed === true;
+      const isProvisional = p.entry_provisional === true;
+      const newBadge = isNewEntry
+        ? `<span style="display:inline-block;margin-left:6px;padding:1px 5px;border-radius:3px;background:rgba(16,185,129,0.18);color:var(--accent-lead);font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.05em;vertical-align:middle;">🆕 NUOVO</span>`
+        : (isProvisional
+          ? `<span title="Ingresso sulla settimana ancora aperta: provvisorio, da confermare alla chiusura di venerdi'" style="display:inline-block;margin-left:6px;padding:1px 5px;border-radius:3px;background:rgba(245,158,11,0.18);color:var(--accent-gold);font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.05em;vertical-align:middle;">🔮 IN ARRIVO</span>`
+          : '');
       const entryHtml = p.entry_date
-        ? `<span style="font-family:var(--mono);font-size:11px;">${fmtDate(p.entry_date)}</span>${stockStageBadge}<br><span style="color:var(--text-muted);font-size:9px;">${fmtWeeks(p.weeks_from_entry)}</span>`
+        ? `<span style="font-family:var(--mono);font-size:11px;">${fmtDate(p.entry_date)}</span>${stockStageBadge}${newBadge}<br><span style="color:var(--text-muted);font-size:9px;">${fmtWeeks(p.weeks_from_entry)}</span>`
         : '<span class="pe-na" title="Titolo sotto la propria MA30: nessun ingresso attivo">—</span>';
+      const rowStyle = isNewEntry
+        ? ' style="background:rgba(16,185,129,0.05);"'
+        : (isProvisional ? ' style="background:rgba(245,158,11,0.05);"' : '');
       html += `
-        <tr>
+        <tr${rowStyle}>
           <td><span class="ticker">${p.ticker}</span></td>
           <td><span class="sector-name">${p.name}</span></td>
           <td class="num ${peClass}">${peLabel}</td>
