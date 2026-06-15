@@ -360,55 +360,55 @@
     ]
   },
   {
-    "date": "2026-06-15T13:45:01.504920+00:00",
+    "date": "2026-06-15T13:51:40.685323+00:00",
     "ranks": [
       {
         "ticker": "EXV3",
         "rank": 1,
-        "score": 125.4
+        "score": 124.7
       },
       {
         "ticker": "EXV1",
         "rank": 2,
-        "score": 114.7
+        "score": 115.0
       },
       {
         "ticker": "KRE",
         "rank": 3,
-        "score": 107.8
+        "score": 107.7
       },
       {
         "ticker": "XLI",
         "rank": 4,
-        "score": 105.4
+        "score": 105.3
       },
       {
         "ticker": "XLB",
         "rank": 5,
-        "score": 105.3
+        "score": 105.2
       },
       {
         "ticker": "EXH8",
         "rank": 6,
-        "score": 105.0
+        "score": 105.2
       },
       {
         "ticker": "EXV9",
         "rank": 7,
-        "score": 79.1
+        "score": 79.2
       },
       {
         "ticker": "ITA",
         "rank": 8,
-        "score": 74.9
+        "score": 74.8
       },
       {
-        "ticker": "EXV7",
+        "ticker": "EXH2",
         "rank": 9,
         "score": 71.9
       },
       {
-        "ticker": "EXH2",
+        "ticker": "EXV7",
         "rank": 10,
         "score": 71.7
       },
@@ -418,34 +418,34 @@
         "score": 70.7
       },
       {
-        "ticker": "XHB",
+        "ticker": "XRT",
         "rank": 12,
         "score": 70.7
       },
       {
-        "ticker": "XRT",
+        "ticker": "EXH4",
         "rank": 13,
-        "score": 70.7
+        "score": 70.2
       },
       {
         "ticker": "EXV8",
         "rank": 14,
-        "score": 69.9
+        "score": 70.2
       },
       {
-        "ticker": "EXH4",
+        "ticker": "XHB",
         "rank": 15,
-        "score": 69.8
+        "score": 70.1
       },
       {
         "ticker": "EXH5",
         "rank": 16,
-        "score": 69.7
+        "score": 69.9
       },
       {
         "ticker": "EXH3",
         "rank": 17,
-        "score": 68.8
+        "score": 68.9
       },
       {
         "ticker": "XLP",
@@ -455,87 +455,87 @@
       {
         "ticker": "XLF",
         "rank": 19,
-        "score": 66.7
-      },
-      {
-        "ticker": "XLV",
-        "rank": 20,
-        "score": 65.8
+        "score": 66.5
       },
       {
         "ticker": "EXH7",
+        "rank": 20,
+        "score": 65.5
+      },
+      {
+        "ticker": "XLV",
         "rank": 21,
-        "score": 65.4
+        "score": 65.3
       },
       {
         "ticker": "XLK",
         "rank": 22,
-        "score": 64.7
+        "score": 64.9
       },
       {
         "ticker": "EXH6",
         "rank": 23,
-        "score": 63.9
+        "score": 64.0
       },
       {
         "ticker": "SOXX",
         "rank": 24,
-        "score": 62.0
+        "score": 62.1
       },
       {
         "ticker": "XLY",
         "rank": 25,
-        "score": 57.8
-      },
-      {
-        "ticker": "EXV4",
-        "rank": 26,
-        "score": 57.7
+        "score": 57.9
       },
       {
         "ticker": "EXV5",
-        "rank": 27,
-        "score": 57.4
+        "rank": 26,
+        "score": 57.3
       },
       {
         "ticker": "EXV6",
+        "rank": 27,
+        "score": 55.2
+      },
+      {
+        "ticker": "XLC",
         "rank": 28,
-        "score": 55.1
+        "score": 51.1
       },
       {
         "ticker": "EXV2",
         "rank": 29,
-        "score": 51.7
-      },
-      {
-        "ticker": "XLC",
-        "rank": 30,
-        "score": 51.2
+        "score": 51.1
       },
       {
         "ticker": "EXH1",
-        "rank": 31,
-        "score": 45.2
+        "rank": 30,
+        "score": 45.4
       },
       {
         "ticker": "EXH9",
-        "rank": 32,
-        "score": 43.7
+        "rank": 31,
+        "score": 43.8
       },
       {
         "ticker": "XLE",
-        "rank": 33,
-        "score": 43.3
+        "rank": 32,
+        "score": 43.4
       },
       {
         "ticker": "IBB",
-        "rank": 34,
+        "rank": 33,
         "score": 12.7
       },
       {
         "ticker": "XLU",
+        "rank": 34,
+        "score": -1.4
+      },
+      {
+        "ticker": "EXV4",
         "rank": 35,
-        "score": -1.5
+        "score": -3.3
       }
     ]
   }

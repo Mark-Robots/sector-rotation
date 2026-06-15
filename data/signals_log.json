@@ -1,7 +1,7 @@
 [
  {
   "date": "2026-06-15",
-  "updated_at": "2026-06-15T13:45:01.506131+00:00",
+  "updated_at": "2026-06-15T13:51:40.686590+00:00",
   "valid_sectors": [
    {
     "ticker": "EXV3",
@@ -45,28 +45,28 @@
     "sector": "Tecnologia",
     "region": "EU",
     "entry_date": "2026-04-17",
-    "perf_from_entry": 6.8
+    "perf_from_entry": 6.9
    },
    {
     "ticker": "REY.MI",
     "sector": "Tecnologia",
     "region": "EU",
     "entry_date": "2026-05-22",
-    "perf_from_entry": -3.3
+    "perf_from_entry": -3.1
    },
    {
     "ticker": "MB.MI",
     "sector": "Banche",
     "region": "EU",
     "entry_date": "2026-04-10",
-    "perf_from_entry": 48.1
+    "perf_from_entry": 48.5
    },
    {
     "ticker": "BMPS.MI",
     "sector": "Banche",
     "region": "EU",
     "entry_date": "2026-04-10",
-    "perf_from_entry": 47.7
+    "perf_from_entry": 48.2
    },
    {
     "ticker": "BAMI.MI",
@@ -80,14 +80,14 @@
     "sector": "Banche regionali",
     "region": "USA",
     "entry_date": "2026-04-02",
-    "perf_from_entry": 17.3
+    "perf_from_entry": 17.5
    },
    {
     "ticker": "FITB",
     "sector": "Banche regionali",
     "region": "USA",
     "entry_date": "2026-04-02",
-    "perf_from_entry": 16.6
+    "perf_from_entry": 16.2
    },
    {
     "ticker": "WAL",
@@ -101,42 +101,42 @@
     "sector": "Industriali",
     "region": "USA",
     "entry_date": "2025-06-06",
-    "perf_from_entry": 167.2
+    "perf_from_entry": 167.6
    },
    {
     "ticker": "GE",
     "sector": "Industriali",
     "region": "USA",
     "entry_date": "2026-05-29",
-    "perf_from_entry": 6.9
+    "perf_from_entry": 7.4
    },
    {
     "ticker": "ETN",
     "sector": "Industriali",
     "region": "USA",
     "entry_date": "2026-03-13",
-    "perf_from_entry": 15.1
+    "perf_from_entry": 14.8
    },
    {
     "ticker": "NUE",
     "sector": "Materiali base",
     "region": "USA",
     "entry_date": "2025-06-20",
-    "perf_from_entry": 118.2
+    "perf_from_entry": 118.3
    },
    {
     "ticker": "FCX",
     "sector": "Materiali base",
     "region": "USA",
     "entry_date": "2025-11-28",
-    "perf_from_entry": 66.2
+    "perf_from_entry": 66.9
    },
    {
     "ticker": "DD",
     "sector": "Materiali base",
     "region": "USA",
     "entry_date": "2025-08-15",
-    "perf_from_entry": 63.9
+    "perf_from_entry": 63.3
    }
   ]
  }
