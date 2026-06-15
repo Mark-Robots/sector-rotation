@@ -360,42 +360,42 @@
     ]
   },
   {
-    "date": "2026-06-15T13:36:34.449155+00:00",
+    "date": "2026-06-15T13:45:01.504920+00:00",
     "ranks": [
       {
         "ticker": "EXV3",
         "rank": 1,
-        "score": 125.6
+        "score": 125.4
       },
       {
         "ticker": "EXV1",
         "rank": 2,
-        "score": 114.8
+        "score": 114.7
       },
       {
         "ticker": "KRE",
         "rank": 3,
-        "score": 108.1
+        "score": 107.8
       },
       {
         "ticker": "XLI",
         "rank": 4,
-        "score": 105.8
+        "score": 105.4
       },
       {
         "ticker": "XLB",
         "rank": 5,
-        "score": 105.6
-      },
-      {
-        "ticker": "EXV9",
-        "rank": 6,
-        "score": 79.2
+        "score": 105.3
       },
       {
         "ticker": "EXH8",
+        "rank": 6,
+        "score": 105.0
+      },
+      {
+        "ticker": "EXV9",
         "rank": 7,
-        "score": 77.5
+        "score": 79.1
       },
       {
         "ticker": "ITA",
@@ -405,7 +405,7 @@
       {
         "ticker": "EXV7",
         "rank": 9,
-        "score": 71.8
+        "score": 71.9
       },
       {
         "ticker": "EXH2",
@@ -413,64 +413,64 @@
         "score": 71.7
       },
       {
-        "ticker": "XHB",
+        "ticker": "XLRE",
         "rank": 11,
-        "score": 71.3
+        "score": 70.7
+      },
+      {
+        "ticker": "XHB",
+        "rank": 12,
+        "score": 70.7
       },
       {
         "ticker": "XRT",
-        "rank": 12,
-        "score": 71.0
-      },
-      {
-        "ticker": "XLRE",
         "rank": 13,
         "score": 70.7
       },
       {
         "ticker": "EXV8",
         "rank": 14,
-        "score": 69.8
+        "score": 69.9
       },
       {
         "ticker": "EXH4",
         "rank": 15,
-        "score": 69.7
+        "score": 69.8
       },
       {
         "ticker": "EXH5",
         "rank": 16,
-        "score": 69.6
+        "score": 69.7
       },
       {
         "ticker": "EXH3",
         "rank": 17,
-        "score": 68.9
+        "score": 68.8
       },
       {
         "ticker": "XLP",
         "rank": 18,
-        "score": 67.2
+        "score": 67.3
       },
       {
         "ticker": "XLF",
         "rank": 19,
-        "score": 66.9
-      },
-      {
-        "ticker": "EXH7",
-        "rank": 20,
-        "score": 65.3
+        "score": 66.7
       },
       {
         "ticker": "XLV",
+        "rank": 20,
+        "score": 65.8
+      },
+      {
+        "ticker": "EXH7",
         "rank": 21,
-        "score": 64.8
+        "score": 65.4
       },
       {
         "ticker": "XLK",
         "rank": 22,
-        "score": 64.6
+        "score": 64.7
       },
       {
         "ticker": "EXH6",
@@ -485,17 +485,17 @@
       {
         "ticker": "XLY",
         "rank": 25,
-        "score": 58.4
+        "score": 57.8
       },
       {
         "ticker": "EXV4",
         "rank": 26,
-        "score": 57.5
+        "score": 57.7
       },
       {
         "ticker": "EXV5",
         "rank": 27,
-        "score": 57.3
+        "score": 57.4
       },
       {
         "ticker": "EXV6",
@@ -503,39 +503,39 @@
         "score": 55.1
       },
       {
-        "ticker": "XLC",
+        "ticker": "EXV2",
         "rank": 29,
-        "score": 51.8
+        "score": 51.7
       },
       {
-        "ticker": "EXV2",
+        "ticker": "XLC",
         "rank": 30,
-        "score": 51.7
+        "score": 51.2
       },
       {
         "ticker": "EXH1",
         "rank": 31,
-        "score": 45.4
+        "score": 45.2
       },
       {
         "ticker": "EXH9",
         "rank": 32,
-        "score": 43.9
+        "score": 43.7
       },
       {
         "ticker": "XLE",
         "rank": 33,
-        "score": 42.9
+        "score": 43.3
       },
       {
         "ticker": "IBB",
         "rank": 34,
-        "score": 12.5
+        "score": 12.7
       },
       {
         "ticker": "XLU",
         "rank": 35,
-        "score": -1.7
+        "score": -1.5
       }
     ]
   }
