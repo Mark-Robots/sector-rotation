@@ -404,6 +404,47 @@ def classify_stage(prices, ma_weeks=30):
         return '1'
 
 
+def compute_stock_entry(close, ma_weeks=30):
+    """Data d'ingresso 'Weinstein' per un singolo titolo.
+
+    Definizione: il titolo e' 'dentro' quando la chiusura settimanale e' sopra
+    la propria MA a 30 settimane. La data d'ingresso e' la prima settimana del
+    segmento continuativo PIU' RECENTE sopra la MA30 (l'ultima rottura al rialzo
+    della media da una base).
+
+    Restituisce un dict {entryDate, weeksFromEntry, perfFromEntry, stockStage}
+    oppure None se il titolo e' attualmente sotto la MA30 (Stage 1 o 4: nessun
+    ingresso attivo) o se lo storico e' insufficiente.
+
+    `close` = serie pandas dei prezzi di chiusura (giornalieri, auto_adjust).
+    """
+    try:
+        weekly = close.resample('W-FRI').last().dropna()
+        if len(weekly) < ma_weeks + 8:
+            return None
+        ma = weekly.rolling(window=ma_weeks).mean()
+        inside = (weekly > ma) & ma.notna()
+        if not bool(inside.iloc[-1]):
+            return None  # oggi sotto la MA30: nessun ingresso attivo
+        # risali all'indietro finche' resta 'dentro'
+        i = len(inside) - 1
+        while i > 0 and bool(inside.iloc[i - 1]):
+            i -= 1
+        entry_ts = weekly.index[i]
+        entry_price = float(weekly.iloc[i])
+        last_close = float(close.iloc[-1])
+        weeks_from_entry = (len(weekly) - 1) - i
+        perf_from_entry = (last_close / entry_price - 1) * 100 if entry_price > 0 else None
+        return {
+            'entryDate': entry_ts.date().isoformat(),
+            'weeksFromEntry': int(weeks_from_entry),
+            'perfFromEntry': round(perf_from_entry, 1) if perf_from_entry is not None else None,
+            'stockStage': classify_stage(close),
+        }
+    except Exception:
+        return None
+
+
 # ============================================================
 # COMPUTE METRICS
 # ============================================================
@@ -605,6 +646,9 @@ def fetch_ticker_fundamentals(symbol, signal_date=None):
         if name and len(name) > 30:
             name = name[:28] + '..'
         
+        # Data d'ingresso 'Weinstein' del titolo (riusa lo storico gia' scaricato)
+        entry = compute_stock_entry(hist['Close'])
+        
         return {
             'ticker': symbol,
             'name': name,
@@ -617,6 +661,10 @@ def fetch_ticker_fundamentals(symbol, signal_date=None):
             'roc13w': round(roc_13w, 1) if roc_13w is not None else None,
             'rocYtd': round(roc_ytd, 1) if roc_ytd is not None else None,
             'perfFromSignal': round(perf_from_signal, 1) if perf_from_signal is not None else None,
+            'entryDate': entry['entryDate'] if entry else None,
+            'weeksFromEntry': entry['weeksFromEntry'] if entry else None,
+            'perfFromEntry': entry['perfFromEntry'] if entry else None,
+            'stockStage': entry['stockStage'] if entry else None,
         }
     except Exception as e:
         print(f"    Failed {symbol}: {e}", file=sys.stderr)
@@ -886,8 +934,8 @@ def build_portfolio_model(us_metrics, eu_metrics, us_holdings, eu_holdings):
                 'weeks_from_state': signal.get('weeksFromState'),
                 'perf_from_state': signal.get('perfFromState'),
                 'rel_from_state': signal.get('relFromState'),
-                'picks_us': [{'ticker': p['ticker'], 'name': p['name'], 'perf_3m': p.get('roc13w'), 'pe_rel': p.get('peRelative'), 'tag': p.get('tag')} for p in picks_us],
-                'picks_it': [{'ticker': p['ticker'], 'name': p['name'], 'perf_3m': p.get('roc13w'), 'pe_rel': p.get('peRelative'), 'tag': p.get('tag')} for p in picks_it],
+                'picks_us': [{'ticker': p['ticker'], 'name': p['name'], 'perf_3m': p.get('roc13w'), 'pe_rel': p.get('peRelative'), 'tag': p.get('tag'), 'entry_date': p.get('entryDate'), 'weeks_from_entry': p.get('weeksFromEntry'), 'perf_from_entry': p.get('perfFromEntry'), 'stock_stage': p.get('stockStage')} for p in picks_us],
+                'picks_it': [{'ticker': p['ticker'], 'name': p['name'], 'perf_3m': p.get('roc13w'), 'pe_rel': p.get('peRelative'), 'tag': p.get('tag'), 'entry_date': p.get('entryDate'), 'weeks_from_entry': p.get('weeksFromEntry'), 'perf_from_entry': p.get('perfFromEntry'), 'stock_stage': p.get('stockStage')} for p in picks_it],
             })
         
         profiles_out[profile_name] = {
