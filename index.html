@@ -1137,6 +1137,7 @@
   <div class="tabs">
     <button class="tab-btn active" data-tab="quadro">📊 Quadro</button>
     <button class="tab-btn" data-tab="portafoglio">💼 Portafoglio</button>
+    <button class="tab-btn" data-tab="performance">📈 Performance</button>
   </div>
 
   <div class="tab-content active" id="tab-quadro">
@@ -1197,6 +1198,30 @@
       <div class="legal-block">
         <h4>Limitazione di responsabilità</h4>
         <p>I rendimenti passati non sono indicativi dei rendimenti futuri. Ogni decisione di investimento comporta rischi, inclusa la possibile perdita del capitale investito. <b>MarkRoboT.S. declina ogni responsabilità</b> per eventuali decisioni di investimento assunte sulla base esclusiva delle informazioni qui contenute. La verifica della correttezza e attualità dei dati resta a cura dell'utilizzatore.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-performance">
+    <div class="panel has-accent">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="subtitle">Backtest retrospettivo · livello titoli</span>
+          <h2>📈 Performance del sistema</h2>
+        </div>
+      </div>
+      <div style="background:rgba(251,191,36,0.05);border:1px solid rgba(251,191,36,0.2);border-radius:6px;padding:14px 18px;margin-bottom:20px;font-size:12px;line-height:1.6;color:var(--text-secondary);">
+        <b>Simulazione storica, non garanzia di risultati futuri.</b> Regola testata: si entra nei top titoli per momentum di un settore quando il settore diventa <b>Leader/Emergente in Fase 1/2</b>, si esce quando il settore esce. Le liste titoli sono curate oggi e applicate al passato: c'è un <b>survivorship bias</b> che tende a sovrastimare i rendimenti. Equity equal-weight sui titoli in posizione, confronto buy &amp; hold blend 50/50 SPY+EXSA.
+      </div>
+      <div id="bt-empty" style="display:none;color:var(--text-muted);padding:24px;text-align:center;font-size:13px;">
+        Nessun backtest disponibile. Esegui <span style="font-family:var(--mono);">scripts/backtest.py</span> e committa <span style="font-family:var(--mono);">data/backtest.json</span>.
+      </div>
+      <div id="bt-body" style="display:none;">
+        <div id="bt-metrics" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:24px;"></div>
+        <div style="position:relative;height:340px;margin-bottom:8px;"><canvas id="bt-equity"></canvas></div>
+        <p id="bt-params" style="color:var(--text-muted);font-size:10px;font-family:var(--mono);text-align:center;margin-bottom:24px;"></p>
+        <h3 style="font-size:14px;margin-bottom:12px;">Storico movimenti</h3>
+        <table class="sector-table" id="bt-trades"></table>
       </div>
     </div>
   </div>
@@ -2315,6 +2340,91 @@ async function loadData() {
   if (DATA.portfolio) {
     renderPortfolio(DATA.portfolio);
   }
+
+  // Render Performance (backtest, se disponibile)
+  loadBacktest();
+}
+
+// ============================================================
+// BACKTEST · equity line + metriche + storico movimenti
+// ============================================================
+function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim() || '#888'; }
+
+async function loadBacktest(){
+  const empty = document.getElementById('bt-empty');
+  const body = document.getElementById('bt-body');
+  let bt;
+  try {
+    const r = await fetch(`./data/backtest.json?t=${Date.now()}`);
+    if (!r.ok) throw new Error('no file');
+    bt = await r.json();
+    if (bt.error) throw new Error(bt.error);
+  } catch (e) {
+    empty.style.display = 'block'; body.style.display = 'none'; return;
+  }
+  empty.style.display = 'none'; body.style.display = 'block';
+  renderBacktest(bt);
+}
+
+function renderBacktest(bt){
+  const sm = bt.metrics.system || {}, bm = bt.metrics.benchmark || {};
+  const pct = v => (v === null || v === undefined) ? '—' : `${v > 0 ? '+' : ''}${v}%`;
+  const card = (label, val, color) => `<div style="background:var(--bg-card-2);border-radius:6px;padding:12px 14px;">
+      <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:4px;">${label}</div>
+      <div style="font-size:18px;font-weight:700;color:${color || 'var(--text-primary)'};">${val}</div></div>`;
+  document.getElementById('bt-metrics').innerHTML = [
+    card('CAGR SISTEMA', pct(sm.cagr_pct), 'var(--accent-gold)'),
+    card('CAGR BENCHMARK', pct(bm.cagr_pct), 'var(--text-secondary)'),
+    card('RENDIMENTO TOT.', pct(sm.total_return_pct), (sm.total_return_pct >= 0) ? 'var(--accent-lead)' : 'var(--accent-lag)'),
+    card('MAX DRAWDOWN', pct(sm.max_drawdown_pct), 'var(--accent-lag)'),
+    card('SHARPE', sm.sharpe ?? '—'),
+    card('WIN RATE', sm.win_rate_pct != null ? sm.win_rate_pct + '%' : '—'),
+    card('PROFIT FACTOR', sm.profit_factor ?? '—'),
+    card('N. TRADE', sm.n_trades ?? '—'),
+    card('ESPOSIZIONE', sm.exposure_pct != null ? sm.exposure_pct + '%' : '—'),
+    card('DURATA MEDIA', sm.avg_weeks != null ? sm.avg_weeks + ' sett.' : '—'),
+  ].join('');
+
+  const eq = bt.equity || [];
+  const ctx = document.getElementById('bt-equity').getContext('2d');
+  if (window.BT_CHART) window.BT_CHART.destroy();
+  window.BT_CHART = new Chart(ctx, {
+    type: 'line',
+    data: { labels: eq.map(p => p.date), datasets: [
+      { label: 'Sistema', data: eq.map(p => p.system), borderColor: cssVar('--accent-gold'), borderWidth: 2, pointRadius: 0, tension: 0.05 },
+      { label: 'Buy & Hold 50/50', data: eq.map(p => p.bench), borderColor: cssVar('--text-muted'), borderWidth: 1.5, pointRadius: 0, borderDash: [5, 4], tension: 0.05 },
+    ]},
+    options: { responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: { legend: { labels: { color: cssVar('--text-secondary'), font: { size: 11 } } },
+        tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.parsed.y.toFixed(2)}×` } } },
+      scales: {
+        x: { ticks: { color: cssVar('--text-muted'), maxTicksLimit: 8, font: { size: 9 } }, grid: { display: false } },
+        y: { ticks: { color: cssVar('--text-muted'), font: { size: 9 }, callback: v => v.toFixed(1) + '×' }, grid: { color: 'rgba(255,255,255,0.04)' } }
+      }}
+  });
+
+  const p = bt.params || {};
+  document.getElementById('bt-params').textContent =
+    `Regola: ${p.gate} · Top ${p.top_n} per settore · benchmark ${p.benchmark} · storico ${p.period}`;
+
+  const trades = bt.trades || [];
+  const fmtP = v => { const c = v >= 0 ? 'up' : 'down'; const s = v >= 0 ? '+' : ''; return `<span class="change ${c}">${s}${v}%</span>`; };
+  const fmtD = d => { const dt = new Date(d); return isNaN(dt) ? d : dt.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: '2-digit' }); };
+  const flag = r => r === 'USA' ? '🇺🇸' : '🇪🇺';
+  let h = `<thead><tr><th>Titolo</th><th>Settore</th><th>Reg.</th><th>Ingresso</th><th>Uscita</th><th>Durata</th><th class="num">Perf</th></tr></thead><tbody>`;
+  trades.slice(0, 80).forEach(t => {
+    const openBadge = t.open ? ` <span style="padding:1px 5px;border-radius:3px;background:rgba(16,185,129,0.18);color:var(--accent-lead);font-family:var(--mono);font-size:8px;font-weight:700;">IN CORSO</span>` : '';
+    h += `<tr><td><span class="ticker">${t.ticker}</span></td>
+      <td><span class="sector-name">${t.sector}</span></td>
+      <td style="font-size:11px;">${flag(t.region)}</td>
+      <td style="font-family:var(--mono);font-size:11px;">${fmtD(t.entry_date)}</td>
+      <td style="font-family:var(--mono);font-size:11px;">${t.open ? '<span class="pe-na">—</span>' : fmtD(t.exit_date)}${openBadge}</td>
+      <td style="color:var(--text-secondary);font-size:11px;">${t.weeks} sett.</td>
+      <td class="num">${fmtP(t.perf)}</td></tr>`;
+  });
+  h += '</tbody>';
+  document.getElementById('bt-trades').innerHTML = h;
 }
 
 loadData();
