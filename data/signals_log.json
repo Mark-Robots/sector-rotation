@@ -139,5 +139,153 @@
     "perf_from_entry": 63.8
    }
   ]
+ },
+ {
+  "date": "2026-06-19",
+  "updated_at": "2026-06-19T19:20:09.363021+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "SOXX",
+    "name": "Semiconduttori",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV3",
+    "name": "Tecnologia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV1",
+    "name": "Banche",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLI",
+    "name": "Industriali",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "ITA",
+    "name": "Aerospazio & Difesa",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "MRVL",
+    "sector": "Semiconduttori",
+    "region": "USA",
+    "entry_date": "2026-02-27",
+    "perf_from_entry": 280.4
+   },
+   {
+    "ticker": "INTC",
+    "sector": "Semiconduttori",
+    "region": "USA",
+    "entry_date": "2025-08-15",
+    "perf_from_entry": 445.6
+   },
+   {
+    "ticker": "AMD",
+    "sector": "Semiconduttori",
+    "region": "USA",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 147.1
+   },
+   {
+    "ticker": "REY.MI",
+    "sector": "Tecnologia",
+    "region": "EU",
+    "entry_date": null,
+    "perf_from_entry": null
+   },
+   {
+    "ticker": "TXT.MI",
+    "sector": "Tecnologia",
+    "region": "EU",
+    "entry_date": "2026-04-17",
+    "perf_from_entry": 1.1
+   },
+   {
+    "ticker": "DEA.MI",
+    "sector": "Tecnologia",
+    "region": "EU",
+    "entry_date": "2026-05-29",
+    "perf_from_entry": 0.0
+   },
+   {
+    "ticker": "MB.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 49.9
+   },
+   {
+    "ticker": "BMPS.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 49.3
+   },
+   {
+    "ticker": "BAMI.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 29.0
+   },
+   {
+    "ticker": "CAT",
+    "sector": "Industriali",
+    "region": "USA",
+    "entry_date": "2025-06-06",
+    "perf_from_entry": 182.0
+   },
+   {
+    "ticker": "GE",
+    "sector": "Industriali",
+    "region": "USA",
+    "entry_date": "2026-05-29",
+    "perf_from_entry": 10.5
+   },
+   {
+    "ticker": "ETN",
+    "sector": "Industriali",
+    "region": "USA",
+    "entry_date": "2026-03-13",
+    "perf_from_entry": 19.0
+   },
+   {
+    "ticker": "GE",
+    "sector": "Aerospazio & Difesa",
+    "region": "USA",
+    "entry_date": "2026-05-29",
+    "perf_from_entry": 10.5
+   },
+   {
+    "ticker": "TDG",
+    "sector": "Aerospazio & Difesa",
+    "region": "USA",
+    "entry_date": "2026-06-18",
+    "perf_from_entry": 0.0
+   },
+   {
+    "ticker": "BA",
+    "sector": "Aerospazio & Difesa",
+    "region": "USA",
+    "entry_date": "2026-06-18",
+    "perf_from_entry": 0.0
+   }
+  ]
  }
 ]
