@@ -287,5 +287,153 @@
     "perf_from_entry": 0.0
    }
   ]
+ },
+ {
+  "date": "2026-06-26",
+  "updated_at": "2026-06-26T16:08:54.661467+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "KRE",
+    "name": "Banche regionali",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV1",
+    "name": "Banche",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLI",
+    "name": "Industriali",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "IBB",
+    "name": "Biotech",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "ITA",
+    "name": "Aerospazio & Difesa",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "FITB",
+    "sector": "Banche regionali",
+    "region": "USA",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 20.3
+   },
+   {
+    "ticker": "ZION",
+    "sector": "Banche regionali",
+    "region": "USA",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 19.8
+   },
+   {
+    "ticker": "CFG",
+    "sector": "Banche regionali",
+    "region": "USA",
+    "entry_date": "2026-03-20",
+    "perf_from_entry": 24.1
+   },
+   {
+    "ticker": "MB.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 48.0
+   },
+   {
+    "ticker": "BMPS.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 47.4
+   },
+   {
+    "ticker": "BAMI.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 23.6
+   },
+   {
+    "ticker": "CAT",
+    "sector": "Industriali",
+    "region": "USA",
+    "entry_date": "2025-06-06",
+    "perf_from_entry": 189.7
+   },
+   {
+    "ticker": "GE",
+    "sector": "Industriali",
+    "region": "USA",
+    "entry_date": "2026-05-29",
+    "perf_from_entry": 14.2
+   },
+   {
+    "ticker": "UNP",
+    "sector": "Industriali",
+    "region": "USA",
+    "entry_date": "2025-11-14",
+    "perf_from_entry": 23.2
+   },
+   {
+    "ticker": "ILMN",
+    "sector": "Biotech",
+    "region": "USA",
+    "entry_date": "2026-04-17",
+    "perf_from_entry": 30.8
+   },
+   {
+    "ticker": "MRNA",
+    "sector": "Biotech",
+    "region": "USA",
+    "entry_date": "2025-12-05",
+    "perf_from_entry": 141.5
+   },
+   {
+    "ticker": "INCY",
+    "sector": "Biotech",
+    "region": "USA",
+    "entry_date": "2026-06-26",
+    "perf_from_entry": 0.0
+   },
+   {
+    "ticker": "GE",
+    "sector": "Aerospazio & Difesa",
+    "region": "USA",
+    "entry_date": "2026-05-29",
+    "perf_from_entry": 14.1
+   },
+   {
+    "ticker": "TDG",
+    "sector": "Aerospazio & Difesa",
+    "region": "USA",
+    "entry_date": "2026-06-18",
+    "perf_from_entry": 0.1
+   },
+   {
+    "ticker": "BA",
+    "sector": "Aerospazio & Difesa",
+    "region": "USA",
+    "entry_date": null,
+    "perf_from_entry": null
+   }
+  ]
  }
 ]
