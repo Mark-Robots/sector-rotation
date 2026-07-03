@@ -898,5 +898,185 @@
         "score": -10.0
       }
     ]
+  },
+  {
+    "date": "2026-07-03T15:51:10.998640+00:00",
+    "ranks": [
+      {
+        "ticker": "IBB",
+        "rank": 1,
+        "score": 115.8
+      },
+      {
+        "ticker": "EXV1",
+        "rank": 2,
+        "score": 114.1
+      },
+      {
+        "ticker": "ITA",
+        "rank": 3,
+        "score": 112.4
+      },
+      {
+        "ticker": "XLI",
+        "rank": 4,
+        "score": 111.7
+      },
+      {
+        "ticker": "KRE",
+        "rank": 5,
+        "score": 110.7
+      },
+      {
+        "ticker": "XLV",
+        "rank": 6,
+        "score": 107.2
+      },
+      {
+        "ticker": "XHB",
+        "rank": 7,
+        "score": 74.8
+      },
+      {
+        "ticker": "EXV9",
+        "rank": 8,
+        "score": 74.5
+      },
+      {
+        "ticker": "XLB",
+        "rank": 9,
+        "score": 74.4
+      },
+      {
+        "ticker": "XLF",
+        "rank": 10,
+        "score": 73.7
+      },
+      {
+        "ticker": "EXH5",
+        "rank": 11,
+        "score": 73.1
+      },
+      {
+        "ticker": "EXH4",
+        "rank": 12,
+        "score": 72.7
+      },
+      {
+        "ticker": "EXV7",
+        "rank": 13,
+        "score": 72.4
+      },
+      {
+        "ticker": "EXH8",
+        "rank": 14,
+        "score": 72.0
+      },
+      {
+        "ticker": "XRT",
+        "rank": 15,
+        "score": 71.6
+      },
+      {
+        "ticker": "EXH2",
+        "rank": 16,
+        "score": 71.2
+      },
+      {
+        "ticker": "XLU",
+        "rank": 17,
+        "score": 70.2
+      },
+      {
+        "ticker": "EXH3",
+        "rank": 18,
+        "score": 69.4
+      },
+      {
+        "ticker": "XLRE",
+        "rank": 19,
+        "score": 69.3
+      },
+      {
+        "ticker": "XLP",
+        "rank": 20,
+        "score": 68.8
+      },
+      {
+        "ticker": "EXV4",
+        "rank": 21,
+        "score": 68.7
+      },
+      {
+        "ticker": "EXH6",
+        "rank": 22,
+        "score": 64.1
+      },
+      {
+        "ticker": "EXH7",
+        "rank": 23,
+        "score": 61.5
+      },
+      {
+        "ticker": "XLY",
+        "rank": 24,
+        "score": 58.3
+      },
+      {
+        "ticker": "XLK",
+        "rank": 25,
+        "score": 55.6
+      },
+      {
+        "ticker": "SOXX",
+        "rank": 26,
+        "score": 53.6
+      },
+      {
+        "ticker": "EXV3",
+        "rank": 27,
+        "score": 51.3
+      },
+      {
+        "ticker": "XLC",
+        "rank": 28,
+        "score": 48.3
+      },
+      {
+        "ticker": "EXH9",
+        "rank": 29,
+        "score": 48.3
+      },
+      {
+        "ticker": "EXV6",
+        "rank": 30,
+        "score": 42.4
+      },
+      {
+        "ticker": "EXH1",
+        "rank": 31,
+        "score": 39.0
+      },
+      {
+        "ticker": "XLE",
+        "rank": 32,
+        "score": 9.5
+      },
+      {
+        "ticker": "EXV8",
+        "rank": 33,
+        "score": 4.4
+      },
+      {
+        "ticker": "EXV2",
+        "rank": 34,
+        "score": 1.0
+      },
+      {
+        "ticker": "EXV5",
+        "rank": 35,
+        "score": -9.3
+      }
+    ]
   }
 ]
