@@ -1,36 +1,30 @@
 #!/usr/bin/env python3
 """
-Backtest retrospettivo del sistema Megatrend Sentinel · v2 ADAPTIVE.
+Backtest retrospettivo del sistema Megatrend Sentinel · v3 ADAPTIVE + RE-SELEZIONE.
 
-Regola testata (allineata alla modalita' Adaptive di megatrend-desk/azioni.html):
-  1. GATE settore: il settore e' "valido" quando stato in {Leader, Emergente}
-     E fase (Weinstein) in {1, 2}.
-  2. UNIVERSO ADATTIVO: ogni 26 settimane (semestre), per ogni settore, il
-     paniere dei candidati si auto-aggiorna in modo MECCANICO e point-in-time:
-     restano solo i titoli con ROC a 13 settimane POSITIVO all'anchor,
-     ordinati per dollar-volume medio 13w (i piu' liquidi), max ADAPTIVE_K.
-  3. Quando un settore diventa valido -> si comprano i TOP-N titoli per
-     momentum 13w calcolato all'ingresso, SCELTI DENTRO l'universo adattivo
-     vigente a quella data.
-  4. STOP-LOSS fisso -20% sul prezzo di chiusura settimanale: se la chiusura
-     scende sotto entry*(1-SL) la posizione esce a QUELLA chiusura (il gap
-     oltre lo stop resta a carico, come nella realta').
-  5. Altrimenti si tiene finche' il settore resta valido; all'uscita del
-     settore si vende. Costi COST_PCT per lato su ogni trade.
-  6. In parallelo viene calcolato il backtest a LIVELLO ETF (si compra l'ETF
-     settoriale nei periodi validi): e' il riferimento "pulito", immune da
-     survivorship bias, pubblicato accanto a quello titoli.
+Regola testata (allineata al motore LIVE di update_data.py / tab Portafoglio):
+  1. GATE settore: valido quando stato in {Leader, Emergente} E fase in {1, 2}.
+  2. UNIVERSO ADATTIVO: refresh meccanico ogni 26 settimane, point-in-time:
+     solo titoli con ROC 13w positivo all'anchor, ordinati per dollar-volume
+     medio 13w, max ADAPTIVE_K.
+  3. RE-SELEZIONE SETTIMANALE (come il live): OGNI settimana, per ogni settore
+     valido, si ricalcola il top-N momentum 13w dentro l'universo vigente.
+     - titolo entra nel top-N e non e' in posizione -> BUY a chiusura settimana
+     - titolo in posizione esce dal top-N          -> SELL a chiusura (swap)
+     - settore esce dal gate                        -> SELL tutte le posizioni
+     - chiusura <= entry*(1-SL)                     -> SELL (stop, gap a carico)
+  4. Costi COST_PCT per lato su ogni trade.
+  5. In parallelo: backtest a LIVELLO ETF (riferimento pulito, immune da
+     survivorship bias).
 
-Tutto e' point-in-time (rolling window): nessun dato futuro entra nel calcolo
-dello stato a settimana t, nella composizione dell'universo, ne' nella
-selezione dei titoli.
+Tutto point-in-time: stato, universo e selezione a settimana t usano solo
+dati <= t.
 
-NB METODOLOGICO (bias residuo): il POOL di partenza (US_HOLDINGS/EU_HOLDINGS)
-resta la lista dei constituent attuali. La selezione semestrale meccanica
-elimina il cherry-picking, ma i titoli DELISTED/ACQUISITI negli anni passati
-non sono nel pool (yfinance non li fornisce). Sovrastima residua stimata
-~1-2%/anno, mitigata da stop-loss -20% e pesi equal-weight. Il backtest ETF
-e' il numero di riferimento privo di questo bias.
+NB METODOLOGICO (bias residuo): il pool base sono i constituent attuali; i
+delisted mancano (yfinance non li fornisce). Sovrastima residua stimata
+~1-2%/anno, mitigata da stop-loss e pesi equal-weight. Differenza vs live:
+il live ordina i picks su holdings curati con filtro value_trap (P/E), qui
+si usa l'universo adattivo come proxy de-biasato.
 
 Uso:
     python scripts/backtest.py            # scarica e calcola -> data/backtest.json
@@ -190,8 +184,8 @@ def universe_for_date(t, anchors, uni_by_anchor):
 # ============================================================
 
 def run_backtest(prices_d, volumes_d=None):
-    """Backtest doppio livello: TITOLI (regola Adaptive) + ETF (pulito).
-    prices_d/volumes_d: DataFrame giornalieri (colonne = ticker)."""
+    """Backtest doppio livello: TITOLI (Adaptive + re-selezione settimanale,
+    allineato al live) + ETF (pulito). DataFrame giornalieri in input."""
     sector_map = {**{t: ('USA', US_BENCHMARK) for t in US_SECTORS},
                   **{t: ('EU', EU_BENCHMARK) for t in EU_SECTORS}}
     holdings_map = {**US_HOLDINGS, **EU_HOLDINGS}
@@ -202,7 +196,6 @@ def run_backtest(prices_d, volumes_d=None):
         EU_BENCHMARK: weekly_close(prices_d, EU_BENCHMARK),
     }
 
-    # rendimenti/chiusure settimanali per titolo + dollar-volume settimanale
     tk_wret, tk_wclose, tk_wdv = {}, {}, {}
     for tk in prices_d.columns:
         wc = weekly_close(prices_d, tk)
@@ -215,14 +208,12 @@ def run_backtest(prices_d, volumes_d=None):
                     dv_d = (prices_d[tk] * v).dropna()
                     tk_wdv[tk] = dv_d.resample('W-FRI').mean().dropna()
 
-    # calendario settimanale di riferimento (benchmark US)
     if bench_w[US_BENCHMARK] is None:
         return {'error': 'benchmark US mancante'}
     calendar = bench_w[US_BENCHMARK].index
     anchors = build_anchors(calendar)
 
-    # universi adattivi per settore/anchor (tutto point-in-time)
-    uni = {}  # sector -> {anchor -> [tickers]}
+    uni = {}
     for sec in sector_map:
         holds = holdings_map.get(sec, [])
         if not holds:
@@ -230,11 +221,8 @@ def run_backtest(prices_d, volumes_d=None):
         uni[sec] = {a: adaptive_universe_at(a, holds, tk_wclose, tk_wdv)
                     for a in anchors}
 
-    trades = []
-    week_contrib = defaultdict(list)       # titoli
-    week_contrib_etf = defaultdict(list)   # ETF (pulito)
-    sl_mult = 1.0 - STOP_LOSS_PCT / 100.0
-
+    # validita' settimanale e chiusure ETF per settore
+    valid_by_sec, weekly_by_sec = {}, {}
     for sec, (region, bench) in sector_map.items():
         sec_d = prices_d[sec].dropna() if sec in prices_d.columns else None
         bd = prices_d[bench].dropna() if bench in prices_d.columns else None
@@ -243,86 +231,143 @@ def run_backtest(prices_d, volumes_d=None):
         sv = sector_validity(sec_d, bd)
         if sv is None:
             continue
-        valid, sec_weekly = sv
-        periods = find_periods(valid)
-        holds = holdings_map.get(sec, [])
+        valid_by_sec[sec], weekly_by_sec[sec] = sv
 
-        for (t_in, t_out, is_open) in periods:
-            # ---------- livello ETF (pulito, nessun bias) ----------
-            seg_etf = sec_weekly[(sec_weekly.index >= t_in) & (sec_weekly.index <= t_out)]
-            if len(seg_etf) >= 2:
-                rets_etf = seg_etf.pct_change()
-                for j, dt in enumerate(seg_etf.index):
-                    if j == 0:
-                        continue
-                    r = rets_etf.iloc[j]
-                    if pd.isna(r):
-                        r = 0.0
-                    edge = (COST_PCT / 100.0) if (j == 1 or j == len(seg_etf) - 1) else 0.0
-                    week_contrib_etf[dt].append(float(r) - edge)
+    def mom_at(wc, t, weeks=MOM_WEEKS):
+        pos = wc.index.searchsorted(t, side='right') - 1
+        if pos < weeks:
+            return None
+        base = float(wc.iloc[pos - weeks])
+        return (float(wc.iloc[pos]) / base - 1) if base > 0 else None
 
-            # ---------- livello TITOLI (regola Adaptive) ----------
-            if not holds:
+    def close_at(wc, t):
+        pos = wc.index.searchsorted(t, side='right') - 1
+        return float(wc.iloc[pos]) if pos >= 0 else None
+
+    def top_picks_at(sec, t):
+        universe = universe_for_date(t, anchors, uni.get(sec, {}))
+        cand = []
+        for h in universe:
+            wc = tk_wclose.get(h)
+            if wc is None:
                 continue
-            universe = universe_for_date(t_in, anchors, uni.get(sec, {}))
-            if not universe:
-                continue  # semestre senza candidati validi -> cash
-            # top-N per momentum 13w A t_in, dentro l'universo adattivo
-            cand = []
-            for h in universe:
-                wc = tk_wclose.get(h)
-                if wc is None:
-                    continue
-                hist = wc[wc.index <= t_in]
-                if len(hist) <= MOM_WEEKS:
-                    continue
-                mom = hist.iloc[-1] / hist.iloc[-1 - MOM_WEEKS] - 1
-                cand.append((h, mom))
-            cand.sort(key=lambda x: x[1], reverse=True)
-            picks = [h for h, _ in cand[:TOP_N]]
+            m = mom_at(wc, t)
+            if m is not None:
+                cand.append((h, m))
+        cand.sort(key=lambda x: x[1], reverse=True)
+        return [h for h, _ in cand[:TOP_N]]
 
+    # ---------- motore settimanale ----------
+    from collections import defaultdict
+    week_contrib = defaultdict(list)
+    week_contrib_etf = defaultdict(list)
+    sl_mult = 1.0 - STOP_LOSS_PCT / 100.0
+    cost = COST_PCT / 100.0
+
+    positions = {}   # (sec, h) -> {'entry_t','entry_p','ret_weeks','pending_entry_cost'}
+    etf_pos = {}     # sec -> {'ret_weeks'}
+    trades = []
+    last_t = calendar[-1]
+
+    def record_trade(sec, h, pos_d, exit_t, exit_p, reason, is_open=False):
+        region = sector_map[sec][0]
+        perf = (exit_p / pos_d['entry_p'] - 1) * 100 - 2 * COST_PCT
+        trades.append({
+            'ticker': h,
+            'sector': sector_names.get(sec, sec),
+            'sector_ticker': sec,
+            'region': region,
+            'entry_date': pos_d['entry_t'].date().isoformat(),
+            'exit_date': exit_t.date().isoformat(),
+            'weeks': int(pos_d['ret_weeks']),
+            'perf': round(perf, 1),
+            'open': bool(is_open),
+            'stop': reason == 'stop',
+            'reason': None if is_open else reason,
+        })
+
+    for t in calendar:
+        # 1) validita' e picks della settimana (point-in-time, chiusura t)
+        valid_now = {}
+        for sec, valid in valid_by_sec.items():
+            v = valid.get(t)
+            valid_now[sec] = bool(v) if v is not None and not pd.isna(v) else False
+        picks_now = {sec: top_picks_at(sec, t) for sec, ok in valid_now.items() if ok}
+
+        # 2) rendimenti della settimana per le posizioni gia' in essere
+        for (sec, h), pd_ in list(positions.items()):
+            r = tk_wret[h].get(t, 0.0)
+            if pd.isna(r):
+                r = 0.0
+            edge = cost if pd_['pending_entry_cost'] else 0.0
+            pd_['pending_entry_cost'] = False
+            pd_['ret_weeks'] += 1
+            week_contrib[t].append(float(r) - edge)
+            pd_['last_ret_key'] = t
+        for sec, ep in list(etf_pos.items()):
+            wc = weekly_by_sec[sec]
+            pos_i = wc.index.searchsorted(t, side='right') - 1
+            r = 0.0
+            if pos_i >= 1 and wc.index[pos_i] == t:
+                prev = float(wc.iloc[pos_i - 1])
+                r = (float(wc.iloc[pos_i]) / prev - 1) if prev > 0 else 0.0
+            edge = cost if ep['pending_entry_cost'] else 0.0
+            ep['pending_entry_cost'] = False
+            week_contrib_etf[t].append(r - edge)
+
+        # 3) uscite a chiusura t
+        for (sec, h), pd_ in list(positions.items()):
+            wc = tk_wclose[h]
+            c = close_at(wc, t)
+            reason = None
+            if not valid_now.get(sec, False):
+                reason = 'sector'
+            elif h not in picks_now.get(sec, []):
+                reason = 'swap'
+            elif c is not None and c <= pd_['entry_p'] * sl_mult:
+                reason = 'stop'
+            if reason:
+                # costo d'uscita: lo applico sull'ultima settimana di rendimento
+                if pd_.get('last_ret_key') is not None:
+                    lst = week_contrib[pd_['last_ret_key']]
+                    if lst:
+                        lst[-1] -= cost
+                record_trade(sec, h, pd_, t, c if c is not None else pd_['entry_p'], reason)
+                del positions[(sec, h)]
+        for sec in list(etf_pos.keys()):
+            if not valid_now.get(sec, False):
+                lst = week_contrib_etf.get(t)
+                if lst:
+                    lst[-1] -= cost
+                del etf_pos[sec]
+
+        # 4) ingressi a chiusura t (contribuiscono dalla settimana successiva)
+        for sec, picks in picks_now.items():
             for h in picks:
-                wc = tk_wclose[h]
-                seg = wc[(wc.index >= t_in) & (wc.index <= t_out)]
-                if len(seg) < 2:
+                key = (sec, h)
+                if key in positions:
                     continue
-                entry_p = float(seg.iloc[0])
-                stop_level = entry_p * sl_mult
-                # stop-loss: prima chiusura settimanale sotto il livello
-                exit_j = len(seg) - 1
-                stopped = False
-                for j in range(1, len(seg)):
-                    if float(seg.iloc[j]) <= stop_level:
-                        exit_j = j; stopped = True
-                        break
-                exit_p = float(seg.iloc[exit_j])
-                trade_open = bool(is_open) and not stopped and exit_j == len(seg) - 1
-                perf = (exit_p / entry_p - 1) * 100 - 2 * COST_PCT
-                trades.append({
-                    'ticker': h,
-                    'sector': sector_names.get(sec, sec),
-                    'sector_ticker': sec,
-                    'region': region,
-                    'entry_date': seg.index[0].date().isoformat(),
-                    'exit_date': seg.index[exit_j].date().isoformat(),
-                    'weeks': int(exit_j),
-                    'perf': round(perf, 1),
-                    'open': trade_open,
-                    'stop': stopped,
-                })
-                rets = tk_wret[h]
-                for j in range(1, exit_j + 1):
-                    dt = seg.index[j]
-                    r = rets.get(dt, 0.0)
-                    if pd.isna(r):
-                        r = 0.0
-                    edge = (COST_PCT / 100.0) if (j == 1 or j == exit_j) else 0.0
-                    week_contrib[dt].append(float(r) - edge)
+                wc = tk_wclose.get(h)
+                c = close_at(wc, t) if wc is not None else None
+                if c is None or c <= 0:
+                    continue
+                positions[key] = {'entry_t': t, 'entry_p': c, 'ret_weeks': 0,
+                                  'pending_entry_cost': True, 'last_ret_key': None}
+        for sec, ok in valid_now.items():
+            if ok and sec not in etf_pos and sec in weekly_by_sec:
+                etf_pos[sec] = {'pending_entry_cost': True}
+
+    # posizioni ancora aperte a fine storico
+    for (sec, h), pd_ in positions.items():
+        wc = tk_wclose[h]
+        c = close_at(wc, last_t)
+        record_trade(sec, h, pd_, last_t, c if c is not None else pd_['entry_p'],
+                     None, is_open=True)
 
     if not week_contrib:
         return {'error': 'nessun trade generato'}
 
-    # ---- Equity (equal-weight settimanale sulle posizioni aperte) ----
+    # ---- Equity (equal-weight settimanale) ----
     def build_equity(contrib):
         first = min(contrib.keys())
         cal = calendar[calendar >= first]
@@ -340,7 +385,6 @@ def run_backtest(prices_d, volumes_d=None):
 
     eq_sys, eq_dates, weeks_invested = build_equity(week_contrib)
     eq_etf_raw, eq_etf_dates, _ = build_equity(week_contrib_etf)
-    # riallineo l'equity ETF sul calendario dell'equity titoli
     etf_map = dict(zip(eq_etf_dates, eq_etf_raw))
     eq_etf, base_etf = [], None
     for dt in eq_dates:
@@ -375,8 +419,8 @@ def run_backtest(prices_d, volumes_d=None):
             return {}
         rets = np.diff(eq) / eq[:-1]
         years = max((dates[-1] - dates[0]).days / 365.25, 0.1)
-        total = eq[-1] - 1
-        cagr = eq[-1] ** (1 / years) - 1
+        total = float(eq[-1] - 1)
+        cagr = float(eq[-1] ** (1 / years) - 1)
         run_max = np.maximum.accumulate(eq)
         mdd = float(np.min(eq / run_max - 1))
         vol = float(np.std(rets) * np.sqrt(52))
@@ -398,17 +442,18 @@ def run_backtest(prices_d, volumes_d=None):
         'n_trades': len(closed),
         'n_open': len([t for t in trades if t['open']]),
         'n_stopped': len([t for t in trades if t.get('stop')]),
+        'n_swaps': len([t for t in closed if t.get('reason') == 'swap']),
         'win_rate_pct': round(100 * len(wins) / len(closed), 1) if closed else None,
-        'avg_perf_pct': round(np.mean([t['perf'] for t in closed]), 1) if closed else None,
+        'avg_perf_pct': round(float(np.mean([t['perf'] for t in closed])), 1) if closed else None,
         'profit_factor': round(gains / losses, 2) if losses > 0 else None,
-        'avg_weeks': round(np.mean([t['weeks'] for t in closed]), 1) if closed else None,
+        'avg_weeks': round(float(np.mean([t['weeks'] for t in closed])), 1) if closed else None,
         'best_pct': round(max((t['perf'] for t in closed), default=0), 1),
         'worst_pct': round(min((t['perf'] for t in closed), default=0), 1),
         'exposure_pct': round(100 * weeks_invested / len(eq_dates), 1) if eq_dates else None,
     })
 
-    equity = [{'date': d.date().isoformat(), 'system': round(s, 4),
-               'bench': round(b, 4), 'etf': round(e, 4)}
+    equity = [{'date': d.date().isoformat(), 'system': round(float(s), 4),
+               'bench': round(float(b), 4), 'etf': round(float(e), 4)}
               for d, s, b, e in zip(eq_dates, eq_sys, bench_eq, eq_etf)]
     trades_sorted = sorted(trades, key=lambda t: t['entry_date'], reverse=True)
 
@@ -417,20 +462,19 @@ def run_backtest(prices_d, volumes_d=None):
         'params': {'top_n': TOP_N, 'ma_weeks': MA_WEEKS, 'mom_weeks': MOM_WEEKS,
                    'period': PERIOD, 'cost_pct': COST_PCT,
                    'stop_loss_pct': STOP_LOSS_PCT, 'rebal_weeks': REBAL_WEEKS,
-                   'adaptive_k': ADAPTIVE_K,
+                   'adaptive_k': ADAPTIVE_K, 'reselect': 'weekly',
                    'benchmark': 'Blend 50/50 ' + US_BENCHMARK + '+' + EU_BENCHMARK,
-                   'gate': 'Leader/Emergente + Fase 1/2 · Adaptive 6m · SL -20%'},
+                   'gate': 'Leader/Emergente + Fase 1/2 · Adaptive 6m · re-sel. sett. · SL -20%'},
         'metrics': {'system': sys_m,
                     'etf': equity_metrics(eq_etf, eq_dates),
                     'benchmark': equity_metrics(bench_eq, eq_dates)},
         'equity': equity,
         'trades': trades_sorted,
-        'note': ('Titoli: regola Adaptive (universo meccanico semestrale ROC13>0 '
-                 'per dollar-volume, stop-loss -20%, costi {:.2f}%/lato). '
-                 'Bias residuo: il pool base sono i constituent attuali, i '
-                 'delisted mancano -> sovrastima stimata ~1-2%/anno. '
-                 "L'equity ETF e' il riferimento pulito, immune dal bias."
-                 ).format(COST_PCT),
+        'note': ('Titoli: regola live replicata (re-selezione settimanale top-{} '
+                 'momentum su universo adattivo semestrale, stop-loss -20%, costi '
+                 '{:.2f}%/lato). Bias residuo ~1-2%/anno (pool = constituent '
+                 "attuali). L'equity ETF e' il riferimento pulito."
+                 ).format(TOP_N, COST_PCT),
     }
 
 
