@@ -2424,6 +2424,7 @@ function renderBacktest(bt){
   const fmtD = d => { const dt = new Date(d); return isNaN(dt) ? d : dt.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: '2-digit' }); };
   const flag = r => r === 'USA' ? '🇺🇸' : '🇪🇺';
   const stopBadge = ` <span style="padding:1px 5px;border-radius:3px;background:rgba(226,75,74,0.18);color:var(--accent-lag);font-family:var(--mono);font-size:8px;font-weight:700;">STOP</span>`;
+  const swapBadge = ` <span style="padding:1px 5px;border-radius:3px;background:rgba(255,255,255,0.08);color:var(--text-secondary);font-family:var(--mono);font-size:8px;font-weight:700;">SWAP</span>`;
   const lastDate = eq.length ? eq[eq.length - 1].date : null;
 
   function tradeTable(list, emptyMsg){
@@ -2434,7 +2435,7 @@ function renderBacktest(bt){
         <td><span class="sector-name">${t.sector}</span></td>
         <td style="font-size:11px;">${flag(t.region)}</td>
         <td style="font-family:var(--mono);font-size:11px;">${fmtD(t.entry_date)}</td>
-        <td style="font-family:var(--mono);font-size:11px;">${t.open ? '<span class="pe-na">—</span>' : fmtD(t.exit_date)}${t.stop ? stopBadge : ''}</td>
+        <td style="font-family:var(--mono);font-size:11px;">${t.open ? '<span class="pe-na">—</span>' : fmtD(t.exit_date)}${t.stop ? stopBadge : (t.reason === 'swap' ? swapBadge : '')}</td>
         <td style="color:var(--text-secondary);font-size:11px;">${t.weeks} sett.</td>
         <td class="num">${fmtP(t.perf)}</td></tr>`;
     });
