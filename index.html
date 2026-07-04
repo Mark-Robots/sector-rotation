@@ -2367,13 +2367,14 @@ async function loadBacktest(){
 }
 
 function renderBacktest(bt){
-  const sm = bt.metrics.system || {}, bm = bt.metrics.benchmark || {};
+  const sm = bt.metrics.system || {}, bm = bt.metrics.benchmark || {}, em = bt.metrics.etf || {};
   const pct = v => (v === null || v === undefined) ? '—' : `${v > 0 ? '+' : ''}${v}%`;
   const card = (label, val, color) => `<div style="background:var(--bg-card-2);border-radius:6px;padding:12px 14px;">
       <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:4px;">${label}</div>
       <div style="font-size:18px;font-weight:700;color:${color || 'var(--text-primary)'};">${val}</div></div>`;
   document.getElementById('bt-metrics').innerHTML = [
     card('CAGR SISTEMA', pct(sm.cagr_pct), 'var(--accent-gold)'),
+    card('CAGR ETF (PULITO)', pct(em.cagr_pct), 'var(--accent-lead)'),
     card('CAGR BENCHMARK', pct(bm.cagr_pct), 'var(--text-secondary)'),
     card('RENDIMENTO TOT.', pct(sm.total_return_pct), (sm.total_return_pct >= 0) ? 'var(--accent-lead)' : 'var(--accent-lag)'),
     card('MAX DRAWDOWN', pct(sm.max_drawdown_pct), 'var(--accent-lag)'),
@@ -2391,7 +2392,10 @@ function renderBacktest(bt){
   window.BT_CHART = new Chart(ctx, {
     type: 'line',
     data: { labels: eq.map(p => p.date), datasets: [
-      { label: 'Sistema', data: eq.map(p => p.system), borderColor: cssVar('--accent-gold'), borderWidth: 2, pointRadius: 0, tension: 0.05 },
+      { label: 'Sistema (titoli · Adaptive)', data: eq.map(p => p.system), borderColor: cssVar('--accent-gold'), borderWidth: 2, pointRadius: 0, tension: 0.05 },
+      ...(eq.length && eq[0].etf !== undefined ? [
+      { label: 'Solo ETF (pulito)', data: eq.map(p => p.etf), borderColor: cssVar('--accent-lead'), borderWidth: 1.5, pointRadius: 0, tension: 0.05 },
+      ] : []),
       { label: 'Buy & Hold 50/50', data: eq.map(p => p.bench), borderColor: cssVar('--text-muted'), borderWidth: 1.5, pointRadius: 0, borderDash: [5, 4], tension: 0.05 },
     ]},
     options: { responsive: true, maintainAspectRatio: false,
@@ -2406,7 +2410,8 @@ function renderBacktest(bt){
 
   const p = bt.params || {};
   document.getElementById('bt-params').textContent =
-    `Regola: ${p.gate} · Top ${p.top_n} per settore · benchmark ${p.benchmark} · storico ${p.period}`;
+    `Regola: ${p.gate} · Top ${p.top_n} per settore · costi ${p.cost_pct ?? 0}%/lato · benchmark ${p.benchmark} · storico ${p.period}` +
+    (bt.note ? ` — ${bt.note}` : '');
 
   const trades = bt.trades || [];
   const fmtP = v => { const c = v >= 0 ? 'up' : 'down'; const s = v >= 0 ? '+' : ''; return `<span class="change ${c}">${s}${v}%</span>`; };
