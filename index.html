@@ -1220,8 +1220,14 @@
         <div id="bt-metrics" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:24px;"></div>
         <div style="position:relative;height:340px;margin-bottom:8px;"><canvas id="bt-equity"></canvas></div>
         <p id="bt-params" style="color:var(--text-muted);font-size:10px;font-family:var(--mono);text-align:center;margin-bottom:24px;"></p>
-        <h3 style="font-size:14px;margin-bottom:12px;">Storico movimenti</h3>
-        <table class="sector-table" id="bt-trades"></table>
+        <h3 style="font-size:14px;margin-bottom:12px;">Posizioni in portafoglio <span id="bt-n-open" style="color:var(--text-muted);font-weight:400;font-size:12px;"></span></h3>
+        <div id="bt-open" style="margin-bottom:28px;"></div>
+        <h3 style="font-size:14px;margin-bottom:12px;">Nuovi ingressi della settimana <span id="bt-n-new" style="color:var(--text-muted);font-weight:400;font-size:12px;"></span></h3>
+        <div id="bt-new" style="margin-bottom:28px;"></div>
+        <h3 style="font-size:14px;margin-bottom:12px;">Posizioni chiuse della settimana <span id="bt-n-closedweek" style="color:var(--text-muted);font-weight:400;font-size:12px;"></span></h3>
+        <div id="bt-closedweek" style="margin-bottom:28px;"></div>
+        <h3 style="font-size:14px;margin-bottom:12px;">Operazioni chiuse <span id="bt-n-closed" style="color:var(--text-muted);font-weight:400;font-size:12px;"></span></h3>
+        <div id="bt-closed"></div>
       </div>
     </div>
   </div>
@@ -2417,19 +2423,37 @@ function renderBacktest(bt){
   const fmtP = v => { const c = v >= 0 ? 'up' : 'down'; const s = v >= 0 ? '+' : ''; return `<span class="change ${c}">${s}${v}%</span>`; };
   const fmtD = d => { const dt = new Date(d); return isNaN(dt) ? d : dt.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: '2-digit' }); };
   const flag = r => r === 'USA' ? '🇺🇸' : '🇪🇺';
-  let h = `<thead><tr><th>Titolo</th><th>Settore</th><th>Reg.</th><th>Ingresso</th><th>Uscita</th><th>Durata</th><th class="num">Perf</th></tr></thead><tbody>`;
-  trades.slice(0, 80).forEach(t => {
-    const openBadge = t.open ? ` <span style="padding:1px 5px;border-radius:3px;background:rgba(16,185,129,0.18);color:var(--accent-lead);font-family:var(--mono);font-size:8px;font-weight:700;">IN CORSO</span>` : '';
-    h += `<tr><td><span class="ticker">${t.ticker}</span></td>
-      <td><span class="sector-name">${t.sector}</span></td>
-      <td style="font-size:11px;">${flag(t.region)}</td>
-      <td style="font-family:var(--mono);font-size:11px;">${fmtD(t.entry_date)}</td>
-      <td style="font-family:var(--mono);font-size:11px;">${t.open ? '<span class="pe-na">—</span>' : fmtD(t.exit_date)}${openBadge}</td>
-      <td style="color:var(--text-secondary);font-size:11px;">${t.weeks} sett.</td>
-      <td class="num">${fmtP(t.perf)}</td></tr>`;
-  });
-  h += '</tbody>';
-  document.getElementById('bt-trades').innerHTML = h;
+  const stopBadge = ` <span style="padding:1px 5px;border-radius:3px;background:rgba(226,75,74,0.18);color:var(--accent-lag);font-family:var(--mono);font-size:8px;font-weight:700;">STOP</span>`;
+  const lastDate = eq.length ? eq[eq.length - 1].date : null;
+
+  function tradeTable(list, emptyMsg){
+    if (!list.length) return `<p style="color:var(--text-muted);font-size:12px;margin:0;">${emptyMsg}</p>`;
+    let h = `<table class="sector-table"><thead><tr><th>Titolo</th><th>Settore</th><th>Reg.</th><th>Ingresso</th><th>Uscita</th><th>Durata</th><th class="num">Perf</th></tr></thead><tbody>`;
+    list.forEach(t => {
+      h += `<tr><td><span class="ticker">${t.ticker}</span></td>
+        <td><span class="sector-name">${t.sector}</span></td>
+        <td style="font-size:11px;">${flag(t.region)}</td>
+        <td style="font-family:var(--mono);font-size:11px;">${fmtD(t.entry_date)}</td>
+        <td style="font-family:var(--mono);font-size:11px;">${t.open ? '<span class="pe-na">—</span>' : fmtD(t.exit_date)}${t.stop ? stopBadge : ''}</td>
+        <td style="color:var(--text-secondary);font-size:11px;">${t.weeks} sett.</td>
+        <td class="num">${fmtP(t.perf)}</td></tr>`;
+    });
+    return h + '</tbody></table>';
+  }
+
+  const openPos = trades.filter(t => t.open);
+  const newWeek = lastDate ? trades.filter(t => t.entry_date === lastDate) : [];
+  const closedWeek = lastDate ? trades.filter(t => !t.open && t.exit_date === lastDate) : [];
+  const closedHist = trades.filter(t => !t.open && (!lastDate || t.exit_date !== lastDate)).slice(0, 80);
+
+  document.getElementById('bt-open').innerHTML = tradeTable(openPos, 'Nessuna posizione aperta.');
+  document.getElementById('bt-new').innerHTML = tradeTable(newWeek, 'Nessun nuovo ingresso questa settimana.');
+  document.getElementById('bt-closedweek').innerHTML = tradeTable(closedWeek, 'Nessuna chiusura questa settimana.');
+  document.getElementById('bt-closed').innerHTML = tradeTable(closedHist, 'Nessuna operazione chiusa.');
+  document.getElementById('bt-n-open').textContent = openPos.length ? `· ${openPos.length}` : '';
+  document.getElementById('bt-n-new').textContent = newWeek.length ? `· ${newWeek.length}` : '';
+  document.getElementById('bt-n-closedweek').textContent = closedWeek.length ? `· ${closedWeek.length}` : '';
+  document.getElementById('bt-n-closed').textContent = closedHist.length ? `· ${closedHist.length}${closedHist.length === 80 ? ' più recenti' : ''}` : '';
 }
 
 loadData();
