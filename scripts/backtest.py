@@ -54,6 +54,7 @@ COST_PCT = 0.1       # costo per lato di ogni trade titolo (0.1 = 0.1%)
 STOP_LOSS_PCT = 20.0 # stop-loss fisso su chiusura settimanale (Adaptive)
 REBAL_WEEKS = 26     # refresh semestrale dell'universo adattivo
 ADAPTIVE_K = 8       # max candidati per settore dopo il filtro (per liquidita')
+MAX_WEIGHT = 0.10    # cap di concentrazione: peso massimo per singolo titolo (10%); eccesso a cash
 DV_WEEKS = 13        # finestra per il dollar-volume medio
 VALID_STATES = ('Leader', 'Emergente')
 VALID_PHASES = ('1', '2')
@@ -367,7 +368,11 @@ def run_backtest(prices_d, volumes_d=None):
     if not week_contrib:
         return {'error': 'nessun trade generato'}
 
-    # ---- Equity (equal-weight settimanale) ----
+    # ---- Equity (equal-weight con cap di concentrazione MAX_WEIGHT/titolo) ----
+    # Peso per posizione = min(1/N, MAX_WEIGHT); l'eventuale eccedenza resta cash (0%).
+    # Con N >= 1/MAX_WEIGHT (es. >=10 posizioni) equivale all'equal-weight pieno;
+    # con poche posizioni (regimi di stress) si evita il 100% su un singolo nome
+    # e la differenza e' tenuta liquida.
     def build_equity(contrib):
         first = min(contrib.keys())
         cal = calendar[calendar >= first]
@@ -376,7 +381,8 @@ def run_backtest(prices_d, volumes_d=None):
         for dt in cal:
             c = contrib.get(dt, [])
             if c:
-                ret = float(np.mean(c)); invested += 1
+                w = min(1.0 / len(c), MAX_WEIGHT)
+                ret = float(w * np.sum(c)); invested += 1
             else:
                 ret = 0.0
             prev = prev * (1 + ret)
@@ -463,6 +469,7 @@ def run_backtest(prices_d, volumes_d=None):
                    'period': PERIOD, 'cost_pct': COST_PCT,
                    'stop_loss_pct': STOP_LOSS_PCT, 'rebal_weeks': REBAL_WEEKS,
                    'adaptive_k': ADAPTIVE_K, 'reselect': 'weekly',
+                   'max_weight_pct': round(MAX_WEIGHT * 100, 1),
                    'benchmark': 'Blend 50/50 ' + US_BENCHMARK + '+' + EU_BENCHMARK,
                    'gate': 'Leader/Emergente + Fase 1/2 · Adaptive 6m · re-sel. sett. · SL -20%'},
         'metrics': {'system': sys_m,
