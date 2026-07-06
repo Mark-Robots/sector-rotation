@@ -298,11 +298,23 @@ def run_backtest(prices_d, volumes_d=None):
         })
 
     for t in calendar:
-        # 1) validita' e picks della settimana (point-in-time, chiusura t)
+        # 0) Top-10 dell'anno (roc52w) point-in-time: SOLO questi 10 settori sono
+        #    investibili (10 slot da 10%). Slot non in trend -> cash.
+        roc52_now = {}
+        for sec, wc in weekly_by_sec.items():
+            pos = wc.index.searchsorted(t, side='right') - 1
+            if pos >= 52:
+                base = float(wc.iloc[pos - 52])
+                if base > 0:
+                    roc52_now[sec] = float(wc.iloc[pos]) / base - 1
+        top10_now = set(sorted(roc52_now, key=lambda s: roc52_now[s], reverse=True)[:10])
+
+        # 1) validita' e picks (ristretta ai Top-10 per roc52w)
         valid_now = {}
         for sec, valid in valid_by_sec.items():
             v = valid.get(t)
-            valid_now[sec] = bool(v) if v is not None and not pd.isna(v) else False
+            base_valid = bool(v) if v is not None and not pd.isna(v) else False
+            valid_now[sec] = base_valid and (sec in top10_now)
         picks_now = {sec: top_picks_at(sec, t) for sec, ok in valid_now.items() if ok}
 
         # 2) rendimenti della settimana per le posizioni gia' in essere
@@ -480,6 +492,7 @@ def run_backtest(prices_d, volumes_d=None):
                    'stop_loss_pct': STOP_LOSS_PCT, 'rebal_weeks': REBAL_WEEKS,
                    'adaptive_k': ADAPTIVE_K, 'reselect': 'weekly',
                    'stock_pick': 'adaptive: 1/settore, score ROC4x0.7+ROC13x0.3, entra sempre',
+                   'portfolio_model': '1/10 + cash: Top-10 roc52w, solo in trend, 10% ciascuno',
                    'max_weight_pct': round(MAX_WEIGHT * 100, 1),
                    'benchmark': 'Blend 50/50 ' + US_BENCHMARK + '+' + EU_BENCHMARK,
                    'gate': 'Leader/Emergente + Fase 1/2 · Adaptive 6m · re-sel. sett. · SL -20%'},
