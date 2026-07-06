@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-05T21:10:01.839467+00:00",
+  "updated_at": "2026-07-06T04:19:22.069326+00:00",
   "last_data_date": "2026-07-03",
   "tickers_obtained": 37,
   "tickers_total": 37,
@@ -8552,7 +8552,7 @@
             "price": 81.96,
             "trailingPE": 11.3,
             "forwardPE": 9.9,
-            "peg": 1.26,
+            "peg": 1.27,
             "marketCapB": 122.8,
             "divYield": 3.84,
             "roc13w": 30.6,
@@ -8596,7 +8596,7 @@
             "price": 6.17,
             "trailingPE": 11.4,
             "forwardPE": 9.7,
-            "peg": 1.81,
+            "peg": 1.82,
             "marketCapB": 107.5,
             "divYield": 6.16,
             "roc13w": 18.4,
@@ -8648,7 +8648,7 @@
             "price": 10.56,
             "trailingPE": 34.0,
             "forwardPE": 11.8,
-            "peg": 0.42,
+            "peg": 0.44,
             "marketCapB": 2.8,
             "divYield": 2.75,
             "roc13w": 16.4,
@@ -8744,7 +8744,7 @@
             "price": 42.89,
             "trailingPE": 15.9,
             "forwardPE": 12.6,
-            "peg": 9.96,
+            "peg": 10.04,
             "marketCapB": 64.2,
             "divYield": 3.82,
             "roc13w": 26.4,
@@ -9202,7 +9202,7 @@
             "price": 82.34,
             "trailingPE": 41.6,
             "forwardPE": 31.9,
-            "peg": 3.03,
+            "peg": 2.99,
             "marketCapB": 5.6,
             "divYield": 1.26,
             "roc13w": 8.7,
@@ -9246,7 +9246,7 @@
             "price": 51.14,
             "trailingPE": 22.1,
             "forwardPE": 19.7,
-            "peg": 2.85,
+            "peg": 2.84,
             "marketCapB": 13.9,
             "divYield": 2.74,
             "roc13w": -0.3,
@@ -9268,7 +9268,7 @@
             "price": 10.9,
             "trailingPE": 30.3,
             "forwardPE": 17.0,
-            "peg": 0.3,
+            "peg": 0.31,
             "marketCapB": 3.9,
             "divYield": null,
             "roc13w": -20.4,
@@ -9320,7 +9320,7 @@
             "price": 5.51,
             "trailingPE": 19.0,
             "forwardPE": 15.9,
-            "peg": 1.64,
+            "peg": 1.65,
             "marketCapB": 6.6,
             "divYield": 1.81,
             "roc13w": -9.5,
@@ -11084,11 +11084,12 @@
           "relFromState": 2.3,
           "relFromSignal": 14.0
         },
+        "roc52w": 51.4,
         "score": 115.8,
         "rank": 1,
-        "rank_change": 3,
-        "rank_direction": "up",
-        "prev_rank": 4
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXV1",
@@ -11111,11 +11112,12 @@
           "relFromState": 16.2,
           "relFromSignal": 16.2
         },
+        "roc52w": 56.4,
         "score": 114.3,
         "rank": 2,
-        "rank_change": 0,
-        "rank_direction": "flat",
-        "prev_rank": 2
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "ITA",
@@ -11138,11 +11140,12 @@
           "relFromState": 5.3,
           "relFromSignal": 6.8
         },
+        "roc52w": 35.0,
         "score": 112.4,
         "rank": 3,
-        "rank_change": 2,
-        "rank_direction": "up",
-        "prev_rank": 5
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XLI",
@@ -11165,11 +11168,12 @@
           "relFromState": 1.1,
           "relFromSignal": 4.6
         },
+        "roc52w": 25.7,
         "score": 111.7,
         "rank": 4,
-        "rank_change": 1,
-        "rank_direction": "down",
-        "prev_rank": 3
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "KRE",
@@ -11192,11 +11196,12 @@
           "relFromState": -2.4,
           "relFromSignal": 6.3
         },
+        "roc52w": 22.9,
         "score": 110.7,
         "rank": 5,
-        "rank_change": 4,
-        "rank_direction": "down",
-        "prev_rank": 1
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XLV",
@@ -11219,11 +11224,12 @@
           "relFromState": -0.0,
           "relFromSignal": 6.2
         },
+        "roc52w": 23.1,
         "score": 107.2,
         "rank": 6,
-        "rank_change": 0,
-        "rank_direction": "flat",
-        "prev_rank": 6
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XHB",
@@ -11246,11 +11252,12 @@
           "relFromState": 7.7,
           "relFromSignal": 7.7
         },
+        "roc52w": 9.3,
         "score": 74.8,
         "rank": 7,
-        "rank_change": 2,
-        "rank_direction": "up",
-        "prev_rank": 9
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XLB",
@@ -11273,11 +11280,12 @@
           "relFromState": -0.6,
           "relFromSignal": -0.6
         },
+        "roc52w": 15.8,
         "score": 74.4,
         "rank": 8,
-        "rank_change": 1,
-        "rank_direction": "down",
-        "prev_rank": 7
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXV9",
@@ -11300,11 +11308,12 @@
           "relFromState": 5.7,
           "relFromSignal": 5.7
         },
+        "roc52w": 12.2,
         "score": 74.4,
         "rank": 9,
-        "rank_change": 1,
-        "rank_direction": "up",
-        "prev_rank": 10
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XLF",
@@ -11327,11 +11336,12 @@
           "relFromState": 5.5,
           "relFromSignal": 5.5
         },
+        "roc52w": 7.3,
         "score": 73.7,
         "rank": 10,
-        "rank_change": 9,
-        "rank_direction": "up",
-        "prev_rank": 19
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXH5",
@@ -11354,11 +11364,12 @@
           "relFromState": 1.4,
           "relFromSignal": 1.4
         },
+        "roc52w": 17.2,
         "score": 72.9,
         "rank": 11,
-        "rank_change": 4,
-        "rank_direction": "up",
-        "prev_rank": 15
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXH4",
@@ -11381,11 +11392,12 @@
           "relFromState": 0.0,
           "relFromSignal": 0.0
         },
+        "roc52w": 21.8,
         "score": 72.5,
         "rank": 12,
-        "rank_change": 21,
-        "rank_direction": "up",
-        "prev_rank": 33
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXV7",
@@ -11408,11 +11420,12 @@
           "relFromState": -0.1,
           "relFromSignal": -0.1
         },
+        "roc52w": 7.0,
         "score": 72.3,
         "rank": 13,
-        "rank_change": 3,
-        "rank_direction": "up",
-        "prev_rank": 16
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXH8",
@@ -11435,11 +11448,12 @@
           "relFromState": 2.2,
           "relFromSignal": 2.2
         },
+        "roc52w": 17.1,
         "score": 71.8,
         "rank": 14,
-        "rank_change": 0,
-        "rank_direction": "flat",
-        "prev_rank": 14
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XRT",
@@ -11462,11 +11476,12 @@
           "relFromState": 5.6,
           "relFromSignal": 5.6
         },
+        "roc52w": 10.7,
         "score": 71.6,
         "rank": 15,
-        "rank_change": 4,
-        "rank_direction": "down",
-        "prev_rank": 11
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXH2",
@@ -11489,11 +11504,12 @@
           "relFromState": 0.0,
           "relFromSignal": 0.0
         },
+        "roc52w": 14.5,
         "score": 71.1,
         "rank": 16,
-        "rank_change": 16,
-        "rank_direction": "up",
-        "prev_rank": 32
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XLU",
@@ -11516,11 +11532,12 @@
           "relFromState": 2.6,
           "relFromSignal": 2.6
         },
+        "roc52w": 15.8,
         "score": 70.2,
         "rank": 17,
-        "rank_change": 4,
-        "rank_direction": "down",
-        "prev_rank": 13
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXH3",
@@ -11543,11 +11560,12 @@
           "relFromState": -1.9,
           "relFromSignal": -1.9
         },
+        "roc52w": 6.5,
         "score": 69.5,
         "rank": 18,
-        "rank_change": 1,
-        "rank_direction": "down",
-        "prev_rank": 17
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XLRE",
@@ -11570,11 +11588,12 @@
           "relFromState": -3.4,
           "relFromSignal": -3.4
         },
+        "roc52w": 10.6,
         "score": 69.3,
         "rank": 19,
-        "rank_change": 7,
-        "rank_direction": "down",
-        "prev_rank": 12
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXV4",
@@ -11597,11 +11616,12 @@
           "relFromState": 0.3,
           "relFromSignal": 0.3
         },
+        "roc52w": 17.5,
         "score": 68.9,
         "rank": 20,
-        "rank_change": 0,
-        "rank_direction": "flat",
-        "prev_rank": 20
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XLP",
@@ -11624,11 +11644,12 @@
           "relFromState": -1.8,
           "relFromSignal": -1.8
         },
+        "roc52w": 6.2,
         "score": 68.8,
         "rank": 21,
-        "rank_change": 3,
-        "rank_direction": "down",
-        "prev_rank": 18
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXH6",
@@ -11651,11 +11672,12 @@
           "relFromState": 0.0,
           "relFromSignal": 0.0
         },
+        "roc52w": -12.1,
         "score": 64.2,
         "rank": 22,
-        "rank_change": 12,
-        "rank_direction": "up",
-        "prev_rank": 34
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXH7",
@@ -11678,11 +11700,12 @@
           "relFromState": 1.2,
           "relFromSignal": 1.2
         },
+        "roc52w": 4.7,
         "score": 61.5,
         "rank": 23,
-        "rank_change": 1,
-        "rank_direction": "down",
-        "prev_rank": 22
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XLY",
@@ -11705,11 +11728,12 @@
           "relFromState": -0.0,
           "relFromSignal": -0.0
         },
+        "roc52w": 7.3,
         "score": 58.3,
         "rank": 24,
-        "rank_change": 1,
-        "rank_direction": "up",
-        "prev_rank": 25
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XLK",
@@ -11732,11 +11756,12 @@
           "relFromState": -1.0,
           "relFromSignal": -1.0
         },
+        "roc52w": 43.2,
         "score": 55.6,
         "rank": 25,
-        "rank_change": 1,
-        "rank_direction": "down",
-        "prev_rank": 24
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "SOXX",
@@ -11759,11 +11784,12 @@
           "relFromState": -6.2,
           "relFromSignal": -6.2
         },
+        "roc52w": 135.0,
         "score": 53.6,
         "rank": 26,
-        "rank_change": 3,
-        "rank_direction": "down",
-        "prev_rank": 23
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXV3",
@@ -11786,11 +11812,12 @@
           "relFromState": -0.8,
           "relFromSignal": -0.8
         },
+        "roc52w": 24.3,
         "score": 51.3,
         "rank": 27,
-        "rank_change": 1,
-        "rank_direction": "down",
-        "prev_rank": 26
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XLC",
@@ -11813,11 +11840,12 @@
           "relFromState": -2.8,
           "relFromSignal": -2.8
         },
+        "roc52w": 3.3,
         "score": 48.3,
         "rank": 28,
-        "rank_change": 1,
-        "rank_direction": "down",
-        "prev_rank": 27
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXH9",
@@ -11840,11 +11868,12 @@
           "relFromState": 0.0,
           "relFromSignal": 0.0
         },
+        "roc52w": 31.1,
         "score": 48.2,
         "rank": 29,
-        "rank_change": 21,
-        "rank_direction": "down",
-        "prev_rank": 8
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXV6",
@@ -11867,11 +11896,12 @@
           "relFromState": -11.3,
           "relFromSignal": -11.3
         },
+        "roc52w": 66.0,
         "score": 42.4,
         "rank": 30,
-        "rank_change": 1,
-        "rank_direction": "down",
-        "prev_rank": 29
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXH1",
@@ -11894,11 +11924,12 @@
           "relFromState": -13.3,
           "relFromSignal": -13.3
         },
+        "roc52w": 39.2,
         "score": 38.9,
         "rank": 31,
-        "rank_change": 1,
-        "rank_direction": "down",
-        "prev_rank": 30
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "XLE",
@@ -11921,11 +11952,12 @@
           "relFromState": null,
           "relFromSignal": null
         },
+        "roc52w": 26.3,
         "score": 9.5,
         "rank": 32,
-        "rank_change": 4,
-        "rank_direction": "down",
-        "prev_rank": 28
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXV8",
@@ -11948,11 +11980,12 @@
           "relFromState": 0.0,
           "relFromSignal": 0.0
         },
+        "roc52w": 12.0,
         "score": 4.3,
         "rank": 33,
-        "rank_change": 12,
-        "rank_direction": "down",
-        "prev_rank": 21
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXV2",
@@ -11975,11 +12008,12 @@
           "relFromState": -6.1,
           "relFromSignal": -6.1
         },
+        "roc52w": 14.9,
         "score": 1.1,
         "rank": 34,
-        "rank_change": 3,
-        "rank_direction": "down",
-        "prev_rank": 31
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       },
       {
         "ticker": "EXV5",
@@ -12002,13 +12036,26 @@
           "relFromState": -6.4,
           "relFromSignal": -6.4
         },
+        "roc52w": -11.2,
         "score": -9.3,
         "rank": 35,
-        "rank_change": 0,
-        "rank_direction": "flat",
-        "prev_rank": 35
+        "rank_change": null,
+        "rank_direction": "new",
+        "prev_rank": null
       }
     ],
-    "prev_snapshot_date": "2026-06-26T16:08:54.659828+00:00"
+    "prev_snapshot_date": null,
+    "weekly_moves": {
+      "entered": [],
+      "exited": [],
+      "prev_date": null,
+      "available": false
+    },
+    "top10_moves": {
+      "entered": [],
+      "exited": [],
+      "prev_date": null,
+      "available": false
+    }
   }
 }
