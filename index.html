@@ -1049,7 +1049,7 @@
     .mt-row{grid-template-columns:18px 3px minmax(0,1fr) 84px 16px;gap:8px}
   }
   /* top 10 dell'anno */
-  .t10-wrap{margin-top:30px;padding-top:22px;border-top:1px solid var(--border-strong)}
+  .t10-wrap{margin-bottom:26px;padding-bottom:24px;border-bottom:1px solid var(--border-strong)}
   .t10-title{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--text-primary)}
   .t10-title .t10-sub{font-family:var(--mono);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);margin-left:8px}
   .t10-moves{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
@@ -1058,15 +1058,17 @@
   .t10-mv-out{border-left:3px solid var(--accent-lag);background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.28);border-left-width:3px}
   .t10-mvh{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-gold);width:100%;margin-bottom:2px}
   .t10-list{display:flex;flex-direction:column;gap:5px;margin-top:16px}
-  .t10-row{display:grid;grid-template-columns:22px minmax(0,1fr) 190px 58px;align-items:center;gap:12px;padding:5px 0}
+  .t10-row{display:grid;grid-template-columns:22px 3px minmax(0,1fr) auto;align-items:center;gap:11px;padding:6px 8px;margin:0 -8px}
   .t10-rk{font-family:var(--mono);font-size:12px;color:var(--accent-gold);text-align:right;font-weight:600}
+  .t10-tick{width:3px;height:15px;border-radius:2px;justify-self:center}
+  .t10-state{font-family:var(--mono);font-size:9.5px;letter-spacing:0.04em;text-transform:uppercase;text-align:right;white-space:nowrap}
   .t10-nm{font-family:var(--mono);font-size:13px;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .t10-reg{font-size:9px;color:var(--text-muted);letter-spacing:0.08em}
   .t10-track{height:8px;border-radius:5px;background:rgba(255,255,255,0.05);overflow:hidden}
   .t10-fill{display:block;height:100%;border-radius:5px}
-  .t10-val{font-family:var(--mono);font-size:12px;text-align:right}
+  .t10-val{font-family:var(--mono);font-size:12px;text-align:right;color:var(--text-secondary)}
   .t10-note{font-family:var(--mono);font-size:10px;color:var(--text-muted);line-height:1.6;margin-top:16px;padding:10px 12px;border:1px dashed var(--border);border-radius:8px}
-  @media(max-width:720px){.t10-row{grid-template-columns:20px minmax(0,1fr) 100px 48px;gap:8px}.t10-moves{grid-template-columns:1fr}}
+  @media(max-width:720px){.t10-row{grid-template-columns:18px 3px minmax(0,1fr) auto;gap:8px}.t10-moves{grid-template-columns:1fr}}
   /* movimenti della settimana */
   .mv-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
   .mv-col{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
@@ -2411,10 +2413,17 @@ function renderQuadro(tableId) {
   const top10 = t10secs.slice(0, 10);
   if (top10.length) {
     const t10max = Math.max.apply(null, [1].concat(top10.map(s => Math.abs(s.roc52w))));
+    const t10Group = s => {
+      const valid = ['Leader','Emergente'].includes(s.state) && ['1','2'].includes(String(s.stage));
+      if (valid) return { c: 'var(--accent-lead)', l: 'in trend', o: 0 };
+      if (s.state === 'Emergente') return { c: 'var(--accent-improve)', l: 'da osservare', o: 1 };
+      if (s.state === 'In rallentamento' || s.state === 'Leader') return { c: 'var(--accent-weaken)', l: 'in rallentamento', o: 2 };
+      return { c: 'var(--accent-lag)', l: 'debole', o: 3 };
+    };
+    top10.sort((a, b) => t10Group(a).o - t10Group(b).o || b.roc52w - a.roc52w);
     const t10rows = top10.map((s, idx) => {
-      const w = Math.max(6, Math.round(Math.abs(s.roc52w) / t10max * 100));
-      const pos = s.roc52w >= 0;
-      return `<div class="t10-row"><span class="t10-rk">${idx+1}</span><span class="t10-nm">${s.name} <span class="t10-reg">${s.region==='USA'?'US':'EU'}</span></span><span class="t10-track"><span class="t10-fill" style="width:${w}%;background:${pos?'var(--accent-lead)':'var(--accent-lag)'}"></span></span><span class="t10-val ${pos?'mtd-pos':'mtd-neg'}">${(s.roc52w>0?'+':'')+s.roc52w.toFixed(0)}%</span></div>`;
+      const g = t10Group(s);
+      return `<div class="t10-row mt-click" data-sec="${mtEscAttr(s.name)}" data-reg="${s.region}" data-state="${mtEscAttr(s.state||'')}"><span class="t10-rk">${idx+1}</span><span class="t10-tick" style="background:${g.c}"></span><span class="t10-nm">${s.name} <span class="t10-reg">${s.region==='USA'?'US':'EU'}</span></span><span class="t10-state" style="color:${g.c}">${g.l}</span></div>`;
     }).join('');
     const tm = (DATA.ranking && DATA.ranking.top10_moves) || null;
     let t10moves = '';
@@ -2423,7 +2432,7 @@ function renderQuadro(tableId) {
       const ent = tm.entered || [], exi = tm.exited || [];
       t10moves = `<div class="t10-moves"><div class="t10-mv t10-mv-in"><span class="t10-mvh">Entrati in top 10</span>${ent.length?ent.map(x=>chip(x,'in')).join(''):'<span class="mv-none">nessuno</span>'}</div><div class="t10-mv t10-mv-out"><span class="t10-mvh">Usciti dalla top 10</span>${exi.length?exi.map(x=>chip(x,'out')).join(''):'<span class="mv-none">nessuno</span>'}</div></div>`;
     }
-    html += `<div class="t10-wrap"><div class="t10-title">Top 10 settori dell'anno<span class="t10-sub">performance rolling 52 settimane</span></div>${t10moves}<div class="t10-list">${t10rows}</div><div class="t10-note">Classifica per performance a 12 mesi mobili: \u00e8 uno storico, non un segnale di trend. Un settore ai vertici quest'anno pu\u00f2 gi\u00e0 essere in rallentamento \u2014 incrocia sempre con la mappa qui sopra.</div></div>`;
+    html = `<div class="t10-wrap"><div class="t10-title">Top 10 settori dell'anno<span class="t10-sub">i 10 migliori dell'anno \u00b7 rolling 52 settimane</span></div>${t10moves}<div class="t10-list">${t10rows}</div><div class="t10-note">Classifica per performance a 12 mesi mobili: \u00e8 uno storico, non un segnale di trend. Un settore ai vertici quest'anno pu\u00f2 gi\u00e0 essere in rallentamento \u2014 incrocia sempre con la mappa qui sotto.</div></div>` + html;
   }
 
   document.getElementById(tableId).innerHTML = html;
@@ -3047,7 +3056,7 @@ function closeSectorDetail(){
   if(MT_DETAIL_CHART){ MT_DETAIL_CHART.destroy(); MT_DETAIL_CHART=null; }
 }
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeSectorDetail(); });
-document.addEventListener('click',e=>{ const row=e.target.closest('.mt-row.mt-click'); if(row&&row.dataset.sec){ openSectorDetail(row.dataset.sec,row.dataset.reg,row.dataset.state); } });
+document.addEventListener('click',e=>{ const row=e.target.closest('.mt-click'); if(row&&row.dataset.sec){ openSectorDetail(row.dataset.sec,row.dataset.reg,row.dataset.state); } });
 
 loadData();
 </script>
