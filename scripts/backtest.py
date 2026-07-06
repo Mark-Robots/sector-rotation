@@ -345,8 +345,6 @@ def run_backtest(prices_d, volumes_d=None):
             reason = None
             if not valid_now.get(sec, False):
                 reason = 'sector'
-            elif h not in picks_now.get(sec, []):
-                reason = 'swap'
             elif c is not None and c <= pd_['entry_p'] * sl_mult:
                 reason = 'stop'
             if reason:
@@ -365,7 +363,12 @@ def run_backtest(prices_d, volumes_d=None):
                 del etf_pos[sec]
 
         # 4) ingressi a chiusura t (contribuiscono dalla settimana successiva)
+        #    Un solo titolo per settore, scelto all'ingresso e TENUTO fino a
+        #    uscita settore o stop (niente swap settimanale).
+        held_secs = {k[0] for k in positions}
         for sec, picks in picks_now.items():
+            if sec in held_secs:
+                continue
             for h in picks:
                 key = (sec, h)
                 if key in positions:
@@ -495,17 +498,19 @@ def run_backtest(prices_d, volumes_d=None):
                    'portfolio_model': '1/10 + cash: Top-10 roc52w, solo in trend, 10% ciascuno',
                    'max_weight_pct': round(MAX_WEIGHT * 100, 1),
                    'benchmark': 'Blend 50/50 ' + US_BENCHMARK + '+' + EU_BENCHMARK,
-                   'gate': 'Leader/Emergente + Fase 1/2 · Adaptive 6m · re-sel. sett. · SL -20%'},
+                   'gate': 'Leader/Emergente + Fase 1/2 · Adaptive 6m · titolo tenuto fino a uscita settore/stop · SL -20%'},
         'metrics': {'system': sys_m,
                     'etf': equity_metrics(eq_etf, eq_dates),
                     'benchmark': equity_metrics(bench_eq, eq_dates)},
         'equity': equity,
         'trades': trades_sorted,
-        'note': ('Titoli: regola live replicata (re-selezione settimanale top-{} '
-                 'momentum su universo adattivo semestrale, stop-loss -20%, costi '
-                 '{:.2f}%/lato). Bias residuo ~1-2%/anno (pool = constituent '
-                 "attuali). L'equity ETF e' il riferimento pulito."
-                 ).format(TOP_N, COST_PCT),
+        'note': ('Titoli: 1 per settore (momentum ROC4x0.7+ROC13x0.3), scelto '
+                 "all'ingresso del settore e tenuto fino a uscita settore o stop -20% "
+                 '(niente re-selezione settimanale). In portafoglio solo i Top-10 '
+                 'settori per performance a 52 settimane che sono in trend: 10% '
+                 'ciascuno, il resto cash. Costi {:.2f}%/lato. Bias residuo ~1-2%/anno '
+                 "(pool = constituent attuali). L'equity ETF e' il riferimento pulito."
+                 ).format(COST_PCT),
     }
 
 
