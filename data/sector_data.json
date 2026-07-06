@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-06T04:42:20.146208+00:00",
+  "updated_at": "2026-07-06T04:58:21.774860+00:00",
   "last_data_date": "2026-07-03",
   "tickers_obtained": 37,
   "tickers_total": 37,
@@ -3571,7 +3571,7 @@
             "trailingPE": 35.2,
             "forwardPE": 27.2,
             "peg": 1.45,
-            "marketCapB": 167.7,
+            "marketCapB": 167.8,
             "divYield": 1.04,
             "roc13w": 10.6,
             "rocYtd": 33.8,
