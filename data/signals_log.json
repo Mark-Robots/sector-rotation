@@ -586,7 +586,7 @@
  },
  {
   "date": "2026-07-03",
-  "updated_at": "2026-07-06T04:19:22.069326+00:00",
+  "updated_at": "2026-07-06T04:42:20.146208+00:00",
   "valid_sectors": [
    {
     "ticker": "IBB",
@@ -717,18 +717,18 @@
     "perf_from_entry": 175.6
    },
    {
-    "ticker": "GE",
-    "sector": "Industriali",
-    "region": "USA",
-    "entry_date": "2026-05-29",
-    "perf_from_entry": 16.6
-   },
-   {
     "ticker": "UNP",
     "sector": "Industriali",
     "region": "USA",
     "entry_date": "2025-11-14",
     "perf_from_entry": 28.6
+   },
+   {
+    "ticker": "UPS",
+    "sector": "Industriali",
+    "region": "USA",
+    "entry_date": "2026-05-22",
+    "perf_from_entry": 9.5
    }
   ]
  }
