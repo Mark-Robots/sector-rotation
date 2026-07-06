@@ -664,7 +664,7 @@
  },
  {
   "date": "2026-07-06",
-  "updated_at": "2026-07-06T18:42:03.806680+00:00",
+  "updated_at": "2026-07-06T18:50:16.655519+00:00",
   "valid_sectors": [
    {
     "ticker": "EXV1",
@@ -715,28 +715,28 @@
     "sector": "Biotech",
     "region": "USA",
     "entry_date": "2026-04-17",
-    "perf_from_entry": 42.8
+    "perf_from_entry": 43.1
    },
    {
     "ticker": "GE",
     "sector": "Aerospazio & Difesa",
     "region": "USA",
     "entry_date": "2026-05-29",
-    "perf_from_entry": 17.1
+    "perf_from_entry": 17.3
    },
    {
     "ticker": "CAT",
     "sector": "Industriali",
     "region": "USA",
     "entry_date": "2025-06-06",
-    "perf_from_entry": 177.5
+    "perf_from_entry": 177.3
    },
    {
     "ticker": "FITB",
     "sector": "Banche regionali",
     "region": "USA",
     "entry_date": "2026-04-02",
-    "perf_from_entry": 23.7
+    "perf_from_entry": 23.8
    }
   ]
  }

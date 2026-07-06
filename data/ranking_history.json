@@ -1440,7 +1440,7 @@
     ]
   },
   {
-    "date": "2026-07-06T18:42:03.804400+00:00",
+    "date": "2026-07-06T18:50:16.653344+00:00",
     "ranks": [
       {
         "ticker": "EXV1",
@@ -1452,37 +1452,37 @@
       {
         "ticker": "IBB",
         "rank": 2,
-        "score": 113.9,
+        "score": 114.0,
         "valid": true,
-        "roc52w": 48.9
+        "roc52w": 49.0
       },
       {
         "ticker": "ITA",
         "rank": 3,
-        "score": 112.4,
+        "score": 112.5,
         "valid": true,
-        "roc52w": 32.7
+        "roc52w": 32.9
       },
       {
         "ticker": "XLI",
         "rank": 4,
-        "score": 111.7,
+        "score": 111.6,
         "valid": true,
         "roc52w": 25.2
       },
       {
         "ticker": "KRE",
         "rank": 5,
-        "score": 109.8,
+        "score": 109.7,
         "valid": true,
         "roc52w": 22.8
       },
       {
         "ticker": "XLV",
         "rank": 6,
-        "score": 77.1,
+        "score": 77.0,
         "valid": true,
-        "roc52w": 22.1
+        "roc52w": 22.0
       },
       {
         "ticker": "EXV9",
@@ -1506,23 +1506,23 @@
         "roc52w": 12.9
       },
       {
-        "ticker": "EXH4",
+        "ticker": "XLF",
         "rank": 10,
+        "score": 73.8,
+        "valid": true,
+        "roc52w": 9.2
+      },
+      {
+        "ticker": "EXH4",
+        "rank": 11,
         "score": 73.8,
         "valid": true,
         "roc52w": 19.2
       },
       {
-        "ticker": "XLF",
-        "rank": 11,
-        "score": 73.7,
-        "valid": true,
-        "roc52w": 9.1
-      },
-      {
         "ticker": "XHB",
         "rank": 12,
-        "score": 72.4,
+        "score": 72.3,
         "valid": true,
         "roc52w": 7.1
       },
@@ -1545,7 +1545,7 @@
         "rank": 15,
         "score": 67.5,
         "valid": true,
-        "roc52w": 13.0
+        "roc52w": 13.1
       },
       {
         "ticker": "EXV4",
@@ -1564,23 +1564,23 @@
       {
         "ticker": "XLY",
         "rank": 18,
-        "score": 58.8,
+        "score": 58.7,
         "valid": false,
-        "roc52w": 7.5
+        "roc52w": 7.4
       },
       {
         "ticker": "XLK",
         "rank": 19,
-        "score": 56.3,
+        "score": 56.5,
         "valid": false,
-        "roc52w": 44.4
+        "roc52w": 44.6
       },
       {
         "ticker": "SOXX",
         "rank": 20,
-        "score": 54.8,
+        "score": 55.0,
         "valid": false,
-        "roc52w": 138.2
+        "roc52w": 138.8
       },
       {
         "ticker": "EXV5",
@@ -1599,7 +1599,7 @@
       {
         "ticker": "XLC",
         "rank": 23,
-        "score": 48.8,
+        "score": 48.7,
         "valid": false,
         "roc52w": 5.2
       },
@@ -1627,7 +1627,7 @@
       {
         "ticker": "XLB",
         "rank": 27,
-        "score": 13.7,
+        "score": 13.6,
         "valid": false,
         "roc52w": 15.5
       },
@@ -1643,14 +1643,14 @@
         "rank": 29,
         "score": 9.0,
         "valid": false,
-        "roc52w": 23.2
+        "roc52w": 23.1
       },
       {
         "ticker": "XLRE",
         "rank": 30,
         "score": 8.2,
         "valid": false,
-        "roc52w": 9.9
+        "roc52w": 10.0
       },
       {
         "ticker": "XLP",
@@ -1662,7 +1662,7 @@
       {
         "ticker": "XRT",
         "rank": 32,
-        "score": 7.6,
+        "score": 7.5,
         "valid": false,
         "roc52w": 10.1
       },
