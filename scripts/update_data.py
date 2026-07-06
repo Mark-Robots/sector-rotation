@@ -86,13 +86,13 @@ CROSS_PAIRS = [
 # Liste curate dei top constituent per ETF settoriale
 # ============================================================
 US_HOLDINGS = {
-    'XLK':  ['AAPL', 'MSFT', 'NVDA', 'AVGO', 'ORCL', 'CRM', 'ACN', 'ADBE', 'CSCO', 'AMD', 'IBM', 'INTU', 'QCOM', 'TXN'],
+    'XLK':  ['AAPL', 'MSFT', 'ORCL', 'CRM', 'ACN', 'ADBE', 'CSCO', 'IBM', 'INTU'],
     'XLF':  ['BRK-B', 'JPM', 'V', 'MA', 'BAC', 'WFC', 'SPGI', 'GS', 'AXP', 'MS', 'BLK', 'C', 'PGR', 'CB'],
-    'XLV':  ['LLY', 'UNH', 'JNJ', 'ABBV', 'MRK', 'TMO', 'ABT', 'PFE', 'DHR', 'AMGN', 'BMY', 'GILD', 'ISRG', 'VRTX'],
-    'XLY':  ['AMZN', 'TSLA', 'HD', 'MCD', 'NKE', 'LOW', 'SBUX', 'BKNG', 'TJX', 'F', 'GM', 'MAR'],
-    'XLP':  ['PG', 'COST', 'WMT', 'KO', 'PEP', 'PM', 'MO', 'MDLZ', 'CL', 'KMB', 'GIS'],
+    'XLV':  ['LLY', 'UNH', 'JNJ', 'ABBV', 'MRK', 'TMO', 'ABT', 'PFE', 'DHR', 'BMY', 'ISRG'],
+    'XLY':  ['TSLA', 'MCD', 'NKE', 'SBUX', 'BKNG', 'TJX', 'F', 'GM', 'MAR'],
+    'XLP':  ['PG', 'KO', 'PEP', 'PM', 'MO', 'MDLZ', 'CL', 'KMB', 'GIS'],
     'XLE':  ['XOM', 'CVX', 'COP', 'EOG', 'SLB', 'OXY', 'MPC', 'PSX', 'VLO', 'KMI', 'WMB', 'FANG'],
-    'XLI':  ['GE', 'CAT', 'HON', 'RTX', 'UNP', 'UPS', 'DE', 'LMT', 'BA', 'ETN', 'EMR', 'NOC'],
+    'XLI':  ['CAT', 'HON', 'UNP', 'UPS', 'DE', 'ETN', 'EMR'],
     'XLB':  ['LIN', 'APD', 'SHW', 'ECL', 'NEM', 'FCX', 'DD', 'NUE', 'CTVA', 'DOW'],
     'XLU':  ['NEE', 'SO', 'DUK', 'AEP', 'EXC', 'SRE', 'XEL', 'PEG', 'ED', 'AWK'],
     'XLRE': ['PLD', 'AMT', 'EQIX', 'WELL', 'PSA', 'O', 'DLR', 'SPG', 'CCI', 'EXR'],
@@ -128,19 +128,19 @@ EU_HOLDINGS = {
     'EXH3.DE': ['AZM.MI', 'FBK.MI', 'BMED.MI', 'BGN.MI', 'ANIM.MI'],
     
     # Retail · pochi nomi puri italiani
-    'EXH2.DE': ['OVS.MI', 'GEO.MI', 'ESPR.MI'],
+    'EXH2.DE': ['OVS.MI', 'ESPR.MI'],
     
     # Media · MediaForEurope (ex-Mediaset), Cairo, RCS, Mondadori
     'EXH8.DE': ['MFEA.MI', 'CAI.MI', 'RCS.MI', 'MN.MI'],
     
     # Industriali · Leonardo, Prysmian, Interpump, Webuild
-    'EXH4.DE': ['LDO.MI', 'PRY.MI', 'IP.MI', 'WBD.MI', 'AVIO.MI', 'DAN.MI'],
+    'EXH4.DE': ['LDO.MI', 'PRY.MI', 'IP.MI', 'AVIO.MI', 'DAN.MI'],
     
     # Costruzioni · Buzzi, Webuild, Salcef
     'EXV8.DE': ['BZU.MI', 'WBD.MI', 'SCF.MI'],
     
     # Risorse base · pochi nomi italiani puri (Tenaris è anche qui)
-    'EXV6.DE': ['TEN.MI', 'PRY.MI'],
+    'EXV6.DE': [],
     
     # Beni personali · Moncler, Brunello, Tod's, Ferragamo, Geox (luxury Made in Italy)
     'EXH6.DE': ['MONC.MI', 'BC.MI', 'TOD.MI', 'FCT.MI', 'GEO.MI', 'TPRO.MI'],
