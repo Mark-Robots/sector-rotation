@@ -489,9 +489,10 @@ def compute_sector_metrics(prices_df, bench_ticker, sector_dict):
         quadrant = classify_quadrant(last_rs, last_mom)
         stage = classify_stage(sym_prices)
         
-        # Performance
-        roc_13w = ((sym_prices.iloc[-1] / sym_prices.iloc[-min(65, len(sym_prices)-1)]) - 1) * 100
-        roc_52w = ((sym_prices.iloc[-1] / sym_prices.iloc[-min(252, len(sym_prices)-1)]) - 1) * 100
+        # Performance su chiusure settimanali (venerdi'), come il backtest
+        sym_w = sym_prices.resample('W-FRI').last().dropna()
+        roc_13w = ((sym_w.iloc[-1] / sym_w.iloc[-min(14, len(sym_w))]) - 1) * 100
+        roc_52w = ((sym_w.iloc[-1] / sym_w.iloc[-min(53, len(sym_w))]) - 1) * 100
         
         bench_aligned = bench_series.reindex(sym_prices.index).dropna()
         if len(bench_aligned) > 65:
@@ -632,10 +633,12 @@ def fetch_ticker_fundamentals(symbol, signal_date=None):
         roc_ytd = None
         perf_from_signal = None
         
-        if len(hist) >= 65:
-            roc_13w = float(((last_close / hist['Close'].iloc[-65]) - 1) * 100)
-        if len(hist) >= 20:
-            roc_4w = float(((last_close / hist['Close'].iloc[-20]) - 1) * 100)
+        # ROC su chiusure settimanali (venerdi'), come il backtest
+        wk = hist['Close'].resample('W-FRI').last().dropna()
+        if len(wk) >= 14:
+            roc_13w = float((wk.iloc[-1] / wk.iloc[-14] - 1) * 100)
+        if len(wk) >= 5:
+            roc_4w = float((wk.iloc[-1] / wk.iloc[-5] - 1) * 100)
         
         # YTD
         current_year = hist.index[-1].year
@@ -779,12 +782,11 @@ def compute_holdings_for_sector(sector_ticker, holdings_list, signal_date=None, 
     # Ordino per Perf 3M decrescente · momentum corrente
     # Titoli senza perf_3m vanno in fondo
     def sort_key(r):
-        r13 = r.get('roc13w'); r4 = r.get('roc4w')
-        if r13 is None and r4 is None:
+        r13 = r.get('roc13w')
+        if r13 is None:
             return (1, 0)  # In fondo
-        # score adaptive 'aggressive': ROC4 x 0.7 + ROC13 x 0.3
-        score = 0.7 * (r4 or 0.0) + 0.3 * (r13 or 0.0)
-        return (0, -score)
+        # selezione su momentum 3 mesi (ROC13): piu' stabile
+        return (0, -r13)
     
     rows.sort(key=sort_key)
     return rows
