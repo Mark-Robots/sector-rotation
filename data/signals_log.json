@@ -664,19 +664,19 @@
  },
  {
   "date": "2026-07-06",
-  "updated_at": "2026-07-06T07:22:29.743919+00:00",
+  "updated_at": "2026-07-06T18:42:03.806680+00:00",
   "valid_sectors": [
-   {
-    "ticker": "IBB",
-    "name": "Biotech",
-    "region": "USA",
-    "state": "Leader",
-    "stage": "2"
-   },
    {
     "ticker": "EXV1",
     "name": "Banche",
     "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "IBB",
+    "name": "Biotech",
+    "region": "USA",
     "state": "Leader",
     "stage": "2"
    },
@@ -688,15 +688,15 @@
     "stage": "2"
    },
    {
-    "ticker": "KRE",
-    "name": "Banche regionali",
+    "ticker": "XLI",
+    "name": "Industriali",
     "region": "USA",
     "state": "Leader",
     "stage": "2"
    },
    {
-    "ticker": "XLI",
-    "name": "Industriali",
+    "ticker": "KRE",
+    "name": "Banche regionali",
     "region": "USA",
     "state": "Leader",
     "stage": "2"
@@ -704,39 +704,39 @@
   ],
   "picks": [
    {
-    "ticker": "MRNA",
-    "sector": "Biotech",
-    "region": "USA",
-    "entry_date": "2025-12-05",
-    "perf_from_entry": 187.9
-   },
-   {
     "ticker": "MB.MI",
     "sector": "Banche",
     "region": "EU",
     "entry_date": "2026-04-10",
-    "perf_from_entry": 53.4
+    "perf_from_entry": 52.9
+   },
+   {
+    "ticker": "ILMN",
+    "sector": "Biotech",
+    "region": "USA",
+    "entry_date": "2026-04-17",
+    "perf_from_entry": 42.8
    },
    {
     "ticker": "GE",
     "sector": "Aerospazio & Difesa",
     "region": "USA",
     "entry_date": "2026-05-29",
-    "perf_from_entry": 16.6
-   },
-   {
-    "ticker": "FITB",
-    "sector": "Banche regionali",
-    "region": "USA",
-    "entry_date": "2026-04-02",
-    "perf_from_entry": 22.2
+    "perf_from_entry": 17.1
    },
    {
     "ticker": "CAT",
     "sector": "Industriali",
     "region": "USA",
     "entry_date": "2025-06-06",
-    "perf_from_entry": 175.6
+    "perf_from_entry": 177.5
+   },
+   {
+    "ticker": "FITB",
+    "sector": "Banche regionali",
+    "region": "USA",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 23.7
    }
   ]
  }

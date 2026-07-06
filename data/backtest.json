@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-06T07:23:28.999467+00:00",
+ "generated_at": "2026-07-06T18:42:49.454309+00:00",
  "params": {
   "top_n": 1,
   "ma_weeks": 30,
@@ -18,7 +18,7 @@
  },
  "metrics": {
   "system": {
-   "total_return_pct": 50.9,
+   "total_return_pct": 51.4,
    "cagr_pct": 6.2,
    "max_drawdown_pct": -30.8,
    "volatility_pct": 12.0,
@@ -36,14 +36,14 @@
    "exposure_pct": 96.7
   },
   "etf": {
-   "total_return_pct": 23.5,
+   "total_return_pct": 23.8,
    "cagr_pct": 3.1,
    "max_drawdown_pct": -25.8,
    "volatility_pct": 9.7,
    "sharpe": 0.37
   },
   "benchmark": {
-   "total_return_pct": 150.5,
+   "total_return_pct": 151.4,
    "cagr_pct": 14.3,
    "max_drawdown_pct": -31.9,
    "volatility_pct": 16.8,
@@ -468,7 +468,7 @@
   {
    "date": "2020-12-18",
    "system": 0.8788,
-   "bench": 1.2146,
+   "bench": 1.2147,
    "etf": 0.942
   },
   {
@@ -637,19 +637,19 @@
    "date": "2021-07-02",
    "system": 0.8346,
    "bench": 1.4325,
-   "etf": 0.9868
+   "etf": 0.9869
   },
   {
    "date": "2021-07-09",
    "system": 0.8346,
    "bench": 1.436,
-   "etf": 0.9868
+   "etf": 0.9869
   },
   {
    "date": "2021-07-16",
    "system": 0.8346,
    "bench": 1.424,
-   "etf": 0.9868
+   "etf": 0.9869
   },
   {
    "date": "2021-07-23",
@@ -1446,7 +1446,7 @@
   {
    "date": "2024-02-02",
    "system": 0.837,
-   "bench": 1.6591,
+   "bench": 1.6592,
    "etf": 0.9098
   },
   {
@@ -2204,6 +2204,12 @@
    "system": 1.5086,
    "bench": 2.505,
    "etf": 1.2346
+  },
+  {
+   "date": "2026-07-10",
+   "system": 1.5136,
+   "bench": 2.5144,
+   "etf": 1.2378
   }
  ],
  "trades": [
@@ -2213,9 +2219,9 @@
    "sector_ticker": "XLI",
    "region": "USA",
    "entry_date": "2026-07-03",
-   "exit_date": "2026-07-03",
-   "weeks": 0,
-   "perf": -0.2,
+   "exit_date": "2026-07-10",
+   "weeks": 1,
+   "perf": 0.5,
    "open": true,
    "stop": false,
    "reason": null
@@ -2278,9 +2284,9 @@
    "sector_ticker": "IBB",
    "region": "USA",
    "entry_date": "2026-06-12",
-   "exit_date": "2026-07-03",
-   "weeks": 3,
-   "perf": 17.0,
+   "exit_date": "2026-07-10",
+   "weeks": 4,
+   "perf": 19.1,
    "open": true,
    "stop": false,
    "reason": null
@@ -2291,9 +2297,9 @@
    "sector_ticker": "EXV1.DE",
    "region": "EU",
    "entry_date": "2026-06-12",
-   "exit_date": "2026-07-03",
-   "weeks": 3,
-   "perf": 3.8,
+   "exit_date": "2026-07-10",
+   "weeks": 4,
+   "perf": 4.3,
    "open": true,
    "stop": false,
    "reason": null
@@ -2343,9 +2349,9 @@
    "sector_ticker": "ITA",
    "region": "USA",
    "entry_date": "2026-05-29",
-   "exit_date": "2026-07-03",
-   "weeks": 5,
-   "perf": 16.4,
+   "exit_date": "2026-07-10",
+   "weeks": 6,
+   "perf": 17.0,
    "open": true,
    "stop": false,
    "reason": null
