@@ -257,12 +257,10 @@ def run_backtest(prices_d, volumes_d=None):
             if wc is None:
                 continue
             m13 = mom_at(wc, t, weeks=13)
-            m4 = mom_at(wc, t, weeks=4)
-            if m13 is None and m4 is None:
+            if m13 is None:
                 continue
-            # score adaptive 'aggressive': ROC4 x 0.7 + ROC13 x 0.3
-            score = 0.7 * (m4 or 0.0) + 0.3 * (m13 or 0.0)
-            cand.append((h, score))
+            # selezione su momentum 3 mesi (ROC13): piu' stabile, meno whipsaw
+            cand.append((h, m13))
         # Sempre il migliore per score (anche se debole): quando il settore
         # entra, entra l'azione. TOP_N=1 -> una sola azione per settore.
         cand.sort(key=lambda x: x[1], reverse=True)
@@ -279,6 +277,7 @@ def run_backtest(prices_d, volumes_d=None):
     etf_pos = {}     # sec -> {'ret_weeks'}
     trades = []
     last_t = calendar[-1]
+    top_universe = set()   # roster Top-10 con isteresi (entra top-10, resta top-13)
 
     def record_trade(sec, h, pos_d, exit_t, exit_p, reason, is_open=False):
         region = sector_map[sec][0]
@@ -307,14 +306,23 @@ def run_backtest(prices_d, volumes_d=None):
                 base = float(wc.iloc[pos - 52])
                 if base > 0:
                     roc52_now[sec] = float(wc.iloc[pos]) / base - 1
-        top10_now = set(sorted(roc52_now, key=lambda s: roc52_now[s], reverse=True)[:10])
+        ranked = sorted(roc52_now, key=lambda s: roc52_now[s], reverse=True)
+        top10 = set(ranked[:10]); top13 = set(ranked[:13])
+        # Isteresi: i settori nel roster restano finche' sono nel top-13; gli slot
+        # liberi (max 10) si riempiono coi migliori nuovi entranti in top-10.
+        top_universe = {s for s in top_universe if s in top13}
+        for s in ranked:
+            if len(top_universe) >= 10:
+                break
+            if s in top10 and s not in top_universe:
+                top_universe.add(s)
 
-        # 1) validita' e picks (ristretta ai Top-10 per roc52w)
+        # 1) validita' e picks (ristretta al roster Top-10 con isteresi)
         valid_now = {}
         for sec, valid in valid_by_sec.items():
             v = valid.get(t)
             base_valid = bool(v) if v is not None and not pd.isna(v) else False
-            valid_now[sec] = base_valid and (sec in top10_now)
+            valid_now[sec] = base_valid and (sec in top_universe)
         picks_now = {sec: top_picks_at(sec, t) for sec, ok in valid_now.items() if ok}
 
         # 2) rendimenti della settimana per le posizioni gia' in essere
@@ -494,8 +502,8 @@ def run_backtest(prices_d, volumes_d=None):
                    'period': PERIOD, 'cost_pct': COST_PCT,
                    'stop_loss_pct': STOP_LOSS_PCT, 'rebal_weeks': REBAL_WEEKS,
                    'adaptive_k': ADAPTIVE_K, 'reselect': 'weekly',
-                   'stock_pick': 'adaptive: 1/settore, score ROC4x0.7+ROC13x0.3, entra sempre',
-                   'portfolio_model': '1/10 + cash: Top-10 roc52w, solo in trend, 10% ciascuno',
+                   'stock_pick': '1/settore, momentum ROC13 (3 mesi), tenuto fino a uscita settore/stop',
+                   'portfolio_model': '1/10 + cash: Top-10 roc52w (isteresi 10/13), solo in trend, 10% ciascuno',
                    'max_weight_pct': round(MAX_WEIGHT * 100, 1),
                    'benchmark': 'Blend 50/50 ' + US_BENCHMARK + '+' + EU_BENCHMARK,
                    'gate': 'Leader/Emergente + Fase 1/2 · Adaptive 6m · titolo tenuto fino a uscita settore/stop · SL -20%'},
