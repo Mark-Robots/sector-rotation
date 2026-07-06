@@ -46,7 +46,7 @@ from update_data import (
 )
 
 # -------- Parametri (modificabili) --------
-TOP_N = 3            # titoli per settore (coerente con i picks)
+TOP_N = 1            # una sola azione per settore (la migliore) - regola adaptive
 MA_WEEKS = 30        # media mobile Weinstein
 MOM_WEEKS = 13       # finestra momentum per la selezione titoli (~3 mesi)
 PERIOD = '8y'        # storico da scaricare
@@ -147,7 +147,8 @@ def adaptive_universe_at(anchor, holds, tk_wclose, tk_wdv,
     """Candidati del settore all'anchor: solo titoli con ROC 13w > 0,
     ordinati per dollar-volume medio 13w decrescente, max k.
     Usa ESCLUSIVAMENTE dati <= anchor (point-in-time)."""
-    scored = []
+    scored = []   # ROC13 > 0
+    liquid = []   # tutti con storico sufficiente (fallback)
     for h in holds:
         wc = tk_wclose.get(h)
         if wc is None:
@@ -155,18 +156,21 @@ def adaptive_universe_at(anchor, holds, tk_wclose, tk_wdv,
         hist = wc[wc.index <= anchor]
         if len(hist) <= mom_weeks:
             continue
-        roc = hist.iloc[-1] / hist.iloc[-1 - mom_weeks] - 1
-        if roc <= 0:
-            continue
         dv = tk_wdv.get(h)
         dv_avg = 0.0
         if dv is not None:
             dvh = dv[dv.index <= anchor].tail(DV_WEEKS)
             if len(dvh):
                 dv_avg = float(dvh.mean())
-        scored.append((h, dv_avg))
-    scored.sort(key=lambda x: x[1], reverse=True)
-    return [h for h, _ in scored[:k]]
+        liquid.append((h, dv_avg))
+        roc = hist.iloc[-1] / hist.iloc[-1 - mom_weeks] - 1
+        if roc > 0:
+            scored.append((h, dv_avg))
+    # Fallback: se nessun titolo ha ROC13>0, usa comunque i piu' liquidi
+    # cosi' quando il settore entra il paniere non e' mai vuoto (entra sempre).
+    src = scored if scored else liquid
+    src.sort(key=lambda x: x[1], reverse=True)
+    return [h for h, _ in src[:k]]
 
 
 def universe_for_date(t, anchors, uni_by_anchor):
@@ -252,9 +256,15 @@ def run_backtest(prices_d, volumes_d=None):
             wc = tk_wclose.get(h)
             if wc is None:
                 continue
-            m = mom_at(wc, t)
-            if m is not None:
-                cand.append((h, m))
+            m13 = mom_at(wc, t, weeks=13)
+            m4 = mom_at(wc, t, weeks=4)
+            if m13 is None and m4 is None:
+                continue
+            # score adaptive 'aggressive': ROC4 x 0.7 + ROC13 x 0.3
+            score = 0.7 * (m4 or 0.0) + 0.3 * (m13 or 0.0)
+            cand.append((h, score))
+        # Sempre il migliore per score (anche se debole): quando il settore
+        # entra, entra l'azione. TOP_N=1 -> una sola azione per settore.
         cand.sort(key=lambda x: x[1], reverse=True)
         return [h for h, _ in cand[:TOP_N]]
 
@@ -469,6 +479,7 @@ def run_backtest(prices_d, volumes_d=None):
                    'period': PERIOD, 'cost_pct': COST_PCT,
                    'stop_loss_pct': STOP_LOSS_PCT, 'rebal_weeks': REBAL_WEEKS,
                    'adaptive_k': ADAPTIVE_K, 'reselect': 'weekly',
+                   'stock_pick': 'adaptive: 1/settore, score ROC4x0.7+ROC13x0.3, entra sempre',
                    'max_weight_pct': round(MAX_WEIGHT * 100, 1),
                    'benchmark': 'Blend 50/50 ' + US_BENCHMARK + '+' + EU_BENCHMARK,
                    'gate': 'Leader/Emergente + Fase 1/2 · Adaptive 6m · re-sel. sett. · SL -20%'},
