@@ -628,11 +628,14 @@ def fetch_ticker_fundamentals(symbol, signal_date=None):
         
         last_close = float(hist['Close'].iloc[-1])
         roc_13w = None
+        roc_4w = None
         roc_ytd = None
         perf_from_signal = None
         
         if len(hist) >= 65:
             roc_13w = float(((last_close / hist['Close'].iloc[-65]) - 1) * 100)
+        if len(hist) >= 20:
+            roc_4w = float(((last_close / hist['Close'].iloc[-20]) - 1) * 100)
         
         # YTD
         current_year = hist.index[-1].year
@@ -682,6 +685,7 @@ def fetch_ticker_fundamentals(symbol, signal_date=None):
             'marketCapB': round(float(market_cap) / 1e9, 1) if market_cap else None,
             'divYield': round(float(div_yield), 2) if div_yield else None,
             'roc13w': round(roc_13w, 1) if roc_13w is not None else None,
+            'roc4w': round(roc_4w, 1) if roc_4w is not None else None,
             'rocYtd': round(roc_ytd, 1) if roc_ytd is not None else None,
             'perfFromSignal': round(perf_from_signal, 1) if perf_from_signal is not None else None,
             'entryDate': entry['entryDate'] if entry else None,
@@ -775,10 +779,12 @@ def compute_holdings_for_sector(sector_ticker, holdings_list, signal_date=None, 
     # Ordino per Perf 3M decrescente · momentum corrente
     # Titoli senza perf_3m vanno in fondo
     def sort_key(r):
-        perf = r.get('roc13w')
-        if perf is None:
+        r13 = r.get('roc13w'); r4 = r.get('roc4w')
+        if r13 is None and r4 is None:
             return (1, 0)  # In fondo
-        return (0, -perf)
+        # score adaptive 'aggressive': ROC4 x 0.7 + ROC13 x 0.3
+        score = 0.7 * (r4 or 0.0) + 0.3 * (r13 or 0.0)
+        return (0, -score)
     
     rows.sort(key=sort_key)
     return rows
@@ -944,8 +950,8 @@ def build_portfolio_model(us_metrics, eu_metrics, us_holdings, eu_holdings):
             s = a['sector']
             # NB: holdings_dict usa 'ticker' semplificato (es. 'EXV2'), non 'ticker_raw' (es. 'EXV2.DE')
             ticker_key = s.get('ticker')
-            picks_us = get_top_picks('USA', ticker_key, 3) if s['region'] == 'USA' else []
-            picks_it = get_top_picks('EU', ticker_key, 3) if s['region'] == 'EU' else []
+            picks_us = get_top_picks('USA', ticker_key, 1) if s['region'] == 'USA' else []
+            picks_it = get_top_picks('EU', ticker_key, 1) if s['region'] == 'EU' else []
             signal = s.get('signal') or {}
             
             profile_items.append({
