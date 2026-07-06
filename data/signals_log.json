@@ -661,5 +661,83 @@
     "perf_from_entry": 175.6
    }
   ]
+ },
+ {
+  "date": "2026-07-06",
+  "updated_at": "2026-07-06T07:22:29.743919+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "IBB",
+    "name": "Biotech",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV1",
+    "name": "Banche",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "ITA",
+    "name": "Aerospazio & Difesa",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "KRE",
+    "name": "Banche regionali",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLI",
+    "name": "Industriali",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "MRNA",
+    "sector": "Biotech",
+    "region": "USA",
+    "entry_date": "2025-12-05",
+    "perf_from_entry": 187.9
+   },
+   {
+    "ticker": "MB.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 53.4
+   },
+   {
+    "ticker": "GE",
+    "sector": "Aerospazio & Difesa",
+    "region": "USA",
+    "entry_date": "2026-05-29",
+    "perf_from_entry": 16.6
+   },
+   {
+    "ticker": "FITB",
+    "sector": "Banche regionali",
+    "region": "USA",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 22.2
+   },
+   {
+    "ticker": "CAT",
+    "sector": "Industriali",
+    "region": "USA",
+    "entry_date": "2025-06-06",
+    "perf_from_entry": 175.6
+   }
+  ]
  }
 ]
