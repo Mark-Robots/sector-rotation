@@ -1048,6 +1048,25 @@
     .mt-col:first-child{border-right:none;border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:8px}
     .mt-row{grid-template-columns:18px 3px minmax(0,1fr) 84px 16px;gap:8px}
   }
+  /* top 10 dell'anno */
+  .t10-wrap{margin-top:30px;padding-top:22px;border-top:1px solid var(--border-strong)}
+  .t10-title{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--text-primary)}
+  .t10-title .t10-sub{font-family:var(--mono);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);margin-left:8px}
+  .t10-moves{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .t10-mv{border-radius:10px;padding:12px 14px;display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+  .t10-mv-in{border-left:3px solid var(--accent-lead);background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.28);border-left-width:3px}
+  .t10-mv-out{border-left:3px solid var(--accent-lag);background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.28);border-left-width:3px}
+  .t10-mvh{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-gold);width:100%;margin-bottom:2px}
+  .t10-list{display:flex;flex-direction:column;gap:5px;margin-top:16px}
+  .t10-row{display:grid;grid-template-columns:22px minmax(0,1fr) 190px 58px;align-items:center;gap:12px;padding:5px 0}
+  .t10-rk{font-family:var(--mono);font-size:12px;color:var(--accent-gold);text-align:right;font-weight:600}
+  .t10-nm{font-family:var(--mono);font-size:13px;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .t10-reg{font-size:9px;color:var(--text-muted);letter-spacing:0.08em}
+  .t10-track{height:8px;border-radius:5px;background:rgba(255,255,255,0.05);overflow:hidden}
+  .t10-fill{display:block;height:100%;border-radius:5px}
+  .t10-val{font-family:var(--mono);font-size:12px;text-align:right}
+  .t10-note{font-family:var(--mono);font-size:10px;color:var(--text-muted);line-height:1.6;margin-top:16px;padding:10px 12px;border:1px dashed var(--border);border-radius:8px}
+  @media(max-width:720px){.t10-row{grid-template-columns:20px minmax(0,1fr) 100px 48px;gap:8px}.t10-moves{grid-template-columns:1fr}}
   /* movimenti della settimana */
   .mv-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
   .mv-col{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
@@ -2383,6 +2402,29 @@ function renderQuadro(tableId) {
       </div>
       <div class="mt-lg-arrows"><span><b class="up">\u25B2</b> sale</span><span><b class="dn">\u25BC</b> scende</span><span><b class="flat">\u2014</b> piatto</span></div>
     </div>`;
+
+  // ---- Top 10 settori dell'anno (roc52w rolling 52 settimane) ----
+  const t10secs = [].concat(
+    ((DATA.us && DATA.us.sectors) || []).map(s => Object.assign({ region: 'USA' }, s)),
+    ((DATA.eu && DATA.eu.sectors) || []).map(s => Object.assign({ region: 'EU' }, s))
+  ).filter(s => s.roc52w != null).sort((a, b) => b.roc52w - a.roc52w);
+  const top10 = t10secs.slice(0, 10);
+  if (top10.length) {
+    const t10max = Math.max.apply(null, [1].concat(top10.map(s => Math.abs(s.roc52w))));
+    const t10rows = top10.map((s, idx) => {
+      const w = Math.max(6, Math.round(Math.abs(s.roc52w) / t10max * 100));
+      const pos = s.roc52w >= 0;
+      return `<div class="t10-row"><span class="t10-rk">${idx+1}</span><span class="t10-nm">${s.name} <span class="t10-reg">${s.region==='USA'?'US':'EU'}</span></span><span class="t10-track"><span class="t10-fill" style="width:${w}%;background:${pos?'var(--accent-lead)':'var(--accent-lag)'}"></span></span><span class="t10-val ${pos?'mtd-pos':'mtd-neg'}">${(s.roc52w>0?'+':'')+s.roc52w.toFixed(0)}%</span></div>`;
+    }).join('');
+    const tm = (DATA.ranking && DATA.ranking.top10_moves) || null;
+    let t10moves = '';
+    if (tm && tm.available) {
+      const chip = (x, d) => `<span class="mv-chip mv-${d}"><span class="mv-ico">${d==='in'?'\u25B2':'\u25BC'}</span>${x.name}<span class="mv-reg">${x.region==='USA'?'US':'EU'}</span></span>`;
+      const ent = tm.entered || [], exi = tm.exited || [];
+      t10moves = `<div class="t10-moves"><div class="t10-mv t10-mv-in"><span class="t10-mvh">Entrati in top 10</span>${ent.length?ent.map(x=>chip(x,'in')).join(''):'<span class="mv-none">nessuno</span>'}</div><div class="t10-mv t10-mv-out"><span class="t10-mvh">Usciti dalla top 10</span>${exi.length?exi.map(x=>chip(x,'out')).join(''):'<span class="mv-none">nessuno</span>'}</div></div>`;
+    }
+    html += `<div class="t10-wrap"><div class="t10-title">Top 10 settori dell'anno<span class="t10-sub">performance rolling 52 settimane</span></div>${t10moves}<div class="t10-list">${t10rows}</div><div class="t10-note">Classifica per performance a 12 mesi mobili: \u00e8 uno storico, non un segnale di trend. Un settore ai vertici quest'anno pu\u00f2 gi\u00e0 essere in rallentamento \u2014 incrocia sempre con la mappa qui sopra.</div></div>`;
+  }
 
   document.getElementById(tableId).innerHTML = html;
   const fuoriBox = document.getElementById('fuori-box');
