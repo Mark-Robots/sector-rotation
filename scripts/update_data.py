@@ -1106,6 +1106,7 @@ def compute_sector_ranking(us_metrics, eu_metrics, history_path='data/ranking_hi
             'rsRatio': s.get('rsRatio'),
             'rsMom': s.get('rsMom'),
             'signal': s.get('signal'),
+            'roc52w': s.get('roc52w'),
             'score': score_sector(s),
         })
     for s in eu_metrics:
@@ -1118,6 +1119,7 @@ def compute_sector_ranking(us_metrics, eu_metrics, history_path='data/ranking_hi
             'rsRatio': s.get('rsRatio'),
             'rsMom': s.get('rsMom'),
             'signal': s.get('signal'),
+            'roc52w': s.get('roc52w'),
             'score': score_sector(s),
         })
     
@@ -1130,6 +1132,8 @@ def compute_sector_ranking(us_metrics, eu_metrics, history_path='data/ranking_hi
     
     # Carica storico precedente (se esiste)
     prev_ranks = {}
+    prev_valid = {}
+    prev_roc = {}
     prev_date = None
     history = []
     try:
@@ -1148,6 +1152,8 @@ def compute_sector_ranking(us_metrics, eu_metrics, history_path='data/ranking_hi
             days_diff = (today - snap_date).days
             if 5 <= days_diff <= 9:
                 prev_ranks = {r['ticker']: r['rank'] for r in snap.get('ranks', [])}
+                prev_valid = {r['ticker']: r.get('valid') for r in snap.get('ranks', [])}
+                prev_roc = {r['ticker']: r.get('roc52w') for r in snap.get('ranks', [])}
                 prev_date = snap['date']
                 break
         except Exception:
@@ -1176,7 +1182,10 @@ def compute_sector_ranking(us_metrics, eu_metrics, history_path='data/ranking_hi
     # Salva snapshot odierno (mantenendo storico di 30 giorni)
     today_snapshot = {
         'date': datetime.now(timezone.utc).isoformat(),
-        'ranks': [{'ticker': s['ticker'], 'rank': s['rank'], 'score': s['score']} for s in all_sectors],
+        'ranks': [{'ticker': s['ticker'], 'rank': s['rank'], 'score': s['score'],
+                   'valid': (s.get('state') in ('Leader', 'Emergente') and str(s.get('stage')) in ('1', '2')),
+                   'roc52w': s.get('roc52w')}
+                  for s in all_sectors],
     }
     # Rimuovi snapshot precedente dello stesso giorno
     history = [h for h in history if not h.get('date', '').startswith(today.isoformat())]
@@ -1193,9 +1202,59 @@ def compute_sector_ranking(us_metrics, eu_metrics, history_path='data/ranking_hi
     except Exception as e:
         print(f"  Errore salvataggio storico: {e}", file=sys.stderr)
     
+    # --- Movimenti della settimana: entrati/usciti dal trend (gate valido) vs ~7 giorni fa ---
+    def _is_valid(s):
+        return s.get('state') in ('Leader', 'Emergente') and str(s.get('stage')) in ('1', '2')
+    have_prev_valid = bool(prev_valid) and any(v is not None for v in prev_valid.values())
+    entered, exited = [], []
+    if have_prev_valid:
+        for s in all_sectors:
+            pv = prev_valid.get(s['ticker'])
+            now = _is_valid(s)
+            info = {'ticker': s['ticker'], 'name': s['name'], 'region': s['region'],
+                    'state': s['state'], 'stage': s['stage'], 'score': s['score']}
+            if now and pv is False:
+                entered.append(info)
+            elif (not now) and pv is True:
+                exited.append(info)
+    weekly_moves = {
+        'entered': entered,
+        'exited': exited,
+        'prev_date': prev_date,
+        'available': have_prev_valid,
+    }
+
+    # --- Top 10 dell'anno (roc52w rolling 52 sett.) + entrate/uscite dalla top-10 ---
+    ranked_roc = sorted([s for s in all_sectors if s.get('roc52w') is not None],
+                        key=lambda x: x['roc52w'], reverse=True)
+    now_set = set(s['ticker'] for s in ranked_roc[:10])
+    have_prev_roc = bool(prev_roc) and any(v is not None for v in prev_roc.values())
+    t10_entered, t10_exited = [], []
+    if have_prev_roc:
+        prev_sorted = sorted([tk for tk, v in prev_roc.items() if v is not None],
+                             key=lambda tk: prev_roc[tk], reverse=True)
+        prev_set = set(prev_sorted[:10])
+        by_tk = {s['ticker']: s for s in all_sectors}
+        for tk in (now_set - prev_set):
+            s = by_tk.get(tk)
+            if s:
+                t10_entered.append({'ticker': tk, 'name': s['name'], 'region': s['region'], 'roc52w': s.get('roc52w')})
+        for tk in (prev_set - now_set):
+            s = by_tk.get(tk)
+            if s:
+                t10_exited.append({'ticker': tk, 'name': s['name'], 'region': s['region'], 'roc52w': s.get('roc52w')})
+    top10_moves = {
+        'entered': t10_entered,
+        'exited': t10_exited,
+        'prev_date': prev_date,
+        'available': have_prev_roc,
+    }
+
     return {
         'ranking': all_sectors,
         'prev_snapshot_date': prev_date,
+        'weekly_moves': weekly_moves,
+        'top10_moves': top10_moves,
     }
 
 
