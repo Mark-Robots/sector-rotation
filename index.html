@@ -1256,7 +1256,7 @@
   </div>
 
   <div id="regola-bar" style="margin:0 0 18px;padding:10px 16px;background:var(--bg-card-2);border-radius:6px;font-size:12px;color:var(--text-secondary);line-height:1.6;">
-    <b style="color:var(--text-primary);">📐 La regola, in una riga:</b> si investe nei settori <b>più forti del mercato e con prezzo in tendenza positiva</b>, prendendo <b>1 titolo</b> (il più forte) per ciascun settore in trend, tra i <b>10 migliori dell'anno</b>; revisione <b>ogni venerdì</b>, titolo tenuto fino a fine segnale del settore o con <b>stop-loss −20%</b>.
+    <b style="color:var(--text-primary);">📐 La regola, in una riga:</b> si investe nei settori <b>più forti del mercato e con prezzo in tendenza positiva</b>, prendendo <b>1 titolo</b> (il più forte per momentum) per <b>ciascun settore in trend</b>; revisione <b>ogni venerdì</b>, titolo tenuto fino a fine segnale del settore o con <b>stop-loss −20%</b>.
   </div>
 
   <div class="tabs">
@@ -1323,7 +1323,7 @@
         </div>
       </div>
       <div style="background:rgba(251,191,36,0.05);border:1px solid rgba(251,191,36,0.2);border-radius:6px;padding:14px 18px;margin-bottom:20px;font-size:12px;line-height:1.6;color:var(--text-secondary);">
-        <b>Simulazione storica, non garanzia di risultati futuri.</b> La regola testata è la stessa del Portafoglio: settori <b>Leader/Emergente in Fase 1-2</b> → <b>1 titolo</b> per settore (il più forte per momentum) tra i <b>10 settori a miglior performance annua</b> che sono in trend, tenuto fino a fine segnale (universo candidati aggiornato meccanicamente ogni 6 mesi); uscita a fine segnale, o con <b>stop-loss −20%</b>; costi 0,1% per lato. La curva <b>"Solo ETF"</b> è il riferimento pulito senza selezione titoli; l'equity titoli conserva un <b>residuo survivorship bias</b> (~1-2%/anno, panieri = costituenti attuali). Ogni posizione pesa 10%, il resto liquidità; confronto buy &amp; hold blend 50/50 SPY+EXSA.
+        <b>Simulazione storica, non garanzia di risultati futuri.</b> La regola testata è la stessa del Portafoglio: settori <b>Leader/Emergente in Fase 1-2</b> → <b>1 titolo</b> per settore (il più forte per momentum) per <b>ogni settore in trend</b>, tenuto fino a fine segnale (universo candidati aggiornato meccanicamente ogni 6 mesi); uscita a fine segnale, o con <b>stop-loss −20%</b>; costi 0,1% per lato. La curva <b>"Solo ETF"</b> è il riferimento pulito senza selezione titoli; l'equity titoli conserva un <b>residuo survivorship bias</b> (~1-2%/anno, panieri = costituenti attuali). Posizioni equal-weight con tetto del 10% ciascuna, liquidità sugli slot non investiti; confronto buy &amp; hold blend 50/50 SPY+EXSA.
       </div>
       <div id="bt-empty" style="display:none;color:var(--text-muted);padding:24px;text-align:center;font-size:13px;">
         Nessun backtest disponibile. Esegui <span style="font-family:var(--mono);">scripts/backtest.py</span> e committa <span style="font-family:var(--mono);">data/backtest.json</span>.
