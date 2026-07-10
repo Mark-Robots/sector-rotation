@@ -817,5 +817,83 @@
     "perf_from_entry": 160.7
    }
   ]
+ },
+ {
+  "date": "2026-07-10",
+  "updated_at": "2026-07-10T16:15:45.102869+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "EXV1",
+    "name": "Banche",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "IBB",
+    "name": "Biotech",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "KRE",
+    "name": "Banche regionali",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLI",
+    "name": "Industriali",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH5",
+    "name": "Assicurazioni",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "MB.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 55.1
+   },
+   {
+    "ticker": "ILMN",
+    "sector": "Biotech",
+    "region": "USA",
+    "entry_date": "2026-04-17",
+    "perf_from_entry": 42.3
+   },
+   {
+    "ticker": "ZION",
+    "sector": "Banche regionali",
+    "region": "USA",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 22.3
+   },
+   {
+    "ticker": "CAT",
+    "sector": "Industriali",
+    "region": "USA",
+    "entry_date": "2025-06-06",
+    "perf_from_entry": 172.9
+   },
+   {
+    "ticker": "UNI.MI",
+    "sector": "Assicurazioni",
+    "region": "EU",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 35.7
+   }
+  ]
  }
 ]

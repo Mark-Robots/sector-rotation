@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-07T14:45:58.766697+00:00",
+ "generated_at": "2026-07-10T16:16:34.477441+00:00",
  "params": {
   "top_n": 1,
   "ma_weeks": 30,
@@ -18,32 +18,32 @@
  },
  "metrics": {
   "system": {
-   "total_return_pct": 151.8,
+   "total_return_pct": 151.7,
    "cagr_pct": 14.4,
    "max_drawdown_pct": -31.4,
    "volatility_pct": 17.5,
    "sharpe": 0.84,
-   "n_trades": 872,
-   "n_open": 28,
+   "n_trades": 876,
+   "n_open": 24,
    "n_stopped": 21,
    "n_swaps": 0,
-   "win_rate_pct": 46.7,
+   "win_rate_pct": 46.8,
    "avg_perf_pct": 2.3,
-   "profit_factor": 1.68,
+   "profit_factor": 1.69,
    "avg_weeks": 8.0,
    "best_pct": 148.7,
    "worst_pct": -40.9,
    "exposure_pct": 100.0
   },
   "etf": {
-   "total_return_pct": 89.3,
-   "cagr_pct": 9.8,
+   "total_return_pct": 88.1,
+   "cagr_pct": 9.6,
    "max_drawdown_pct": -31.3,
    "volatility_pct": 15.8,
-   "sharpe": 0.67
+   "sharpe": 0.66
   },
   "benchmark": {
-   "total_return_pct": 143.7,
+   "total_return_pct": 144.1,
    "cagr_pct": 13.9,
    "max_drawdown_pct": -31.9,
    "volatility_pct": 16.8,
@@ -2123,7 +2123,7 @@
   },
   {
    "date": "2026-04-10",
-   "system": 2.3027,
+   "system": 2.3028,
    "bench": 2.2417,
    "etf": 1.7787
   },
@@ -2197,13 +2197,13 @@
    "date": "2026-07-03",
    "system": 2.5373,
    "bench": 2.4415,
-   "etf": 1.9006
+   "etf": 1.9007
   },
   {
    "date": "2026-07-10",
-   "system": 2.518,
-   "bench": 2.4367,
-   "etf": 1.8935
+   "system": 2.5175,
+   "bench": 2.4408,
+   "etf": 1.8807
   }
  ],
  "trades": [
@@ -2228,7 +2228,7 @@
    "entry_date": "2026-07-03",
    "exit_date": "2026-07-10",
    "weeks": 1,
-   "perf": 0.9,
+   "perf": -0.7,
    "open": true,
    "stop": false,
    "reason": null
@@ -2241,7 +2241,7 @@
    "entry_date": "2026-07-03",
    "exit_date": "2026-07-10",
    "weeks": 1,
-   "perf": -8.6,
+   "perf": -7.9,
    "open": true,
    "stop": false,
    "reason": null
@@ -2254,7 +2254,7 @@
    "entry_date": "2026-07-03",
    "exit_date": "2026-07-10",
    "weeks": 1,
-   "perf": -7.1,
+   "perf": -4.9,
    "open": true,
    "stop": false,
    "reason": null
@@ -2280,10 +2280,10 @@
    "entry_date": "2026-06-26",
    "exit_date": "2026-07-10",
    "weeks": 2,
-   "perf": 3.3,
-   "open": true,
+   "perf": 0.8,
+   "open": false,
    "stop": false,
-   "reason": null
+   "reason": "sector"
   },
   {
    "ticker": "SPG",
@@ -2293,10 +2293,10 @@
    "entry_date": "2026-06-26",
    "exit_date": "2026-07-10",
    "weeks": 2,
-   "perf": 0.8,
-   "open": true,
+   "perf": -5.8,
+   "open": false,
    "stop": false,
-   "reason": null
+   "reason": "sector"
   },
   {
    "ticker": "DIA.MI",
@@ -2306,7 +2306,7 @@
    "entry_date": "2026-06-26",
    "exit_date": "2026-07-10",
    "weeks": 2,
-   "perf": -0.9,
+   "perf": 0.5,
    "open": true,
    "stop": false,
    "reason": null
@@ -2319,7 +2319,7 @@
    "entry_date": "2026-06-26",
    "exit_date": "2026-07-10",
    "weeks": 2,
-   "perf": 1.0,
+   "perf": 0.4,
    "open": true,
    "stop": false,
    "reason": null
@@ -2332,7 +2332,7 @@
    "entry_date": "2026-06-26",
    "exit_date": "2026-07-10",
    "weeks": 2,
-   "perf": 4.6,
+   "perf": 1.2,
    "open": true,
    "stop": false,
    "reason": null
@@ -2345,7 +2345,7 @@
    "entry_date": "2026-06-26",
    "exit_date": "2026-07-10",
    "weeks": 2,
-   "perf": 0.2,
+   "perf": 0.8,
    "open": true,
    "stop": false,
    "reason": null
@@ -2384,7 +2384,7 @@
    "entry_date": "2026-06-19",
    "exit_date": "2026-07-10",
    "weeks": 3,
-   "perf": -6.1,
+   "perf": 0.8,
    "open": true,
    "stop": false,
    "reason": null
@@ -2397,7 +2397,7 @@
    "entry_date": "2026-06-19",
    "exit_date": "2026-07-10",
    "weeks": 3,
-   "perf": 6.2,
+   "perf": 8.6,
    "open": true,
    "stop": false,
    "reason": null
@@ -2436,7 +2436,7 @@
    "entry_date": "2026-06-12",
    "exit_date": "2026-07-10",
    "weeks": 4,
-   "perf": -16.2,
+   "perf": -14.9,
    "open": false,
    "stop": false,
    "reason": "sector"
@@ -2449,7 +2449,7 @@
    "entry_date": "2026-06-12",
    "exit_date": "2026-07-10",
    "weeks": 4,
-   "perf": -5.3,
+   "perf": -6.5,
    "open": true,
    "stop": false,
    "reason": null
@@ -2462,7 +2462,7 @@
    "entry_date": "2026-06-12",
    "exit_date": "2026-07-10",
    "weeks": 4,
-   "perf": 19.2,
+   "perf": 18.8,
    "open": true,
    "stop": false,
    "reason": null
@@ -2475,7 +2475,7 @@
    "entry_date": "2026-06-12",
    "exit_date": "2026-07-10",
    "weeks": 4,
-   "perf": 6.6,
+   "perf": 3.4,
    "open": true,
    "stop": false,
    "reason": null
@@ -2520,6 +2520,19 @@
    "reason": "sector"
   },
   {
+   "ticker": "DLTR",
+   "sector": "Retail",
+   "sector_ticker": "XRT",
+   "region": "USA",
+   "entry_date": "2026-06-05",
+   "exit_date": "2026-07-10",
+   "weeks": 5,
+   "perf": 14.4,
+   "open": false,
+   "stop": false,
+   "reason": "sector"
+  },
+  {
    "ticker": "MS",
    "sector": "Finanziari",
    "sector_ticker": "XLF",
@@ -2527,7 +2540,7 @@
    "entry_date": "2026-06-05",
    "exit_date": "2026-07-10",
    "weeks": 5,
-   "perf": 3.6,
+   "perf": 4.8,
    "open": true,
    "stop": false,
    "reason": null
@@ -2540,7 +2553,7 @@
    "entry_date": "2026-06-05",
    "exit_date": "2026-07-10",
    "weeks": 5,
-   "perf": 8.9,
+   "perf": 4.9,
    "open": true,
    "stop": false,
    "reason": null
@@ -2553,7 +2566,7 @@
    "entry_date": "2026-06-05",
    "exit_date": "2026-07-10",
    "weeks": 5,
-   "perf": 0.7,
+   "perf": 5.3,
    "open": true,
    "stop": false,
    "reason": null
@@ -2566,7 +2579,7 @@
    "entry_date": "2026-06-05",
    "exit_date": "2026-07-10",
    "weeks": 5,
-   "perf": 8.2,
+   "perf": 3.7,
    "open": true,
    "stop": false,
    "reason": null
@@ -2579,20 +2592,7 @@
    "entry_date": "2026-06-05",
    "exit_date": "2026-07-10",
    "weeks": 5,
-   "perf": 1.7,
-   "open": true,
-   "stop": false,
-   "reason": null
-  },
-  {
-   "ticker": "DLTR",
-   "sector": "Retail",
-   "sector_ticker": "XRT",
-   "region": "USA",
-   "entry_date": "2026-06-05",
-   "exit_date": "2026-07-10",
-   "weeks": 5,
-   "perf": 11.4,
+   "perf": 0.5,
    "open": true,
    "stop": false,
    "reason": null
@@ -2624,6 +2624,19 @@
    "reason": "sector"
   },
   {
+   "ticker": "GE",
+   "sector": "Aerospazio & Difesa",
+   "sector_ticker": "ITA",
+   "region": "USA",
+   "entry_date": "2026-05-29",
+   "exit_date": "2026-07-10",
+   "weeks": 6,
+   "perf": 11.2,
+   "open": false,
+   "stop": false,
+   "reason": "sector"
+  },
+  {
    "ticker": "MN.MI",
    "sector": "Media",
    "sector_ticker": "EXH8.DE",
@@ -2635,19 +2648,6 @@
    "open": false,
    "stop": false,
    "reason": "sector"
-  },
-  {
-   "ticker": "GE",
-   "sector": "Aerospazio & Difesa",
-   "sector_ticker": "ITA",
-   "region": "USA",
-   "entry_date": "2026-05-29",
-   "exit_date": "2026-07-10",
-   "weeks": 6,
-   "perf": 12.4,
-   "open": true,
-   "stop": false,
-   "reason": null
   },
   {
    "ticker": "REC.MI",
@@ -2683,7 +2683,7 @@
    "entry_date": "2026-05-22",
    "exit_date": "2026-07-10",
    "weeks": 7,
-   "perf": 0.3,
+   "perf": -2.3,
    "open": true,
    "stop": false,
    "reason": null
@@ -4425,7 +4425,7 @@
    "entry_date": "2025-06-06",
    "exit_date": "2026-07-10",
    "weeks": 57,
-   "perf": 35.1,
+   "perf": 47.4,
    "open": true,
    "stop": false,
    "reason": null
@@ -4464,7 +4464,7 @@
    "entry_date": "2025-05-30",
    "exit_date": "2026-07-10",
    "weeks": 58,
-   "perf": 113.6,
+   "perf": 109.6,
    "open": true,
    "stop": false,
    "reason": null
@@ -4724,7 +4724,7 @@
    "entry_date": "2025-03-14",
    "exit_date": "2026-07-10",
    "weeks": 69,
-   "perf": 52.8,
+   "perf": 52.1,
    "open": true,
    "stop": false,
    "reason": null
@@ -9014,7 +9014,7 @@
    "entry_date": "2022-10-28",
    "exit_date": "2026-07-10",
    "weeks": 193,
-   "perf": 724.9,
+   "perf": 730.3,
    "open": true,
    "stop": false,
    "reason": null
