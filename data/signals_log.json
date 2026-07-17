@@ -895,5 +895,83 @@
     "perf_from_entry": 35.7
    }
   ]
+ },
+ {
+  "date": "2026-07-17",
+  "updated_at": "2026-07-17T15:07:19.500840+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "KRE",
+    "name": "Banche regionali",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "IBB",
+    "name": "Biotech",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLE",
+    "name": "Energia",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH5",
+    "name": "Assicurazioni",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH1",
+    "name": "Energia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "ZION",
+    "sector": "Banche regionali",
+    "region": "USA",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 26.0
+   },
+   {
+    "ticker": "ILMN",
+    "sector": "Biotech",
+    "region": "USA",
+    "entry_date": "2026-04-17",
+    "perf_from_entry": 37.2
+   },
+   {
+    "ticker": "MPC",
+    "sector": "Energia",
+    "region": "USA",
+    "entry_date": "2026-02-06",
+    "perf_from_entry": 53.3
+   },
+   {
+    "ticker": "UNI.MI",
+    "sector": "Assicurazioni",
+    "region": "EU",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 33.2
+   },
+   {
+    "ticker": "ERG.MI",
+    "sector": "Energia",
+    "region": "EU",
+    "entry_date": "2026-04-24",
+    "perf_from_entry": 4.7
+   }
+  ]
  }
 ]
