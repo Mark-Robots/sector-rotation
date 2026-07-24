@@ -973,5 +973,83 @@
     "perf_from_entry": 4.7
    }
   ]
+ },
+ {
+  "date": "2026-07-24",
+  "updated_at": "2026-07-24T15:21:37.952231+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "EXV1",
+    "name": "Banche",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLE",
+    "name": "Energia",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH1",
+    "name": "Energia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLV",
+    "name": "Sanità",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH5",
+    "name": "Assicurazioni",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "BMPS.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 58.0
+   },
+   {
+    "ticker": "MPC",
+    "sector": "Energia",
+    "region": "USA",
+    "entry_date": "2026-02-06",
+    "perf_from_entry": 56.5
+   },
+   {
+    "ticker": "SPM.MI",
+    "sector": "Energia",
+    "region": "EU",
+    "entry_date": "2025-11-28",
+    "perf_from_entry": 94.3
+   },
+   {
+    "ticker": "LLY",
+    "sector": "Sanità",
+    "region": "USA",
+    "entry_date": "2026-05-15",
+    "perf_from_entry": 19.7
+   },
+   {
+    "ticker": "UNI.MI",
+    "sector": "Assicurazioni",
+    "region": "EU",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 37.2
+   }
+  ]
  }
 ]

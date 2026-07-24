@@ -2438,5 +2438,255 @@
         "roc52w": 3.9
       }
     ]
+  },
+  {
+    "date": "2026-07-24T15:21:37.948983+00:00",
+    "ranks": [
+      {
+        "ticker": "EXV1",
+        "rank": 1,
+        "score": 120.3,
+        "valid": true,
+        "roc52w": 50.4
+      },
+      {
+        "ticker": "XLE",
+        "rank": 2,
+        "score": 117.7,
+        "valid": true,
+        "roc52w": 42.7
+      },
+      {
+        "ticker": "EXH1",
+        "rank": 3,
+        "score": 115.7,
+        "valid": true,
+        "roc52w": 49.2
+      },
+      {
+        "ticker": "XLV",
+        "rank": 4,
+        "score": 108.7,
+        "valid": true,
+        "roc52w": 21.5
+      },
+      {
+        "ticker": "EXH5",
+        "rank": 5,
+        "score": 108.7,
+        "valid": true,
+        "roc52w": 17.1
+      },
+      {
+        "ticker": "EXH9",
+        "rank": 6,
+        "score": 108.1,
+        "valid": true,
+        "roc52w": 32.4
+      },
+      {
+        "ticker": "XLRE",
+        "rank": 7,
+        "score": 108.0,
+        "valid": true,
+        "roc52w": 11.4
+      },
+      {
+        "ticker": "ITA",
+        "rank": 8,
+        "score": 107.3,
+        "valid": true,
+        "roc52w": 22.4
+      },
+      {
+        "ticker": "XLF",
+        "rank": 9,
+        "score": 76.5,
+        "valid": true,
+        "roc52w": 6.3
+      },
+      {
+        "ticker": "EXH2",
+        "rank": 10,
+        "score": 75.1,
+        "valid": true,
+        "roc52w": 11.4
+      },
+      {
+        "ticker": "EXV7",
+        "rank": 11,
+        "score": 72.8,
+        "valid": true,
+        "roc52w": 5.9
+      },
+      {
+        "ticker": "EXH6",
+        "rank": 12,
+        "score": 69.3,
+        "valid": true,
+        "roc52w": -13.1
+      },
+      {
+        "ticker": "EXH4",
+        "rank": 13,
+        "score": 67.6,
+        "valid": true,
+        "roc52w": 13.4
+      },
+      {
+        "ticker": "EXV5",
+        "rank": 14,
+        "score": 53.1,
+        "valid": false,
+        "roc52w": -19.3
+      },
+      {
+        "ticker": "KRE",
+        "rank": 15,
+        "score": 53.0,
+        "valid": false,
+        "roc52w": 24.7
+      },
+      {
+        "ticker": "XLI",
+        "rank": 16,
+        "score": 52.5,
+        "valid": false,
+        "roc52w": 19.4
+      },
+      {
+        "ticker": "XLK",
+        "rank": 17,
+        "score": 52.0,
+        "valid": false,
+        "roc52w": 35.2
+      },
+      {
+        "ticker": "IBB",
+        "rank": 18,
+        "score": 51.5,
+        "valid": false,
+        "roc52w": 39.8
+      },
+      {
+        "ticker": "SOXX",
+        "rank": 19,
+        "score": 48.5,
+        "valid": false,
+        "roc52w": 122.6
+      },
+      {
+        "ticker": "XLC",
+        "rank": 20,
+        "score": 47.9,
+        "valid": false,
+        "roc52w": -0.0
+      },
+      {
+        "ticker": "EXV3",
+        "rank": 21,
+        "score": 43.9,
+        "valid": false,
+        "roc52w": 20.2
+      },
+      {
+        "ticker": "EXV6",
+        "rank": 22,
+        "score": 42.5,
+        "valid": false,
+        "roc52w": 55.6
+      },
+      {
+        "ticker": "XLB",
+        "rank": 23,
+        "score": 13.4,
+        "valid": false,
+        "roc52w": 11.3
+      },
+      {
+        "ticker": "XLU",
+        "rank": 24,
+        "score": 12.4,
+        "valid": false,
+        "roc52w": 13.0
+      },
+      {
+        "ticker": "XLP",
+        "rank": 25,
+        "score": 10.0,
+        "valid": false,
+        "roc52w": 6.0
+      },
+      {
+        "ticker": "XHB",
+        "rank": 26,
+        "score": 9.6,
+        "valid": false,
+        "roc52w": 1.9
+      },
+      {
+        "ticker": "EXH3",
+        "rank": 27,
+        "score": 9.3,
+        "valid": false,
+        "roc52w": 5.5
+      },
+      {
+        "ticker": "EXH8",
+        "rank": 28,
+        "score": 8.6,
+        "valid": false,
+        "roc52w": 14.3
+      },
+      {
+        "ticker": "EXV4",
+        "rank": 29,
+        "score": 6.8,
+        "valid": false,
+        "roc52w": 12.3
+      },
+      {
+        "ticker": "EXV9",
+        "rank": 30,
+        "score": 6.3,
+        "valid": false,
+        "roc52w": -0.1
+      },
+      {
+        "ticker": "XRT",
+        "rank": 31,
+        "score": 4.3,
+        "valid": false,
+        "roc52w": 7.5
+      },
+      {
+        "ticker": "EXV2",
+        "rank": 32,
+        "score": -1.4,
+        "valid": false,
+        "roc52w": 11.0
+      },
+      {
+        "ticker": "EXH7",
+        "rank": 33,
+        "score": -3.8,
+        "valid": false,
+        "roc52w": 1.5
+      },
+      {
+        "ticker": "EXV8",
+        "rank": 34,
+        "score": -7.4,
+        "valid": false,
+        "roc52w": 1.4
+      },
+      {
+        "ticker": "XLY",
+        "rank": 35,
+        "score": -11.1,
+        "valid": false,
+        "roc52w": -2.5
+      }
+    ]
   }
 ]
