@@ -1122,5 +1122,76 @@
     "perf_from_entry": 90.1
    }
   ]
+ },
+ {
+  "date": "2026-08-07",
+  "updated_at": "2026-08-07T14:45:43.889364+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "EXV1",
+    "name": "Banche",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV3",
+    "name": "Tecnologia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV6",
+    "name": "Risorse base",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH1",
+    "name": "Energia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLE",
+    "name": "Energia",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "MB.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 63.7
+   },
+   {
+    "ticker": "TXT.MI",
+    "sector": "Tecnologia",
+    "region": "EU",
+    "entry_date": "2026-04-17",
+    "perf_from_entry": 51.2
+   },
+   {
+    "ticker": "SPM.MI",
+    "sector": "Energia",
+    "region": "EU",
+    "entry_date": "2025-11-28",
+    "perf_from_entry": 89.8
+   },
+   {
+    "ticker": "VLO",
+    "sector": "Energia",
+    "region": "USA",
+    "entry_date": "2025-05-16",
+    "perf_from_entry": 125.7
+   }
+  ]
  }
 ]
