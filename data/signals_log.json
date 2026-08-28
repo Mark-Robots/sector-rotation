@@ -1335,5 +1335,76 @@
     "perf_from_entry": 98.2
    }
   ]
+ },
+ {
+  "date": "2026-08-28",
+  "updated_at": "2026-08-28T23:18:16.493750+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "XLK",
+    "name": "Tecnologia",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "IBB",
+    "name": "Biotech",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLE",
+    "name": "Energia",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV6",
+    "name": "Risorse base",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV3",
+    "name": "Tecnologia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "CRM",
+    "sector": "Tecnologia",
+    "region": "USA",
+    "entry_date": "2026-08-07",
+    "perf_from_entry": 32.8
+   },
+   {
+    "ticker": "MRNA",
+    "sector": "Biotech",
+    "region": "USA",
+    "entry_date": "2025-12-05",
+    "perf_from_entry": 398.2
+   },
+   {
+    "ticker": "MPC",
+    "sector": "Energia",
+    "region": "USA",
+    "entry_date": "2026-02-06",
+    "perf_from_entry": 83.8
+   },
+   {
+    "ticker": "TXT.MI",
+    "sector": "Tecnologia",
+    "region": "EU",
+    "entry_date": "2026-04-17",
+    "perf_from_entry": NaN
+   }
+  ]
  }
 ]
