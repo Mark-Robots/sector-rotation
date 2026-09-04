@@ -1406,5 +1406,76 @@
     "perf_from_entry": NaN
    }
   ]
+ },
+ {
+  "date": "2026-09-04",
+  "updated_at": "2026-09-04T17:17:01.140339+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "IBB",
+    "name": "Biotech",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLE",
+    "name": "Energia",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV6",
+    "name": "Risorse base",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH1",
+    "name": "Energia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH5",
+    "name": "Assicurazioni",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "MRNA",
+    "sector": "Biotech",
+    "region": "USA",
+    "entry_date": "2025-12-05",
+    "perf_from_entry": 422.0
+   },
+   {
+    "ticker": "MPC",
+    "sector": "Energia",
+    "region": "USA",
+    "entry_date": "2026-02-06",
+    "perf_from_entry": 94.2
+   },
+   {
+    "ticker": "SPM.MI",
+    "sector": "Energia",
+    "region": "EU",
+    "entry_date": "2025-11-28",
+    "perf_from_entry": 92.5
+   },
+   {
+    "ticker": "UNI.MI",
+    "sector": "Assicurazioni",
+    "region": "EU",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 45.6
+   }
+  ]
  }
 ]
