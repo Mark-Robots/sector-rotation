@@ -1548,5 +1548,83 @@
     "perf_from_entry": 90.3
    }
   ]
+ },
+ {
+  "date": "2026-09-18",
+  "updated_at": "2026-09-18T17:22:30.373734+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "XLK",
+    "name": "Tecnologia",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLE",
+    "name": "Energia",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV1",
+    "name": "Banche",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH1",
+    "name": "Energia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH5",
+    "name": "Assicurazioni",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "CRM",
+    "sector": "Tecnologia",
+    "region": "USA",
+    "entry_date": "2026-08-07",
+    "perf_from_entry": 24.2
+   },
+   {
+    "ticker": "MPC",
+    "sector": "Energia",
+    "region": "USA",
+    "entry_date": "2026-02-06",
+    "perf_from_entry": 110.8
+   },
+   {
+    "ticker": "MB.MI",
+    "sector": "Banche",
+    "region": "EU",
+    "entry_date": "2026-04-10",
+    "perf_from_entry": 62.5
+   },
+   {
+    "ticker": "ENI.MI",
+    "sector": "Energia",
+    "region": "EU",
+    "entry_date": "2025-06-06",
+    "perf_from_entry": 89.9
+   },
+   {
+    "ticker": "UNI.MI",
+    "sector": "Assicurazioni",
+    "region": "EU",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 41.3
+   }
+  ]
  }
 ]
