@@ -1626,5 +1626,83 @@
     "perf_from_entry": 41.3
    }
   ]
+ },
+ {
+  "date": "2026-09-25",
+  "updated_at": "2026-09-25T18:09:19.546411+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "XLK",
+    "name": "Tecnologia",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV3",
+    "name": "Tecnologia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "SOXX",
+    "name": "Semiconduttori",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH1",
+    "name": "Energia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH5",
+    "name": "Assicurazioni",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "CRM",
+    "sector": "Tecnologia",
+    "region": "USA",
+    "entry_date": "2026-08-07",
+    "perf_from_entry": 22.0
+   },
+   {
+    "ticker": "TXT.MI",
+    "sector": "Tecnologia",
+    "region": "EU",
+    "entry_date": "2026-04-17",
+    "perf_from_entry": 52.9
+   },
+   {
+    "ticker": "AMD",
+    "sector": "Semiconduttori",
+    "region": "USA",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 189.4
+   },
+   {
+    "ticker": "ENI.MI",
+    "sector": "Energia",
+    "region": "EU",
+    "entry_date": "2025-06-06",
+    "perf_from_entry": 93.1
+   },
+   {
+    "ticker": "UNI.MI",
+    "sector": "Assicurazioni",
+    "region": "EU",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 38.7
+   }
+  ]
  }
 ]
