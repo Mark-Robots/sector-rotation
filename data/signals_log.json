@@ -1704,5 +1704,83 @@
     "perf_from_entry": 38.7
    }
   ]
+ },
+ {
+  "date": "2026-10-02",
+  "updated_at": "2026-10-02T18:49:20.066554+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "XLK",
+    "name": "Tecnologia",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV3",
+    "name": "Tecnologia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "SOXX",
+    "name": "Semiconduttori",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH1",
+    "name": "Energia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV7",
+    "name": "Chimica",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "ACN",
+    "sector": "Tecnologia",
+    "region": "USA",
+    "entry_date": "2026-08-21",
+    "perf_from_entry": 7.7
+   },
+   {
+    "ticker": "REY.MI",
+    "sector": "Tecnologia",
+    "region": "EU",
+    "entry_date": "2026-07-17",
+    "perf_from_entry": 24.8
+   },
+   {
+    "ticker": "AMD",
+    "sector": "Semiconduttori",
+    "region": "USA",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 190.5
+   },
+   {
+    "ticker": "ENI.MI",
+    "sector": "Energia",
+    "region": "EU",
+    "entry_date": "2025-06-06",
+    "perf_from_entry": 93.9
+   },
+   {
+    "ticker": "ECNL.MI",
+    "sector": "Chimica",
+    "region": "EU",
+    "entry_date": null,
+    "perf_from_entry": null
+   }
+  ]
  }
 ]
