@@ -1860,5 +1860,83 @@
     "perf_from_entry": 235.1
    }
   ]
+ },
+ {
+  "date": "2026-10-16",
+  "updated_at": "2026-10-16T17:45:39.663862+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "XLE",
+    "name": "Energia",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV7",
+    "name": "Chimica",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH1",
+    "name": "Energia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV3",
+    "name": "Tecnologia",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLV",
+    "name": "Sanità",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "MPC",
+    "sector": "Energia",
+    "region": "USA",
+    "entry_date": "2026-02-06",
+    "perf_from_entry": 138.5
+   },
+   {
+    "ticker": "ECNL.MI",
+    "sector": "Chimica",
+    "region": "EU",
+    "entry_date": null,
+    "perf_from_entry": null
+   },
+   {
+    "ticker": "ENI.MI",
+    "sector": "Energia",
+    "region": "EU",
+    "entry_date": "2025-06-06",
+    "perf_from_entry": 108.1
+   },
+   {
+    "ticker": "REY.MI",
+    "sector": "Tecnologia",
+    "region": "EU",
+    "entry_date": "2026-07-17",
+    "perf_from_entry": 32.0
+   },
+   {
+    "ticker": "TMO",
+    "sector": "Sanità",
+    "region": "USA",
+    "entry_date": "2026-07-02",
+    "perf_from_entry": 31.6
+   }
+  ]
  }
 ]
