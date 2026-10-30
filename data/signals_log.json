@@ -2016,5 +2016,83 @@
     "perf_from_entry": 121.7
    }
   ]
+ },
+ {
+  "date": "2026-10-30",
+  "updated_at": "2026-10-30T18:56:52.284390+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "XLE",
+    "name": "Energia",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "IBB",
+    "name": "Biotech",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV7",
+    "name": "Chimica",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLV",
+    "name": "Sanità",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH5",
+    "name": "Assicurazioni",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "MPC",
+    "sector": "Energia",
+    "region": "USA",
+    "entry_date": "2026-02-06",
+    "perf_from_entry": 120.6
+   },
+   {
+    "ticker": "MRNA",
+    "sector": "Biotech",
+    "region": "USA",
+    "entry_date": "2025-12-05",
+    "perf_from_entry": 687.0
+   },
+   {
+    "ticker": "ECNL.MI",
+    "sector": "Chimica",
+    "region": "EU",
+    "entry_date": null,
+    "perf_from_entry": null
+   },
+   {
+    "ticker": "LLY",
+    "sector": "Sanità",
+    "region": "USA",
+    "entry_date": "2026-05-15",
+    "perf_from_entry": 41.3
+   },
+   {
+    "ticker": "G.MI",
+    "sector": "Assicurazioni",
+    "region": "EU",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 23.9
+   }
+  ]
  }
 ]
