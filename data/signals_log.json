@@ -2172,5 +2172,83 @@
     "perf_from_entry": null
    }
   ]
+ },
+ {
+  "date": "2026-11-13",
+  "updated_at": "2026-11-13T20:43:25.890936+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "XLV",
+    "name": "Sanità",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH5",
+    "name": "Assicurazioni",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "IBB",
+    "name": "Biotech",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "XLP",
+    "name": "Consumi essenziali",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH6",
+    "name": "Beni personali",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "LLY",
+    "sector": "Sanità",
+    "region": "USA",
+    "entry_date": "2026-05-15",
+    "perf_from_entry": 43.8
+   },
+   {
+    "ticker": "G.MI",
+    "sector": "Assicurazioni",
+    "region": "EU",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 29.7
+   },
+   {
+    "ticker": "MRNA",
+    "sector": "Biotech",
+    "region": "USA",
+    "entry_date": "2025-12-05",
+    "perf_from_entry": 705.7
+   },
+   {
+    "ticker": "MO",
+    "sector": "Consumi essenziali",
+    "region": "USA",
+    "entry_date": "2026-10-09",
+    "perf_from_entry": 9.6
+   },
+   {
+    "ticker": "BC.MI",
+    "sector": "Beni personali",
+    "region": "EU",
+    "entry_date": "2026-10-16",
+    "perf_from_entry": 0.6
+   }
+  ]
  }
 ]
