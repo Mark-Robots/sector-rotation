@@ -2250,5 +2250,83 @@
     "perf_from_entry": 0.6
    }
   ]
+ },
+ {
+  "date": "2026-11-20",
+  "updated_at": "2026-11-20T21:39:11.645581+00:00",
+  "valid_sectors": [
+   {
+    "ticker": "XLV",
+    "name": "Sanità",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXV7",
+    "name": "Chimica",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH5",
+    "name": "Assicurazioni",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "IBB",
+    "name": "Biotech",
+    "region": "USA",
+    "state": "Leader",
+    "stage": "2"
+   },
+   {
+    "ticker": "EXH3",
+    "name": "Servizi finanziari",
+    "region": "EU",
+    "state": "Leader",
+    "stage": "2"
+   }
+  ],
+  "picks": [
+   {
+    "ticker": "ABBV",
+    "sector": "Sanità",
+    "region": "USA",
+    "entry_date": "2026-06-26",
+    "perf_from_entry": 14.5
+   },
+   {
+    "ticker": "ECNL.MI",
+    "sector": "Chimica",
+    "region": "EU",
+    "entry_date": null,
+    "perf_from_entry": null
+   },
+   {
+    "ticker": "G.MI",
+    "sector": "Assicurazioni",
+    "region": "EU",
+    "entry_date": "2026-04-02",
+    "perf_from_entry": 26.4
+   },
+   {
+    "ticker": "MRNA",
+    "sector": "Biotech",
+    "region": "USA",
+    "entry_date": "2025-12-05",
+    "perf_from_entry": 604.0
+   },
+   {
+    "ticker": "BMED.MI",
+    "sector": "Servizi finanziari",
+    "region": "EU",
+    "entry_date": null,
+    "perf_from_entry": null
+   }
+  ]
  }
 ]
